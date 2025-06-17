@@ -8,47 +8,81 @@ export default function App() {
   
   const projects = [
     {
-      title: "Project One",
-      description: "A brief description of your first project and what technologies you used.",
-      tags: ["React", "Node.js", "MongoDB"]
+      title: "Business Solution Discovery Chatbot (RAG-based)",
+      description: "Designed an end-to-end chatbot using Retrieval-Augmented Generation (RAG) to match users with tailored business solutions. Implemented semantic search with FAISS and integrated LLaMA-3 via Groq API for real-time generation.",
+      tags: ["RAG", "FAISS", "LLaMA-3", "MySQL", "AWS EC2", "RDS", "Selenium"]
     },
     {
-      title: "Project Two",
-      description: "Description of your second project, highlighting your role and accomplishments.",
-      tags: ["JavaScript", "CSS", "API Integration"]
+      title: "QuantFusion – AI-Powered Financial Intelligence Platform",
+      description: "Building a modular AI-powered finance platform integrating portfolio optimization, risk analytics, sentiment analysis, and algorithmic trading. Developed FastAPI-based risk analysis supporting VaR, CVaR, and advanced portfolio construction strategies.",
+      tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "CAPM", "Markowitz"]
     },
     {
-      title: "Project Three",
-      description: "Overview of another project showcasing different skills or approaches.",
-      tags: ["TypeScript", "Next.js", "Tailwind CSS"]
+      title: "ChurnSight – End-to-End MLOps Pipeline",
+      description: "Developed a complete MLOps pipeline for customer churn prediction with custom implementations of multiple ML algorithms. Automated hyperparameter tuning with Optuna and deployed FastAPI inference API with SHAP-based explanations.",
+      tags: ["MLOps", "XGBoost", "FastAPI", "Docker", "SHAP", "Optuna", "GitHub Actions"]
+    },
+    {
+      title: "F1 Predictor – Driver Outcome Classification",
+      description: "Built a multithreaded data pipeline to collect historical F1 race data and trained a Random Forest classifier to predict driver categories with 77% accuracy and 100% recall on Top 3 predictions.",
+      tags: ["Random Forest", "FastF1", "ThreadPoolExecutor", "Data Pipeline", "Classification"]
     }
   ];
   
   const experience = [
     {
-      company: "Company Name",
-      position: "Job Title",
-      period: "Jan 2022 - Present",
-      description: "Description of your responsibilities and achievements."
+      company: "Exin Health AI",
+      position: "AI Engineering Intern",
+      period: "June 2025 - Present",
+      description: "Developing an iOS mobile app that digitalizes operation rooms and makes it easier to fill out forms using ASR and LLMs. Working on decreasing hallucination in LLM outputs and improving JSON accuracy from speech input."
     },
     {
-      company: "Previous Company",
-      position: "Previous Role",
-      period: "Mar 2020 - Dec 2021",
-      description: "Overview of your previous position and notable accomplishments."
+      company: "Digitopia",
+      position: "AI Engineering Intern",
+      period: "May 2025 - Present",
+      description: "Working on a chatbot to help customers understand which DMI level they are currently at and what steps they should take to achieve their goals."
+    },
+    {
+      company: "AINA",
+      position: "Co-founder",
+      period: "Oct 2024 - Present",
+      description: "Developing hackathon-winner idea into a business. Building a mobile app for clothing customers using AI to rate outfits and get recommendations. Responsible for full-stack Flutter + Supabase, recommendation model and rating system."
+    },
+    {
+      company: "Genarion",
+      position: "AI Engineering Intern",
+      period: "Feb 2025 - May 2025",
+      description: "Worked on LLM-based software applications. Wrote interview script generating questions for multiple skill areas based on job posts and CVs. Finetuned TTS models to speak Turkish naturally with automated dataset creation from YouTube videos."
+    },
+    {
+      company: "Forma Makine",
+      position: "Machine Learning Intern",
+      period: "Dec 2024 - Feb 2025",
+      description: "Learned about statistics and mathematics of machine learning algorithms, building foundational knowledge for advanced ML implementations."
     }
   ];
   
   const education = [
     {
-      institution: "University Name",
-      degree: "Degree Type",
-      period: "2016 - 2020",
-      description: "Relevant coursework and achievements."
+      institution: "Koç University",
+      degree: "BEng in Computer Engineering",
+      period: "Sept 2022 - June 2026",
+      description: "GPA: 3.86 • Vehbi Koç Honor List • Strong foundations in object-oriented programming, data structures, and algorithms."
+    },
+    {
+      institution: "Koç University",
+      degree: "BBA in Business Administration",
+      period: "Jan 2024 - June 2027",
+      description: "GPA: 3.86 • Vehbi Koç Honor List • Double major focusing on business strategy and entrepreneurship."
     }
   ];
   
-  const skills = ["JavaScript", "React", "HTML/CSS", "Node.js", "Git", "Responsive Design", "UI/UX Principles"];
+  const skills = [
+    "Machine Learning", "MLOps", "Generative AI", "Python", "FastAPI", "Docker", 
+    "AWS EC2/RDS", "React", "Flutter", "LLM Fine-tuning", "RAG Systems", 
+    "FAISS", "MySQL", "TensorFlow", "XGBoost", "SHAP", "Optuna", 
+    "Git", "CI/CD", "Selenium", "Data Structures", "Turkish (Native)", "English (C1)"
+  ];
   
   return (
     <div className="app-container">
