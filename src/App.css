@@ -1,38 +1,392 @@
-.App {
-  text-align: center;
+/* src/App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #111827;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 1rem;
+  border-bottom: 1px solid #374151;
+}
+
+.nav-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.desktop-nav {
+  display: none;
+}
+
+.mobile-nav {
+  background-color: #1f2937;
+  padding: 1rem 0;
+  border-bottom: 1px solid #374151;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+.nav-item.active {
+  color: white;
+  font-weight: 600;
+}
+
+/* Main content */
+main {
+  flex-grow: 1;
+  padding: 1.5rem;
+}
+
+section {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/* Home section */
+.home-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.profile-image {
+  position: relative;
+  width: 250px; 
+  height: 250px;
+  border-radius: 50%;
+  overflow: visible;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.corner-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transform: rotate(-30deg);
+  transform-origin: bottom right;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-decoration: none;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.corner-badge:hover {
+  background: #6E3AD9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.profile-content {
+  text-align: center;
+}
+
+.profile-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.profile-subtitle {
+  font-size: 1.5rem;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+}
+
+.profile-bio {
+  font-size: 1.125rem;
+  color: #d1d5db;
+  margin-bottom: 2rem;
+  max-width: 42rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-link {
+  background-color: #1f2937;
+  color: #d1d5db;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background-color: #374151;
+}
+
+/* Projects section */
+.projects-heading {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.project-card {
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  background-color: #1f2937;
+  transition: box-shadow 0.3s;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.project-description {
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  background-color: #374151;
+  color: #d1d5db;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+/* Resume section */
+.resume-heading {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.resume-section {
+  margin-bottom: 3rem;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 2rem;
+}
+
+.experience-header, .education-header {
+  margin-bottom: 0.5rem;
+}
+
+.job-title, .degree-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+.job-period, .education-period {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.job-description, .education-description {
+  color: #d1d5db;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-badge {
+  background-color: #1f2937;
+  color: #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #374151;
+}
+
+/* Contact section */
+.contact-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contact-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.contact-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-item svg {
+  width: 28px;
+  height: 28px;
+  stroke: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-top: 1px solid #374151;
+  text-align: center;
+  color: #9ca3af;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+    gap: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .menu-button {
+    display: none;
+  }
+  
+  .home-section {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+  
+  .profile-image {
+    margin-bottom: 0;
+  }
+  
+  .profile-content {
+    text-align: left;
+  }
+  
+  .social-links {
+    justify-content: flex-start;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .experience-header, .education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
