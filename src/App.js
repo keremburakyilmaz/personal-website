@@ -124,14 +124,11 @@ export default function App() {
           <section className="home-section">
             <div className="profile-image">
               <img src={profile_picture} alt="Kerem Burak Yılmaz" />
-           {/*<a href="https://royaarkh.com" className="corner-badge" target="_blank" rel="noopener noreferrer">
-                Also visit royaarkh.com!
-              </a>*/}
             </div>
             
             <div className="profile-content">
               <h1 className="profile-title">Kerem Burak Yılmaz</h1>
-              <h2 className="profile-subtitle">Co-founder @AIKUT, AI Engineer @Genarion</h2>
+              <h2 className="profile-subtitle">Co-founder @AINA <br/> AI Engineer @Digitopia & @ExinHealthAI</h2>
               <p className="profile-bio">
                 A concise bio highlighting your expertise, experience, and what drives you. This is your chance to make a great first impression and connect with visitors to your site.
               </p>
@@ -253,6 +250,14 @@ export default function App() {
                   </svg>
                 </a>
               </div>
+
+              <hr className="contact-divider" />
+
+              <p className="external-link">
+                <a href="https://royaarkh.com" target="_blank" rel="noopener noreferrer">
+                  Also visit royaarkh.com!
+                </a>
+              </p>
             </div>
           </section>
         )}

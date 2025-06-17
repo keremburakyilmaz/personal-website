@@ -341,6 +341,28 @@ section {
   transition: all 0.3s ease;
 }
 
+.contact-divider {
+  border: none;
+  border-top: 1px solid #374151;
+  margin: 2rem 0 1rem;
+}
+
+.external-link {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.external-link a {
+  color: #a5b4fc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.external-link a:hover {
+  color: #c4b5fd; 
+}
+
+
 /* Footer */
 footer {
   background-color: #1f2937;
