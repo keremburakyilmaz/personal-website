@@ -6,6 +6,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,24 @@ export default function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    try {
+      await fetch("https://formsubmit.co/kyilmaz22@ku.edu.tr", {
+        method: "POST",
+        body: formData
+      });
+
+      setPopupVisible(true);
+      setTimeout(() => setPopupVisible(false), 3000);
+      e.target.reset();
+    } catch (err) {
+      alert("Message failed to send.");
+    }
+  };
   
   const projects = [
     {
@@ -411,24 +430,35 @@ export default function App() {
               
               <div className="contact-form">
                 <h3>Send me a message</h3>
-                <form>
-                  <div className="form-group">
-                    <input type="text" placeholder="Name" />
-                  </div>
-                  <div className="form-group">
-                    <input type="email" placeholder="Email" />
-                  </div>
-                  <div className="form-group">
-                    <textarea placeholder="Message" rows="4"></textarea>
-                  </div>
-                  <button type="submit" className="submit-button">
-                    Send Message
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="22" y1="2" x2="11" y2="13"></line>
-                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                  </button>
-                </form>
+                  <form onSubmit={handleSubmit}>
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_subject" value="New Portfolio Message" />
+
+                    <div className="form-group">
+                      <input type="text" name="name" placeholder="Name" required />
+                    </div>
+                    <div className="form-group">
+                      <input type="email" name="email" placeholder="Email" required />
+                    </div>
+                    <div className="form-group">
+                      <textarea name="message" placeholder="Message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" className="submit-button">
+                      Send Message
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                      </svg>
+                    </button>
+                  </form>
+
+                  {popupVisible && (
+                    <div className="popup-success">
+                      ✅ Message sent successfully!
+                    </div>
+                  )}
+
               </div>
             </div>
           </section>
