@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import profile_picture from "./assets/profile_picture.jpg"
+import roya from "./assets/roya_arkhmammadova.JPG"
+import deniz from "./assets/deniz_soylular.jpg"
+import my_love from "./assets/emiliya_rafiyeva.jpg"
+import aina from "./assets/ainaapp_logo.jpg"
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -461,6 +465,62 @@ export default function App() {
 
               </div>
             </div>
+
+            <hr className="section-divider" />
+
+            <div className="secondary-section-header">
+              <h1>Additional Links</h1>
+            </div>
+
+            <div className="additional-links">
+              <div className="additional-link-box special-box-love">
+                <div className="link-box-content">
+                  <img src={my_love} alt="Emiliya Rafiyeva" className="link-avatar" />
+                  <div>
+                    <h3>Emiliya Rafiyeva</h3>
+                    <a href="https://www.linkedin.com/in/emiliya-rafiyeva/" target="_blank" rel="noopener noreferrer">
+                      www.linkedin.com/in/emiliya-rafiyeva ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="additional-link-box">
+                <div className="link-box-content">
+                  <img src={roya} alt="Roya Arkhmammadova" className="link-avatar" />
+                  <div>
+                    <h3>Roya Arkhmammadova</h3>
+                    <a href="https://www.royaarkh.com" target="_blank" rel="noopener noreferrer">
+                      www.royaarkh.com ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="additional-link-box">
+                <div className="link-box-content">
+                  <img src={deniz} alt="Deniz Soylular" className="link-avatar" />
+                  <div>
+                    <h3>Deniz Soylular</h3>
+                    <a href="https://www.linkedin.com/in/deniz-soylular/" target="_blank" rel="noopener noreferrer">
+                      www.linkedin.com/in/deniz-soylular ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="additional-link-box">
+                <div className="link-box-content">
+                  <img src={aina} alt="AINA" className="link-avatar" />
+                  <div>
+                    <h3>AINA - Tinder for Your Clothing</h3>
+                    <a href="https://www.aina.one" target="_blank" rel="noopener noreferrer">
+                      www.aina.one ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </section>
         )}
       </main>

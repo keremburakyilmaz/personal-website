@@ -852,6 +852,277 @@ section {
   transform: translateX(5px);
 }
 
+.section-divider {
+  margin: 6rem 0 4rem;
+  border: 0;
+  height: 1px;
+  background: var(--card-border);
+}
+
+.secondary-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.secondary-section-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.additional-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.additional-link-box {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-height: 100px; 
+  position: relative;
+  overflow: hidden;
+}
+.additional-link-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+.link-box-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.link-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: rgba(99, 102, 241, 0.1);
+  flex-shrink: 0;
+}
+.additional-link-box h3 {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.additional-link-box a {
+  color: var(--gray);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+}
+.additional-link-box a:hover {
+  color: var(--primary);
+}
+.additional-link-box svg {
+  stroke: var(--primary);
+}
+
+/* Special Love Box Animation */
+.special-box-love {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Heart 1 - Moved to right side */
+.special-box-love:hover::before {
+  content: '♡';
+  position: absolute;
+  left: 60%; /* POSITION: Moved heart 1 more to the right */
+  bottom: -30px;
+  font-size: 22px; /* SIZE: Size of heart 1 */
+  color: rgba(255, 105, 180, 0.6); /* COLOR: Color and opacity of heart 1 */
+  opacity: 0;
+  pointer-events: none;
+  animation: heartRise1 2.5s ease-out infinite; /* SPEED: Animation duration for heart 1 */
+}
+
+/* Heart 2 - Moved further right */
+.special-box-love:hover::after {
+  content: '♡';
+  position: absolute;
+  right: 10%; /* POSITION: Moved heart 2 closer to right edge */
+  bottom: -30px;
+  font-size: 18px; /* SIZE: Size of heart 2 */
+  color: rgba(255, 105, 180, 0.5); /* COLOR: Color and opacity of heart 2 */
+  opacity: 0;
+  pointer-events: none;
+  animation: heartRise2 2.8s ease-out infinite 0.8s; /* SPEED + DELAY: Animation duration and delay for heart 2 */
+}
+
+/* Clean hover effect without the crazy background */
+.special-box-love:hover {
+  border-color: rgba(255, 105, 180, 0.5);
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+}
+
+/* Create more hearts using pseudo-elements on child elements */
+.special-box-love .link-box-content::before {
+  content: '♡';
+  position: absolute;
+  left: 70%; /* POSITION: Moved heart 3 to right side */
+  bottom: -25px;
+  font-size: 16px; /* SIZE: Size of heart 3 */
+  color: rgba(255, 105, 180, 0.4); /* COLOR: Color and opacity of heart 3 */
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.special-box-love:hover .link-box-content::before {
+  animation: heartRise3 3.2s ease-out infinite 1.2s; /* SPEED + DELAY: Animation for heart 3 */
+}
+
+.special-box-love .link-box-content::after {
+  content: '♡';
+  position: absolute;
+  right: 25%; /* POSITION: Moved heart 4 more to the right */
+  bottom: -25px;
+  font-size: 20px; /* SIZE: Size of heart 4 */
+  color: rgba(255, 105, 180, 0.4); /* COLOR: Color and opacity of heart 4 */
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.special-box-love:hover .link-box-content::after {
+  animation: heartRise4 2.7s ease-out infinite 0.4s; /* SPEED + DELAY: Animation for heart 4 */
+}
+
+.special-box-love .link-box-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ANIMATION KEYFRAMES - You can adjust the rising distance and speed here */
+
+@keyframes heartRise1 {
+  0% {
+    bottom: -30px; /* START POSITION: Where hearts start (negative = below box) */
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    bottom: 130px; /* END POSITION: How high hearts rise */
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes heartRise2 {
+  0% {
+    bottom: -30px; /* START POSITION */
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  75% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    bottom: 120px; /* END POSITION */
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes heartRise3 {
+  0% {
+    bottom: -25px; /* START POSITION */
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  30% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+  100% {
+    bottom: 110px; /* END POSITION */
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes heartRise4 {
+  0% {
+    bottom: -25px; /* START POSITION */
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  100% {
+    bottom: 125px; /* END POSITION */
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes heartFloat {
+  0% {
+    background-position: 0px 100px, 30px 120px;
+  }
+  100% {
+    background-position: 0px -50px, 30px -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .additional-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .special-box-love::after {
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
+
 /* Footer */
 footer {
   background: rgba(10, 15, 31, 0.95);
