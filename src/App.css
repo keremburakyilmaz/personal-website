@@ -18,6 +18,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overscroll-behavior: none;
 }
 
 body {
@@ -282,9 +283,17 @@ section {
 
 .profile-intro {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.profile-image-and-name {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  justify-content: center;
+  margin-right: 3rem;
 }
 
 .profile-image-container {
@@ -553,8 +562,9 @@ section {
 
 .timeline-item.left {
   left: 0;
-  text-align: right;
-  padding-right: 4rem;
+  text-align: left;
+  padding-right: 0;
+  margin-left: 0;
 }
 
 .timeline-item.right {
@@ -593,6 +603,11 @@ section {
 .timeline-description {
   color: var(--gray);
   line-height: 1.7;
+  padding-left: 1.5rem;
+}
+
+.timeline-item.left .timeline-description {
+  text-align: left;
 }
 
 .timeline-dot {
