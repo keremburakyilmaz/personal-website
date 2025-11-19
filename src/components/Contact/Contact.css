@@ -1,0 +1,404 @@
+/* Contact section */
+.contact-section {
+  padding: 4rem 0;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.contact-method {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--primary);
+}
+
+.contact-details h3 {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.contact-details a, .contact-details span {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+  color: var(--primary);
+}
+
+.contact-form {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.submit-button svg {
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover svg {
+  transform: translateX(5px);
+}
+
+.popup-success {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  font-size: 14px;
+  z-index: 999;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+.additional-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.additional-link-box {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-height: 100px; 
+  position: relative;
+  overflow: hidden;
+}
+
+.additional-link-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.link-box-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.link-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: rgba(99, 102, 241, 0.1);
+  flex-shrink: 0;
+}
+
+.additional-link-box h3 {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.additional-link-box a {
+  color: var(--gray);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.additional-link-box a:hover {
+  color: var(--primary);
+}
+
+.additional-link-box svg {
+  stroke: var(--primary);
+}
+
+/* Special Love Box Animation */
+.special-box-love {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Heart 1 - Moved to right side */
+.special-box-love:hover::before {
+  content: '♡';
+  position: absolute;
+  left: 60%;
+  bottom: -30px;
+  font-size: 22px;
+  color: rgba(255, 105, 180, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  animation: heartRise1 2.5s ease-out infinite;
+}
+
+/* Heart 2 - Moved further right */
+.special-box-love:hover::after {
+  content: '♡';
+  position: absolute;
+  right: 10%;
+  bottom: -30px;
+  font-size: 18px;
+  color: rgba(255, 105, 180, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  animation: heartRise2 2.8s ease-out infinite 0.8s;
+}
+
+/* Clean hover effect without the crazy background */
+.special-box-love:hover {
+  border-color: rgba(255, 105, 180, 0.5);
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+}
+
+/* Create more hearts using pseudo-elements on child elements */
+.special-box-love .link-box-content::before {
+  content: '♡';
+  position: absolute;
+  left: 70%;
+  bottom: -25px;
+  font-size: 16px;
+  color: rgba(255, 105, 180, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.special-box-love:hover .link-box-content::before {
+  animation: heartRise3 3.2s ease-out infinite 1.2s;
+}
+
+.special-box-love .link-box-content::after {
+  content: '♡';
+  position: absolute;
+  right: 25%;
+  bottom: -25px;
+  font-size: 20px;
+  color: rgba(255, 105, 180, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.special-box-love:hover .link-box-content::after {
+  animation: heartRise4 2.7s ease-out infinite 0.4s;
+}
+
+.special-box-love .link-box-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ANIMATION KEYFRAMES */
+@keyframes heartRise1 {
+  0% {
+    bottom: -30px;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    bottom: 130px;
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes heartRise2 {
+  0% {
+    bottom: -30px;
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  75% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    bottom: 120px;
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes heartRise3 {
+  0% {
+    bottom: -25px;
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  30% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+  100% {
+    bottom: 110px;
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes heartRise4 {
+  0% {
+    bottom: -25px;
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  100% {
+    bottom: 125px;
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .additional-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .special-box-love::after {
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
