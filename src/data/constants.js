@@ -16,6 +16,7 @@ export const projects = [
       "Building a modular AI-powered finance platform integrating portfolio optimization, risk analytics, sentiment analysis, and algorithmic trading into a unified backend-frontend system.",
       "Developed FastAPI-based risk analysis supporting VaR, CVaR, volatility, drawdown, CAPM beta, and risk attribution using both historical and parametric methods.",
       "Implemented advanced portfolio construction strategies including Mean-Variance Optimization (Markowitz), Risk Parity, and Black-Litterman with real-world constraints like sector limits, weight bounds, and tracking error.",
+      "Designing a React frontend for real-time dashboards, visualizations, and interactive model control.",
       "Roadmap includes deployment of options pricing models, a sentiment-driven market forecasting engine, and a rule-based trading module."
     ],
     tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "CAPM", "Markowitz", "Black-Litterman", "Sentiment Analysis"]
@@ -44,22 +45,13 @@ export const projects = [
 export const experience = [
   {
     company: "AINA",
-    position: "Co-founder",
+    position: "Co-founder, CTO",
     period: "Oct 2024 - Present (Remote)",
     description: [
       "Developing our hackathon-winner idea into a business.",
-      "Building a mobile app for entertainment of clothing customers where they can use AI to rate their outfits and get recommendations, create outfits with their clothes, and find shopping options to add to their closet.",
-      "Responsible for the full-stack Flutter + Supabase, the recommendation model and the rating system."
-    ]
-  },
-  {
-    company: "Exin Health AI",
-    position: "AI Engineering Intern",
-    period: "June 2025 - Present (Remote)",
-    description: [
-      "Developing an IOS mobile app that digitalizes operation rooms and makes it easier to fill out forms using ASR, vision recognition, OCR and LLMs.",
-      "Implemented LLM-as-a-judge system to our LangGraph in order to decrease the hallucinations.",
-      "Created a thorough testing system to automatically test our endpoints for both voice recognition and image recognition."
+      "Building an app where users can get outfits rated by stylist personas and share them in a social media environment.",
+      "Responsible for the full-stack Flutter + Supabase, and the AI rating system as CTO.",
+      "Currently has 100+ users worldwide."
     ]
   },
   {
@@ -67,12 +59,28 @@ export const experience = [
     position: "AI Engineering Intern",
     period: "May 2025 - Present (Hybrid - Beyoglu/Istanbul)",
     description: [
-      "Coded several chatbots that, included but not limited to:",
-      "- Help customers understand their DMI scores.",
-      "- Motivate customers with success stories.",
-      "- Give customers bullet-point, step-by-step plan to achieve their DMI score goals.",
-      "- Guide customers execute their plan.",
-      "Working on how to orchestrate all these chatbots in a single, tool-calling workflow."
+      "Coded several chatbots to help customers understand DMI scores, motivate with success stories, provide step-by-step plans, and guide execution.",
+      "Created an orchestration for chatbots in a single, tool-calling workflow.",
+      "Working on automating scoring and recommendation pipeline by transcribing meetings and providing output."
+    ]
+  },
+  {
+    company: "Promake AI",
+    position: "AI Engineering Intern",
+    period: "Aug 2025 - Present (Remote)",
+    description: [
+      "Working on a workflow to create custom websites for non-technical customers.",
+      "Created multiple agents for LangGraph workflow, including orchestrator, UI management, language management, and web searching/scraping."
+    ]
+  },
+  {
+    company: "Exin Health AI",
+    position: "AI Engineering Intern",
+    period: "June 2025 - Aug 2025 (Remote)",
+    description: [
+      "Helped develop an iOS mobile app for digitalizing operation rooms and simplifying form filling using ASR, vision recognition, OCR, and LLMs.",
+      "Implemented an LLM-as-a-judge system in LangGraph to decrease hallucinations by +90%.",
+      "Created a thorough testing suite to automate endpoint testing for voice and image recognition."
     ]
   },
   {
@@ -81,8 +89,8 @@ export const experience = [
     period: "Feb 2025 - May 2025 (Remote)",
     description: [
       "Worked on software applications based on LLM.",
-      "Wrote an interview script which generates questions evaluating multiple areas including hard and soft skills based on the given job post, CV, and previous answers using TTS and STT.",
-      "Finetuned multiple TTS models to speak Turkish naturally with self written scripts to create dataset from youtube videos automatically."
+      "Wrote an automatic interview script generating questions for evaluating hard and soft skills based on job posts, CVs, and previous answers using TTS and STT.",
+      "Created automatic scripts that downloads Turkish audio-books, transcribes and chunks it for a dataset in order to finetune multiple TTS models to speak Turkish naturally."
     ]
   },
   {
@@ -107,10 +115,16 @@ export const education = [
     degree: "BBA in Business Administration",
     period: "Jan 2024 - June 2027",
     description: "GPA: 3.83 • Vehbi Koç Honor List"
+  },
+  {
+    institution: "Kungliga Tekniska Högskolan",
+    degree: "Erasmus+ Exchange",
+    period: "Aug 2025 - Feb 2026",
+    description: ""
   }
 ];
 
 export const skills = [
-  "Machine Learning", "MLOps", "Generative AI", "Quantitative Analysis", "FastAPI", "Docker", "AWS EC2/RDS", "LangGraph", "MLflow", "Feedback-aware Fine-tuning", "Object-Oriented Programming", "Data Structures", "UI/UX", "Teamwork", "Flutter", "Supabase", "Vision Recognition", "OCR", "LLMs", "ASR", "TTS", "Selenium", "Matplotlib", "Pandas", "Optuna", "SHAP", "CI/CD", "GitHub Actions", "Python", "English (C1 Advanced)", "Turkish (Native)"
+  "Machine Learning", "MLOps", "Generative AI", "Quantitative Analysis", "FastAPI", "Docker", "AWS EC2/RDS", "LangGraph", "MLflow", "Feedback-aware Fine-tuning", "Object-Oriented Programming", "Data Structures", "UI/UX", "Teamwork", "Flutter", "Supabase", "Vision Recognition", "OCR", "LLMs", "ASR", "TTS", "Selenium", "Matplotlib", "Pandas", "Optuna", "SHAP", "CI/CD", "GitHub Actions", "Python", "English (C1 Advanced - KUEPE: 91)", "Turkish (Native)"
 ];
 
