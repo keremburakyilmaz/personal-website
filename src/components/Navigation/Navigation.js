@@ -1,14 +1,22 @@
+import { Link } from 'react-router-dom';
 import './Navigation.css';
 
-export default function Navigation({ activeSection, setActiveSection, menuOpen, setMenuOpen, isScrolled }) {
+export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScrolled }) {
+  const isActive = (path) => {
+    if (path === '/') {
+      return activeSection === '/' || activeSection === '';
+    }
+    return activeSection === path;
+  };
+
   return (
     <>
       <nav className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
-          <div className="nav-brand">
+          <Link to="/" className="nav-brand">
             <span className="nav-brand-name">Kerem Burak Yılmaz</span>
             <span className="nav-brand-title">AI/ML Engineer</span>
-          </div>
+          </Link>
           
           <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
             <div className={`menu-icon ${menuOpen ? 'open' : ''}`}>
@@ -19,30 +27,30 @@ export default function Navigation({ activeSection, setActiveSection, menuOpen, 
           </button>
           
           <div className="desktop-nav">
-            <button 
-              className={`nav-item ${activeSection === 'home' ? 'active' : ''}`} 
-              onClick={() => setActiveSection('home')}
+            <Link 
+              to="/"
+              className={`nav-item ${isActive('/') ? 'active' : ''}`}
             >
               <span>Home</span>
-            </button>
-            <button 
-              className={`nav-item ${activeSection === 'projects' ? 'active' : ''}`} 
-              onClick={() => setActiveSection('projects')}
+            </Link>
+            <Link 
+              to="/projects"
+              className={`nav-item ${isActive('/projects') ? 'active' : ''}`}
             >
               <span>Projects</span>
-            </button>
-            <button 
-              className={`nav-item ${activeSection === 'resume' ? 'active' : ''}`} 
-              onClick={() => setActiveSection('resume')}
+            </Link>
+            <Link 
+              to="/resume"
+              className={`nav-item ${isActive('/resume') ? 'active' : ''}`}
             >
               <span>Resume</span>
-            </button>
-            <button 
-              className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`} 
-              onClick={() => setActiveSection('contact')}
+            </Link>
+            <Link 
+              to="/contact"
+              className={`nav-item ${isActive('/contact') ? 'active' : ''}`}
             >
               <span>Contact</span>
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -50,30 +58,34 @@ export default function Navigation({ activeSection, setActiveSection, menuOpen, 
       {/* Mobile Navigation */}
       {menuOpen && (
         <div className="mobile-nav">
-          <button 
-            className={`nav-item ${activeSection === 'home' ? 'active' : ''}`} 
-            onClick={() => {setActiveSection('home'); setMenuOpen(false)}}
+          <Link 
+            to="/"
+            className={`nav-item ${isActive('/') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
           >
             <span>Home</span>
-          </button>
-          <button 
-            className={`nav-item ${activeSection === 'projects' ? 'active' : ''}`} 
-            onClick={() => {setActiveSection('projects'); setMenuOpen(false)}}
+          </Link>
+          <Link 
+            to="/projects"
+            className={`nav-item ${isActive('/projects') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
           >
             <span>Projects</span>
-          </button>
-          <button 
-            className={`nav-item ${activeSection === 'resume' ? 'active' : ''}`} 
-            onClick={() => {setActiveSection('resume'); setMenuOpen(false)}}
+          </Link>
+          <Link 
+            to="/resume"
+            className={`nav-item ${isActive('/resume') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
           >
             <span>Resume</span>
-          </button>
-          <button 
-            className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`} 
-            onClick={() => {setActiveSection('contact'); setMenuOpen(false)}}
+          </Link>
+          <Link 
+            to="/contact"
+            className={`nav-item ${isActive('/contact') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
           >
             <span>Contact</span>
-          </button>
+          </Link>
         </div>
       )}
     </>

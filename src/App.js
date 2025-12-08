@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
@@ -7,9 +8,9 @@ import Resume from './components/Resume/Resume';
 import Contact from './components/Contact/Contact';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -22,18 +23,19 @@ export default function App() {
   return (
     <div className="app-container">
       <Navigation 
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
+        activeSection={location.pathname}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         isScrolled={isScrolled}
       />
       
       <main>
-        {activeSection === 'home' && <Home />}
-        {activeSection === 'projects' && <Projects />}
-        {activeSection === 'resume' && <Resume />}
-        {activeSection === 'contact' && <Contact />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </main>
     </div>
   );
