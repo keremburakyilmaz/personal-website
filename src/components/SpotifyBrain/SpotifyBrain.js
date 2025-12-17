@@ -11,6 +11,19 @@ export default function SpotifyBrain() {
     setData(dashboardData);
   }, []);
 
+  // Update current hour periodically to keep the highlight accurate
+  useEffect(() => {
+    const updateHour = () => {
+      setCurrentHour(new Date().getHours());
+    };
+    
+    // Update immediately and then every minute
+    updateHour();
+    const interval = setInterval(updateHour, 60000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   if (!data) {
     return (
       <section className="spotify-brain-section">
@@ -157,7 +170,9 @@ export default function SpotifyBrain() {
                     <div className="card-info">
                       <div className="card-song-title">{track.track_name}</div>
                       <div className="card-artist">{track.artist_name}</div>
-                      <div className="card-timestamp">{formatTimestampShort(track.played_at)}</div>
+                      <div className="card-timestamp" title={formatTimestamp(track.played_at)}>
+                        {formatTimestampShort(track.played_at)}
+                      </div>
                     </div>
                   </div>
                 );
@@ -315,6 +330,39 @@ export default function SpotifyBrain() {
                       <span className="cluster-id-badge" style={{ backgroundColor: clusterColor }}>
                         Cluster {cluster.cluster_id}
                       </span>
+                    </div>
+                    <div className="cluster-radar">
+                      <ResponsiveContainer width="100%" height={200}>
+                        <RadarChart data={radarData}>
+                          <PolarGrid stroke="rgba(99, 102, 241, 0.2)" />
+                          <PolarAngleAxis 
+                            dataKey="feature" 
+                            tick={{ fill: '#94a3b8', fontSize: 11 }}
+                          />
+                          <PolarRadiusAxis 
+                            angle={90} 
+                            domain={[0, 100]}
+                            tick={{ fill: '#94a3b8', fontSize: 10 }}
+                          />
+                          <Radar
+                            name="Features"
+                            dataKey="value"
+                            stroke={clusterColor}
+                            fill={clusterColor}
+                            fillOpacity={0.3}
+                            strokeWidth={2}
+                          />
+                          <Tooltip 
+                            contentStyle={{ 
+                              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                              border: `1px solid ${clusterColor}`,
+                              borderRadius: '8px',
+                              color: '#f1f5f9'
+                            }}
+                            formatter={(value) => [value.toFixed(1) + '%', 'Value']}
+                          />
+                        </RadarChart>
+                      </ResponsiveContainer>
                     </div>
                     <div className="cluster-features">
                       <div className="feature-list">

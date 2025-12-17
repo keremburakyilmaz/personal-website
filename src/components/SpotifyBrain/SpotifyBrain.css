@@ -239,6 +239,11 @@
   color: white;
 }
 
+.cluster-radar {
+  margin: 1.5rem 0;
+  height: 200px;
+}
+
 .cluster-features {
   margin-top: 1rem;
 }
