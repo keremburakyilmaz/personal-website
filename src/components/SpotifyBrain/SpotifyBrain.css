@@ -1,0 +1,549 @@
+.spotify-brain-section {
+  padding: 2rem 0;
+}
+
+.spotify-brain-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.spotify-brain-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  color: white;
+}
+
+.spotify-brain-header h1 span {
+  color: var(--primary);
+}
+
+.last-updated {
+  font-size: 1rem;
+  color: var(--gray);
+}
+
+.loading-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gray);
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Next Track Mood Prediction Card */
+.mood-prediction-card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.mood-prediction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.mood-prediction-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.mood-label {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.confidence-section {
+  margin-bottom: 1.5rem;
+}
+
+.confidence-label {
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+}
+
+.confidence-bar-container {
+  width: 100%;
+  height: 24px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.confidence-bar {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.3s ease;
+}
+
+.confidence-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.genre-family {
+  margin-bottom: 1rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+.genre-label {
+  font-weight: 600;
+  color: white;
+}
+
+.cluster-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+/* Session Probability Chart Card */
+.session-prob-card,
+.mood-trajectory-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Reduce bar chart hover brightness */
+.session-prob-card .recharts-bar-rectangle {
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.session-prob-card .recharts-bar-rectangle:hover {
+  opacity: 0.75 !important;
+  filter: brightness(0.85);
+}
+
+.session-prob-card .recharts-active-bar {
+  opacity: 0.75 !important;
+  filter: brightness(0.85);
+}
+
+.session-prob-card .recharts-bar-rectangle:active {
+  opacity: 0.7 !important;
+  filter: brightness(0.8);
+}
+
+/* Reduce cursor/vertical highlight bar brightness */
+.session-prob-card .recharts-cursor,
+.session-prob-card .recharts-reference-line,
+.session-prob-card .recharts-tooltip-cursor,
+.session-prob-card .recharts-cursor-line {
+  opacity: 0.12 !important;
+  stroke: rgba(148, 163, 184, 0.25) !important;
+  stroke-width: 1px !important;
+}
+
+.session-prob-card .recharts-active-dot {
+  opacity: 0.6 !important;
+}
+
+/* Target cursor line elements specifically (vertical highlight bar) */
+.session-prob-card .recharts-wrapper line.recharts-cursor {
+  opacity: 0.12 !important;
+  stroke: rgba(148, 163, 184, 0.25) !important;
+}
+
+.session-prob-card h2,
+.mood-trajectory-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+/* Mood Clusters Overview */
+.mood-clusters-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.mood-clusters-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: white;
+  font-weight: 600;
+}
+
+.clusters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.cluster-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.cluster-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+}
+
+.cluster-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cluster-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cluster-id-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.cluster-features {
+  margin-top: 1rem;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feature-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-name {
+  color: var(--gray);
+  font-size: 0.875rem;
+}
+
+.feature-value {
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Recently Played Stream - Horizontal Cards */
+.recently-played-stream-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  grid-column: 1 / -1;
+}
+
+.recently-played-stream-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.recently-played-stream-header h2 {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  margin: 0;
+}
+
+.refresh-button {
+  background: transparent;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-button:hover {
+  color: white;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.recently-played-stream {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) rgba(99, 102, 241, 0.1);
+}
+
+.recently-played-stream::-webkit-scrollbar {
+  height: 8px;
+}
+
+.recently-played-stream::-webkit-scrollbar-track {
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 4px;
+}
+
+.recently-played-stream::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.recently-played-stream::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+.recently-played-card-item {
+  min-width: 200px;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.card-album-art {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.card-album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-mood-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card-song-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-artist {
+  font-size: 0.8rem;
+  color: var(--gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-timestamp {
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 0.25rem;
+}
+
+/* Model Performance Metrics */
+.metrics-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.metrics-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.metrics-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.metrics-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.metric-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.metric-value.good {
+  color: #10b981;
+}
+
+.metric-value.moderate {
+  color: #f59e0b;
+}
+
+.metric-value.poor {
+  color: #ef4444;
+}
+
+.metrics-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.model-metrics {
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+}
+
+.model-metrics h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mood-trajectory-card,
+  .mood-clusters-card,
+  .metrics-card {
+    grid-column: 1 / -1;
+  }
+
+  .clusters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metrics-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .spotify-brain-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mood-trajectory-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
