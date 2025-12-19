@@ -1,102 +1,136 @@
 {
-  "generated_at": "2025-12-17T16:23:05.059080",
+  "generated_at": "2025-12-19T13:15:12.894278",
   "next_prediction": {
     "mood_cluster_id": 3,
     "mood_label": "Medium energy, negative",
-    "confidence": 0.7574232816696167,
+    "confidence": 0.6402003169059753,
     "genre_family": null
   },
   "session_probs": {
-    "0": 0.0018995237769559026,
-    "1": 0.003405022667720914,
-    "2": 0.003405022667720914,
-    "3": 0.003405022667720914,
-    "4": 0.003405022667720914,
-    "5": 0.005135129205882549,
-    "6": 0.005135129205882549,
-    "7": 0.005160083528608084,
-    "8": 0.005160083528608084,
-    "9": 0.020285509526729584,
-    "10": 0.0436519980430603,
-    "11": 0.06265612691640854,
-    "12": 0.057836614549160004,
-    "13": 0.03589697182178497,
-    "14": 0.024794407188892365,
-    "15": 0.011401858180761337,
-    "16": 0.010388716123998165,
-    "17": 0.010388716123998165,
-    "18": 0.010388716123998165,
-    "19": 0.010338738560676575,
-    "20": 0.0068675559014081955,
-    "21": 0.0018995237769559026,
-    "22": 0.0018995237769559026,
-    "23": 0.0018995237769559026
+    "0": 0.0017172227380797267,
+    "1": 0.005670835729688406,
+    "2": 0.005670835729688406,
+    "3": 0.005670835729688406,
+    "4": 0.005670835729688406,
+    "5": 0.006615938153117895,
+    "6": 0.006615938153117895,
+    "7": 0.006615938153117895,
+    "8": 0.006615938153117895,
+    "9": 0.006615938153117895,
+    "10": 0.036210160702466965,
+    "11": 0.10623005777597427,
+    "12": 0.10623005777597427,
+    "13": 0.03460830822587013,
+    "14": 0.011204942129552364,
+    "15": 0.0020047437865287066,
+    "16": 0.0027588459197431803,
+    "17": 0.020554592832922935,
+    "18": 0.020554592832922935,
+    "19": 0.020554592832922935,
+    "20": 0.0023634296376258135,
+    "21": 0.0017172227380797267,
+    "22": 0.0017172227380797267,
+    "23": 0.0017172227380797267
   },
   "mood_clusters": [
     {
       "cluster_id": 0,
-      "label": "Medium energy, neutral",
+      "label": "Medium energy, neutral, acoustic",
       "centroid": {
-        "valence": 0.5273333333333333,
-        "energy": 0.5660000000000001,
-        "danceability": 0.5660000000000001,
-        "acousticness": 0.21633333333333335,
-        "instrumentalness": 0.8906666666666666,
-        "tempo_norm": 0.42500666666666664
+        "valence": 0.40332222222222225,
+        "energy": 0.4186666666666667,
+        "danceability": 0.4658888888888889,
+        "acousticness": 0.6716666666666666,
+        "instrumentalness": 0.04985314222222222,
+        "tempo_norm": 0.46960311111111114
       }
     },
     {
       "cluster_id": 1,
       "label": "High energy, positive",
       "centroid": {
-        "valence": 0.7484999999999999,
-        "energy": 0.7585555555555555,
-        "danceability": 0.6287777777777778,
-        "acousticness": 0.12277444444444445,
-        "instrumentalness": 0.014701944444444448,
-        "tempo_norm": 0.476076
+        "valence": 0.7288421052631578,
+        "energy": 0.7547368421052632,
+        "danceability": 0.6126315789473684,
+        "acousticness": 0.11061263157894737,
+        "instrumentalness": 0.014725631578947365,
+        "tempo_norm": 0.47708884210526314
       }
     },
     {
       "cluster_id": 2,
-      "label": "Medium energy, negative, acoustic",
+      "label": "Medium energy, neutral",
       "centroid": {
-        "valence": 0.3903625,
-        "energy": 0.40475,
-        "danceability": 0.447,
-        "acousticness": 0.6906249999999999,
-        "instrumentalness": 0.054943250000000006,
-        "tempo_norm": 0.45119
+        "valence": 0.5273333333333333,
+        "energy": 0.5660000000000001,
+        "danceability": 0.5660000000000001,
+        "acousticness": 0.21633333333333335,
+        "instrumentalness": 0.8906666666666667,
+        "tempo_norm": 0.42500666666666664
       }
     },
     {
       "cluster_id": 3,
       "label": "Medium energy, negative",
       "centroid": {
-        "valence": 0.22586,
-        "energy": 0.5865333333333334,
-        "danceability": 0.4170666666666667,
-        "acousticness": 0.10505586666666666,
-        "instrumentalness": 0.05322147333333334,
-        "tempo_norm": 0.4581901333333333
+        "valence": 0.20649285714285714,
+        "energy": 0.5770714285714286,
+        "danceability": 0.4187857142857143,
+        "acousticness": 0.10806700000000001,
+        "instrumentalness": 0.056714435714285714,
+        "tempo_norm": 0.4553885714285714
       }
     }
   ],
-  "mood_trajectory": [
-    {
-      "time": "2025-12-16T18:30:00+00:00",
-      "valence": 0.225,
-      "energy": 0.547
-    }
-  ],
+  "mood_trajectory": null,
   "recently_played": [
+    {
+      "track_id": "0pUVeEgZuNyFzIMKp67RbS",
+      "track_name": "Eyes Without A Face",
+      "artist_name": "Billy Idol",
+      "played_at": "2025-12-17T17:43:59.312000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02ea07dca8b4ca808c1e5b17fb",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "2aEuA8PSqLa17Y4hKPj5rr",
+      "track_name": "Cheri Cheri Lady",
+      "artist_name": "Modern Talking",
+      "played_at": "2025-12-17T17:32:44.162000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02aedd9728f5cc4b13ee49e061",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "5e9TFTbltYBg2xThimr0rU",
+      "track_name": "The Chain - 2004 Remaster",
+      "artist_name": "Fleetwood Mac",
+      "played_at": "2025-12-17T17:28:43.629000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02e52a59a28efa4773dd2bfe1b",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "7w5AOd6HrDIHewHfpABEss",
+      "track_name": "Wicked Game",
+      "artist_name": "Chris Isaak",
+      "played_at": "2025-12-17T17:19:13.707000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02b66c23534dd78ff7d3da83b8",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "3oEkrIfXfSh9zGnE7eBzSV",
+      "track_name": "The Winner Takes It All",
+      "artist_name": "ABBA",
+      "played_at": "2025-12-17T17:14:13.499000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e024d08fc99eff4ed52dfce91fa",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "72cGBEqu7RitIOoACXYjfR",
       "track_name": "The Blonde",
       "artist_name": "TV Girl",
       "played_at": "2025-12-16T18:40:26.289000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02e1bc1af856b42dd7fdba9f84",
-      "mood_cluster_id": 0
+      "mood_cluster_id": 2
     },
     {
       "track_id": "5M4yti0QxgqJieUYaEXcpw",
@@ -112,7 +146,7 @@
       "artist_name": "Frank Sinatra, Nancy Sinatra",
       "played_at": "2025-12-16T13:49:41.493000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e023e2331ff09f59ea3c87fe5d6",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "0JIMT9gzLIIz0esKLyjbKf",
@@ -168,7 +202,7 @@
       "artist_name": "Frank Sinatra",
       "played_at": "2025-12-16T13:12:12.116000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02a0209db6a0a102cae469d4f9",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "73SpzrcaHk0RQPFP73vqVR",
@@ -176,7 +210,7 @@
       "artist_name": "Billie Eilish",
       "played_at": "2025-12-14T12:58:17.582000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02f7b7174bef6f3fbfda3a0bb7",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "6d67Xv8ms2noA8wWFLiPDN",
@@ -224,7 +258,7 @@
       "artist_name": "Frank Sinatra",
       "played_at": "2025-12-14T11:17:51.857000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e023e2331ff09f59ea3c87fe5d6",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "10nyNJ6zNy2YVYLrcwLccB",
@@ -248,7 +282,7 @@
       "artist_name": "Kate Bush",
       "played_at": "2025-12-14T11:05:21.091000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02ec89a9b2a07d1bfef45148b9",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "3LDkLpuxQlEuEiZmkxpr8S",
@@ -264,7 +298,7 @@
       "artist_name": "Radiohead",
       "played_at": "2025-12-14T10:59:50.789000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02de3c04b5fc750b68899b20a9",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "1BLOVHYYlH4JUHQGcpt75R",
@@ -304,7 +338,7 @@
       "artist_name": "Sports",
       "played_at": "2025-12-14T10:27:55.767000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e021192eb9f894b18f0de2682f1",
-      "mood_cluster_id": 0
+      "mood_cluster_id": 2
     },
     {
       "track_id": "7bxaFZ1O3cHkgLKMsdC3xR",
@@ -320,7 +354,7 @@
       "artist_name": "Mac DeMarco",
       "played_at": "2025-12-13T19:57:03.907000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02ec6e9c13eeed14eedbd5f7c9",
-      "mood_cluster_id": 0
+      "mood_cluster_id": 2
     },
     {
       "track_id": "2t0wwvR15fc3K1ey8OiOaN",
@@ -360,7 +394,7 @@
       "artist_name": "ABBA",
       "played_at": "2025-12-13T18:39:54.023000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e024d08fc99eff4ed52dfce91fa",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "1aFVWIGU2MUJXaRqcxEaBQ",
@@ -409,58 +443,26 @@
       "played_at": "2025-12-13T11:14:17.982000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02aa22899360d8ba6704732dec",
       "mood_cluster_id": 1
-    },
-    {
-      "track_id": "29FNeqjOV2kPWGS55qhtGB",
-      "track_name": "Money, Money, Money",
-      "artist_name": "ABBA",
-      "played_at": "2025-12-13T09:37:14.218000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02f7ecaf9daf2c1d5ca89f7312",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "762B4bOcXF7I2Y8UlKTyTy",
-      "track_name": "Chiquitita",
-      "artist_name": "ABBA",
-      "played_at": "2025-12-13T09:34:33.220000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02aa22899360d8ba6704732dec",
-      "mood_cluster_id": 2
-    },
-    {
-      "track_id": "5BckPAYcKEJuYs1eV1BHHe",
-      "track_name": "Take A Chance On Me",
-      "artist_name": "ABBA",
-      "played_at": "2025-12-13T09:28:55.045000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e026f705bef76c1d861c4d51d8c",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "5pMmWfuL0FTGshYt7HVJ8P",
-      "track_name": "SOS",
-      "artist_name": "ABBA",
-      "played_at": "2025-12-13T09:24:55.280000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02f7ecaf9daf2c1d5ca89f7312",
-      "mood_cluster_id": 3
     }
   ],
   "metrics": {
     "latest": {
-      "run_at": "2025-12-17T16:22:54.308132",
-      "num_tracks": 100,
-      "num_sessions": 10,
+      "run_at": "2025-12-19T13:15:11.837252",
+      "num_tracks": 45,
+      "num_sessions": 8,
       "mood_model": {
-        "train_accuracy": 0.8,
-        "val_accuracy": 0.75,
-        "train_f1_macro": null,
-        "val_f1_macro": null,
-        "train_roc_auc": null,
-        "val_roc_auc": null
+        "train_accuracy": 1.0,
+        "val_accuracy": 0.3333333333333333,
+        "train_f1_macro": 1.0,
+        "val_f1_macro": 0.16666666666666666,
+        "train_roc_auc": 1.0,
+        "val_roc_auc": NaN
       },
       "session_model": {
-        "train_roc_auc": 0.85,
-        "val_roc_auc": 0.8,
-        "train_accuracy": null,
-        "val_accuracy": null
+        "train_roc_auc": 0.9952380952380953,
+        "val_roc_auc": 0.9130434782608696,
+        "train_accuracy": 0.9587628865979382,
+        "val_accuracy": 0.9583333333333334
       }
     },
     "history": []

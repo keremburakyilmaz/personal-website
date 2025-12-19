@@ -56,39 +56,61 @@ export default function SpotifyBrain() {
     return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   };
 
+  // Helper function to safely handle NaN/null/undefined values
+  const safeNumber = (value, defaultValue = 0) => {
+    if (value === null || value === undefined || (typeof value === 'number' && isNaN(value))) {
+      return defaultValue;
+    }
+    return value;
+  };
+
+  // Helper function to safely format numbers with fallback
+  const safeToFixed = (value, decimals = 1, fallback = 'N/A') => {
+    const num = safeNumber(value);
+    if (num === 0 && value !== 0 && (value === null || value === undefined || isNaN(value))) {
+      return fallback;
+    }
+    return num.toFixed(decimals);
+  };
+
   // Prepare session probabilities data
-  const sessionProbsData = Object.entries(data.session_probs).map(([hour, prob]) => ({
+  const sessionProbsData = Object.entries(data.session_probs || {}).map(([hour, prob]) => ({
     hour: parseInt(hour),
     hourLabel: `${parseInt(hour) % 12 || 12}${parseInt(hour) >= 12 ? 'PM' : 'AM'}`,
-    probability: prob,
+    probability: safeNumber(prob, 0),
     isCurrentHour: parseInt(hour) === currentHour
   }));
 
   // Prepare mood trajectory data
-  const moodTrajectoryData = data.mood_trajectory.map(item => ({
-    time: new Date(item.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-    timestamp: new Date(item.time).getTime(),
-    valence: item.valence,
-    energy: item.energy
-  }));
+  const moodTrajectoryData = data.mood_trajectory && Array.isArray(data.mood_trajectory) 
+    ? data.mood_trajectory
+        .filter(item => item && item.time && !isNaN(item.valence) && !isNaN(item.energy))
+        .map(item => ({
+          time: new Date(item.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+          timestamp: new Date(item.time).getTime(),
+          valence: safeNumber(item.valence),
+          energy: safeNumber(item.energy)
+        }))
+    : [];
 
   // Prepare cluster radar data
   const getClusterRadarData = (cluster) => {
-    const centroid = cluster.centroid;
+    const centroid = cluster.centroid || {};
     return [
-      { feature: 'Valence', value: centroid.valence * 100 },
-      { feature: 'Energy', value: centroid.energy * 100 },
-      { feature: 'Dance', value: centroid.danceability * 100 },
-      { feature: 'Acoustic', value: centroid.acousticness * 100 },
-      { feature: 'Instrumental', value: centroid.instrumentalness * 100 },
-      { feature: 'Tempo', value: centroid.tempo_norm * 100 }
+      { feature: 'Valence', value: safeNumber(centroid.valence, 0) * 100 },
+      { feature: 'Energy', value: safeNumber(centroid.energy, 0) * 100 },
+      { feature: 'Dance', value: safeNumber(centroid.danceability, 0) * 100 },
+      { feature: 'Acoustic', value: safeNumber(centroid.acousticness, 0) * 100 },
+      { feature: 'Instrumental', value: safeNumber(centroid.instrumentalness, 0) * 100 },
+      { feature: 'Tempo', value: safeNumber(centroid.tempo_norm, 0) * 100 }
     ];
   };
 
   // Get confidence color
   const getConfidenceColor = (confidence) => {
-    if (confidence >= 0.8) return '#10b981'; // Green
-    if (confidence >= 0.5) return '#f59e0b'; // Yellow
+    const conf = safeNumber(confidence, 0);
+    if (conf >= 0.8) return '#10b981'; // Green
+    if (conf >= 0.5) return '#f59e0b'; // Yellow
     return '#ef4444'; // Red
   };
 
@@ -117,9 +139,9 @@ export default function SpotifyBrain() {
     return mutedPalette[clusterId % mutedPalette.length];
   };
 
-  const nextPrediction = data.next_prediction;
-  const confidencePercent = (nextPrediction.confidence * 100).toFixed(1);
-  const totalClusters = data.mood_clusters.length;
+  const nextPrediction = data.next_prediction || {};
+  const confidencePercent = safeToFixed(safeNumber(nextPrediction.confidence, 0) * 100, 1, '0.0');
+  const totalClusters = (data.mood_clusters && data.mood_clusters.length) || 0;
 
   return (
     <section className="spotify-brain-section">
@@ -147,9 +169,9 @@ export default function SpotifyBrain() {
               </button>
             </div>
             <div className="recently-played-stream">
-              {data.recently_played.slice(0, 20).map((track, index) => {
-                const moodLabel = data.mood_clusters.find(c => c.cluster_id === track.mood_cluster_id)?.label || `Cluster ${track.mood_cluster_id}`;
-                const moodColor = getMoodColor(track.mood_cluster_id, totalClusters);
+              {(data.recently_played || []).slice(0, 20).map((track, index) => {
+                const moodLabel = (data.mood_clusters || []).find(c => c.cluster_id === track.mood_cluster_id)?.label || `Cluster ${track.mood_cluster_id}`;
+                const moodColor = getMoodColor(safeNumber(track.mood_cluster_id, 0), totalClusters);
                 
                 return (
                   <div key={`${track.track_id}-${index}`} className="recently-played-card-item">
@@ -234,7 +256,7 @@ export default function SpotifyBrain() {
                     color: '#f1f5f9'
                   }}
                   cursor={{ stroke: 'rgba(148, 163, 184, 0.2)', strokeWidth: 1, opacity: 0.15 }}
-                  formatter={(value) => [(value * 100).toFixed(1) + '%', 'Probability']}
+                  formatter={(value) => [safeToFixed(safeNumber(value, 0) * 100, 1) + '%', 'Probability']}
                 />
                 <Bar 
                   dataKey="probability" 
@@ -261,8 +283,9 @@ export default function SpotifyBrain() {
           {/* Mood Trajectory Visualization */}
           <div className="mood-trajectory-card">
             <h2>Mood Trajectory (Last 24 Hours)</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={moodTrajectoryData}>
+            {moodTrajectoryData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={moodTrajectoryData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(99, 102, 241, 0.2)" />
                 <XAxis 
                   dataKey="time" 
@@ -313,13 +336,18 @@ export default function SpotifyBrain() {
                 />
               </LineChart>
             </ResponsiveContainer>
+            ) : (
+              <div className="no-data-message">
+                <p>No mood trajectory data available</p>
+              </div>
+            )}
           </div>
 
           {/* Mood Clusters Overview */}
           <div className="mood-clusters-card">
             <h2>Mood Clusters Overview</h2>
             <div className="clusters-grid">
-              {data.mood_clusters.map((cluster) => {
+              {(data.mood_clusters || []).map((cluster) => {
                 const radarData = getClusterRadarData(cluster);
                 const clusterColor = getMoodColor(cluster.cluster_id, totalClusters);
                 
@@ -359,7 +387,7 @@ export default function SpotifyBrain() {
                               borderRadius: '8px',
                               color: '#f1f5f9'
                             }}
-                            formatter={(value) => [value.toFixed(1) + '%', 'Value']}
+                            formatter={(value) => [safeToFixed(safeNumber(value, 0), 1) + '%', 'Value']}
                           />
                         </RadarChart>
                       </ResponsiveContainer>
@@ -368,27 +396,27 @@ export default function SpotifyBrain() {
                       <div className="feature-list">
                         <div className="feature-item">
                           <span className="feature-name">Valence:</span>
-                          <span className="feature-value">{(cluster.centroid.valence * 100).toFixed(1)}%</span>
+                          <span className="feature-value">{safeToFixed(safeNumber(cluster.centroid?.valence, 0) * 100, 1)}%</span>
                         </div>
                         <div className="feature-item">
                           <span className="feature-name">Energy:</span>
-                          <span className="feature-value">{(cluster.centroid.energy * 100).toFixed(1)}%</span>
+                          <span className="feature-value">{safeToFixed(safeNumber(cluster.centroid?.energy, 0) * 100, 1)}%</span>
                         </div>
                         <div className="feature-item">
                           <span className="feature-name">Danceability:</span>
-                          <span className="feature-value">{(cluster.centroid.danceability * 100).toFixed(1)}%</span>
+                          <span className="feature-value">{safeToFixed(safeNumber(cluster.centroid?.danceability, 0) * 100, 1)}%</span>
                         </div>
                         <div className="feature-item">
                           <span className="feature-name">Acousticness:</span>
-                          <span className="feature-value">{(cluster.centroid.acousticness * 100).toFixed(1)}%</span>
+                          <span className="feature-value">{safeToFixed(safeNumber(cluster.centroid?.acousticness, 0) * 100, 1)}%</span>
                         </div>
                         <div className="feature-item">
                           <span className="feature-name">Instrumentalness:</span>
-                          <span className="feature-value">{(cluster.centroid.instrumentalness * 100).toFixed(1)}%</span>
+                          <span className="feature-value">{safeToFixed(safeNumber(cluster.centroid?.instrumentalness, 0) * 100, 1)}%</span>
                         </div>
                         <div className="feature-item">
                           <span className="feature-name">Tempo:</span>
-                          <span className="feature-value">{(cluster.centroid.tempo_norm * 100).toFixed(1)}%</span>
+                          <span className="feature-value">{safeToFixed(safeNumber(cluster.centroid?.tempo_norm, 0) * 100, 1)}%</span>
                         </div>
                       </div>
                     </div>
@@ -405,11 +433,11 @@ export default function SpotifyBrain() {
               <div className="metrics-summary">
                 <div className="metric-stat">
                   <span className="metric-label">Training Tracks:</span>
-                  <span className="metric-value">{data.metrics.latest.num_tracks}</span>
+                  <span className="metric-value">{safeNumber(data.metrics?.latest?.num_tracks, 0)}</span>
                 </div>
                 <div className="metric-stat">
                   <span className="metric-label">Training Sessions:</span>
-                  <span className="metric-value">{data.metrics.latest.num_sessions}</span>
+                  <span className="metric-value">{safeNumber(data.metrics?.latest?.num_sessions, 0)}</span>
                 </div>
               </div>
               <div className="metrics-details">
@@ -418,13 +446,13 @@ export default function SpotifyBrain() {
                   <div className="metric-row">
                     <span className="metric-label">Training Accuracy:</span>
                     <span className="metric-value good">
-                      {(data.metrics.latest.mood_model.train_accuracy * 100).toFixed(1)}%
+                      {safeToFixed(safeNumber(data.metrics?.latest?.mood_model?.train_accuracy, 0) * 100, 1)}%
                     </span>
                   </div>
                   <div className="metric-row">
                     <span className="metric-label">Validation Accuracy:</span>
                     <span className="metric-value good">
-                      {(data.metrics.latest.mood_model.val_accuracy * 100).toFixed(1)}%
+                      {safeToFixed(safeNumber(data.metrics?.latest?.mood_model?.val_accuracy, 0) * 100, 1)}%
                     </span>
                   </div>
                 </div>
@@ -433,13 +461,13 @@ export default function SpotifyBrain() {
                   <div className="metric-row">
                     <span className="metric-label">Training ROC-AUC:</span>
                     <span className="metric-value good">
-                      {data.metrics.latest.session_model.train_roc_auc.toFixed(3)}
+                      {safeToFixed(safeNumber(data.metrics?.latest?.session_model?.train_roc_auc, 0), 3)}
                     </span>
                   </div>
                   <div className="metric-row">
                     <span className="metric-label">Validation ROC-AUC:</span>
                     <span className="metric-value good">
-                      {data.metrics.latest.session_model.val_roc_auc.toFixed(3)}
+                      {safeToFixed(safeNumber(data.metrics?.latest?.session_model?.val_roc_auc, 0), 3)}
                     </span>
                   </div>
                 </div>

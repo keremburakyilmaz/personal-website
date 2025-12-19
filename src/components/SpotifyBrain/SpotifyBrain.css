@@ -183,6 +183,15 @@
   font-weight: 600;
 }
 
+.no-data-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: var(--gray);
+  font-size: 1rem;
+}
+
 /* Mood Clusters Overview */
 .mood-clusters-card {
   background: var(--card-bg);
