@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-28T16:49:48.624512",
+  "generated_at": "2025-12-28T19:53:03.855735",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
-    "confidence": 0.6064261198043823,
+    "confidence": 0.6850528717041016,
     "cluster_centroid": {
       "valence": 0.49944444444444447,
       "energy": 0.6887037037037037,
@@ -14,16 +14,22 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "3Huma5kcTHmfgZ6UadDB9R",
-        "track_name": "ghost boy",
-        "artist_name": "Lil Peep",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0284214b1d100a4fc1442d140e"
+        "track_id": "1HFfMOxCAT4GAwaPfCdmUs",
+        "track_name": "Waves - Robin Schulz Radio Edit",
+        "artist_name": "Mr. Probz, Robin Schulz",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0220062cf8da0f580e9118b487"
       },
       {
-        "track_id": "3MrRksHupTVEQ7YbA0FsZK",
-        "track_name": "The Final Countdown",
-        "artist_name": "Europe",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02f5e30500f0eec7d92b159eae"
+        "track_id": "33uKUpu9ZXsHhcxRLoxnWI",
+        "track_name": "I know it won't work",
+        "artist_name": "Gracie Abrams",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e020500294bb235c45c0a964d69"
+      },
+      {
+        "track_id": "3zSnPhuucEb9JbFSxKVcIn",
+        "track_name": "we can't be friends (wait for your love)",
+        "artist_name": "Ariana Grande",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e025ab3c842fde848df7a4ee6d9"
       }
     ]
   },
@@ -46,10 +52,10 @@
     "15": 0.15476618707180023,
     "16": 0.19699838757514954,
     "17": 0.03598424047231674,
-    "18": 0.12888707220554352,
-    "19": 0.09731150418519974,
-    "20": 0.09731150418519974,
-    "21": 0.09731150418519974,
+    "18": 0.03598424047231674,
+    "19": 0.08062522858381271,
+    "20": 0.021645525470376015,
+    "21": 0.07446815818548203,
     "22": 0.09731150418519974,
     "23": 0.026974009349942207
   },
@@ -63,8 +69,8 @@
       "probability": 0.15476618707180023
     },
     {
-      "hour": 18,
-      "probability": 0.12888707220554352
+      "hour": 22,
+      "probability": 0.09731150418519974
     }
   ],
   "session_actual": {
@@ -85,9 +91,9 @@
     "14": 0.5,
     "15": 0.0,
     "16": 1.0,
-    "17": 0.0,
+    "17": 0.5,
     "18": 0.5,
-    "19": 0.0,
+    "19": 0.5,
     "20": 0.0,
     "21": 0.5,
     "22": 0.0,
@@ -151,9 +157,104 @@
       "time": "2025-12-28T16:30:00+00:00",
       "valence": 0.3405,
       "energy": 0.752
+    },
+    {
+      "time": "2025-12-28T17:00:00+00:00",
+      "valence": 0.0551,
+      "energy": 0.353
+    },
+    {
+      "time": "2025-12-28T17:15:00+00:00",
+      "valence": 0.30275,
+      "energy": 0.69875
+    },
+    {
+      "time": "2025-12-28T19:30:00+00:00",
+      "valence": 0.2806,
+      "energy": 0.55
     }
   ],
   "recently_played": [
+    {
+      "track_id": "6oofvZ4K8vBHnCT1oKERcd",
+      "track_name": "i walk this earth all by myself",
+      "artist_name": "EKKSTACY",
+      "played_at": "2025-12-28T19:43:55.178000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e028a4281dc0abc2b840e65bcfe",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5OGZ2Mx4Cs6RCndDRycGBJ",
+      "track_name": "Daylight",
+      "artist_name": "David Kushner",
+      "played_at": "2025-12-28T19:41:30.812000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02d010d5f2882bad368ee24403",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "00WLowvlN5cjkYpQV6pjo4",
+      "track_name": "Die For You",
+      "artist_name": "Joji",
+      "played_at": "2025-12-28T19:38:02.842000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02cdd1a8a427b3f81f4f4f4f7d",
+      "mood_cluster_id": 2
+    },
+    {
+      "track_id": "3qoVMvagQJ9C2pXaA8lC8C",
+      "track_name": "Leaving Tonight",
+      "artist_name": "The Neighbourhood",
+      "played_at": "2025-12-28T19:34:37.713000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02354be6d543058b65075b9d16",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "1xK59OXxi2TAAAbmZK0kBL",
+      "track_name": "Romantic Homicide",
+      "artist_name": "d4vd",
+      "played_at": "2025-12-28T19:31:17.866000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02bd1a52b3d5903ee01c216da0",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5RBOcBpJXaNnHCGViJmYhh",
+      "track_name": "The Perfect Girl",
+      "artist_name": "Mareux",
+      "played_at": "2025-12-28T17:27:56.078000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e023d54a30e59638f60f56dd4e6",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "0pxPNTroZcxXA0w6IDgMQJ",
+      "track_name": "A Little Death",
+      "artist_name": "The Neighbourhood",
+      "played_at": "2025-12-28T17:24:45.579000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02354be6d543058b65075b9d16",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5XeFesFbtLpXzIVDNQP22n",
+      "track_name": "I Wanna Be Yours",
+      "artist_name": "Arctic Monkeys",
+      "played_at": "2025-12-28T17:21:22.821000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e024ae1c4c5c45aabe565499163",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "4k3xDpAdBuM17mNNHhOZkK",
+      "track_name": "nuts",
+      "artist_name": "Lil Peep, rainy bear",
+      "played_at": "2025-12-28T17:17:29.447000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e029c40b3a3043a8f24403048a6",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "08wnOyN1wyMaNrup3m353f",
+      "track_name": "My Tears Are Becoming a Sea",
+      "artist_name": "M83",
+      "played_at": "2025-12-28T17:14:25.278000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0262100064780b1d919a95fcf4",
+      "mood_cluster_id": 1
+    },
     {
       "track_id": "2xql0pid3EUwW38AsywxhV",
       "track_name": "Reflections",
@@ -272,86 +373,6 @@
       "artist_name": "LE SSERAFIM",
       "played_at": "2025-12-27T16:22:16.558000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e0213134929dd979f89b8f4f477",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3jwQt00cvkN57H6ZR75W2K",
-      "track_name": "RUNRUNRUN",
-      "artist_name": "Dutch Melrose",
-      "played_at": "2025-12-27T16:20:15.035000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e029bd54573540bccf89ed1b2f7",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1aFVWIGU2MUJXaRqcxEaBQ",
-      "track_name": "Hellfire (from the series Arcane League of Legends)",
-      "artist_name": "Arcane, FEVER 333",
-      "played_at": "2025-12-27T16:17:55.924000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e024aaf2413384c1efcc38353c6",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "61YzdCCBPM5Pc7lIiD5i8C",
-      "track_name": "Bang Bang",
-      "artist_name": "K'NAAN, Adam Levine",
-      "played_at": "2025-12-27T16:09:53.601000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02a3a8f20705f6f1d9adf84551",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "46aZJc0z1HHHSFxaIRxYSP",
-      "track_name": "Breakin' Dishes",
-      "artist_name": "Rihanna",
-      "played_at": "2025-12-27T16:06:54.123000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02f9f27162ab1ed45b8d7a7e98",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "2Fxmhks0bxGSBdJ92vM42m",
-      "track_name": "bad guy",
-      "artist_name": "Billie Eilish",
-      "played_at": "2025-12-27T16:03:52.861000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0250a3147b4edd7701a876c6ce",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "4bJygwUKrRgq1stlNXcgMg",
-      "track_name": "All The Things She Said",
-      "artist_name": "t.A.T.u.",
-      "played_at": "2025-12-27T16:00:52.809000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e023b27e1cd8a6bc6804c2e5fd2",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "5AGQSF0ytihJyt96K5vW9d",
-      "track_name": "Heartbeat",
-      "artist_name": "Childish Gambino",
-      "played_at": "2025-12-27T15:57:37.153000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e026182cfe2e2a090d125c81dc0",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "6VObnIkLVruX4UVyxWhlqm",
-      "track_name": "Skyfall",
-      "artist_name": "Adele",
-      "played_at": "2025-12-27T15:53:05.686000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02b479bb2aed275bb1b13d83da",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "63Pi2NAx5yCgeLhCTOrEou",
-      "track_name": "Headlock",
-      "artist_name": "Imogen Heap",
-      "played_at": "2025-12-27T15:41:42.525000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e020cabafb8b01b956fae313c57",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "1NXbNEAcPvY5G1xvfN57aA",
-      "track_name": "Dracula",
-      "artist_name": "Tame Impala",
-      "played_at": "2025-12-27T15:38:11.539000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02208500450dcd0fd294d7bd3b",
       "mood_cluster_id": 0
     }
   ],
@@ -630,9 +651,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 2.521640636343319,
+        "recent": 2.9477027792200907,
         "prior": 0.0,
-        "change": 2.521640636343319,
+        "change": 2.9477027792200907,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -643,7 +664,7 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 2.3333333333333335,
+        "recent": 3.0,
         "prior": 0.0,
         "pct_change": 0.0
       },
@@ -739,7 +760,7 @@
           "pct_change": 0.0
         },
         "17": {
-          "recent": 0.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -749,7 +770,7 @@
           "pct_change": 0.0
         },
         "19": {
-          "recent": 0.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -781,6 +802,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-28T16:49:48.571116"
+    "detection_date": "2025-12-28T19:53:03.845981"
   }
 }
