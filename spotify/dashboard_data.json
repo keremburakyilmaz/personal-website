@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-28T21:19:59.314468",
+  "generated_at": "2025-12-28T21:41:44.523772",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,22 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "3zSnPhuucEb9JbFSxKVcIn",
-        "track_name": "we can't be friends (wait for your love)",
-        "artist_name": "Ariana Grande",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e025ab3c842fde848df7a4ee6d9"
-      },
-      {
         "track_id": "062xVECDI7YZqOgdEtWlVs",
         "track_name": "She Likes a Boy",
         "artist_name": "Nxdia",
         "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
+      },
+      {
+        "track_id": "09SJuGrR0qqmVvGqWIAiLe",
+        "track_name": "LUMIERE \u1be4 (con Izi, Ernia, Tony Boy, Astro)",
+        "artist_name": "MACE, Izi, Ernia, Tony Boy, Astro",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ed46b10906511b1329ee66ab"
+      },
+      {
+        "track_id": "33uKUpu9ZXsHhcxRLoxnWI",
+        "track_name": "I know it won't work",
+        "artist_name": "Gracie Abrams",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e020500294bb235c45c0a964d69"
       }
     ]
   },
@@ -796,6 +802,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-28T21:19:59.304671"
+    "detection_date": "2025-12-28T21:41:44.513925"
   }
 }
