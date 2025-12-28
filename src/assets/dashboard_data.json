@@ -1,29 +1,29 @@
 {
-  "generated_at": "2025-12-28T13:21:37.855500",
+  "generated_at": "2025-12-28T16:49:48.624512",
   "next_prediction": {
-    "mood_cluster_id": 2,
-    "mood_label": "High energy, negative",
-    "confidence": 0.42729634046554565,
+    "mood_cluster_id": 0,
+    "mood_label": "High energy, neutral",
+    "confidence": 0.6064261198043823,
     "cluster_centroid": {
-      "valence": 0.3426666666666667,
-      "energy": 0.7086666666666667,
-      "danceability": 0.5393333333333333,
-      "acousticness": 0.025451666666666706,
-      "instrumentalness": 0.8456666666666667,
-      "tempo_norm": 0.496024
+      "valence": 0.49944444444444447,
+      "energy": 0.6887037037037037,
+      "danceability": 0.6186666666666667,
+      "acousticness": 0.14503811111111112,
+      "instrumentalness": 0.03023434481481481,
+      "tempo_norm": 0.4870312592592593
     },
     "recommended_tracks": [
       {
-        "track_id": "6GG4yyk3UATdBfTHVgI8PB",
-        "track_name": "Ain't No Love In Oklahoma (From Twisters: The Album)",
-        "artist_name": "Luke Combs",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0239808230102049beb62fdd7b"
+        "track_id": "3Huma5kcTHmfgZ6UadDB9R",
+        "track_name": "ghost boy",
+        "artist_name": "Lil Peep",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0284214b1d100a4fc1442d140e"
       },
       {
-        "track_id": "5eRy8OYaPS3XB5DCzDolks",
-        "track_name": "Cos\u00ec Non Va Bene (feat. Nerissima Serpe)",
-        "artist_name": "Faneto, Nerissima Serpe",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02f61a7035f4e5dd499542bc48"
+        "track_id": "3MrRksHupTVEQ7YbA0FsZK",
+        "track_name": "The Final Countdown",
+        "artist_name": "Europe",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02f5e30500f0eec7d92b159eae"
       }
     ]
   },
@@ -45,8 +45,8 @@
     "14": 0.04415500909090042,
     "15": 0.15476618707180023,
     "16": 0.19699838757514954,
-    "17": 0.15388977527618408,
-    "18": 0.15388977527618408,
+    "17": 0.03598424047231674,
+    "18": 0.12888707220554352,
     "19": 0.09731150418519974,
     "20": 0.09731150418519974,
     "21": 0.09731150418519974,
@@ -63,14 +63,14 @@
       "probability": 0.15476618707180023
     },
     {
-      "hour": 17,
-      "probability": 0.15388977527618408
+      "hour": 18,
+      "probability": 0.12888707220554352
     }
   ],
   "session_actual": {
     "0": 0.0,
     "1": 0.0,
-    "2": 1.0,
+    "2": 0.5,
     "3": 0.0,
     "4": 0.0,
     "5": 0.0,
@@ -81,15 +81,15 @@
     "10": 0.0,
     "11": 0.0,
     "12": 0.0,
-    "13": 1.0,
-    "14": 1.0,
+    "13": 0.5,
+    "14": 0.5,
     "15": 0.0,
     "16": 1.0,
     "17": 0.0,
-    "18": 1.0,
+    "18": 0.5,
     "19": 0.0,
     "20": 0.0,
-    "21": 1.0,
+    "21": 0.5,
     "22": 0.0,
     "23": 0.0
   },
@@ -133,46 +133,6 @@
   ],
   "mood_trajectory": [
     {
-      "time": "2025-12-27T14:30:00+00:00",
-      "valence": 0.718,
-      "energy": 0.84
-    },
-    {
-      "time": "2025-12-27T14:45:00+00:00",
-      "valence": 0.672,
-      "energy": 0.7160000000000001
-    },
-    {
-      "time": "2025-12-27T15:00:00+00:00",
-      "valence": 0.405,
-      "energy": 0.6625
-    },
-    {
-      "time": "2025-12-27T15:30:00+00:00",
-      "valence": 0.6995,
-      "energy": 0.5515
-    },
-    {
-      "time": "2025-12-27T15:45:00+00:00",
-      "valence": 0.18495,
-      "energy": 0.5485
-    },
-    {
-      "time": "2025-12-27T16:00:00+00:00",
-      "valence": 0.6785,
-      "energy": 0.7085
-    },
-    {
-      "time": "2025-12-27T16:15:00+00:00",
-      "valence": 0.3492,
-      "energy": 0.6758
-    },
-    {
-      "time": "2025-12-27T16:30:00+00:00",
-      "valence": 0.784,
-      "energy": 0.808
-    },
-    {
       "time": "2025-12-28T13:00:00+00:00",
       "valence": 0.525,
       "energy": 0.6557999999999999
@@ -181,9 +141,43 @@
       "time": "2025-12-28T13:15:00+00:00",
       "valence": 0.16549999999999998,
       "energy": 0.802
+    },
+    {
+      "time": "2025-12-28T16:15:00+00:00",
+      "valence": 0.195,
+      "energy": 0.276
+    },
+    {
+      "time": "2025-12-28T16:30:00+00:00",
+      "valence": 0.3405,
+      "energy": 0.752
     }
   ],
   "recently_played": [
+    {
+      "track_id": "2xql0pid3EUwW38AsywxhV",
+      "track_name": "Reflections",
+      "artist_name": "The Neighbourhood",
+      "played_at": "2025-12-28T16:36:36.093000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e029b6ac98a52f62d5cb473da40",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "7fqjWHXf330QwnfaAWB2Dr",
+      "track_name": "Dark Beach",
+      "artist_name": "Pastel Ghost",
+      "played_at": "2025-12-28T16:32:37.361000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e026bbea59f1d07d69f8ca5350b",
+      "mood_cluster_id": 2
+    },
+    {
+      "track_id": "0z1o5L7HJx562xZSATcIpY",
+      "track_name": "Exit Music (For A Film)",
+      "artist_name": "Radiohead",
+      "played_at": "2025-12-28T16:29:00.361000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02c8b444df094279e70d0ed856",
+      "mood_cluster_id": 1
+    },
     {
       "track_id": "1wszdDUhlil6EH3SRkmTZL",
       "track_name": "Embrace",
@@ -358,30 +352,6 @@
       "artist_name": "Tame Impala",
       "played_at": "2025-12-27T15:38:11.539000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02208500450dcd0fd294d7bd3b",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "32bcBiA9wxzN51IzDPbxkW",
-      "track_name": "Ellerinde Ellerim",
-      "artist_name": "Model",
-      "played_at": "2025-12-27T15:11:07.379000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e029f42a3572e05a40ae2f8ea0d",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "16uJNcdQLJKR7C2MltCPb1",
-      "track_name": "Makyaj",
-      "artist_name": "Model",
-      "played_at": "2025-12-27T15:00:42.558000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e023f5526e4e33d3ae8d79db0b1",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "3cFKlANTNPcUps3tG8EG9Q",
-      "track_name": "B\u00f6yle Ak\u015famlar",
-      "artist_name": "Ozan Do\u011fulu, Model",
-      "played_at": "2025-12-27T14:56:12.495000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02df24165afe01eaf9ee1125f8",
       "mood_cluster_id": 0
     }
   ],
@@ -660,9 +630,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 2.584962500721156,
+        "recent": 2.521640636343319,
         "prior": 0.0,
-        "change": 2.584962500721156,
+        "change": 2.521640636343319,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -673,7 +643,7 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 2.0,
+        "recent": 2.3333333333333335,
         "prior": 0.0,
         "pct_change": 0.0
       },
@@ -764,7 +734,7 @@
           "pct_change": 0.0
         },
         "16": {
-          "recent": 1.0,
+          "recent": 2.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -811,6 +781,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-28T13:21:37.820670"
+    "detection_date": "2025-12-28T16:49:48.571116"
   }
 }
