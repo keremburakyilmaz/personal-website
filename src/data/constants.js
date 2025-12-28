@@ -61,16 +61,19 @@ export const experience = [
     description: [
       "Coded several chatbots to help customers understand DMI scores, motivate with success stories, provide step-by-step plans, and guide execution.",
       "Created an orchestration for chatbots in a single, tool-calling workflow.",
-      "Working on automating scoring and recommendation pipeline by transcribing meetings and providing output."
+      "Created an automated scoring and recommendation pipeline by transcribing meetings and providing output.",
+      "Created a knowledge graph to better visualize the data and relationships between the data.",
+      "Working on integrating AWS Kendra for document search and retrieval."
     ]
   },
   {
     company: "Promake AI",
     position: "AI Engineering Intern",
-    period: "Aug 2025 - Present (Remote)",
+    period: "Aug 2025 - Dec 2025 (Remote)",
     description: [
-      "Working on a workflow to create custom websites for non-technical customers.",
-      "Created multiple agents for LangGraph workflow, including orchestrator, UI management, language management, and web searching/scraping."
+      "Worked on a workflow to help non-technical customers create custom websites.",
+      "Created multiple agents for LangGraph workflow, including orchestrator, UI management, language management, and web searching/scraping.",
+      "Wrote guardrails for the workflow to ensure the quality of the output."
     ]
   },
   {

@@ -58,8 +58,19 @@ export default function SpotifyBrain() {
 
   // Helper function to safely handle NaN/null/undefined values
   const safeNumber = (value, defaultValue = 0) => {
-    if (value === null || value === undefined || (typeof value === 'number' && isNaN(value))) {
+    if (value === null || value === undefined) {
       return defaultValue;
+    }
+    // Handle string "NaN" or actual NaN
+    if (value === "NaN" || (typeof value === 'number' && isNaN(value))) {
+      return defaultValue;
+    }
+    // Convert string numbers to numbers
+    if (typeof value === 'string' && value !== "NaN") {
+      const parsed = parseFloat(value);
+      if (!isNaN(parsed)) {
+        return parsed;
+      }
     }
     return value;
   };
@@ -86,8 +97,8 @@ export default function SpotifyBrain() {
     ? data.mood_trajectory
         .filter(item => item && item.time && !isNaN(item.valence) && !isNaN(item.energy))
         .map(item => ({
-          time: new Date(item.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-          timestamp: new Date(item.time).getTime(),
+    time: new Date(item.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+    timestamp: new Date(item.time).getTime(),
           valence: safeNumber(item.valence),
           energy: safeNumber(item.energy)
         }))
@@ -176,17 +187,17 @@ export default function SpotifyBrain() {
                 return (
                   <div key={`${track.track_id}-${index}`} className="recently-played-card-item">
                     <div className="card-album-art">
-                      <img 
-                        src={track.image_url} 
-                        alt={`${track.track_name} by ${track.artist_name}`}
-                        onError={(e) => {
+                  <img 
+                    src={track.image_url} 
+                    alt={`${track.track_name} by ${track.artist_name}`}
+                    onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/200?text=No+Image';
-                        }}
-                      />
+                    }}
+                  />
                       {track.mood_cluster_id !== undefined && (
                         <div className="card-mood-tag" style={{ backgroundColor: moodColor }}>
                           {moodLabel}
-                        </div>
+                  </div>
                       )}
                     </div>
                     <div className="card-info">
@@ -227,14 +238,51 @@ export default function SpotifyBrain() {
                 <span className="genre-label">Genre:</span> {nextPrediction.genre_family}
               </div>
             )}
-            <div className="cluster-badge" style={{ backgroundColor: getMoodColor(nextPrediction.mood_cluster_id, totalClusters) }}>
-              Cluster {nextPrediction.mood_cluster_id}
-            </div>
+            {nextPrediction.recommended_tracks && nextPrediction.recommended_tracks.length > 0 && (
+              <div className="recommended-tracks-section">
+                <h3 className="recommended-tracks-title">Recommended Tracks</h3>
+                <div className="recommended-tracks-grid">
+                  {nextPrediction.recommended_tracks.slice(0, 3).map((track, index) => (
+                    <div key={track.track_id || index} className="recommended-track-card">
+                      <img 
+                        src={track.image_url} 
+                        alt={`${track.track_name} by ${track.artist_name}`}
+                        className="recommended-track-image"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/150?text=No+Image';
+                        }}
+                      />
+                      <div className="recommended-track-info">
+                        <div className="recommended-track-name">{track.track_name}</div>
+                        <div className="recommended-track-artist">{track.artist_name}</div>
+                        {track.confidence_score !== undefined && (
+                          <div className="recommended-track-confidence">
+                            {safeToFixed(track.confidence_score * 100, 0)}% match
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Hourly Session Start Probability Chart */}
           <div className="session-prob-card">
             <h2>Hourly Session Start Probability</h2>
+            {data.top_hours && data.top_hours.length > 0 && (
+              <div className="top-hours-info">
+                <p className="top-hours-label">Top Hours:</p>
+                <div className="top-hours-list">
+                  {data.top_hours.slice(0, 3).map((item, idx) => (
+                    <span key={idx} className="top-hour-badge">
+                      {item.hour % 12 || 12}{item.hour >= 12 ? 'PM' : 'AM'} ({safeToFixed(item.probability * 100, 1)}%)
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={sessionProbsData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(99, 102, 241, 0.2)" />
@@ -284,8 +332,8 @@ export default function SpotifyBrain() {
           <div className="mood-trajectory-card">
             <h2>Mood Trajectory (Last 24 Hours)</h2>
             {moodTrajectoryData.length > 0 ? (
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={moodTrajectoryData}>
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={moodTrajectoryData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(99, 102, 241, 0.2)" />
                 <XAxis 
                   dataKey="time" 
@@ -470,6 +518,30 @@ export default function SpotifyBrain() {
                       {safeToFixed(safeNumber(data.metrics?.latest?.session_model?.val_roc_auc, 0), 3)}
                     </span>
                   </div>
+                  {data.metrics?.latest?.session_model?.calibration_error !== undefined && (
+                    <div className="metric-row">
+                      <span className="metric-label">Calibration Error:</span>
+                      <span className="metric-value">
+                        {safeToFixed(safeNumber(data.metrics.latest.session_model.calibration_error, 0), 4)}
+                      </span>
+                    </div>
+                  )}
+                  {data.metrics?.latest?.session_model?.val_pr_auc !== undefined && (
+                    <div className="metric-row">
+                      <span className="metric-label">Validation PR-AUC:</span>
+                      <span className="metric-value">
+                        {safeToFixed(safeNumber(data.metrics.latest.session_model.val_pr_auc, 0), 3)}
+                      </span>
+                    </div>
+                  )}
+                  {data.metrics?.latest?.session_model?.val_f1 !== undefined && (
+                    <div className="metric-row">
+                      <span className="metric-label">Validation F1:</span>
+                      <span className="metric-value">
+                        {safeToFixed(safeNumber(data.metrics.latest.session_model.val_f1, 0), 3)}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
