@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-28T22:44:47.830460",
+  "generated_at": "2025-12-28T23:20:51.496025",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,10 +14,10 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "33uKUpu9ZXsHhcxRLoxnWI",
-        "track_name": "I know it won't work",
-        "artist_name": "Gracie Abrams",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e020500294bb235c45c0a964d69"
+        "track_id": "062xVECDI7YZqOgdEtWlVs",
+        "track_name": "She Likes a Boy",
+        "artist_name": "Nxdia",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
       },
       {
         "track_id": "09SJuGrR0qqmVvGqWIAiLe",
@@ -796,6 +796,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-28T22:44:47.819565"
+    "detection_date": "2025-12-28T23:20:51.486223"
   }
 }
