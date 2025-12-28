@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-28T23:20:51.496025",
+  "generated_at": "2025-12-28T23:41:58.503840",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,10 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "062xVECDI7YZqOgdEtWlVs",
-        "track_name": "She Likes a Boy",
-        "artist_name": "Nxdia",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
-      },
-      {
-        "track_id": "09SJuGrR0qqmVvGqWIAiLe",
-        "track_name": "LUMIERE \u1be4 (con Izi, Ernia, Tony Boy, Astro)",
-        "artist_name": "MACE, Izi, Ernia, Tony Boy, Astro",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02ed46b10906511b1329ee66ab"
+        "track_id": "1HFfMOxCAT4GAwaPfCdmUs",
+        "track_name": "Waves - Robin Schulz Radio Edit",
+        "artist_name": "Mr. Probz, Robin Schulz",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0220062cf8da0f580e9118b487"
       }
     ]
   },
@@ -796,6 +790,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-28T23:20:51.486223"
+    "detection_date": "2025-12-28T23:41:58.494236"
   }
 }
