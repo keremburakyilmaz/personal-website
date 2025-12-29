@@ -1,29 +1,29 @@
 {
-  "generated_at": "2025-12-29T11:42:33.603378",
+  "generated_at": "2025-12-29T12:46:57.949376",
   "next_prediction": {
-    "mood_cluster_id": 0,
-    "mood_label": "High energy, neutral",
-    "confidence": 0.5321362018585205,
+    "mood_cluster_id": 1,
+    "mood_label": "Low energy, negative, acoustic",
+    "confidence": 0.5551604628562927,
     "cluster_centroid": {
-      "valence": 0.49944444444444447,
-      "energy": 0.6887037037037037,
-      "danceability": 0.6186666666666667,
-      "acousticness": 0.14503811111111112,
-      "instrumentalness": 0.03023434481481481,
-      "tempo_norm": 0.4870312592592593
+      "valence": 0.22347142857142852,
+      "energy": 0.3537857142857143,
+      "danceability": 0.47564285714285715,
+      "acousticness": 0.6620714285714285,
+      "instrumentalness": 0.07551478571428571,
+      "tempo_norm": 0.4270191428571429
     },
     "recommended_tracks": [
       {
-        "track_id": "4yugZvBYaoREkJKtbG08Qr",
-        "track_name": "Take It Easy - 2013 Remaster",
-        "artist_name": "Eagles",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02c13acd642ba9f6f5f127aa1b"
+        "track_id": "4NdNOrfHfNIprOJ3Uq1l43",
+        "track_name": "Run With U",
+        "artist_name": "Mamagama",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0238358cd60bb4dc07780709fd"
       },
       {
-        "track_id": "51hmIcx4eHy7R60Gf99Dfj",
-        "track_name": "Hopeless",
-        "artist_name": "Nerv",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02512fbabc39ea7152b44193d2"
+        "track_id": "6gLcT75tkzUfFpQacxN5RQ",
+        "track_name": "Constellations - Slowed Down",
+        "artist_name": "Jade LeMac",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e028b02a2f49cbe35516c37a770"
       }
     ]
   },
@@ -171,16 +171,66 @@
       "time": "2025-12-29T11:30:00+00:00",
       "valence": 0.67,
       "energy": 0.875
+    },
+    {
+      "time": "2025-12-29T11:45:00+00:00",
+      "valence": 0.48875,
+      "energy": 0.5465
+    },
+    {
+      "time": "2025-12-29T12:00:00+00:00",
+      "valence": 0.0564,
+      "energy": 0.63
     }
   ],
   "recently_played": [
+    {
+      "track_id": "1OpOdEg82MpJHVbSVNBeeg",
+      "track_name": "I'm just a phase",
+      "artist_name": "EXOSSI",
+      "played_at": "2025-12-29T12:01:36.826000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0287faacb1e06215c980fdff28",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "5agpMV7rvg7Hf8IiX5kQXe",
+      "track_name": "Impacto",
+      "artist_name": "Enjambre, Denise Guti\u00e9rrez",
+      "played_at": "2025-12-29T11:59:37.034000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0266f128e383614b0aa4df5ebd",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "6EOKwO6WaLal58MSsi6U4W",
+      "track_name": "Eleanor Rigby",
+      "artist_name": "The Beatles",
+      "played_at": "2025-12-29T11:55:46.698000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02d807dd713cdfbeed142881e2",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "6UlwiHrZ6bDGDVhBN35hNP",
+      "track_name": "The Sense of Me",
+      "artist_name": "Mud Flow",
+      "played_at": "2025-12-29T11:53:45.853000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02c697a8e97bc1a535ad457d2c",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "1qwno7xb5mJe71xtMS6jl2",
+      "track_name": "High Enough",
+      "artist_name": "K.Flay",
+      "played_at": "2025-12-29T11:51:19.181000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02be9f834ad14e0d95a35a6981",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "29f1UUWRj3NCD1WAaDwAOr",
       "track_name": "Let It Happen - Radio Edit",
       "artist_name": "Tame Impala",
       "played_at": "2025-12-29T11:42:11.674000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e028e56484f6081de5403aa3722",
-      "mood_cluster_id": 0
+      "mood_cluster_id": 1
     },
     {
       "track_id": "6oofvZ4K8vBHnCT1oKERcd",
@@ -332,46 +382,6 @@
       "artist_name": "ThxSoMch",
       "played_at": "2025-12-28T13:03:28.735000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e0260ddc59c8d590a37cf2348f3",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1lau6K2YSP5APtkzNJxVyB",
-      "track_name": "dirty little secret",
-      "artist_name": "Artemas",
-      "played_at": "2025-12-28T13:00:56.877000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e028fe69d8df304ff053693653e",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "7FKLbfLP8JK1MXKRrYx4Kd",
-      "track_name": "i like the way you kiss me - burnt",
-      "artist_name": "Artemas",
-      "played_at": "2025-12-27T16:33:46.296000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02c88e6a4447087f41eb388b14",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "7M9WXdgZ3Ib4qck8HUPGLX",
-      "track_name": "Carolina Carol Bela",
-      "artist_name": "Rosalia De Souza",
-      "played_at": "2025-12-27T16:31:09.894000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02e11b97ec58418421047f424f",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3aMIgXaB04SzL68n4lMWLL",
-      "track_name": "Tom Tom",
-      "artist_name": "Holy Fuck",
-      "played_at": "2025-12-27T16:28:08.945000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02fdf976de3668b6f65c3f6f91",
-      "mood_cluster_id": 2
-    },
-    {
-      "track_id": "3MNYWKzMNhTV6rI5h9eyhn",
-      "track_name": "I GET IT",
-      "artist_name": "Moving in Silence, Lilaj, DaleoDaVinci",
-      "played_at": "2025-12-27T16:24:23.115000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e024ef238522656c4dadf29f58e",
       "mood_cluster_id": 0
     }
   ],
@@ -801,6 +811,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T11:42:33.592080"
+    "detection_date": "2025-12-29T12:46:57.939530"
   }
 }
