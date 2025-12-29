@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T21:41:40.811774",
+  "generated_at": "2025-12-29T22:21:24.813478",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,10 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "1Hq9DR1s1DZIlpNZMEFA0v",
-        "track_name": "UYUNI",
-        "artist_name": "Rels B",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e020e409fad9527196e73e423ba"
-      },
-      {
-        "track_id": "65Q73c4fCMrrGgjap0iYJs",
-        "track_name": "Chase You Down",
-        "artist_name": "Braxton Keith",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e027a60bc0169f76da21b837f04"
+        "track_id": "61lNxSCj38lvmZjJZuhXSt",
+        "track_name": "SAB\u00cdA QUE NO",
+        "artist_name": "reezy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
       }
     ]
   },
@@ -1067,6 +1061,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T21:41:40.802169"
+    "detection_date": "2025-12-29T22:21:24.803466"
   }
 }
