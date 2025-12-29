@@ -1,35 +1,29 @@
 {
-  "generated_at": "2025-12-29T19:39:31.391482",
+  "generated_at": "2025-12-29T20:25:53.610840",
   "next_prediction": {
-    "mood_cluster_id": 2,
-    "mood_label": "High energy, negative",
-    "confidence": 0.5315313935279846,
+    "mood_cluster_id": 0,
+    "mood_label": "High energy, neutral",
+    "confidence": 0.93646240234375,
     "cluster_centroid": {
-      "valence": 0.2667142857142857,
-      "energy": 0.7467142857142857,
-      "danceability": 0.5268571428571429,
-      "acousticness": 0.1001064285714286,
-      "instrumentalness": 0.7187142857142859,
-      "tempo_norm": 0.5007457142857143
+      "valence": 0.514,
+      "energy": 0.7153928571428572,
+      "danceability": 0.6451071428571429,
+      "acousticness": 0.10887317857142861,
+      "instrumentalness": 0.020352903928571406,
+      "tempo_norm": 0.4874415714285714
     },
     "recommended_tracks": [
       {
-        "track_id": "6mTnH6xSYwKohtsO9RFzcc",
-        "track_name": "We Are Mirage",
-        "artist_name": "Eric Prydz, Empire Of The Sun",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02012c188de1167b6a71c33a53"
+        "track_id": "61lNxSCj38lvmZjJZuhXSt",
+        "track_name": "SAB\u00cdA QUE NO",
+        "artist_name": "reezy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
       },
       {
-        "track_id": "7Js0AmjsKvj3QPSlm9oiXE",
-        "track_name": "III. OJAL\u00c1!",
-        "artist_name": "VIOLETA",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0226dd39b0c894ad4001cb835c"
-      },
-      {
-        "track_id": "4mE09lcPVFpyEIcNGsbHsX",
-        "track_name": "BEAT M\u00c1GICO QUE MEXE COM A SUA MENTE",
-        "artist_name": "DJ GUDOG, Mc Mascara",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02674f54f4b54ddedc89a5708d"
+        "track_id": "7jvCeWOSnJs2N3spqobWnO",
+        "track_name": "Skate",
+        "artist_name": "Bruno Mars, Anderson .Paak, Silk Sonic",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02fcf75ead8a32ac0020d2ce86"
       }
     ]
   },
@@ -139,11 +133,6 @@
   ],
   "mood_trajectory": [
     {
-      "time": "2025-12-28T19:30:00+00:00",
-      "valence": 0.41400000000000003,
-      "energy": 0.51
-    },
-    {
       "time": "2025-12-29T11:30:00+00:00",
       "valence": 0.67,
       "energy": 0.875
@@ -195,11 +184,32 @@
     },
     {
       "time": "2025-12-29T19:30:00+00:00",
-      "valence": 0.31433333333333335,
-      "energy": 0.5326666666666666
+      "valence": 0.28025,
+      "energy": 0.592
+    },
+    {
+      "time": "2025-12-29T19:45:00+00:00",
+      "valence": 0.218,
+      "energy": 0.532
     }
   ],
   "recently_played": [
+    {
+      "track_id": "0oxYB9GoOIDrdzniNdKC44",
+      "track_name": "When the Sun Hits",
+      "artist_name": "Slowdive",
+      "played_at": "2025-12-29T19:45:59.479000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02f6e31941d10e4819d290af41",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "2VtXANhW6YpAzsMDQCFkAv",
+      "track_name": "Your face",
+      "artist_name": "Wisp",
+      "played_at": "2025-12-29T19:41:18.541000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0293b67dcb944df8174fd8356a",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "2XynYulas10Wmef4Gqrxw9",
       "track_name": "Hate.",
@@ -383,22 +393,6 @@
       "played_at": "2025-12-29T13:28:55.293000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e0217997aeea63f3135e3c07e09",
       "mood_cluster_id": 0
-    },
-    {
-      "track_id": "10LXMq1UUDVh4h61xE2ELe",
-      "track_name": "washing machine heart - slowed",
-      "artist_name": "xaoc, fedo DJ, ciaffa",
-      "played_at": "2025-12-29T13:24:50.101000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0256de7f4a6fa9437de52c76eb",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1OpOdEg82MpJHVbSVNBeeg",
-      "track_name": "I'm just a phase",
-      "artist_name": "EXOSSI",
-      "played_at": "2025-12-29T12:01:36.826000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0287faacb1e06215c980fdff28",
-      "mood_cluster_id": 2
     }
   ],
   "metrics": {
@@ -1073,6 +1067,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T19:39:31.380831"
+    "detection_date": "2025-12-29T20:25:53.601135"
   }
 }
