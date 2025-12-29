@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T15:23:57.395697",
+  "generated_at": "2025-12-29T15:45:47.114014",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "5I2FIj9EDp0Fz32CJ9lZNF",
-        "track_name": "Tu la love",
-        "artist_name": "Jul",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0285d9fb2e7833cb239769c02d"
-      },
-      {
         "track_id": "7n3Czk07KugPQOWuqCHDmF",
         "track_name": "Teresa & Maria",
         "artist_name": "alyona alyona, Jerry Heil",
         "image_url": "https://i.scdn.co/image/ab67616d00001e0271f99b38ac1c81d04abc4203"
+      },
+      {
+        "track_id": "6ft4hAq6yde8jPZY2i5zLr",
+        "track_name": "Paradise (feat. Dermot Kennedy)",
+        "artist_name": "MEDUZA, Dermot Kennedy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02b6567be9f8b996a2b5f9b7fa"
       }
     ]
   },
@@ -1067,6 +1067,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T15:23:57.385897"
+    "detection_date": "2025-12-29T15:45:47.104061"
   }
 }
