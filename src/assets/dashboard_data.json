@@ -1,35 +1,35 @@
 {
-  "generated_at": "2025-12-29T19:18:12.660115",
+  "generated_at": "2025-12-29T19:39:31.391482",
   "next_prediction": {
-    "mood_cluster_id": 0,
-    "mood_label": "High energy, neutral",
-    "confidence": 0.4938105642795563,
+    "mood_cluster_id": 2,
+    "mood_label": "High energy, negative",
+    "confidence": 0.5315313935279846,
     "cluster_centroid": {
-      "valence": 0.514,
-      "energy": 0.7153928571428572,
-      "danceability": 0.6451071428571429,
-      "acousticness": 0.10887317857142861,
-      "instrumentalness": 0.020352903928571406,
-      "tempo_norm": 0.4874415714285714
+      "valence": 0.2667142857142857,
+      "energy": 0.7467142857142857,
+      "danceability": 0.5268571428571429,
+      "acousticness": 0.1001064285714286,
+      "instrumentalness": 0.7187142857142859,
+      "tempo_norm": 0.5007457142857143
     },
     "recommended_tracks": [
       {
-        "track_id": "4iZ4pt7kvcaH6Yo8UoZ4s2",
-        "track_name": "Snooze",
-        "artist_name": "SZA",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02bc18bdade69ec5ef0bb25b17"
+        "track_id": "6mTnH6xSYwKohtsO9RFzcc",
+        "track_name": "We Are Mirage",
+        "artist_name": "Eric Prydz, Empire Of The Sun",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02012c188de1167b6a71c33a53"
       },
       {
-        "track_id": "7vlpjaBWF5Rb7dr52OahOL",
-        "track_name": "Bad Guy",
-        "artist_name": "Blake Whiten",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e027992e01fdb1b8395c1df003b"
+        "track_id": "7Js0AmjsKvj3QPSlm9oiXE",
+        "track_name": "III. OJAL\u00c1!",
+        "artist_name": "VIOLETA",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0226dd39b0c894ad4001cb835c"
       },
       {
-        "track_id": "4E63weMCaNZuGPEFMnuEi8",
-        "track_name": "exes",
-        "artist_name": "Tate McRae",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02c4258b134ff5756932f9c46f"
+        "track_id": "4mE09lcPVFpyEIcNGsbHsX",
+        "track_name": "BEAT M\u00c1GICO QUE MEXE COM A SUA MENTE",
+        "artist_name": "DJ GUDOG, Mc Mascara",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02674f54f4b54ddedc89a5708d"
       }
     ]
   },
@@ -140,8 +140,8 @@
   "mood_trajectory": [
     {
       "time": "2025-12-28T19:30:00+00:00",
-      "valence": 0.2806,
-      "energy": 0.55
+      "valence": 0.41400000000000003,
+      "energy": 0.51
     },
     {
       "time": "2025-12-29T11:30:00+00:00",
@@ -190,11 +190,64 @@
     },
     {
       "time": "2025-12-29T19:15:00+00:00",
-      "valence": 0.148,
-      "energy": 0.739
+      "valence": 0.2495,
+      "energy": 0.6074999999999999
+    },
+    {
+      "time": "2025-12-29T19:30:00+00:00",
+      "valence": 0.31433333333333335,
+      "energy": 0.5326666666666666
     }
   ],
   "recently_played": [
+    {
+      "track_id": "2XynYulas10Wmef4Gqrxw9",
+      "track_name": "Hate.",
+      "artist_name": "ThxSoMch",
+      "played_at": "2025-12-29T19:37:34.075000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e029a60aa596ebddff13dc0e08b",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "4NgherJDfCXWBZBYheM4jK",
+      "track_name": "WASTE",
+      "artist_name": "KXLLSWXTCH",
+      "played_at": "2025-12-29T19:35:24.339000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02933ae980d2d8a06b53226231",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "0FVuyC9RP5MACjp4lgU3qZ",
+      "track_name": "I'm God",
+      "artist_name": "Clams Casino, Imogen Heap",
+      "played_at": "2025-12-29T19:33:36.607000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02d57e3b601a8171f7e122b2ea",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "2S2od3hT7ceytw7d1pTRuE",
+      "track_name": "Again (feat. XXXTENTACION)",
+      "artist_name": "Noah Cyrus, XXXTENTACION",
+      "played_at": "2025-12-29T19:28:56.210000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0249af7d5bfd29ae589a99e1cd",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5OGZ2Mx4Cs6RCndDRycGBJ",
+      "track_name": "Daylight",
+      "artist_name": "David Kushner",
+      "played_at": "2025-12-29T19:25:47.256000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02d010d5f2882bad368ee24403",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5E30LdtzQTGqRvNd7l6kG5",
+      "track_name": "Daddy Issues",
+      "artist_name": "The Neighbourhood",
+      "played_at": "2025-12-29T19:20:28.164000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e025260c62db020e5861a51556d",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "4k3xDpAdBuM17mNNHhOZkK",
       "track_name": "nuts",
@@ -346,54 +399,6 @@
       "played_at": "2025-12-29T12:01:36.826000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e0287faacb1e06215c980fdff28",
       "mood_cluster_id": 2
-    },
-    {
-      "track_id": "5agpMV7rvg7Hf8IiX5kQXe",
-      "track_name": "Impacto",
-      "artist_name": "Enjambre, Denise Guti\u00e9rrez",
-      "played_at": "2025-12-29T11:59:37.034000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0266f128e383614b0aa4df5ebd",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "6EOKwO6WaLal58MSsi6U4W",
-      "track_name": "Eleanor Rigby",
-      "artist_name": "The Beatles",
-      "played_at": "2025-12-29T11:55:46.698000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02d807dd713cdfbeed142881e2",
-      "mood_cluster_id": 2
-    },
-    {
-      "track_id": "6UlwiHrZ6bDGDVhBN35hNP",
-      "track_name": "The Sense of Me",
-      "artist_name": "Mud Flow",
-      "played_at": "2025-12-29T11:53:45.853000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02c697a8e97bc1a535ad457d2c",
-      "mood_cluster_id": 2
-    },
-    {
-      "track_id": "1qwno7xb5mJe71xtMS6jl2",
-      "track_name": "High Enough",
-      "artist_name": "K.Flay",
-      "played_at": "2025-12-29T11:51:19.181000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02be9f834ad14e0d95a35a6981",
-      "mood_cluster_id": 2
-    },
-    {
-      "track_id": "29f1UUWRj3NCD1WAaDwAOr",
-      "track_name": "Let It Happen - Radio Edit",
-      "artist_name": "Tame Impala",
-      "played_at": "2025-12-29T11:42:11.674000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e028e56484f6081de5403aa3722",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "6oofvZ4K8vBHnCT1oKERcd",
-      "track_name": "i walk this earth all by myself",
-      "artist_name": "EKKSTACY",
-      "played_at": "2025-12-28T19:43:55.178000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e028a4281dc0abc2b840e65bcfe",
-      "mood_cluster_id": 0
     }
   ],
   "metrics": {
@@ -1068,6 +1073,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T19:18:12.650129"
+    "detection_date": "2025-12-29T19:39:31.380831"
   }
 }
