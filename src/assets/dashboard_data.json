@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-29T18:32:30.691250",
+  "generated_at": "2025-12-29T19:18:12.660115",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
-    "confidence": 0.8999850153923035,
+    "confidence": 0.4938105642795563,
     "cluster_centroid": {
       "valence": 0.514,
       "energy": 0.7153928571428572,
@@ -14,16 +14,22 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "7xFy1kfgGWJWTpx1vSHBLi",
-        "track_name": "It Feels So Good",
-        "artist_name": "Matt Sassari, HUGEL, Sonique",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02aa7df9183be7f3bb8c8ad4bc"
+        "track_id": "4iZ4pt7kvcaH6Yo8UoZ4s2",
+        "track_name": "Snooze",
+        "artist_name": "SZA",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02bc18bdade69ec5ef0bb25b17"
       },
       {
-        "track_id": "1PNdJibg1adHD1pTpYBfGc",
-        "track_name": "Who (Shibuyakei Remix)",
-        "artist_name": "Jimin",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e027f35adfbec3bb2bc8256802b"
+        "track_id": "7vlpjaBWF5Rb7dr52OahOL",
+        "track_name": "Bad Guy",
+        "artist_name": "Blake Whiten",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e027992e01fdb1b8395c1df003b"
+      },
+      {
+        "track_id": "4E63weMCaNZuGPEFMnuEi8",
+        "track_name": "exes",
+        "artist_name": "Tate McRae",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02c4258b134ff5756932f9c46f"
       }
     ]
   },
@@ -48,23 +54,23 @@
     "17": 0.4395933151245117,
     "18": 0.09962524473667145,
     "19": 0.19991248846054077,
-    "20": 0.4556611180305481,
-    "21": 0.6606346368789673,
-    "22": 0.6792134642601013,
-    "23": 0.5262522101402283
+    "20": 0.09962524473667145,
+    "21": 0.10923539102077484,
+    "22": 0.6459651589393616,
+    "23": 0.5833913087844849
   },
   "top_hours": [
     {
       "hour": 22,
-      "probability": 0.6792134642601013
-    },
-    {
-      "hour": 21,
-      "probability": 0.6606346368789673
+      "probability": 0.6459651589393616
     },
     {
       "hour": 0,
       "probability": 0.603661835193634
+    },
+    {
+      "hour": 23,
+      "probability": 0.5833913087844849
     }
   ],
   "session_actual": {
@@ -87,7 +93,7 @@
     "16": 1.0,
     "17": 1.0,
     "18": 0.5,
-    "19": 0.5,
+    "19": 1.0,
     "20": 0.0,
     "21": 0.5,
     "22": 0.0,
@@ -181,9 +187,22 @@
       "time": "2025-12-29T17:30:00+00:00",
       "valence": 0.711,
       "energy": 0.6524
+    },
+    {
+      "time": "2025-12-29T19:15:00+00:00",
+      "valence": 0.148,
+      "energy": 0.739
     }
   ],
   "recently_played": [
+    {
+      "track_id": "4k3xDpAdBuM17mNNHhOZkK",
+      "track_name": "nuts",
+      "artist_name": "Lil Peep, rainy bear",
+      "played_at": "2025-12-29T19:16:13.009000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e029c40b3a3043a8f24403048a6",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "19XpFsce28aByvCC4g89tJ",
       "track_name": "Too Sweet",
@@ -375,14 +394,6 @@
       "played_at": "2025-12-28T19:43:55.178000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e028a4281dc0abc2b840e65bcfe",
       "mood_cluster_id": 0
-    },
-    {
-      "track_id": "5OGZ2Mx4Cs6RCndDRycGBJ",
-      "track_name": "Daylight",
-      "artist_name": "David Kushner",
-      "played_at": "2025-12-28T19:41:30.812000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02d010d5f2882bad368ee24403",
-      "mood_cluster_id": 1
     }
   ],
   "metrics": {
@@ -906,9 +917,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 3.084962500721157,
+        "recent": 3.085055102756477,
         "prior": 0.0,
-        "change": 3.084962500721157,
+        "change": 3.085055102756477,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -919,7 +930,7 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 3.0,
+        "recent": 3.25,
         "prior": 0.0,
         "pct_change": 0.0
       },
@@ -1025,7 +1036,7 @@
           "pct_change": 0.0
         },
         "19": {
-          "recent": 1.0,
+          "recent": 2.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1057,6 +1068,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T18:32:30.681311"
+    "detection_date": "2025-12-29T19:18:12.650129"
   }
 }
