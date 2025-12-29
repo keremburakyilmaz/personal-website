@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T16:27:45.475595",
+  "generated_at": "2025-12-29T16:51:39.374235",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -132,16 +132,6 @@
     }
   ],
   "mood_trajectory": [
-    {
-      "time": "2025-12-28T16:15:00+00:00",
-      "valence": 0.195,
-      "energy": 0.276
-    },
-    {
-      "time": "2025-12-28T16:30:00+00:00",
-      "valence": 0.3405,
-      "energy": 0.752
-    },
     {
       "time": "2025-12-28T17:00:00+00:00",
       "valence": 0.0551,
@@ -1067,6 +1057,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T16:27:45.465524"
+    "detection_date": "2025-12-29T16:51:39.364338"
   }
 }
