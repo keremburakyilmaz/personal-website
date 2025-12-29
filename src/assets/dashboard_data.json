@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-29T11:35:01.243646",
+  "generated_at": "2025-12-29T11:42:33.603378",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
-    "confidence": 0.6850528717041016,
+    "confidence": 0.5321362018585205,
     "cluster_centroid": {
       "valence": 0.49944444444444447,
       "energy": 0.6887037037037037,
@@ -14,16 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "1HFfMOxCAT4GAwaPfCdmUs",
-        "track_name": "Waves - Robin Schulz Radio Edit",
-        "artist_name": "Mr. Probz, Robin Schulz",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0220062cf8da0f580e9118b487"
+        "track_id": "4yugZvBYaoREkJKtbG08Qr",
+        "track_name": "Take It Easy - 2013 Remaster",
+        "artist_name": "Eagles",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02c13acd642ba9f6f5f127aa1b"
       },
       {
-        "track_id": "3zSnPhuucEb9JbFSxKVcIn",
-        "track_name": "we can't be friends (wait for your love)",
-        "artist_name": "Ariana Grande",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e025ab3c842fde848df7a4ee6d9"
+        "track_id": "51hmIcx4eHy7R60Gf99Dfj",
+        "track_name": "Hopeless",
+        "artist_name": "Nerv",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02512fbabc39ea7152b44193d2"
       }
     ]
   },
@@ -40,8 +40,8 @@
     "9": 0.18591876327991486,
     "10": 0.18591876327991486,
     "11": 0.18591876327991486,
-    "12": 0.18591876327991486,
-    "13": 0.18591876327991486,
+    "12": 0.04716598242521286,
+    "13": 0.14563103020191193,
     "14": 0.5474221706390381,
     "15": 0.5474221706390381,
     "16": 0.5474221706390381,
@@ -79,7 +79,7 @@
     "8": 0.0,
     "9": 0.0,
     "10": 0.0,
-    "11": 0.0,
+    "11": 0.5,
     "12": 0.0,
     "13": 0.5,
     "14": 0.5,
@@ -166,9 +166,22 @@
       "time": "2025-12-28T19:30:00+00:00",
       "valence": 0.2806,
       "energy": 0.55
+    },
+    {
+      "time": "2025-12-29T11:30:00+00:00",
+      "valence": 0.67,
+      "energy": 0.875
     }
   ],
   "recently_played": [
+    {
+      "track_id": "29f1UUWRj3NCD1WAaDwAOr",
+      "track_name": "Let It Happen - Radio Edit",
+      "artist_name": "Tame Impala",
+      "played_at": "2025-12-29T11:42:11.674000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e028e56484f6081de5403aa3722",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "6oofvZ4K8vBHnCT1oKERcd",
       "track_name": "i walk this earth all by myself",
@@ -359,14 +372,6 @@
       "artist_name": "Moving in Silence, Lilaj, DaleoDaVinci",
       "played_at": "2025-12-27T16:24:23.115000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e024ef238522656c4dadf29f58e",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3AoEQRuFf8zVXWqSLo2UOi",
-      "track_name": "CRAZY",
-      "artist_name": "LE SSERAFIM",
-      "played_at": "2025-12-27T16:22:16.558000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0213134929dd979f89b8f4f477",
       "mood_cluster_id": 0
     }
   ],
@@ -645,9 +650,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 2.9477027792200907,
+        "recent": 3.121928094887363,
         "prior": 0.0,
-        "change": 2.9477027792200907,
+        "change": 3.121928094887363,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -658,14 +663,14 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 3.0,
+        "recent": 2.5,
         "prior": 0.0,
         "pct_change": 0.0
       },
       "days_with_sessions": {
-        "recent": 0.42857142857142855,
+        "recent": 0.5714285714285714,
         "prior": 0.0,
-        "pct_change": 4285.714285714285
+        "pct_change": 5714.285714285714
       },
       "per_hour_frequency": {
         "0": {
@@ -724,7 +729,7 @@
           "pct_change": 0.0
         },
         "11": {
-          "recent": 0.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -792,10 +797,10 @@
       "drift_summary": {
         "drift_detected": true,
         "threshold": 20.0,
-        "max_pct_change": 4285.714285714285
+        "max_pct_change": 5714.285714285714
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T11:35:01.233811"
+    "detection_date": "2025-12-29T11:42:33.592080"
   }
 }
