@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T07:48:01.499291",
+  "generated_at": "2025-12-29T08:33:18.434730",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,22 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "062xVECDI7YZqOgdEtWlVs",
-        "track_name": "She Likes a Boy",
-        "artist_name": "Nxdia",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
+        "track_id": "3zSnPhuucEb9JbFSxKVcIn",
+        "track_name": "we can't be friends (wait for your love)",
+        "artist_name": "Ariana Grande",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e025ab3c842fde848df7a4ee6d9"
       },
       {
         "track_id": "33uKUpu9ZXsHhcxRLoxnWI",
         "track_name": "I know it won't work",
         "artist_name": "Gracie Abrams",
         "image_url": "https://i.scdn.co/image/ab67616d00001e020500294bb235c45c0a964d69"
+      },
+      {
+        "track_id": "062xVECDI7YZqOgdEtWlVs",
+        "track_name": "She Likes a Boy",
+        "artist_name": "Nxdia",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
       }
     ]
   },
@@ -796,6 +802,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T07:48:01.488685"
+    "detection_date": "2025-12-29T08:33:18.425166"
   }
 }
