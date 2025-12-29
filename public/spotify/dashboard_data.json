@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T04:50:52.760367",
+  "generated_at": "2025-12-29T05:30:12.218371",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -20,10 +20,16 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
       },
       {
-        "track_id": "1HFfMOxCAT4GAwaPfCdmUs",
-        "track_name": "Waves - Robin Schulz Radio Edit",
-        "artist_name": "Mr. Probz, Robin Schulz",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0220062cf8da0f580e9118b487"
+        "track_id": "09SJuGrR0qqmVvGqWIAiLe",
+        "track_name": "LUMIERE \u1be4 (con Izi, Ernia, Tony Boy, Astro)",
+        "artist_name": "MACE, Izi, Ernia, Tony Boy, Astro",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ed46b10906511b1329ee66ab"
+      },
+      {
+        "track_id": "33uKUpu9ZXsHhcxRLoxnWI",
+        "track_name": "I know it won't work",
+        "artist_name": "Gracie Abrams",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e020500294bb235c45c0a964d69"
       }
     ]
   },
@@ -796,6 +802,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T04:50:52.750908"
+    "detection_date": "2025-12-29T05:30:12.208401"
   }
 }
