@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T06:37:22.238256",
+  "generated_at": "2025-12-29T07:27:37.563663",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -20,10 +20,10 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e0220062cf8da0f580e9118b487"
       },
       {
-        "track_id": "062xVECDI7YZqOgdEtWlVs",
-        "track_name": "She Likes a Boy",
-        "artist_name": "Nxdia",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
+        "track_id": "09SJuGrR0qqmVvGqWIAiLe",
+        "track_name": "LUMIERE \u1be4 (con Izi, Ernia, Tony Boy, Astro)",
+        "artist_name": "MACE, Izi, Ernia, Tony Boy, Astro",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ed46b10906511b1329ee66ab"
       }
     ]
   },
@@ -796,6 +796,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T06:37:22.228517"
+    "detection_date": "2025-12-29T07:27:37.554155"
   }
 }
