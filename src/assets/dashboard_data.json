@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T14:23:37.560524",
+  "generated_at": "2025-12-29T14:49:03.849823",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "1YLzM2u0jpPxKTcrovSSZP",
-        "track_name": "DIRTY LITTLE SECRET",
-        "artist_name": "Nessa Barrett",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02ec986c9ffb3a50b5f987d8a8"
+        "track_id": "7n3Czk07KugPQOWuqCHDmF",
+        "track_name": "Teresa & Maria",
+        "artist_name": "alyona alyona, Jerry Heil",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0271f99b38ac1c81d04abc4203"
       },
       {
-        "track_id": "6ft4hAq6yde8jPZY2i5zLr",
-        "track_name": "Paradise (feat. Dermot Kennedy)",
-        "artist_name": "MEDUZA, Dermot Kennedy",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02b6567be9f8b996a2b5f9b7fa"
+        "track_id": "5uRcV3nL9rfyr4o3zgo3Yo",
+        "track_name": "WKR\u00d3TCE",
+        "artist_name": "Quebonafide, OKI, Tropical Soldiers in Paradise",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e025133636c74d80d7a65e6a846"
       },
       {
         "track_id": "5I2FIj9EDp0Fz32CJ9lZNF",
@@ -827,6 +827,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T14:23:37.550497"
+    "detection_date": "2025-12-29T14:49:03.839919"
   }
 }
