@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T17:43:48.354674",
+  "generated_at": "2025-12-29T17:45:53.987977",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,22 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "1lzB5qrIA9GBH8cq5mZCSw",
-        "track_name": "KHE CALOR",
-        "artist_name": "Danna Paola",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0259235191072f794b8978b336"
-      },
-      {
-        "track_id": "5HGxLtYxTriF7mMiriSpaz",
-        "track_name": "You Were Right",
-        "artist_name": "R\u00dcF\u00dcS DU SOL",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0260e5059dcab339142d7642bb"
-      },
-      {
         "track_id": "1PNdJibg1adHD1pTpYBfGc",
         "track_name": "Who (Shibuyakei Remix)",
         "artist_name": "Jimin",
         "image_url": "https://i.scdn.co/image/ab67616d00001e027f35adfbec3bb2bc8256802b"
+      },
+      {
+        "track_id": "1lzB5qrIA9GBH8cq5mZCSw",
+        "track_name": "KHE CALOR",
+        "artist_name": "Danna Paola",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0259235191072f794b8978b336"
       }
     ]
   },
@@ -1063,6 +1057,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T17:43:48.345228"
+    "detection_date": "2025-12-29T17:45:53.978083"
   }
 }
