@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-29T10:25:35.819766",
+  "generated_at": "2025-12-29T10:50:22.227259",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -24,6 +24,12 @@
         "track_name": "She Likes a Boy",
         "artist_name": "Nxdia",
         "image_url": "https://i.scdn.co/image/ab67616d00001e023a4439f19834325850273095"
+      },
+      {
+        "track_id": "3zSnPhuucEb9JbFSxKVcIn",
+        "track_name": "we can't be friends (wait for your love)",
+        "artist_name": "Ariana Grande",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e025ab3c842fde848df7a4ee6d9"
       }
     ]
   },
@@ -796,6 +802,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T10:25:35.809853"
+    "detection_date": "2025-12-29T10:50:22.218055"
   }
 }
