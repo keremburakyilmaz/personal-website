@@ -2,14 +2,55 @@ import { useState, useEffect } from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Cell } from 'recharts';
 import './SpotifyBrain.css';
 import dashboardData from '../../assets/dashboard_data.json';
+import { useSpotifyPlayer } from '../../contexts/SpotifyPlayerContext';
 
 export default function SpotifyBrain() {
   const [data, setData] = useState(null);
   const [currentHour, setCurrentHour] = useState(new Date().getHours());
+  const [playingTrackId, setPlayingTrackId] = useState(null);
+  
+  const {
+    isReady,
+    isPlaying,
+    currentTrack,
+    isAuthenticated,
+    hasPremium,
+    isAuthenticating,
+    isInitializing,
+    error,
+    playTrack,
+    togglePlay,
+    login,
+    logout,
+    clearError
+  } = useSpotifyPlayer();
 
   useEffect(() => {
     setData(dashboardData);
   }, []);
+
+  // Update playing track ID based on current track from player
+  useEffect(() => {
+    if (currentTrack && isPlaying) {
+      setPlayingTrackId(currentTrack.id);
+    } else if (!isPlaying) {
+      setPlayingTrackId(null);
+    }
+  }, [currentTrack, isPlaying]);
+
+  // Handle play button click
+  const handlePlayClick = async (trackId) => {
+    if (!isReady) return;
+    
+    if (playingTrackId === trackId && isPlaying) {
+      // If same track is playing, pause it
+      await togglePlay();
+    } else {
+      // Play new track
+      await playTrack(trackId);
+      setPlayingTrackId(trackId);
+    }
+  };
 
   // Update current hour periodically to keep the highlight accurate
   useEffect(() => {
@@ -163,6 +204,66 @@ export default function SpotifyBrain() {
         </p>
       </div>
 
+      {/* Spotify Player Authentication Bar */}
+      <div className="spotify-player-bar">
+        {isInitializing ? (
+          <div className="player-status">
+            <div className="loading-spinner"></div>
+            <span>Initializing player...</span>
+          </div>
+        ) : isAuthenticating ? (
+          <div className="player-status">
+            <div className="loading-spinner"></div>
+            <span>Authenticating with Spotify...</span>
+          </div>
+        ) : !isAuthenticated ? (
+          <div className="login-prompt">
+            <div className="login-prompt-content">
+              <svg className="spotify-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+              <span>Connect with Spotify to play tracks</span>
+              <button className="spotify-login-button" onClick={login}>
+                <span>Login with Spotify</span>
+              </button>
+            </div>
+            <p className="premium-note">Requires Spotify Premium</p>
+          </div>
+        ) : !hasPremium ? (
+          <div className="premium-required">
+            <svg className="warning-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+            <span>Spotify Premium is required for playback</span>
+            <button className="spotify-logout-button" onClick={logout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="player-connected">
+            <div className="player-status-indicator">
+              <span className={`status-dot ${isReady ? 'ready' : 'connecting'}`}></span>
+              <span>{isReady ? 'Player Ready' : 'Connecting...'}</span>
+            </div>
+            {currentTrack && (
+              <div className="now-playing-info">
+                <span className="now-playing-label">Now Playing:</span>
+                <span className="now-playing-track">{currentTrack.name} - {currentTrack.artist}</span>
+              </div>
+            )}
+            <button className="spotify-logout-button" onClick={logout}>
+              Logout
+            </button>
+          </div>
+        )}
+        {error && (
+          <div className="player-error">
+            <span>{error}</span>
+            <button className="error-dismiss" onClick={clearError}>×</button>
+          </div>
+        )}
+      </div>
+
       <div className="dashboard-layout">
         {/* 2xn Grid */}
         <div className="dashboard-grid">
@@ -184,20 +285,40 @@ export default function SpotifyBrain() {
                 const moodLabel = (data.mood_clusters || []).find(c => c.cluster_id === track.mood_cluster_id)?.label || `Cluster ${track.mood_cluster_id}`;
                 const moodColor = getMoodColor(safeNumber(track.mood_cluster_id, 0), totalClusters);
                 
+                const isCurrentlyPlaying = playingTrackId === track.track_id && isPlaying;
+                
                 return (
-                  <div key={`${track.track_id}-${index}`} className="recently-played-card-item">
+                  <div key={`${track.track_id}-${index}`} className={`recently-played-card-item ${isCurrentlyPlaying ? 'now-playing' : ''}`}>
                     <div className="card-album-art">
-                  <img 
-                    src={track.image_url} 
-                    alt={`${track.track_name} by ${track.artist_name}`}
-                    onError={(e) => {
+                      <img 
+                        src={track.image_url} 
+                        alt={`${track.track_name} by ${track.artist_name}`}
+                        onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/200?text=No+Image';
-                    }}
-                  />
+                        }}
+                      />
+                      {isReady && track.track_id && (
+                        <button 
+                          className={`play-button-overlay ${isCurrentlyPlaying ? 'playing' : ''}`}
+                          onClick={() => handlePlayClick(track.track_id)}
+                          aria-label={isCurrentlyPlaying ? 'Pause' : 'Play'}
+                        >
+                          {isCurrentlyPlaying ? (
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                              <rect x="6" y="4" width="4" height="16" rx="1" />
+                              <rect x="14" y="4" width="4" height="16" rx="1" />
+                            </svg>
+                          ) : (
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                              <polygon points="5,3 19,12 5,21" />
+                            </svg>
+                          )}
+                        </button>
+                      )}
                       {track.mood_cluster_id !== undefined && (
                         <div className="card-mood-tag" style={{ backgroundColor: moodColor }}>
                           {moodLabel}
-                  </div>
+                        </div>
                       )}
                     </div>
                     <div className="card-info">
@@ -242,27 +363,45 @@ export default function SpotifyBrain() {
               <div className="recommended-tracks-section">
                 <h3 className="recommended-tracks-title">Recommended Tracks</h3>
                 <div className="recommended-tracks-grid">
-                  {nextPrediction.recommended_tracks.slice(0, 3).map((track, index) => (
-                    <div key={track.track_id || index} className="recommended-track-card">
-                      <img 
-                        src={track.image_url} 
-                        alt={`${track.track_name} by ${track.artist_name}`}
-                        className="recommended-track-image"
-                        onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/150?text=No+Image';
-                        }}
-                      />
-                      <div className="recommended-track-info">
-                        <div className="recommended-track-name">{track.track_name}</div>
-                        <div className="recommended-track-artist">{track.artist_name}</div>
-                        {track.confidence_score !== undefined && (
-                          <div className="recommended-track-confidence">
-                            {safeToFixed(track.confidence_score * 100, 0)}% match
-                          </div>
-                        )}
+                  {nextPrediction.recommended_tracks.slice(0, 3).map((track, index) => {
+                    const isTrackPlaying = playingTrackId === track.track_id && isPlaying;
+                    return (
+                      <div key={track.track_id || index} className={`recommended-track-card ${isTrackPlaying ? 'now-playing' : ''}`}>
+                        <div className="recommended-track-image-container">
+                          <img 
+                            src={track.image_url} 
+                            alt={`${track.track_name} by ${track.artist_name}`}
+                            className="recommended-track-image"
+                            onError={(e) => {
+                              e.target.src = 'https://via.placeholder.com/150?text=No+Image';
+                            }}
+                          />
+                          {isReady && track.track_id && (
+                            <button 
+                              className={`play-button-overlay small ${isTrackPlaying ? 'playing' : ''}`}
+                              onClick={() => handlePlayClick(track.track_id)}
+                              aria-label={isTrackPlaying ? 'Pause' : 'Play'}
+                            >
+                              {isTrackPlaying ? (
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                  <rect x="6" y="4" width="4" height="16" rx="1" />
+                                  <rect x="14" y="4" width="4" height="16" rx="1" />
+                                </svg>
+                              ) : (
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                  <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                              )}
+                            </button>
+                          )}
+                        </div>
+                        <div className="recommended-track-info">
+                          <div className="recommended-track-name">{track.track_name}</div>
+                          <div className="recommended-track-artist">{track.artist_name}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
