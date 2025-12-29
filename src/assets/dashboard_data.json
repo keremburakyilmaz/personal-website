@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-29T17:19:54.375611",
+  "generated_at": "2025-12-29T17:43:48.354674",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
-    "confidence": 0.982740044593811,
+    "confidence": 0.8999850153923035,
     "cluster_centroid": {
       "valence": 0.514,
       "energy": 0.7153928571428572,
@@ -14,16 +14,22 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "5I2FIj9EDp0Fz32CJ9lZNF",
-        "track_name": "Tu la love",
-        "artist_name": "Jul",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0285d9fb2e7833cb239769c02d"
+        "track_id": "1lzB5qrIA9GBH8cq5mZCSw",
+        "track_name": "KHE CALOR",
+        "artist_name": "Danna Paola",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0259235191072f794b8978b336"
       },
       {
-        "track_id": "7n3Czk07KugPQOWuqCHDmF",
-        "track_name": "Teresa & Maria",
-        "artist_name": "alyona alyona, Jerry Heil",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0271f99b38ac1c81d04abc4203"
+        "track_id": "5HGxLtYxTriF7mMiriSpaz",
+        "track_name": "You Were Right",
+        "artist_name": "R\u00dcF\u00dcS DU SOL",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0260e5059dcab339142d7642bb"
+      },
+      {
+        "track_id": "1PNdJibg1adHD1pTpYBfGc",
+        "track_name": "Who (Shibuyakei Remix)",
+        "artist_name": "Jimin",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e027f35adfbec3bb2bc8256802b"
       }
     ]
   },
@@ -46,21 +52,21 @@
     "15": 0.04384281858801842,
     "16": 0.42370399832725525,
     "17": 0.4395933151245117,
-    "18": 0.47566527128219604,
-    "19": 0.4051995575428009,
-    "20": 0.4217865765094757,
-    "21": 0.613898515701294,
-    "22": 0.613898515701294,
+    "18": 0.09962524473667145,
+    "19": 0.19991248846054077,
+    "20": 0.4556611180305481,
+    "21": 0.6606346368789673,
+    "22": 0.6792134642601013,
     "23": 0.5262522101402283
   },
   "top_hours": [
     {
-      "hour": 21,
-      "probability": 0.613898515701294
+      "hour": 22,
+      "probability": 0.6792134642601013
     },
     {
-      "hour": 22,
-      "probability": 0.613898515701294
+      "hour": 21,
+      "probability": 0.6606346368789673
     },
     {
       "hour": 0,
@@ -85,7 +91,7 @@
     "14": 0.5,
     "15": 0.0,
     "16": 1.0,
-    "17": 0.5,
+    "17": 1.0,
     "18": 0.5,
     "19": 0.5,
     "20": 0.0,
@@ -133,11 +139,6 @@
   ],
   "mood_trajectory": [
     {
-      "time": "2025-12-28T17:15:00+00:00",
-      "valence": 0.35433333333333333,
-      "energy": 0.6853333333333333
-    },
-    {
       "time": "2025-12-28T19:30:00+00:00",
       "valence": 0.2806,
       "energy": 0.55
@@ -176,9 +177,67 @@
       "time": "2025-12-29T14:00:00+00:00",
       "valence": 0.3745,
       "energy": 0.63
+    },
+    {
+      "time": "2025-12-29T17:15:00+00:00",
+      "valence": 0.762,
+      "energy": 0.583
+    },
+    {
+      "time": "2025-12-29T17:30:00+00:00",
+      "valence": 0.711,
+      "energy": 0.6524
     }
   ],
   "recently_played": [
+    {
+      "track_id": "19XpFsce28aByvCC4g89tJ",
+      "track_name": "Too Sweet",
+      "artist_name": "Hozier",
+      "played_at": "2025-12-29T17:41:42.055000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02b07bd43d1bec442c7fcc4d1e",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5AJ9hqTS2wcFQCELCFRO7A",
+      "track_name": "MILLION DOLLAR BABY",
+      "artist_name": "Tommy Richman",
+      "played_at": "2025-12-29T17:37:56.985000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0201c0cd5da820e6128655854f",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "3QJsSWa0Xo8MfaRn1gr4Be",
+      "track_name": "Favorite",
+      "artist_name": "Isabel LaRosa",
+      "played_at": "2025-12-29T17:35:25.843000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02c055ed2d667f03ae6b35bdc2",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "0o2Jngx6YVivDjE6RqqFlF",
+      "track_name": "roxstar",
+      "artist_name": "raspy, Bangers Only",
+      "played_at": "2025-12-29T17:33:22.879000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e027a6fd747a5f782ed517b60fc",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "1NXbNEAcPvY5G1xvfN57aA",
+      "track_name": "Dracula",
+      "artist_name": "Tame Impala",
+      "played_at": "2025-12-29T17:30:54.977000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02208500450dcd0fd294d7bd3b",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "3yUcJwYu7fXAfqMj9krY6l",
+      "track_name": "Thank You",
+      "artist_name": "Dido",
+      "played_at": "2025-12-29T17:27:25.003000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e023e5cbf3b3ac5905cb68377d5",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "61OJxhoY3Ix50rYVKo8zRK",
       "track_name": "Can I Call You Tonight?",
@@ -330,54 +389,6 @@
       "played_at": "2025-12-28T19:41:30.812000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02d010d5f2882bad368ee24403",
       "mood_cluster_id": 1
-    },
-    {
-      "track_id": "00WLowvlN5cjkYpQV6pjo4",
-      "track_name": "Die For You",
-      "artist_name": "Joji",
-      "played_at": "2025-12-28T19:38:02.842000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02cdd1a8a427b3f81f4f4f4f7d",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3qoVMvagQJ9C2pXaA8lC8C",
-      "track_name": "Leaving Tonight",
-      "artist_name": "The Neighbourhood",
-      "played_at": "2025-12-28T19:34:37.713000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02354be6d543058b65075b9d16",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1xK59OXxi2TAAAbmZK0kBL",
-      "track_name": "Romantic Homicide",
-      "artist_name": "d4vd",
-      "played_at": "2025-12-28T19:31:17.866000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02bd1a52b3d5903ee01c216da0",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "5RBOcBpJXaNnHCGViJmYhh",
-      "track_name": "The Perfect Girl",
-      "artist_name": "Mareux",
-      "played_at": "2025-12-28T17:27:56.078000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e023d54a30e59638f60f56dd4e6",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "0pxPNTroZcxXA0w6IDgMQJ",
-      "track_name": "A Little Death",
-      "artist_name": "The Neighbourhood",
-      "played_at": "2025-12-28T17:24:45.579000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02354be6d543058b65075b9d16",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "5XeFesFbtLpXzIVDNQP22n",
-      "track_name": "I Wanna Be Yours",
-      "artist_name": "Arctic Monkeys",
-      "played_at": "2025-12-28T17:21:22.821000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e024ae1c4c5c45aabe565499163",
-      "mood_cluster_id": 0
     }
   ],
   "metrics": {
@@ -901,9 +912,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 3.095795255000934,
+        "recent": 3.084962500721157,
         "prior": 0.0,
-        "change": 3.095795255000934,
+        "change": 3.084962500721157,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -914,7 +925,7 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 2.75,
+        "recent": 3.0,
         "prior": 0.0,
         "pct_change": 0.0
       },
@@ -1010,7 +1021,7 @@
           "pct_change": 0.0
         },
         "17": {
-          "recent": 1.0,
+          "recent": 2.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1052,6 +1063,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T17:19:54.362943"
+    "detection_date": "2025-12-29T17:43:48.345228"
   }
 }
