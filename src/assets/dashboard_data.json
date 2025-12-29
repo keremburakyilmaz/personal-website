@@ -1,29 +1,29 @@
 {
-  "generated_at": "2025-12-29T12:46:57.949376",
+  "generated_at": "2025-12-29T13:38:39.176508",
   "next_prediction": {
-    "mood_cluster_id": 1,
-    "mood_label": "Low energy, negative, acoustic",
-    "confidence": 0.5551604628562927,
+    "mood_cluster_id": 0,
+    "mood_label": "High energy, neutral",
+    "confidence": 0.5932140350341797,
     "cluster_centroid": {
-      "valence": 0.22347142857142852,
-      "energy": 0.3537857142857143,
-      "danceability": 0.47564285714285715,
-      "acousticness": 0.6620714285714285,
-      "instrumentalness": 0.07551478571428571,
-      "tempo_norm": 0.4270191428571429
+      "valence": 0.49944444444444447,
+      "energy": 0.6887037037037037,
+      "danceability": 0.6186666666666667,
+      "acousticness": 0.14503811111111112,
+      "instrumentalness": 0.03023434481481481,
+      "tempo_norm": 0.4870312592592593
     },
     "recommended_tracks": [
       {
-        "track_id": "4NdNOrfHfNIprOJ3Uq1l43",
-        "track_name": "Run With U",
-        "artist_name": "Mamagama",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0238358cd60bb4dc07780709fd"
+        "track_id": "2nRra8cH1734aiodtOWWzF",
+        "track_name": "Yours & Mine",
+        "artist_name": "Zimmer90",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0207c37cca87d6eec570ed9a90"
       },
       {
-        "track_id": "6gLcT75tkzUfFpQacxN5RQ",
-        "track_name": "Constellations - Slowed Down",
-        "artist_name": "Jade LeMac",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e028b02a2f49cbe35516c37a770"
+        "track_id": "2K2jYYM9W8ndtP6PUxy2pc",
+        "track_name": "MESELA",
+        "artist_name": "S\u0131la",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0271f47ed3b2c855860dff5425"
       }
     ]
   },
@@ -42,8 +42,8 @@
     "11": 0.18591876327991486,
     "12": 0.04716598242521286,
     "13": 0.14563103020191193,
-    "14": 0.5474221706390381,
-    "15": 0.5474221706390381,
+    "14": 0.18550795316696167,
+    "15": 0.4744532108306885,
     "16": 0.5474221706390381,
     "17": 0.47277912497520447,
     "18": 0.47277912497520447,
@@ -55,16 +55,16 @@
   },
   "top_hours": [
     {
-      "hour": 14,
+      "hour": 16,
       "probability": 0.5474221706390381
     },
     {
       "hour": 15,
-      "probability": 0.5474221706390381
+      "probability": 0.4744532108306885
     },
     {
-      "hour": 16,
-      "probability": 0.5474221706390381
+      "hour": 17,
+      "probability": 0.47277912497520447
     }
   ],
   "session_actual": {
@@ -81,7 +81,7 @@
     "10": 0.0,
     "11": 0.5,
     "12": 0.0,
-    "13": 0.5,
+    "13": 1.0,
     "14": 0.5,
     "15": 0.0,
     "16": 1.0,
@@ -133,16 +133,6 @@
   ],
   "mood_trajectory": [
     {
-      "time": "2025-12-28T13:00:00+00:00",
-      "valence": 0.525,
-      "energy": 0.6557999999999999
-    },
-    {
-      "time": "2025-12-28T13:15:00+00:00",
-      "valence": 0.16549999999999998,
-      "energy": 0.802
-    },
-    {
       "time": "2025-12-28T16:15:00+00:00",
       "valence": 0.195,
       "energy": 0.276
@@ -181,9 +171,51 @@
       "time": "2025-12-29T12:00:00+00:00",
       "valence": 0.0564,
       "energy": 0.63
+    },
+    {
+      "time": "2025-12-29T13:15:00+00:00",
+      "valence": 0.47050000000000003,
+      "energy": 0.7565
+    },
+    {
+      "time": "2025-12-29T13:30:00+00:00",
+      "valence": 0.311,
+      "energy": 0.6445000000000001
     }
   ],
   "recently_played": [
+    {
+      "track_id": "4F0yqBqEJxs6RT85vob5To",
+      "track_name": "Cheri Cheri Lady - Slowed",
+      "artist_name": "lilster",
+      "played_at": "2025-12-29T13:36:30.542000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e029b51eda77deccfe6e6c479d3",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "1G9JPizhAsNgb3dqNMfy8O",
+      "track_name": "Capsize",
+      "artist_name": "Big Black Delta",
+      "played_at": "2025-12-29T13:32:44.567000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0255682c37d7d54c3403aa9186",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "2QUlMbvD9bL8wHqfsoqoet",
+      "track_name": "Stop The World I Wanna Get Off With You",
+      "artist_name": "Arctic Monkeys",
+      "played_at": "2025-12-29T13:28:55.293000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0217997aeea63f3135e3c07e09",
+      "mood_cluster_id": 1
+    },
+    {
+      "track_id": "10LXMq1UUDVh4h61xE2ELe",
+      "track_name": "washing machine heart - slowed",
+      "artist_name": "xaoc, fedo DJ, ciaffa",
+      "played_at": "2025-12-29T13:24:50.101000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0256de7f4a6fa9437de52c76eb",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "1OpOdEg82MpJHVbSVNBeeg",
       "track_name": "I'm just a phase",
@@ -351,38 +383,6 @@
       "played_at": "2025-12-28T13:16:34.803000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02bbaf9de6c418a0aa6cb7b938",
       "mood_cluster_id": 1
-    },
-    {
-      "track_id": "1uAOCTevGnyKIDbgZdOCnE",
-      "track_name": "Voil\u00e0",
-      "artist_name": "Barbara Pravi",
-      "played_at": "2025-12-28T13:13:12.853000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02fa511f0d07b9aa8bdab3abe3",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "7ghKr0pCYyPPyp7t1FH8k4",
-      "track_name": "Les",
-      "artist_name": "Childish Gambino",
-      "played_at": "2025-12-28T13:10:29.038000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e026182cfe2e2a090d125c81dc0",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "4S4QJfBGGrC8jRIjJHf1Ka",
-      "track_name": "Pain",
-      "artist_name": "PinkPantheress",
-      "played_at": "2025-12-28T13:05:09.975000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0212c2eefb1d28509c632d915d",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1N8TTK1Uoy7UvQNUazfUt5",
-      "track_name": "SPIT IN MY FACE!",
-      "artist_name": "ThxSoMch",
-      "played_at": "2025-12-28T13:03:28.735000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0260ddc59c8d590a37cf2348f3",
-      "mood_cluster_id": 0
     }
   ],
   "metrics": {
@@ -660,9 +660,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 3.121928094887363,
+        "recent": 3.095795255000934,
         "prior": 0.0,
-        "change": 3.121928094887363,
+        "change": 3.095795255000934,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -673,7 +673,7 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 2.5,
+        "recent": 2.75,
         "prior": 0.0,
         "pct_change": 0.0
       },
@@ -749,7 +749,7 @@
           "pct_change": 0.0
         },
         "13": {
-          "recent": 1.0,
+          "recent": 2.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -811,6 +811,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T12:46:57.939530"
+    "detection_date": "2025-12-29T13:38:39.166767"
   }
 }
