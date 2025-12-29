@@ -1,35 +1,35 @@
 {
-  "generated_at": "2025-12-29T13:52:56.636503",
+  "generated_at": "2025-12-29T14:02:01.409532",
   "next_prediction": {
-    "mood_cluster_id": 2,
-    "mood_label": "High energy, negative",
-    "confidence": 0.42627251148223877,
+    "mood_cluster_id": 0,
+    "mood_label": "High energy, neutral",
+    "confidence": 0.7665424346923828,
     "cluster_centroid": {
-      "valence": 0.3426666666666667,
-      "energy": 0.7086666666666667,
-      "danceability": 0.5393333333333333,
-      "acousticness": 0.025451666666666706,
-      "instrumentalness": 0.8456666666666667,
-      "tempo_norm": 0.496024
+      "valence": 0.49944444444444447,
+      "energy": 0.6887037037037037,
+      "danceability": 0.6186666666666667,
+      "acousticness": 0.14503811111111112,
+      "instrumentalness": 0.03023434481481481,
+      "tempo_norm": 0.4870312592592593
     },
     "recommended_tracks": [
       {
-        "track_id": "5Ck3e6z1bcSCes5gdo0Ddt",
-        "track_name": "Bed Peace",
-        "artist_name": "Jhen\u00e9 Aiko, Childish Gambino",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02a0fa057b8ad3f3c4969f0c97"
+        "track_id": "12BAxMbHzksw2xiq05gKtT",
+        "track_name": "Sweet Relief",
+        "artist_name": "Madison Beer",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02cce741931c17fe160736ca2a"
       },
       {
-        "track_id": "66tNDqYNR2S6Svwgm3BMi9",
-        "track_name": "Cabeza",
-        "artist_name": "OBOY",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e027eff5db797a21263e3d9b741"
+        "track_id": "3CpaYsotb6gvM1RGtksLlr",
+        "track_name": "VOLTA",
+        "artist_name": "T-Rex",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e020841a7232ee1b0d13b9bf411"
       },
       {
-        "track_id": "1MqzIgGsHP4cNjPboevsfq",
-        "track_name": "Tourner Dans Le Vide",
-        "artist_name": "Indila",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e024ae8ff731c49965bf2083405"
+        "track_id": "2pjbeDLKz2C7Cu7f3Mjw2c",
+        "track_name": "Warbringer",
+        "artist_name": "TheFatRat, Everen Maxwell, Lindsey Stirling",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0234666061eea81fa4b36ba2b9"
       }
     ]
   },
@@ -190,18 +190,47 @@
     },
     {
       "time": "2025-12-29T13:45:00+00:00",
-      "valence": 0.104,
-      "energy": 0.652
+      "valence": 0.25666666666666665,
+      "energy": 0.7216666666666667
+    },
+    {
+      "time": "2025-12-29T14:00:00+00:00",
+      "valence": 0.25,
+      "energy": 0.418
     }
   ],
   "recently_played": [
+    {
+      "track_id": "2tsKzaCFIjssEjFW9ViG1T",
+      "track_name": "Come Home - Sped Up",
+      "artist_name": "Jace June",
+      "played_at": "2025-12-29T14:00:58.681000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e024b6392c86a48b7b0f92dbf82",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "7i0A78v4nXJkWLcD1Lx0fQ",
+      "track_name": "Ghost",
+      "artist_name": "BoyWithUke",
+      "played_at": "2025-12-29T13:58:43.093000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02661c91263dcc137f9fc7e6cb",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "1nMpuUZl8hNmdHUpqZgbt5",
+      "track_name": "Intro",
+      "artist_name": "alt-J",
+      "played_at": "2025-12-29T13:54:49.937000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e021e1ca90cd8fdbb0ac890a926",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "3ZaEs1O8BG581qYPHpQ8d6",
       "track_name": "I Smoked Away My Brain (I'm God x Demons Mashup) (feat. Imogen Heap & Clams Casino)",
       "artist_name": "A$AP Rocky, Imogen Heap, Clams Casino",
       "played_at": "2025-12-29T13:47:37.838000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e022bb4bbf62bc82d2f4ce59397",
-      "mood_cluster_id": 2
+      "mood_cluster_id": 0
     },
     {
       "track_id": "4WkIjNZeFZBLuLiYadEm10",
@@ -370,30 +399,6 @@
       "played_at": "2025-12-28T17:17:29.447000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e029c40b3a3043a8f24403048a6",
       "mood_cluster_id": 0
-    },
-    {
-      "track_id": "08wnOyN1wyMaNrup3m353f",
-      "track_name": "My Tears Are Becoming a Sea",
-      "artist_name": "M83",
-      "played_at": "2025-12-28T17:14:25.278000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0262100064780b1d919a95fcf4",
-      "mood_cluster_id": 1
-    },
-    {
-      "track_id": "2xql0pid3EUwW38AsywxhV",
-      "track_name": "Reflections",
-      "artist_name": "The Neighbourhood",
-      "played_at": "2025-12-28T16:36:36.093000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e029b6ac98a52f62d5cb473da40",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "7fqjWHXf330QwnfaAWB2Dr",
-      "track_name": "Dark Beach",
-      "artist_name": "Pastel Ghost",
-      "played_at": "2025-12-28T16:32:37.361000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e026bbea59f1d07d69f8ca5350b",
-      "mood_cluster_id": 2
     }
   ],
   "metrics": {
@@ -822,6 +827,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-29T13:52:56.626516"
+    "detection_date": "2025-12-29T14:02:01.398823"
   }
 }
