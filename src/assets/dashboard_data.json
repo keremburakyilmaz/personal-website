@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-30T12:45:52.574281",
+  "generated_at": "2025-12-30T13:37:18.973545",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,12 +14,6 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "61lNxSCj38lvmZjJZuhXSt",
-        "track_name": "SAB\u00cdA QUE NO",
-        "artist_name": "reezy",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
-      },
-      {
         "track_id": "7jvCeWOSnJs2N3spqobWnO",
         "track_name": "Skate",
         "artist_name": "Bruno Mars, Anderson .Paak, Silk Sonic",
@@ -30,6 +24,12 @@
         "track_name": "UYUNI",
         "artist_name": "Rels B",
         "image_url": "https://i.scdn.co/image/ab67616d00001e020e409fad9527196e73e423ba"
+      },
+      {
+        "track_id": "61lNxSCj38lvmZjJZuhXSt",
+        "track_name": "SAB\u00cdA QUE NO",
+        "artist_name": "reezy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
       }
     ]
   },
@@ -139,14 +139,9 @@
   ],
   "mood_trajectory": [
     {
-      "time": "2025-12-29T13:15:00+00:00",
-      "valence": 0.47050000000000003,
-      "energy": 0.7565
-    },
-    {
       "time": "2025-12-29T13:30:00+00:00",
-      "valence": 0.31125,
-      "energy": 0.668
+      "valence": 0.3115,
+      "energy": 0.6915
     },
     {
       "time": "2025-12-29T13:45:00+00:00",
@@ -1303,6 +1298,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-30T12:45:52.564610"
+    "detection_date": "2025-12-30T13:37:18.964123"
   }
 }
