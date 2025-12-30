@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-30T15:23:59.319650",
+  "generated_at": "2025-12-30T15:45:47.786086",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -20,10 +20,10 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e020e409fad9527196e73e423ba"
       },
       {
-        "track_id": "7jvCeWOSnJs2N3spqobWnO",
-        "track_name": "Skate",
-        "artist_name": "Bruno Mars, Anderson .Paak, Silk Sonic",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02fcf75ead8a32ac0020d2ce86"
+        "track_id": "61lNxSCj38lvmZjJZuhXSt",
+        "track_name": "SAB\u00cdA QUE NO",
+        "artist_name": "reezy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
       }
     ]
   },
@@ -1277,6 +1277,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-30T15:23:59.310476"
+    "detection_date": "2025-12-30T15:45:47.776657"
   }
 }
