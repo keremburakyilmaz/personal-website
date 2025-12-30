@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-30T09:27:14.037757",
+  "generated_at": "2025-12-30T09:48:43.361773",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -20,10 +20,16 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e020e409fad9527196e73e423ba"
       },
       {
-        "track_id": "65Q73c4fCMrrGgjap0iYJs",
-        "track_name": "Chase You Down",
-        "artist_name": "Braxton Keith",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e027a60bc0169f76da21b837f04"
+        "track_id": "7jvCeWOSnJs2N3spqobWnO",
+        "track_name": "Skate",
+        "artist_name": "Bruno Mars, Anderson .Paak, Silk Sonic",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02fcf75ead8a32ac0020d2ce86"
+      },
+      {
+        "track_id": "61lNxSCj38lvmZjJZuhXSt",
+        "track_name": "SAB\u00cdA QUE NO",
+        "artist_name": "reezy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
       }
     ]
   },
@@ -1312,6 +1318,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-30T09:27:14.027988"
+    "detection_date": "2025-12-30T09:48:43.351488"
   }
 }
