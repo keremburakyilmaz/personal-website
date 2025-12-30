@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-30T11:41:43.089240",
+  "generated_at": "2025-12-30T12:45:52.574281",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,10 +14,10 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "1Hq9DR1s1DZIlpNZMEFA0v",
-        "track_name": "UYUNI",
-        "artist_name": "Rels B",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e020e409fad9527196e73e423ba"
+        "track_id": "61lNxSCj38lvmZjJZuhXSt",
+        "track_name": "SAB\u00cdA QUE NO",
+        "artist_name": "reezy",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0240ca5a231a7770420870433a"
       },
       {
         "track_id": "7jvCeWOSnJs2N3spqobWnO",
@@ -26,10 +26,10 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e02fcf75ead8a32ac0020d2ce86"
       },
       {
-        "track_id": "65Q73c4fCMrrGgjap0iYJs",
-        "track_name": "Chase You Down",
-        "artist_name": "Braxton Keith",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e027a60bc0169f76da21b837f04"
+        "track_id": "1Hq9DR1s1DZIlpNZMEFA0v",
+        "track_name": "UYUNI",
+        "artist_name": "Rels B",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e020e409fad9527196e73e423ba"
       }
     ]
   },
@@ -138,21 +138,6 @@
     }
   ],
   "mood_trajectory": [
-    {
-      "time": "2025-12-29T11:30:00+00:00",
-      "valence": 0.67,
-      "energy": 0.875
-    },
-    {
-      "time": "2025-12-29T11:45:00+00:00",
-      "valence": 0.48875,
-      "energy": 0.5465
-    },
-    {
-      "time": "2025-12-29T12:00:00+00:00",
-      "valence": 0.0564,
-      "energy": 0.63
-    },
     {
       "time": "2025-12-29T13:15:00+00:00",
       "valence": 0.47050000000000003,
@@ -1318,6 +1303,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-30T11:41:43.079434"
+    "detection_date": "2025-12-30T12:45:52.564610"
   }
 }
