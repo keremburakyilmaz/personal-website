@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-31T13:34:19.729311",
+  "generated_at": "2025-12-31T14:21:34.199018",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -18,12 +18,6 @@
         "track_name": "Ashes",
         "artist_name": "Stellar",
         "image_url": "https://i.scdn.co/image/ab67616d00001e020db4898026f2f0d478abf0e7"
-      },
-      {
-        "track_id": "5SLs7GOdSvWhbxxJkTqf2u",
-        "track_name": "Collabo",
-        "artist_name": "Ninho, Niska",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02d30660d949dfac1116226d0f"
       },
       {
         "track_id": "0MteK167vtyb6hoJNC3Uz3",
@@ -1518,6 +1512,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T13:34:19.720041"
+    "detection_date": "2025-12-31T14:21:34.189319"
   }
 }
