@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-31T15:22:33.651079",
+  "generated_at": "2025-12-31T15:44:19.032146",
   "next_prediction": {
     "mood_cluster_id": 1,
     "mood_label": "Low energy, negative, acoustic",
@@ -14,22 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "5ZUIPLoTLJZrPQh2kFZEUM",
-        "track_name": "Addicted",
-        "artist_name": "Zerb, The Chainsmokers, Ink",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0286662f0bf0b8df09e7e6ee34"
-      },
-      {
-        "track_id": "6Yqmv7XJLCrQEauMbPGZSw",
-        "track_name": "Maria I'm Drunk (feat. Justin Bieber & Young Thug)",
-        "artist_name": "Travis Scott, Justin Bieber, Young Thug",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02d3b5affd8824b4ed301b7137"
-      },
-      {
         "track_id": "2LcZ4LPsVN1yXP7MEOnSgg",
         "track_name": "Indiferente",
         "artist_name": "Almighty",
         "image_url": "https://i.scdn.co/image/ab67616d00001e02d86cd5faadb6f5197ad92ece"
+      },
+      {
+        "track_id": "5ZUIPLoTLJZrPQh2kFZEUM",
+        "track_name": "Addicted",
+        "artist_name": "Zerb, The Chainsmokers, Ink",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0286662f0bf0b8df09e7e6ee34"
       }
     ]
   },
@@ -1528,6 +1522,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T15:22:33.641563"
+    "detection_date": "2025-12-31T15:44:19.022093"
   }
 }
