@@ -1,35 +1,29 @@
 {
-  "generated_at": "2025-12-31T03:28:20.933738",
+  "generated_at": "2025-12-31T04:24:14.006625",
   "next_prediction": {
-    "mood_cluster_id": 1,
-    "mood_label": "Low energy, negative, acoustic",
-    "confidence": 0.727534294128418,
+    "mood_cluster_id": 0,
+    "mood_label": "High energy, neutral",
+    "confidence": 0.7066133618354797,
     "cluster_centroid": {
-      "valence": 0.2744526315789474,
-      "energy": 0.372578947368421,
-      "danceability": 0.46942105263157896,
-      "acousticness": 0.5999473684210527,
-      "instrumentalness": 0.062063526315789486,
-      "tempo_norm": 0.43345326315789473
+      "valence": 0.514,
+      "energy": 0.7153928571428572,
+      "danceability": 0.6451071428571429,
+      "acousticness": 0.10887317857142861,
+      "instrumentalness": 0.020352903928571406,
+      "tempo_norm": 0.4874415714285714
     },
     "recommended_tracks": [
       {
-        "track_id": "1aHD6BlYi6rsJCetEWH9f4",
-        "track_name": "Volando",
-        "artist_name": "Lefty Sm",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e028331f07480c48162b8b20a64"
+        "track_id": "01iNOMVE89uKaurFTDZX2Y",
+        "track_name": "homebdy (feat. Madman Stan)",
+        "artist_name": "DEMI, slimedemidemislime, Madman Stan",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ad7a26d248d4f754396c310b"
       },
       {
-        "track_id": "6qvtoU0gbkaOcTx6mnVDgV",
-        "track_name": "Still Your Best",
-        "artist_name": "GIV\u0112ON",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0204db0c2be4abbe7a085e5675"
-      },
-      {
-        "track_id": "0hnvQLkV7yOjslEzflJSK4",
-        "track_name": "La Curiosidad",
-        "artist_name": "Ivan Cornejo, Eslabon Armado",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e026d7a8a34f348d587f007045f"
+        "track_id": "1TanmIWbaUj5NVwJ3k4XPd",
+        "track_name": "Write This Down",
+        "artist_name": "George Strait",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0209b72b61970ed83b5d304e89"
       }
     ]
   },
@@ -140,18 +134,39 @@
   "mood_trajectory": [
     {
       "time": "2025-12-31T03:15:00+00:00",
-      "valence": 0.5516666666666667,
-      "energy": 0.7050000000000001
+      "valence": 0.49325,
+      "energy": 0.69525
+    },
+    {
+      "time": "2025-12-31T03:30:00+00:00",
+      "valence": 0.125,
+      "energy": 0.705
     }
   ],
   "recently_played": [
+    {
+      "track_id": "3ihSHXwWbL1vLp1gbrJEEG",
+      "track_name": "Sen Ona A\u015f\u0131ks\u0131n - Kabullenme",
+      "artist_name": "Model",
+      "played_at": "2025-12-31T03:33:24.370000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02b41ce241a3ee7a4a85ee2eeb",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "3WvfMGTN44G152mHsgdCTQ",
+      "track_name": "Bir Pazar Kahvalt\u0131s\u0131",
+      "artist_name": "emre ayd\u0131n, Model",
+      "played_at": "2025-12-31T03:29:54.770000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e028a07461a1d634abdefb76d71",
+      "mood_cluster_id": 1
+    },
     {
       "track_id": "0RoQ5sk1Z9PH2xki3gv5hO",
       "track_name": "De\u011fmesin Ellerimiz",
       "artist_name": "Model",
       "played_at": "2025-12-31T03:24:54.854000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e023f5526e4e33d3ae8d79db0b1",
-      "mood_cluster_id": 1
+      "mood_cluster_id": 0
     },
     {
       "track_id": "0RoQ5sk1Z9PH2xki3gv5hO",
@@ -159,7 +174,7 @@
       "artist_name": "Model",
       "played_at": "2025-12-31T03:22:28.666000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e023f5526e4e33d3ae8d79db0b1",
-      "mood_cluster_id": 1
+      "mood_cluster_id": 0
     },
     {
       "track_id": "2Tv2XmPGs0A8esmc4gBkX4",
@@ -167,7 +182,7 @@
       "artist_name": "Model",
       "played_at": "2025-12-31T03:20:21.899000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e029b0126ef6771d5b2d1432c00",
-      "mood_cluster_id": 1
+      "mood_cluster_id": 0
     },
     {
       "track_id": "0oxYB9GoOIDrdzniNdKC44",
@@ -327,22 +342,6 @@
       "artist_name": "A$AP Rocky, Imogen Heap, Clams Casino",
       "played_at": "2025-12-29T13:47:37.838000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e022bb4bbf62bc82d2f4ce59397",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "4WkIjNZeFZBLuLiYadEm10",
-      "track_name": "Nocturnalized",
-      "artist_name": "P\u00e4r Hagstr\u00f6m",
-      "played_at": "2025-12-29T13:44:32.019000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e026bc276b4b0f9b5cc3c4b9dd2",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1Qu73eZjOkx4jvxsY1Hkjv",
-      "track_name": "\u041f\u0442\u0430\u0445\u0438",
-      "artist_name": "Sudno",
-      "played_at": "2025-12-29T13:41:00.298000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e024fa97c3669c62c34bbd794b2",
       "mood_cluster_id": 0
     }
   ],
@@ -1508,6 +1507,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T03:28:20.924231"
+    "detection_date": "2025-12-31T04:24:13.997303"
   }
 }
