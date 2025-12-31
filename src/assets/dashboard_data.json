@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-31T11:20:23.570872",
+  "generated_at": "2025-12-31T11:40:38.816263",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -20,10 +20,10 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e0251893e443844361a44675df4"
       },
       {
-        "track_id": "33aow0AcXYvT1FoWNzMcqN",
-        "track_name": "Lil Bit (feat. Florida Georgia Line)",
-        "artist_name": "Nelly, Florida Georgia Line",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e029d2e62a1bd2f06b5618a101a"
+        "track_id": "3D5wnLaeVlCCIPzQOOAirA",
+        "track_name": "No Roots",
+        "artist_name": "Alice Merton",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e025a7f4c570771175e7707c3f2"
       }
     ]
   },
@@ -1512,6 +1512,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T11:20:23.561635"
+    "detection_date": "2025-12-31T11:40:38.807083"
   }
 }
