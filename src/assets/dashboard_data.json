@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-31T05:30:20.512194",
+  "generated_at": "2025-12-31T05:51:51.402902",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,10 +14,10 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "01iNOMVE89uKaurFTDZX2Y",
-        "track_name": "homebdy (feat. Madman Stan)",
-        "artist_name": "DEMI, slimedemidemislime, Madman Stan",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02ad7a26d248d4f754396c310b"
+        "track_id": "1QHfuEyKqH35Qf7iJIl0Wd",
+        "track_name": "Zombie",
+        "artist_name": "GIMS",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02596368082712ceff7ae95649"
       },
       {
         "track_id": "1TanmIWbaUj5NVwJ3k4XPd",
@@ -26,10 +26,10 @@
         "image_url": "https://i.scdn.co/image/ab67616d00001e0209b72b61970ed83b5d304e89"
       },
       {
-        "track_id": "1QHfuEyKqH35Qf7iJIl0Wd",
-        "track_name": "Zombie",
-        "artist_name": "GIMS",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02596368082712ceff7ae95649"
+        "track_id": "01iNOMVE89uKaurFTDZX2Y",
+        "track_name": "homebdy (feat. Madman Stan)",
+        "artist_name": "DEMI, slimedemidemislime, Madman Stan",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ad7a26d248d4f754396c310b"
       }
     ]
   },
@@ -1513,6 +1513,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T05:30:20.503139"
+    "detection_date": "2025-12-31T05:51:51.393275"
   }
 }
