@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-31T16:28:09.057006",
+  "generated_at": "2025-12-31T16:51:27.640773",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
-    "confidence": 0.9151256084442139,
+    "confidence": 0.7398912310600281,
     "cluster_centroid": {
       "valence": 0.514,
       "energy": 0.7153928571428572,
@@ -14,16 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "6AzCBeiDuUXGXjznBufswB",
-        "track_name": "Stockholm Syndrome",
-        "artist_name": "One Direction",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0234a29f220057810cce98e1b4"
+        "track_id": "4iVnfuAmwJNAGsiHz8Po6Y",
+        "track_name": "Femme Like U",
+        "artist_name": "K.Maro",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e022eab60771a1f915eea2fdd39"
       },
       {
-        "track_id": "2RRpaU7jFVcwo23pthdnBv",
-        "track_name": "Head Shoulders Knees & Toes (feat. Norma Jean Martine)",
-        "artist_name": "Ofenbach, Quarterhead, Norma Jean Martine",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e029433432ccc03bf5e6b7837d2"
+        "track_id": "4RyK6N4IQ85xxLgguQAFH5",
+        "track_name": "Blue Jeans",
+        "artist_name": "Lana Del Rey",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ebc8cfac8b586bc475b04918"
       }
     ]
   },
@@ -80,7 +80,7 @@
     "9": 0.0,
     "10": 0.0,
     "11": 0.3333333333333333,
-    "12": 0.3333333333333333,
+    "12": 0.0,
     "13": 0.6666666666666666,
     "14": 0.6666666666666666,
     "15": 0.0,
@@ -166,9 +166,38 @@
       "time": "2025-12-31T16:15:00+00:00",
       "valence": 0.65,
       "energy": 0.7328
+    },
+    {
+      "time": "2025-12-31T16:30:00+00:00",
+      "valence": 0.432,
+      "energy": 0.7713333333333333
     }
   ],
   "recently_played": [
+    {
+      "track_id": "1CPZ5BxNNd0n0nF4Orb9JS",
+      "track_name": "Golden",
+      "artist_name": "HUNTR/X, EJAE, AUDREY NUNA, REI AMI, KPop Demon Hunters Cast",
+      "played_at": "2025-12-31T16:37:27.096000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e024dcb6c5df15cf74596ab25a4",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "7ef4DlsgrMEH11cDZd32M6",
+      "track_name": "One Kiss (with Dua Lipa)",
+      "artist_name": "Calvin Harris, Dua Lipa",
+      "played_at": "2025-12-31T16:34:23.706000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02d09f96d82310d4d77c14c108",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "6qn9YLKt13AGvpq9jfO8py",
+      "track_name": "We Found Love",
+      "artist_name": "Rihanna, Calvin Harris",
+      "played_at": "2025-12-31T16:30:59.727000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02bef074de9ca825bddaeb9f46",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "1WmBVbFmLt0w6zPP37TeCG",
       "track_name": "Illegal",
@@ -343,30 +372,6 @@
       "artist_name": "KXLLSWXTCH",
       "played_at": "2025-12-29T19:35:24.339000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02933ae980d2d8a06b53226231",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "0FVuyC9RP5MACjp4lgU3qZ",
-      "track_name": "I'm God",
-      "artist_name": "Clams Casino, Imogen Heap",
-      "played_at": "2025-12-29T19:33:36.607000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02d57e3b601a8171f7e122b2ea",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "2S2od3hT7ceytw7d1pTRuE",
-      "track_name": "Again (feat. XXXTENTACION)",
-      "artist_name": "Noah Cyrus, XXXTENTACION",
-      "played_at": "2025-12-29T19:28:56.210000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0249af7d5bfd29ae589a99e1cd",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "5OGZ2Mx4Cs6RCndDRycGBJ",
-      "track_name": "Daylight",
-      "artist_name": "David Kushner",
-      "played_at": "2025-12-29T19:25:47.256000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02d010d5f2882bad368ee24403",
       "mood_cluster_id": 0
     }
   ],
@@ -1381,9 +1386,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 3.323231428797621,
+        "recent": 3.1820058147602137,
         "prior": 0.0,
-        "change": 3.323231428797621,
+        "change": 3.1820058147602137,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -1394,7 +1399,7 @@
     },
     "label_drift": {
       "session_start_rate": {
-        "recent": 3.0,
+        "recent": 2.8,
         "prior": 0.0,
         "pct_change": 0.0
       },
@@ -1465,7 +1470,7 @@
           "pct_change": 0.0
         },
         "12": {
-          "recent": 1.0,
+          "recent": 0.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1532,6 +1537,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T16:28:09.047441"
+    "detection_date": "2025-12-31T16:51:27.631046"
   }
 }
