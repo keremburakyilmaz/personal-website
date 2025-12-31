@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-31T10:47:30.370497",
+  "generated_at": "2025-12-31T11:20:23.570872",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
-    "confidence": 0.7066133618354797,
+    "confidence": 0.8510317206382751,
     "cluster_centroid": {
       "valence": 0.514,
       "energy": 0.7153928571428572,
@@ -14,22 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "1TanmIWbaUj5NVwJ3k4XPd",
-        "track_name": "Write This Down",
-        "artist_name": "George Strait",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0209b72b61970ed83b5d304e89"
+        "track_id": "0MteK167vtyb6hoJNC3Uz3",
+        "track_name": "A Girl Like You",
+        "artist_name": "Edwyn Collins",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0251893e443844361a44675df4"
       },
       {
-        "track_id": "1xzsEmaU4IXjvxxwQlA8Lz",
-        "track_name": "Crimewave",
-        "artist_name": "Crystal Castles",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02379438a3e296d1d19bf8515f"
-      },
-      {
-        "track_id": "1QHfuEyKqH35Qf7iJIl0Wd",
-        "track_name": "Zombie",
-        "artist_name": "GIMS",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02596368082712ceff7ae95649"
+        "track_id": "33aow0AcXYvT1FoWNzMcqN",
+        "track_name": "Lil Bit (feat. Florida Georgia Line)",
+        "artist_name": "Nelly, Florida Georgia Line",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e029d2e62a1bd2f06b5618a101a"
       }
     ]
   },
@@ -46,11 +40,11 @@
     "9": 0.2718794643878937,
     "10": 0.2718794643878937,
     "11": 0.26587459444999695,
-    "12": 0.26587459444999695,
-    "13": 0.27948179841041565,
-    "14": 0.35699984431266785,
-    "15": 0.35699984431266785,
-    "16": 0.3905009329319,
+    "12": 0.017975155264139175,
+    "13": 0.03787802904844284,
+    "14": 0.3891732394695282,
+    "15": 0.4046769440174103,
+    "16": 0.4603888988494873,
     "17": 0.3905009329319,
     "18": 0.4051995575428009,
     "19": 0.4051995575428009,
@@ -85,13 +79,13 @@
     "8": 0.0,
     "9": 0.0,
     "10": 0.0,
-    "11": 0.5,
+    "11": 1.0,
     "12": 0.0,
     "13": 1.0,
     "14": 0.5,
     "15": 0.0,
     "16": 1.0,
-    "17": 1.0,
+    "17": 0.5,
     "18": 0.5,
     "19": 1.0,
     "20": 0.0,
@@ -147,9 +141,22 @@
       "time": "2025-12-31T03:30:00+00:00",
       "valence": 0.125,
       "energy": 0.705
+    },
+    {
+      "time": "2025-12-31T11:00:00+00:00",
+      "valence": 0.294,
+      "energy": 0.673
     }
   ],
   "recently_played": [
+    {
+      "track_id": "7KyNmvyEW7Cv4EHJwXQfS7",
+      "track_name": "Da\u011f\u0131lmak \u0130stiyorum",
+      "artist_name": "Ozan Do\u011fulu, Model",
+      "played_at": "2025-12-31T11:03:00.487000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02df24165afe01eaf9ee1125f8",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "3ihSHXwWbL1vLp1gbrJEEG",
       "track_name": "Sen Ona A\u015f\u0131ks\u0131n - Kabullenme",
@@ -340,14 +347,6 @@
       "artist_name": "alt-J",
       "played_at": "2025-12-29T13:54:49.937000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e021e1ca90cd8fdbb0ac890a926",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3ZaEs1O8BG581qYPHpQ8d6",
-      "track_name": "I Smoked Away My Brain (I'm God x Demons Mashup) (feat. Imogen Heap & Clams Casino)",
-      "artist_name": "A$AP Rocky, Imogen Heap, Clams Casino",
-      "played_at": "2025-12-29T13:47:37.838000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e022bb4bbf62bc82d2f4ce59397",
       "mood_cluster_id": 0
     }
   ],
@@ -1441,7 +1440,7 @@
           "pct_change": 0.0
         },
         "11": {
-          "recent": 1.0,
+          "recent": 2.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1471,7 +1470,7 @@
           "pct_change": 0.0
         },
         "17": {
-          "recent": 2.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1513,6 +1512,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T10:47:30.361410"
+    "detection_date": "2025-12-31T11:20:23.561635"
   }
 }
