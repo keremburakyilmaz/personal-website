@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-31T17:43:05.117966",
+  "generated_at": "2025-12-31T18:31:33.675898",
   "next_prediction": {
     "mood_cluster_id": 0,
     "mood_label": "High energy, neutral",
@@ -14,22 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "4iVnfuAmwJNAGsiHz8Po6Y",
-        "track_name": "Femme Like U",
-        "artist_name": "K.Maro",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e022eab60771a1f915eea2fdd39"
-      },
-      {
-        "track_id": "2mWfVxEo4xZYDaz0v7hYrN",
-        "track_name": "Juna",
-        "artist_name": "Clairo",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02193c2fafdce8f116b5ca0a78"
-      },
-      {
         "track_id": "0F4FejjWi3bf5vGOkuQwPS",
         "track_name": "On My Own",
         "artist_name": "Darci",
         "image_url": "https://i.scdn.co/image/ab67616d00001e02fc59a3ce4e5cc4946d197293"
+      },
+      {
+        "track_id": "4iVnfuAmwJNAGsiHz8Po6Y",
+        "track_name": "Femme Like U",
+        "artist_name": "K.Maro",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e022eab60771a1f915eea2fdd39"
       }
     ]
   },
@@ -2038,6 +2032,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T17:43:05.105973"
+    "detection_date": "2025-12-31T18:31:33.664860"
   }
 }
