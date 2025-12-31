@@ -1,29 +1,29 @@
 {
-  "generated_at": "2025-12-31T15:44:19.032146",
+  "generated_at": "2025-12-31T16:28:09.057006",
   "next_prediction": {
-    "mood_cluster_id": 1,
-    "mood_label": "Low energy, negative, acoustic",
-    "confidence": 0.9213076829910278,
+    "mood_cluster_id": 0,
+    "mood_label": "High energy, neutral",
+    "confidence": 0.9151256084442139,
     "cluster_centroid": {
-      "valence": 0.2744526315789474,
-      "energy": 0.372578947368421,
-      "danceability": 0.46942105263157896,
-      "acousticness": 0.5999473684210527,
-      "instrumentalness": 0.062063526315789486,
-      "tempo_norm": 0.43345326315789473
+      "valence": 0.514,
+      "energy": 0.7153928571428572,
+      "danceability": 0.6451071428571429,
+      "acousticness": 0.10887317857142861,
+      "instrumentalness": 0.020352903928571406,
+      "tempo_norm": 0.4874415714285714
     },
     "recommended_tracks": [
       {
-        "track_id": "2LcZ4LPsVN1yXP7MEOnSgg",
-        "track_name": "Indiferente",
-        "artist_name": "Almighty",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02d86cd5faadb6f5197ad92ece"
+        "track_id": "6AzCBeiDuUXGXjznBufswB",
+        "track_name": "Stockholm Syndrome",
+        "artist_name": "One Direction",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0234a29f220057810cce98e1b4"
       },
       {
-        "track_id": "5ZUIPLoTLJZrPQh2kFZEUM",
-        "track_name": "Addicted",
-        "artist_name": "Zerb, The Chainsmokers, Ink",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e0286662f0bf0b8df09e7e6ee34"
+        "track_id": "2RRpaU7jFVcwo23pthdnBv",
+        "track_name": "Head Shoulders Knees & Toes (feat. Norma Jean Martine)",
+        "artist_name": "Ofenbach, Quarterhead, Norma Jean Martine",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e029433432ccc03bf5e6b7837d2"
       }
     ]
   },
@@ -45,18 +45,18 @@
     "14": 0.3891732394695282,
     "15": 0.020873766392469406,
     "16": 0.19027838110923767,
-    "17": 0.42370399832725525,
-    "18": 0.4547611176967621,
-    "19": 0.47566527128219604,
-    "20": 0.4217865765094757,
-    "21": 0.613898515701294,
+    "17": 0.09425477683544159,
+    "18": 0.19991248846054077,
+    "19": 0.43875277042388916,
+    "20": 0.4717678129673004,
+    "21": 0.6792134642601013,
     "22": 0.613898515701294,
     "23": 0.5262522101402283
   },
   "top_hours": [
     {
       "hour": 21,
-      "probability": 0.613898515701294
+      "probability": 0.6792134642601013
     },
     {
       "hour": 22,
@@ -70,8 +70,8 @@
   "session_actual": {
     "0": 0.0,
     "1": 0.0,
-    "2": 0.5,
-    "3": 0.5,
+    "2": 0.3333333333333333,
+    "3": 0.3333333333333333,
     "4": 0.0,
     "5": 0.0,
     "6": 0.0,
@@ -79,17 +79,17 @@
     "8": 0.0,
     "9": 0.0,
     "10": 0.0,
-    "11": 1.0,
-    "12": 0.0,
-    "13": 1.0,
-    "14": 1.0,
+    "11": 0.3333333333333333,
+    "12": 0.3333333333333333,
+    "13": 0.6666666666666666,
+    "14": 0.6666666666666666,
     "15": 0.0,
     "16": 1.0,
-    "17": 0.5,
-    "18": 0.5,
-    "19": 1.0,
+    "17": 0.3333333333333333,
+    "18": 0.3333333333333333,
+    "19": 0.3333333333333333,
     "20": 0.0,
-    "21": 0.5,
+    "21": 0.3333333333333333,
     "22": 0.0,
     "23": 0.0
   },
@@ -156,9 +156,91 @@
       "time": "2025-12-31T14:30:00+00:00",
       "valence": 0.5845,
       "energy": 0.7
+    },
+    {
+      "time": "2025-12-31T16:00:00+00:00",
+      "valence": 0.7717499999999999,
+      "energy": 0.81675
+    },
+    {
+      "time": "2025-12-31T16:15:00+00:00",
+      "valence": 0.65,
+      "energy": 0.7328
     }
   ],
   "recently_played": [
+    {
+      "track_id": "1WmBVbFmLt0w6zPP37TeCG",
+      "track_name": "Illegal",
+      "artist_name": "PinkPantheress",
+      "played_at": "2025-12-31T16:27:23.553000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02dd4912edb4982f53a381b98e",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "4xhsWYTOGcal8zt0J161CU",
+      "track_name": "Lovin On Me",
+      "artist_name": "Jack Harlow",
+      "played_at": "2025-12-31T16:25:26.053000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02fcf4adae77baba5d0169e8e8",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "2HRqTpkrJO5ggZyyK6NPWz",
+      "track_name": "Espresso",
+      "artist_name": "Sabrina Carpenter",
+      "played_at": "2025-12-31T16:23:28.155000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02fd8d7a8d96871e791cb1f626",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "4WFgvKVfEhb3IUAFGrutTR",
+      "track_name": "Love Me Not",
+      "artist_name": "Ravyn Lenae",
+      "played_at": "2025-12-31T16:20:53.367000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02ef985ba96e76a9574cc68a30",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "2FQrifJ1N335Ljm3TjTVVf",
+      "track_name": "A Bar Song (Tipsy)",
+      "artist_name": "Shaboozey",
+      "played_at": "2025-12-31T16:17:25.315000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0280d86d636244b72a3a1eede2",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "3cZajhyr8LmtPfHZ9296tj",
+      "track_name": "No Broke Boys",
+      "artist_name": "Disco Lines, Tinashe",
+      "played_at": "2025-12-31T16:14:53.384000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e025dcede7ece7b2cb72cee4eee",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "37BZB0z9T8Xu7U3e65qxFy",
+      "track_name": "Save Your Tears (with Ariana Grande) (Remix)",
+      "artist_name": "The Weeknd, Ariana Grande",
+      "played_at": "2025-12-31T16:06:53.055000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02c6af5ffa661a365b77df6ef6",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "37BZB0z9T8Xu7U3e65qxFy",
+      "track_name": "Save Your Tears (with Ariana Grande) (Remix)",
+      "artist_name": "The Weeknd, Ariana Grande",
+      "played_at": "2025-12-31T16:06:48.612000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e02c6af5ffa661a365b77df6ef6",
+      "mood_cluster_id": 0
+    },
+    {
+      "track_id": "5vNRhkKd0yEAg8suGBpjeY",
+      "track_name": "APT.",
+      "artist_name": "ROS\u00c9, Bruno Mars",
+      "played_at": "2025-12-31T16:06:34.928000+00:00",
+      "image_url": "https://i.scdn.co/image/ab67616d00001e0236032cb4acd9df050bc2e197",
+      "mood_cluster_id": 0
+    },
     {
       "track_id": "5ZLUm9eab8y3tqQ1OhQSHI",
       "track_name": "Abracadabra",
@@ -285,78 +367,6 @@
       "artist_name": "David Kushner",
       "played_at": "2025-12-29T19:25:47.256000+00:00",
       "image_url": "https://i.scdn.co/image/ab67616d00001e02d010d5f2882bad368ee24403",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "5E30LdtzQTGqRvNd7l6kG5",
-      "track_name": "Daddy Issues",
-      "artist_name": "The Neighbourhood",
-      "played_at": "2025-12-29T19:20:28.164000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e025260c62db020e5861a51556d",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "4k3xDpAdBuM17mNNHhOZkK",
-      "track_name": "nuts",
-      "artist_name": "Lil Peep, rainy bear",
-      "played_at": "2025-12-29T19:16:13.009000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e029c40b3a3043a8f24403048a6",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "19XpFsce28aByvCC4g89tJ",
-      "track_name": "Too Sweet",
-      "artist_name": "Hozier",
-      "played_at": "2025-12-29T17:41:42.055000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02b07bd43d1bec442c7fcc4d1e",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "5AJ9hqTS2wcFQCELCFRO7A",
-      "track_name": "MILLION DOLLAR BABY",
-      "artist_name": "Tommy Richman",
-      "played_at": "2025-12-29T17:37:56.985000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e0201c0cd5da820e6128655854f",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3QJsSWa0Xo8MfaRn1gr4Be",
-      "track_name": "Favorite",
-      "artist_name": "Isabel LaRosa",
-      "played_at": "2025-12-29T17:35:25.843000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02c055ed2d667f03ae6b35bdc2",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "0o2Jngx6YVivDjE6RqqFlF",
-      "track_name": "roxstar",
-      "artist_name": "raspy, Bangers Only",
-      "played_at": "2025-12-29T17:33:22.879000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e027a6fd747a5f782ed517b60fc",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "1NXbNEAcPvY5G1xvfN57aA",
-      "track_name": "Dracula",
-      "artist_name": "Tame Impala",
-      "played_at": "2025-12-29T17:30:54.977000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e02208500450dcd0fd294d7bd3b",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "3yUcJwYu7fXAfqMj9krY6l",
-      "track_name": "Thank You",
-      "artist_name": "Dido",
-      "played_at": "2025-12-29T17:27:25.003000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e023e5cbf3b3ac5905cb68377d5",
-      "mood_cluster_id": 0
-    },
-    {
-      "track_id": "61OJxhoY3Ix50rYVKo8zRK",
-      "track_name": "Can I Call You Tonight?",
-      "artist_name": "Dayglow",
-      "played_at": "2025-12-29T14:05:33.038000+00:00",
-      "image_url": "https://i.scdn.co/image/ab67616d00001e025160eaecb31b739ea1c2eaa5",
       "mood_cluster_id": 0
     }
   ],
@@ -1371,9 +1381,9 @@
         "std_pct_change": 0.0
       },
       "start_hour_entropy": {
-        "recent": 3.240223928941852,
+        "recent": 3.323231428797621,
         "prior": 0.0,
-        "change": 3.240223928941852,
+        "change": 3.323231428797621,
         "pct_change": 0.0
       },
       "drift_summary": {
@@ -1450,12 +1460,12 @@
           "pct_change": 0.0
         },
         "11": {
-          "recent": 2.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
         "12": {
-          "recent": 0.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1475,7 +1485,7 @@
           "pct_change": 0.0
         },
         "16": {
-          "recent": 2.0,
+          "recent": 3.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1490,7 +1500,7 @@
           "pct_change": 0.0
         },
         "19": {
-          "recent": 2.0,
+          "recent": 1.0,
           "prior": 0.0,
           "pct_change": 0.0
         },
@@ -1522,6 +1532,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2025-12-31T15:44:19.022093"
+    "detection_date": "2025-12-31T16:28:09.047441"
   }
 }
