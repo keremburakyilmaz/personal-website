@@ -1,0 +1,82 @@
+{
+    "version": 1,
+    "primacy": {
+      "m_primacy_kindness": [
+        "Staying can be love. Staying can also be inertia.",
+        "You learned to treat presence as proof.",
+        "The lens kept choosing comfort over accuracy."
+      ],
+      "m_primacy_betrayal": [
+        "You kept looking for the moment you could stop being surprised.",
+        "Anger protected you from wanting them again.",
+        "The lens turned every detail into evidence."
+      ],
+      "m_primacy_neglect": [
+        "Waiting taught you what you were allowed to ask for.",
+        "You practiced needing less until it felt like personality.",
+        "The lens made absence feel inevitable."
+      ],
+      "m_primacy_intimacy": [
+        "Tenderness can be true and still be costly.",
+        "You mistook understanding for safety.",
+        "The lens made closeness feel like destiny."
+      ],
+      "m_primacy_shame": [
+        "Shame offered you simplicity: if it's all your fault, nothing is uncertain.",
+        "You searched for punishment because it would feel like resolution.",
+        "The lens tried to turn grief into verdict."
+      ],
+      "m_primacy_relief": [
+        "Relief isn't innocence. It's information.",
+        "You called it air because naming it would change you.",
+        "The lens made escape feel like clarity."
+      ]
+    },
+    "dominant": {
+      "honesty": [
+        "You let contradictions remain. You didn't force them to agree.",
+        "You chose contact over coherence."
+      ],
+      "avoidance": [
+        "You built a story you could carry. Weight matters.",
+        "You edited for survival. You called it clarity."
+      ],
+      "tenderness": [
+        "You protected something soft, even when it complicated truth.",
+        "You refused to turn the past into a weapon."
+      ],
+      "anger": [
+        "Anger kept the story from collapsing inward.",
+        "It gave you a spine, even when it narrowed your vision."
+      ],
+      "shame": [
+        "Shame tried to make the ending simple.",
+        "You kept searching for a clean punishment to replace grief."
+      ]
+    },
+    "suppression": {
+      "present": [
+        "You felt the urge to set things aside. Later became never.",
+        "The story stayed coherent. The cost showed up elsewhere."
+      ],
+      "absent": [
+        "You didn't force the past to behave.",
+        "You let the messy parts stay in the room."
+      ]
+    },
+    "pressureTier": {
+      "low": [
+        "You moved slowly enough to notice what you were doing.",
+        "You could still hear nuance."
+      ],
+      "mid": [
+        "You started answering faster than you were feeling.",
+        "You could sense the story tightening."
+      ],
+      "high": [
+        "Memory started acting like a threat.",
+        "The mind protected itself by breaking the narrative into pieces."
+      ]
+    }
+  }
+  

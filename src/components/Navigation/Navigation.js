@@ -57,6 +57,12 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             >
               <span>My Spotify Brain</span>
             </Link>
+            {/* <Link 
+              to="/what-you-remember"
+              className={`nav-item ${isActive('/what-you-remember') ? 'active' : ''}`}
+            >
+              <span>What You Remember</span>
+            </Link> */}
           </div>
         </div>
       </nav>
@@ -99,6 +105,13 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
           >
             <span>My Spotify Brain</span>
           </Link>
+          {/* <Link 
+            to="/what-you-remember"
+            className={`nav-item ${isActive('/what-you-remember') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            <span>What You Remember</span>
+          </Link> */}
         </div>
       )}
     </>
