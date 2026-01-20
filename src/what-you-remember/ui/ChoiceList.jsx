@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 export default function ChoiceList({ choices, onChoice }) {
   const containerRef = useRef(null);
@@ -36,6 +36,7 @@ export default function ChoiceList({ choices, onChoice }) {
           onClick={() => onChoice(choice)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           role="option"
+          aria-selected="false"
           tabIndex={index === 0 ? 0 : -1}
         >
           {choice.label}
