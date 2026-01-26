@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Navigation.css';
+import powerIcon from '../../assets/power-button-icon.png';
 
 export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScrolled }) {
   const isActive = (path) => {
@@ -63,6 +64,13 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             >
               <span>What You Remember</span>
             </Link> */}
+            {/* <Link 
+              to="/system"
+              className="nav-system-link"
+              aria-label="System"
+            >
+              <img src={powerIcon} alt="" className="nav-system-icon" />
+            </Link> */}
           </div>
         </div>
       </nav>
@@ -111,6 +119,14 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             onClick={() => setMenuOpen(false)}
           >
             <span>What You Remember</span>
+          </Link> */}
+          {/* <Link 
+            to="/system"
+            className="nav-system-link"
+            onClick={() => setMenuOpen(false)}
+            aria-label="System"
+          >
+            <img src={powerIcon} alt="" className="nav-system-icon" />
           </Link> */}
         </div>
       )}

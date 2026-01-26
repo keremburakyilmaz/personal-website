@@ -10,6 +10,7 @@ import SpotifyBrain from './components/SpotifyBrain/SpotifyBrain';
 
 // Lazy load the game for code splitting
 const GameRoute = lazy(() => import('./what-you-remember/ui/GameRoute'));
+const SystemRunning = lazy(() => import('./system-is-running/SystemRunning'));
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,14 +27,16 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <Navigation 
-        activeSection={location.pathname}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        isScrolled={isScrolled}
-      />
+      {location.pathname !== '/system' && (
+        <Navigation 
+          activeSection={location.pathname}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          isScrolled={isScrolled}
+        />
+      )}
       
-      <main className={location.pathname === '/what-you-remember' ? 'game-main' : ''}>
+      <main className={location.pathname === '/what-you-remember' ? 'game-main' : location.pathname === '/system' ? 'system-main' : ''}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
@@ -45,6 +48,14 @@ export default function App() {
             element={
               <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>Loading...</div>}>
                 <GameRoute />
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/system" 
+            element={
+              <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#0a0a0c' }}></div>}>
+                <SystemRunning />
               </Suspense>
             } 
           />
