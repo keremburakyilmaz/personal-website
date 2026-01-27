@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7fbf9581.css",
-    "main.js": "/static/js/main.ad9bd007.js",
+    "main.js": "/static/js/main.e875d2c9.js",
     "static/css/20.90f3a557.chunk.css": "/static/css/20.90f3a557.chunk.css",
     "static/js/20.9792e475.chunk.js": "/static/js/20.9792e475.chunk.js",
     "static/media/roya_arkhmammadova.JPG": "/static/media/roya_arkhmammadova.d98078e680cca35192bd.JPG",
@@ -10,12 +10,12 @@
     "static/media/emiliya_rafiyeva.jpg": "/static/media/emiliya_rafiyeva.82bda2915eefc70a27be.jpg",
     "index.html": "/index.html",
     "main.7fbf9581.css.map": "/static/css/main.7fbf9581.css.map",
-    "main.ad9bd007.js.map": "/static/js/main.ad9bd007.js.map",
+    "main.e875d2c9.js.map": "/static/js/main.e875d2c9.js.map",
     "20.90f3a557.chunk.css.map": "/static/css/20.90f3a557.chunk.css.map",
     "20.9792e475.chunk.js.map": "/static/js/20.9792e475.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7fbf9581.css",
-    "static/js/main.ad9bd007.js"
+    "static/js/main.e875d2c9.js"
   ]
 }
