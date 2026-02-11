@@ -138,3 +138,23 @@ section {
   padding: 0;
   background: #0a0a0c;
 }
+
+/* Valentine route - full screen, no padding, override body styles */
+.valentine-main {
+  padding: 0;
+  background: #fff8f0;
+}
+
+.valentine-main section {
+  max-width: none;
+  margin: 0;
+}
+
+/* When on valentine page, override body background */
+body:has(.valentine-main) {
+  background: #fff8f0;
+}
+
+body:has(.valentine-main)::before {
+  display: none;
+}

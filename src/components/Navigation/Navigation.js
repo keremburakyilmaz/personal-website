@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Navigation.css';
-import powerIcon from '../../assets/power-button-icon.png';
+//import powerIcon from '../../assets/power-button-icon.png';
 
 export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScrolled }) {
   const isActive = (path) => {
@@ -58,6 +58,12 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             >
               <span>My Spotify Brain</span>
             </Link>
+            <Link 
+              to="/market-radar"
+              className={`nav-item ${isActive('/market-radar') ? 'active' : ''}`}
+            >
+              <span>Market Radar</span>
+            </Link>
             {/* <Link 
               to="/what-you-remember"
               className={`nav-item ${isActive('/what-you-remember') ? 'active' : ''}`}
@@ -112,6 +118,13 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             onClick={() => setMenuOpen(false)}
           >
             <span>My Spotify Brain</span>
+          </Link>
+          <Link 
+            to="/market-radar"
+            className={`nav-item ${isActive('/market-radar') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            <span>Market Radar</span>
           </Link>
           {/* <Link 
             to="/what-you-remember"

@@ -1,0 +1,241 @@
+{
+  "lastUpdated": "2026-01-26T08:30:00Z",
+  "marketRegime": {
+    "status": "risk-off",
+    "score": 35,
+    "indicators": {
+      "vix": { "value": 22.4, "change": 3.2, "signal": "elevated" },
+      "dxy": { "value": 104.8, "change": 0.4, "signal": "strong" },
+      "usty10": { "value": 4.52, "change": 0.08, "signal": "rising" }
+    }
+  },
+  "keyStories": [
+    {
+      "id": 1,
+      "headline": "Fed held rates at 5.25–5.50%; dot plot shifted hawkish",
+      "impact": "high",
+      "category": "rates",
+      "timestamp": "2026-01-25T19:00:00Z",
+      "whyItMatters": "Markets now pricing only 2 cuts in 2026, down from 4. Treasury yields spiked, equities sold off."
+    },
+    {
+      "id": 2,
+      "headline": "CPI printed 3.4% YoY, above 3.2% consensus",
+      "impact": "high",
+      "category": "inflation",
+      "timestamp": "2026-01-25T13:30:00Z",
+      "whyItMatters": "Core inflation remains sticky. Reinforces Fed's cautious stance. Dollar strengthened on the print."
+    },
+    {
+      "id": 3,
+      "headline": "CBRT emergency meeting scheduled for Thursday",
+      "impact": "high",
+      "category": "emerging",
+      "timestamp": "2026-01-26T06:00:00Z",
+      "whyItMatters": "USD/TRY volatility expected. Speculation of 500bp hike to defend lira amid capital outflows."
+    },
+    {
+      "id": 4,
+      "headline": "China PBoC signals potential RRR cut this week",
+      "impact": "medium",
+      "category": "rates",
+      "timestamp": "2026-01-26T02:30:00Z",
+      "whyItMatters": "Easing measures to support slowing economy. Positive for risk assets and commodities if confirmed."
+    },
+    {
+      "id": 5,
+      "headline": "Oil spikes 3% on Red Sea shipping disruptions",
+      "impact": "medium",
+      "category": "commodities",
+      "timestamp": "2026-01-25T22:00:00Z",
+      "whyItMatters": "Supply route concerns pushing Brent above $82. Watch for inflation passthrough if sustained."
+    },
+    {
+      "id": 6,
+      "headline": "German IFO business climate misses expectations",
+      "impact": "medium",
+      "category": "growth",
+      "timestamp": "2026-01-26T09:00:00Z",
+      "whyItMatters": "Eurozone's largest economy continues to struggle. EUR weakness likely; ECB cut bets rising."
+    },
+    {
+      "id": 7,
+      "headline": "US 10Y-2Y spread widens to 45bps",
+      "impact": "low",
+      "category": "rates",
+      "timestamp": "2026-01-25T20:00:00Z",
+      "whyItMatters": "Curve steepening continues post-Fed. Market positioning for higher-for-longer rates regime."
+    },
+    {
+      "id": 8,
+      "headline": "Gold hits 2-week high on geopolitical hedging",
+      "impact": "low",
+      "category": "commodities",
+      "timestamp": "2026-01-25T18:00:00Z",
+      "whyItMatters": "Safe-haven flows despite stronger dollar. Watch $2,050 resistance level."
+    }
+  ],
+  "todayCalendar": [
+    {
+      "id": "evt-1",
+      "time": "09:45",
+      "timezone": "EST",
+      "event": "S&P Global Manufacturing PMI",
+      "country": "US",
+      "impact": "medium",
+      "previous": "49.4",
+      "forecast": "49.8",
+      "tags": ["growth", "manufacturing"]
+    },
+    {
+      "id": "evt-2",
+      "time": "10:00",
+      "timezone": "EST",
+      "event": "New Home Sales",
+      "country": "US",
+      "impact": "low",
+      "previous": "664K",
+      "forecast": "670K",
+      "tags": ["housing"]
+    },
+    {
+      "id": "evt-3",
+      "time": "13:00",
+      "timezone": "EST",
+      "event": "2-Year Treasury Auction",
+      "country": "US",
+      "impact": "medium",
+      "previous": "4.365%",
+      "forecast": "—",
+      "tags": ["rates", "auction"]
+    },
+    {
+      "id": "evt-4",
+      "time": "14:30",
+      "timezone": "EST",
+      "event": "Fed's Waller Speech",
+      "country": "US",
+      "impact": "high",
+      "previous": "—",
+      "forecast": "—",
+      "tags": ["rates", "fed"]
+    }
+  ],
+  "upcomingCatalysts": [
+    {
+      "date": "2026-01-27",
+      "event": "Durable Goods Orders",
+      "impact": "medium"
+    },
+    {
+      "date": "2026-01-28",
+      "event": "FOMC Minutes Release",
+      "impact": "high"
+    },
+    {
+      "date": "2026-01-30",
+      "event": "ECB Rate Decision",
+      "impact": "high"
+    },
+    {
+      "date": "2026-01-31",
+      "event": "US Q4 GDP (Advance)",
+      "impact": "high"
+    },
+    {
+      "date": "2026-02-07",
+      "event": "Nonfarm Payrolls",
+      "impact": "high"
+    }
+  ],
+  "recentDigests": [
+    {
+      "id": "digest-1",
+      "date": "2026-01-26",
+      "title": "Fed Holds, Inflation Sticky, EM Under Pressure",
+      "summary": "FOMC delivered hawkish hold; CPI surprise pushes back rate cut expectations; Turkey convenes emergency meeting.",
+      "itemCount": 12
+    },
+    {
+      "id": "digest-2",
+      "date": "2026-01-25",
+      "title": "Pre-FOMC Positioning, China Stimulus Hints",
+      "summary": "Markets cautious ahead of Fed; PBoC signals potential RRR cut; oil steady on mixed demand signals.",
+      "itemCount": 9
+    },
+    {
+      "id": "digest-3",
+      "date": "2026-01-24",
+      "title": "Tech Earnings Beat, Yield Curve Steepens",
+      "summary": "Mega-cap tech delivers; 10Y-2Y spread widens to 40bps; gold hits 2-week high on geopolitical concerns.",
+      "itemCount": 11
+    },
+    {
+      "id": "digest-4",
+      "date": "2026-01-23",
+      "title": "PMI Weakness Across Europe",
+      "summary": "Eurozone composite PMI misses; German manufacturing contracts further; EUR/USD tests 1.08 support.",
+      "itemCount": 8
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "name": "Federal Reserve",
+      "type": "official",
+      "status": "healthy",
+      "lastFetch": "2026-01-26T08:00:00Z",
+      "itemsToday": 2
+    },
+    {
+      "id": "src-2",
+      "name": "ECB",
+      "type": "official",
+      "status": "healthy",
+      "lastFetch": "2026-01-26T07:30:00Z",
+      "itemsToday": 1
+    },
+    {
+      "id": "src-3",
+      "name": "CBRT",
+      "type": "official",
+      "status": "healthy",
+      "lastFetch": "2026-01-26T06:00:00Z",
+      "itemsToday": 1
+    },
+    {
+      "id": "src-4",
+      "name": "Reuters RSS",
+      "type": "rss",
+      "status": "healthy",
+      "lastFetch": "2026-01-26T08:25:00Z",
+      "itemsToday": 15
+    },
+    {
+      "id": "src-5",
+      "name": "FT Markets",
+      "type": "rss",
+      "status": "degraded",
+      "lastFetch": "2026-01-26T07:45:00Z",
+      "itemsToday": 3
+    },
+    {
+      "id": "src-6",
+      "name": "Treasury Direct",
+      "type": "official",
+      "status": "healthy",
+      "lastFetch": "2026-01-26T08:10:00Z",
+      "itemsToday": 1
+    }
+  ],
+  "breakingAlerts": [
+    {
+      "id": "alert-1",
+      "timestamp": "2026-01-26T06:12:00Z",
+      "headline": "CBRT announces emergency policy meeting",
+      "score": 85,
+      "sources": ["CBRT Official", "Reuters"],
+      "isNew": true
+    }
+  ]
+}

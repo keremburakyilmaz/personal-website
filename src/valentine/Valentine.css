@@ -1,0 +1,1030 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+/* Valentine Theme Variables */
+:root {
+  --valentine-rose: #e84a6f;
+  --valentine-rose-light: #ff8fa3;
+  --valentine-blush: #ffc2d1;
+  --valentine-cream: #fff8f0;
+  --valentine-burgundy: #8b2942;
+  --valentine-gold: #d4a24c;
+  --valentine-pink-soft: #ffe4ec;
+  --valentine-foreground: #4a2232;
+  --valentine-muted: #8b6b7a;
+  --valentine-card: #fff5f8;
+  --valentine-border: #f0d4dc;
+}
+
+/* Valentine Page Container */
+.valentine-page {
+  min-height: 100vh;
+  background: var(--valentine-cream);
+  overflow-x: hidden;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--valentine-foreground);
+}
+
+.valentine-page * {
+  box-sizing: border-box;
+}
+
+/* Typography */
+.valentine-page h1,
+.valentine-page h2,
+.valentine-page h3,
+.valentine-page h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.valentine-page .font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Gradients */
+.bg-gradient-valentine {
+  background: linear-gradient(
+    135deg,
+    var(--valentine-cream) 0%,
+    var(--valentine-pink-soft) 50%,
+    var(--valentine-blush) 100%
+  );
+}
+
+.bg-gradient-romantic {
+  background: linear-gradient(
+    180deg,
+    var(--valentine-cream) 0%,
+    #fff 100%
+  );
+}
+
+/* Shadows */
+.shadow-romantic {
+  box-shadow: 
+    0 4px 20px -5px rgba(232, 74, 111, 0.2),
+    0 10px 40px -10px rgba(232, 74, 111, 0.15);
+}
+
+/* ======================= */
+/* FLOATING HEARTS         */
+/* ======================= */
+.floating-hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  color: rgba(232, 74, 111, 0.4);
+}
+
+.floating-heart svg {
+  fill: rgba(232, 74, 111, 0.2);
+}
+
+/* ======================= */
+/* HERO SECTION            */
+/* ======================= */
+.valentine-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.hero-decorative-heart {
+  position: absolute;
+  opacity: 0.2;
+  color: var(--valentine-rose);
+}
+
+.hero-decorative-heart svg {
+  fill: rgba(232, 74, 111, 0.5);
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+  padding: 0 1.5rem;
+}
+
+.hero-main-heart {
+  color: var(--valentine-rose);
+  margin-bottom: 2rem;
+}
+
+.hero-main-heart svg {
+  fill: var(--valentine-rose);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--valentine-foreground);
+}
+
+.hero-title .highlight {
+  color: var(--valentine-rose);
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--valentine-muted);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.scroll-indicator-wrapper {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--valentine-muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s;
+}
+
+.scroll-indicator:hover {
+  color: var(--valentine-rose);
+}
+
+.scroll-indicator span {
+  font-size: 1.125rem;
+}
+
+/* ======================= */
+/* LOVE LETTER SECTION     */
+/* ======================= */
+.love-letter-section {
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.love-letter-bg-hearts {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+}
+
+.love-letter-bg-hearts .heart-1 {
+  position: absolute;
+  top: 2.5rem;
+  left: 25%;
+  color: var(--valentine-rose);
+}
+
+.love-letter-bg-hearts .heart-2 {
+  position: absolute;
+  bottom: 5rem;
+  right: 25%;
+  color: var(--valentine-rose);
+}
+
+.love-letter-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.love-letter-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.love-letter-header .quote-icon {
+  color: rgba(232, 74, 111, 0.3);
+  margin-bottom: 1rem;
+}
+
+.love-letter-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--valentine-foreground);
+}
+
+.love-letter-header .divider {
+  width: 6rem;
+  height: 4px;
+  background: rgba(232, 74, 111, 0.5);
+  margin: 0 auto;
+  border-radius: 9999px;
+}
+
+.love-letter-card {
+  background: rgba(255, 245, 248, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.2);
+  border: 1px solid rgba(240, 212, 220, 0.5);
+}
+
+.love-letter-content {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+.love-letter-content p {
+  margin-bottom: 1.5rem;
+}
+
+.love-letter-content .signature {
+  padding-top: 1rem;
+}
+
+.love-letter-content .signature .name {
+  color: var(--valentine-rose);
+}
+
+/* ======================= */
+/* TOGETHER COUNTER        */
+/* ======================= */
+.together-counter-section {
+  padding: 6rem 1.5rem;
+  background: rgba(255, 228, 236, 0.3);
+  position: relative;
+}
+
+.together-counter-container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.together-counter-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.together-counter-header .icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.together-counter-header .icons .calendar-icon {
+  color: var(--valentine-rose);
+}
+
+.together-counter-header .icons .heart-icon {
+  color: var(--valentine-rose);
+  animation: pulse 2s infinite;
+}
+
+.together-counter-header .icons .heart-icon svg {
+  fill: var(--valentine-rose);
+}
+
+.together-counter-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--valentine-foreground);
+}
+
+.together-counter-header .start-date {
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.counter-card {
+  background: var(--valentine-card);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.2);
+  border: 1px solid rgba(240, 212, 220, 0.5);
+  text-align: center;
+}
+
+.counter-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--valentine-rose);
+  font-family: 'Playfair Display', serif;
+}
+
+.counter-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--valentine-muted);
+  margin-top: 0.5rem;
+}
+
+.counter-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+}
+
+/* ======================= */
+/* REASONS SECTION         */
+/* ======================= */
+.reasons-section {
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.reasons-container {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.reasons-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reasons-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--valentine-foreground);
+}
+
+.reasons-header p {
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+}
+
+.reasons-header .divider {
+  width: 6rem;
+  height: 4px;
+  background: rgba(232, 74, 111, 0.5);
+  margin: 1.5rem auto 0;
+  border-radius: 9999px;
+}
+
+.reasons-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.reason-card {
+  background: rgba(255, 245, 248, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.2);
+  border: 1px solid rgba(240, 212, 220, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+
+.reason-card:hover {
+  background: var(--valentine-card);
+  box-shadow: 0 10px 30px -5px rgba(232, 74, 111, 0.25);
+}
+
+.reason-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(232, 74, 111, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.reason-card:hover .reason-icon {
+  background: rgba(232, 74, 111, 0.2);
+}
+
+.reason-icon svg {
+  color: var(--valentine-rose);
+  fill: rgba(232, 74, 111, 0.5);
+  transition: fill 0.3s;
+}
+
+.reason-card:hover .reason-icon svg {
+  fill: var(--valentine-rose);
+}
+
+.reason-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.reason-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(232, 74, 111, 0.4);
+  font-family: 'Playfair Display', serif;
+}
+
+.reason-text {
+  font-size: 1.125rem;
+  color: var(--valentine-foreground);
+}
+
+/* ======================= */
+/* FUTURE DREAMS SECTION   */
+/* ======================= */
+.future-dreams-section {
+  padding: 6rem 1.5rem;
+  background: rgba(255, 228, 236, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.future-dreams-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+}
+
+.future-dreams-bg .blob-1 {
+  position: absolute;
+  top: 5rem;
+  left: 2.5rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: var(--valentine-rose);
+  filter: blur(60px);
+}
+
+.future-dreams-bg .blob-2 {
+  position: absolute;
+  bottom: 5rem;
+  right: 2.5rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background: var(--valentine-gold);
+  filter: blur(60px);
+}
+
+.future-dreams-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.future-dreams-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.future-dreams-header .sparkles-icon {
+  color: var(--valentine-rose);
+  margin-bottom: 1rem;
+}
+
+.future-dreams-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--valentine-foreground);
+}
+
+.future-dreams-header p {
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.future-dreams-header .divider {
+  width: 6rem;
+  height: 4px;
+  background: rgba(232, 74, 111, 0.5);
+  margin: 1.5rem auto 0;
+  border-radius: 9999px;
+}
+
+.dreams-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dream-card {
+  height: 100%;
+  background: rgba(255, 245, 248, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.2);
+  border: 1px solid rgba(240, 212, 220, 0.5);
+  transition: all 0.3s;
+}
+
+.dream-card:hover {
+  background: var(--valentine-card);
+  box-shadow: 0 10px 30px -5px rgba(232, 74, 111, 0.25);
+  transform: translateY(-4px);
+}
+
+.dream-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.75rem;
+  background: rgba(232, 74, 111, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background 0.3s;
+}
+
+.dream-card:hover .dream-icon {
+  background: rgba(232, 74, 111, 0.2);
+}
+
+.dream-icon svg {
+  color: var(--valentine-rose);
+}
+
+.dream-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--valentine-foreground);
+}
+
+.dream-card p {
+  font-size: 1.125rem;
+  color: var(--valentine-muted);
+  line-height: 1.6;
+}
+
+/* ======================= */
+/* VALENTINE QUIZ          */
+/* ======================= */
+.valentine-quiz-section {
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.quiz-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.quiz-question {
+  text-align: center;
+}
+
+.quiz-heart {
+  color: var(--valentine-rose);
+  margin-bottom: 2rem;
+}
+
+.quiz-heart svg {
+  fill: var(--valentine-rose);
+}
+
+.quiz-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--valentine-foreground);
+}
+
+.quiz-title .highlight {
+  color: var(--valentine-rose);
+}
+
+.quiz-subtitle {
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+  margin-bottom: 3rem;
+}
+
+.quiz-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.btn-yes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  padding: 1rem 3rem;
+  background: var(--valentine-rose);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.4);
+  transition: all 0.3s;
+}
+
+.btn-yes:hover {
+  background: var(--valentine-burgundy);
+  box-shadow: 0 10px 30px -5px rgba(232, 74, 111, 0.5);
+}
+
+.btn-yes svg {
+  fill: currentColor;
+}
+
+.btn-no {
+  font-size: 1.25rem;
+  padding: 1rem 3rem;
+  background: transparent;
+  color: var(--valentine-muted);
+  border: 2px solid rgba(139, 107, 122, 0.3);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-no:hover {
+  border-color: rgba(139, 107, 122, 0.5);
+}
+
+/* Quiz Answer */
+.quiz-answer {
+  text-align: center;
+}
+
+.quiz-sparkles {
+  color: var(--valentine-gold);
+  margin-bottom: 2rem;
+}
+
+.quiz-answer h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--valentine-foreground);
+}
+
+.quiz-answer h2 .highlight {
+  color: var(--valentine-rose);
+}
+
+.quiz-answer-text {
+  font-size: 1.5rem;
+  color: var(--valentine-muted);
+  margin-bottom: 2rem;
+}
+
+.quiz-hearts-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.quiz-hearts-row svg {
+  color: var(--valentine-rose);
+  fill: var(--valentine-rose);
+}
+
+/* ======================= */
+/* MUSIC PLAYER            */
+/* ======================= */
+.music-toggle-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--valentine-rose);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.music-toggle-btn:hover {
+  background: var(--valentine-burgundy);
+  transform: scale(1.1);
+}
+
+.music-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(74, 34, 50, 0.2);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+}
+
+.music-panel {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 20rem;
+  background: var(--valentine-card);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px -5px rgba(232, 74, 111, 0.3);
+  border: 1px solid var(--valentine-border);
+  overflow: hidden;
+}
+
+.music-panel-content {
+  padding: 1.5rem;
+}
+
+.music-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.music-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.music-panel-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(232, 74, 111, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-panel-icon svg {
+  color: var(--valentine-rose);
+}
+
+.music-panel-title h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--valentine-foreground);
+  margin: 0;
+}
+
+.music-panel-title p {
+  font-size: 0.875rem;
+  color: var(--valentine-muted);
+  margin: 0;
+}
+
+.music-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--valentine-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.music-close-btn:hover {
+  color: var(--valentine-foreground);
+}
+
+.music-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.music-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 228, 236, 0.5);
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.music-link:hover {
+  background: rgba(255, 228, 236, 0.8);
+}
+
+.music-link-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.music-link-emoji {
+  font-size: 1.5rem;
+}
+
+.music-link-name {
+  font-weight: 500;
+  color: var(--valentine-foreground);
+}
+
+.music-link-platform {
+  font-size: 0.875rem;
+  color: var(--valentine-muted);
+}
+
+.music-link svg {
+  color: var(--valentine-muted);
+  transition: color 0.3s;
+}
+
+.music-link:hover svg {
+  color: var(--valentine-rose);
+}
+
+.music-panel-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--valentine-border);
+  text-align: center;
+  color: var(--valentine-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.music-panel-footer svg {
+  color: var(--valentine-rose);
+  fill: var(--valentine-rose);
+}
+
+/* ======================= */
+/* FOOTER                  */
+/* ======================= */
+.valentine-footer {
+  padding: 3rem 1.5rem;
+  background: rgba(139, 41, 66, 0.1);
+  border-top: 1px solid var(--valentine-border);
+}
+
+.valentine-footer-content {
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.valentine-footer .heart-icon {
+  color: var(--valentine-rose);
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+.valentine-footer .heart-icon svg {
+  fill: var(--valentine-rose);
+}
+
+.valentine-footer .message {
+  font-size: 1.5rem;
+  color: var(--valentine-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.valentine-footer .submessage {
+  color: var(--valentine-muted);
+}
+
+/* ======================= */
+/* ANIMATIONS              */
+/* ======================= */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* ======================= */
+/* RESPONSIVE              */
+/* ======================= */
+@media (min-width: 640px) {
+  .quiz-buttons {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.875rem;
+  }
+  
+  .hero-description {
+    font-size: 1.5rem;
+  }
+  
+  .love-letter-header h2 {
+    font-size: 3rem;
+  }
+  
+  .love-letter-card {
+    padding: 3rem;
+  }
+  
+  .love-letter-content {
+    font-size: 1.5rem;
+  }
+  
+  .counter-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .counter-value {
+    font-size: 3rem;
+  }
+  
+  .counter-label {
+    font-size: 1rem;
+  }
+  
+  .reasons-header h2,
+  .future-dreams-header h2,
+  .together-counter-header h2 {
+    font-size: 3rem;
+  }
+  
+  .reason-text {
+    font-size: 1.25rem;
+  }
+  
+  .reason-number {
+    font-size: 1.875rem;
+  }
+  
+  .dreams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .quiz-title {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 6rem;
+  }
+  
+  .counter-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .dreams-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
