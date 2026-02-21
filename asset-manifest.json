@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.56306343.css",
-    "main.js": "/static/js/main.a4883830.js",
+    "main.js": "/static/js/main.cf045d1c.js",
     "static/css/20.90f3a557.chunk.css": "/static/css/20.90f3a557.chunk.css",
     "static/js/20.9792e475.chunk.js": "/static/js/20.9792e475.chunk.js",
     "static/css/468.deb50818.chunk.css": "/static/css/468.deb50818.chunk.css",
@@ -15,7 +15,7 @@
     "static/media/emiliya_rafiyeva.jpg": "/static/media/emiliya_rafiyeva.82bda2915eefc70a27be.jpg",
     "index.html": "/index.html",
     "main.56306343.css.map": "/static/css/main.56306343.css.map",
-    "main.a4883830.js.map": "/static/js/main.a4883830.js.map",
+    "main.cf045d1c.js.map": "/static/js/main.cf045d1c.js.map",
     "20.90f3a557.chunk.css.map": "/static/css/20.90f3a557.chunk.css.map",
     "20.9792e475.chunk.js.map": "/static/js/20.9792e475.chunk.js.map",
     "468.deb50818.chunk.css.map": "/static/css/468.deb50818.chunk.css.map",
@@ -26,6 +26,6 @@
   },
   "entrypoints": [
     "static/css/main.56306343.css",
-    "static/js/main.a4883830.js"
+    "static/js/main.cf045d1c.js"
   ]
 }
