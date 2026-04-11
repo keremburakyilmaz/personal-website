@@ -64,12 +64,12 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             >
               <span>Market Radar</span>
             </Link>
-            {/* <Link 
-              to="/what-you-remember"
-              className={`nav-item ${isActive('/what-you-remember') ? 'active' : ''}`}
+            <Link
+              to="/the-same-night"
+              className={`nav-item ${isActive('/the-same-night') ? 'active' : ''}`}
             >
-              <span>What You Remember</span>
-            </Link> */}
+              <span>The Same Night</span>
+            </Link>
             {/* <Link 
               to="/system"
               className="nav-system-link"
@@ -126,13 +126,13 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
           >
             <span>Market Radar</span>
           </Link>
-          {/* <Link 
-            to="/what-you-remember"
-            className={`nav-item ${isActive('/what-you-remember') ? 'active' : ''}`}
+          <Link
+            to="/the-same-night"
+            className={`nav-item ${isActive('/the-same-night') ? 'active' : ''}`}
             onClick={() => setMenuOpen(false)}
           >
-            <span>What You Remember</span>
-          </Link> */}
+            <span>The Same Night</span>
+          </Link>
           {/* <Link 
             to="/system"
             className="nav-system-link"

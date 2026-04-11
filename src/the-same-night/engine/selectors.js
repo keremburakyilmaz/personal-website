@@ -74,18 +74,17 @@ function compareValues(actual, op, expected) {
 }
 
 export function getDerivedTone(state) {
-  // Drift: derive tone from stats
-  const { honesty, avoidance, tenderness, anger, shame, pressure } = {
+  const { clarity, protection, grief, resentment, doubt, pressure } = {
     ...state.stats,
     pressure: state.clocks.pressure || 0,
   };
 
   if (pressure >= 6) return 'intrusive';
-  if (honesty > avoidance && honesty > 3) return 'honest';
-  if (avoidance > honesty && avoidance > 3) return 'protective';
-  if (tenderness > anger && tenderness > 2) return 'tender';
-  if (anger > tenderness && anger > 2) return 'sharp';
-  if (shame > 3) return 'guilty';
+  if (clarity > protection && clarity > 3) return 'honest';
+  if (protection > clarity && protection > 3) return 'protective';
+  if (grief > resentment && grief > 2) return 'tender';
+  if (resentment > grief && resentment > 2) return 'sharp';
+  if (doubt > 3) return 'guilty';
   return 'neutral';
 }
 

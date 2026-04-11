@@ -1,0 +1,595 @@
+{
+  "meta": { "id": "the-same-night", "version": 1, "title": "The Same Night" },
+  "startSceneId": "p_content_note",
+  "definitions": {
+    "stats": ["clarity", "protection", "grief", "resentment", "doubt"],
+    "clocks": ["pressure"]
+  },
+  "scenes": [
+    {
+      "id": "p_content_note",
+      "kind": "prompt",
+      "title": "Before you begin",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "This is a story about a night you've already told. You'll tell it again here." },
+        { "type": "p", "speaker": "narrator", "text": "Partway through, you'll find out they've been telling a different version. This game is about the space between the two." },
+        { "type": "p", "speaker": "narrator", "text": "There is no verdict. You can stop whenever." }
+      ],
+      "choices": [
+        { "id": "start", "label": "Begin.", "next": "p_the_night" },
+        { "id": "skip", "label": "Begin (skip this next time).", "next": "p_the_night", "effects": { "setFlags": ["skip_content_note"] } }
+      ]
+    },
+
+    {
+      "id": "p_the_night",
+      "kind": "prompt",
+      "title": null,
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "A mutual friend mentioned it last week. Casually. The way people drop things they don't realize are grenades." },
+        { "type": "p", "speaker": "narrator", "text": "Your ex has been talking about that night. The last one. They have a version of it." },
+        { "type": "p", "speaker": "narrator", "text": "You don't know all of it yet. You know enough to know it doesn't match yours." },
+        { "type": "whisper", "speaker": "brain", "text": "Your first instinct was to correct the record. Your second instinct was to wonder if you could." }
+      ],
+      "choices": [
+        { "id": "to_primacy", "label": "What do you remember first?", "next": "p_choose_primacy" }
+      ]
+    },
+
+    {
+      "id": "p_choose_primacy",
+      "kind": "prompt",
+      "title": "Your version",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Not the whole night. Just what surfaces first when someone says: that night." }
+      ],
+      "choices": [
+        {
+          "id": "primacy_confrontation",
+          "label": "A fight. Something was said that couldn't be unsaid.",
+          "next": "m_your_version_1",
+          "effects": {
+            "set": { "primacyId": "primacy_confrontation" },
+            "addStats": { "resentment": 2 },
+            "addWeights": { "theme_confrontation": 4 },
+            "addMemory": { "id": "m_primacy_confrontation", "label": "The fight.", "kind": "primacy", "tags": ["confrontation"] }
+          }
+        },
+        {
+          "id": "primacy_quiet",
+          "label": "Quiet. The kind that means something has already been decided.",
+          "next": "m_your_version_1",
+          "effects": {
+            "set": { "primacyId": "primacy_quiet" },
+            "addStats": { "grief": 2 },
+            "addWeights": { "theme_quiet": 4 },
+            "addMemory": { "id": "m_primacy_quiet", "label": "The silence.", "kind": "primacy", "tags": ["quiet"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "m_your_version_1",
+      "kind": "memory",
+      "title": "Your version, first pass",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You've told this story before. Not to many people. Enough that it has a shape now." },
+        { "type": "p", "speaker": "narrator", "text": "You know which parts you lead with. Which parts you leave out." },
+        { "type": "whisper", "speaker": "brain", "text": "The leaving-out never felt like lying. It felt like editing for relevance." }
+      ],
+      "choices": [
+        {
+          "id": "version_confront_full",
+          "label": "They escalated it. I was reacting.",
+          "next": "m_your_version_1_confrontation",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_confrontation" }],
+          "effects": { "addStats": { "resentment": 1, "protection": 1 }, "addWeights": { "blame_them": 3 } }
+        },
+        {
+          "id": "version_confront_shared",
+          "label": "We both said things.",
+          "next": "m_your_version_1_confrontation",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_confrontation" }],
+          "effects": { "addStats": { "clarity": 1, "grief": 1 }, "addWeights": { "mutual": 3 } }
+        },
+        {
+          "id": "version_quiet_them",
+          "label": "They had already checked out. I was the last to know.",
+          "next": "m_your_version_1_quiet",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_quiet" }],
+          "effects": { "addStats": { "grief": 1, "protection": 1 }, "addWeights": { "blame_them": 3 } }
+        },
+        {
+          "id": "version_quiet_you",
+          "label": "I think I already knew it was over. I just didn't say it first.",
+          "next": "m_your_version_1_quiet",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_quiet" }],
+          "effects": { "addStats": { "clarity": 1, "doubt": 1 }, "addWeights": { "self_aware": 3 } }
+        }
+      ]
+    },
+
+    {
+      "id": "m_your_version_1_confrontation",
+      "kind": "memory",
+      "title": "The fight",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "The kitchen. A specific quality of light — yellow, late. You both looked like you hadn't slept." },
+        { "type": "p", "speaker": "narrator", "text": "They said something that landed wrong. You said something back. Then it wasn't about the original thing anymore. It became about everything, the way those conversations do." },
+        { "type": "p", "speaker": "narrator", "text": "You remember the pitch of their voice near the end. The way they stopped looking at you and started looking past you." },
+        { "type": "whisper", "speaker": "body", "text": "You thought: they've rehearsed this." },
+        { "type": "whisper", "speaker": "brain", "text": "Whether that was true is a different question." }
+      ],
+      "choices": [
+        {
+          "id": "v1c_carry",
+          "label": "That's the version you've been carrying.",
+          "next": "m_their_version_arrives",
+          "effects": { "addStats": { "protection": 1 }, "addMemory": { "id": "m_your_v1", "label": "Kitchen. Late. They escalated.", "kind": "support", "tags": ["confrontation"] } }
+        }
+      ]
+    },
+
+    {
+      "id": "m_your_version_1_quiet",
+      "kind": "memory",
+      "title": "The quiet",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You remember sitting across from them and feeling the absence before anything was said." },
+        { "type": "p", "speaker": "narrator", "text": "There was a meal, or the remnants of one. You were both pretending the conversation was normal. You were both bad at it." },
+        { "type": "p", "speaker": "narrator", "text": "At some point they said your name. Not to get your attention — just said it. Like they were testing whether it still meant something." },
+        { "type": "whisper", "speaker": "body", "text": "You answered. You don't remember what you said." },
+        { "type": "whisper", "speaker": "brain", "text": "That bothers you more than it should." }
+      ],
+      "choices": [
+        {
+          "id": "v1q_carry",
+          "label": "That's the version you've been carrying.",
+          "next": "m_their_version_arrives",
+          "effects": { "addStats": { "grief": 1 }, "addMemory": { "id": "m_your_v1", "label": "Quiet. Dinner. Your name, said like a test.", "kind": "support", "tags": ["quiet"] } }
+        }
+      ]
+    },
+
+    {
+      "id": "m_their_version_arrives",
+      "kind": "memory",
+      "title": "Their version",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Here's what the mutual friend told you they said:" },
+        { "type": "p", "speaker": "narrator", "text": "That you were already gone before the night started. That they were the one trying." },
+        { "type": "p", "speaker": "narrator", "text": "A sentence and a half. Secondhand. But enough to know that in their version, the roles are switched." },
+        { "type": "whisper", "speaker": "brain", "text": "You don't know if they're rewriting it or if they actually remember it that way. Those are very different problems." }
+      ],
+      "choices": [
+        {
+          "id": "reject_it",
+          "label": "That's not what happened.",
+          "next": "x_first_contact",
+          "effects": { "addStats": { "protection": 2, "resentment": 1 }, "addClock": { "pressure": 1 } }
+        },
+        {
+          "id": "sit_with_it",
+          "label": "You sit with it before deciding what to do with it.",
+          "next": "x_first_contact",
+          "effects": { "addStats": { "clarity": 1, "doubt": 1 }, "addClock": { "pressure": 1 } }
+        },
+        {
+          "id": "feel_it",
+          "label": "Something in it lands. You don't want it to.",
+          "next": "x_first_contact",
+          "effects": { "addStats": { "clarity": 2, "grief": 1 }, "addClock": { "pressure": 2 } }
+        }
+      ]
+    },
+
+    {
+      "id": "x_first_contact",
+      "kind": "crossroads",
+      "title": "What to do with a version you didn't ask for",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Their version is out there. You can't un-know it." },
+        { "type": "p", "speaker": "narrator", "text": "The question is what you do with it." }
+      ],
+      "choices": [
+        {
+          "id": "discredit",
+          "label": "They're rewriting history. People do that when they need to.",
+          "next": "q_the_specific_claim",
+          "effects": { "addStats": { "protection": 2 }, "addWeights": { "discredit": 3 } }
+        },
+        {
+          "id": "consider",
+          "label": "Look for where both versions might be true at once.",
+          "next": "q_the_specific_claim",
+          "effects": { "addStats": { "clarity": 1, "doubt": 1 }, "addWeights": { "integration": 3 } }
+        },
+        {
+          "id": "capitulate",
+          "label": "Maybe yours is the rewrite.",
+          "next": "q_the_specific_claim",
+          "effects": { "addStats": { "doubt": 2 }, "addClock": { "pressure": 1 }, "addWeights": { "revision": 3 } }
+        }
+      ]
+    },
+
+    {
+      "id": "q_the_specific_claim",
+      "kind": "question",
+      "title": "The specific thing",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "The mutual friend told you one more thing. Specific enough that it stayed." },
+        { "type": "p", "speaker": "narrator", "text": "They said you went cold before they did. That by that night you were treating them like a problem to manage. That they felt like they were talking to someone who had already left the room." },
+        { "type": "p", "speaker": "narrator", "text": "You sit with this." },
+        { "type": "whisper", "speaker": "brain", "text": "The unsettling part isn't that it's wrong. It's that you can construct a version of the night where it's true." }
+      ],
+      "choices": [
+        {
+          "id": "deny_claim",
+          "label": "I wasn't cold. I was protecting myself.",
+          "next": "m_your_version_2",
+          "effects": { "addStats": { "protection": 2, "resentment": 1 }, "addClock": { "pressure": 1 }, "setFlags": ["denied_the_claim"] }
+        },
+        {
+          "id": "partial_claim",
+          "label": "Maybe. But that wasn't the whole picture.",
+          "next": "m_your_version_2",
+          "effects": { "addStats": { "clarity": 1, "doubt": 1 }, "addClock": { "pressure": 1 }, "setFlags": ["partially_accepted_claim"] }
+        },
+        {
+          "id": "accept_claim",
+          "label": "You were. You know you were.",
+          "next": "m_your_version_2",
+          "effects": { "addStats": { "clarity": 2, "grief": 2 }, "addClock": { "pressure": 2 }, "setFlags": ["accepted_the_claim"] }
+        }
+      ]
+    },
+
+    {
+      "id": "m_your_version_2",
+      "kind": "memory",
+      "title": "Going back in",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You go back into the night. Looking for something — evidence, maybe, or just the version that existed before theirs contaminated it." },
+        { "type": "whisper", "speaker": "brain", "text": "Memory doesn't work like that. But you try anyway." }
+      ],
+      "choices": [
+        {
+          "id": "v2_confront_evidence",
+          "label": "They came in ready to fight. I was the one trying to slow it down.",
+          "next": "m_your_version_2_confrontation",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_confrontation" }],
+          "effects": { "addStats": { "protection": 1 }, "addWeights": { "blame_them": 2 } }
+        },
+        {
+          "id": "v2_confront_honest",
+          "label": "I don't know who started it. I know how I felt.",
+          "next": "m_your_version_2_confrontation",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_confrontation" }],
+          "effects": { "addStats": { "clarity": 1, "grief": 1 }, "addWeights": { "feel_it": 2 } }
+        },
+        {
+          "id": "v2_quiet_evidence",
+          "label": "I was present. They were the one somewhere else.",
+          "next": "m_your_version_2_quiet",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_quiet" }],
+          "effects": { "addStats": { "protection": 1 }, "addWeights": { "blame_them": 2 } }
+        },
+        {
+          "id": "v2_quiet_honest",
+          "label": "I'm not sure anymore where I was.",
+          "next": "m_your_version_2_quiet",
+          "conditions": [{ "type": "primacy", "op": "equals", "value": "primacy_quiet" }],
+          "effects": { "addStats": { "doubt": 1, "grief": 1 }, "addWeights": { "feel_it": 2 } }
+        }
+      ]
+    },
+
+    {
+      "id": "m_your_version_2_confrontation",
+      "kind": "memory",
+      "title": "Deeper in",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You remember the moment it shifted. Before that it was an argument. After that it became something else." },
+        { "type": "p", "speaker": "narrator", "text": "They said: 'You never actually wanted this.' Not as a question." },
+        { "type": "p", "speaker": "narrator", "text": "You said something back. You don't remember the exact words — only the feeling behind them. A cold clarity. Like you'd stopped trying to reach them and started trying to win instead." },
+        { "type": "whisper", "speaker": "brain", "text": "That's the part you leave out when you tell it." }
+      ],
+      "choices": [
+        {
+          "id": "v2c_leave_out",
+          "label": "You still leave it out.",
+          "next": "m_their_version_2",
+          "effects": { "addStats": { "protection": 2 }, "addClock": { "pressure": 1 }, "addMemory": { "id": "m_your_v2", "label": "Cold clarity. You stopped trying to reach them.", "kind": "support", "tags": ["confrontation"] } }
+        },
+        {
+          "id": "v2c_include",
+          "label": "You sit with it. That part happened.",
+          "next": "m_their_version_2",
+          "effects": { "addStats": { "clarity": 2, "grief": 1 }, "addClock": { "pressure": 1 }, "addMemory": { "id": "m_your_v2", "label": "You stopped trying to reach them.", "kind": "contradiction", "tags": ["confrontation"] } }
+        }
+      ]
+    },
+
+    {
+      "id": "m_your_version_2_quiet",
+      "kind": "memory",
+      "title": "Deeper in",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You remember a specific silence. Not an absence of sound — you were both talking. But underneath, nothing." },
+        { "type": "p", "speaker": "narrator", "text": "At some point they reached for your hand across the table. You let them take it. You didn't pull away." },
+        { "type": "p", "speaker": "narrator", "text": "But you didn't hold on either." },
+        { "type": "whisper", "speaker": "brain", "text": "You've thought about that gesture. What it meant that you let them take your hand and felt nothing in particular." }
+      ],
+      "choices": [
+        {
+          "id": "v2q_explain",
+          "label": "You were exhausted. That's different from gone.",
+          "next": "m_their_version_2",
+          "effects": { "addStats": { "protection": 1, "doubt": 1 }, "addClock": { "pressure": 1 }, "addMemory": { "id": "m_your_v2", "label": "The hand. You let them. You didn't hold on.", "kind": "support", "tags": ["quiet"] } }
+        },
+        {
+          "id": "v2q_accept",
+          "label": "Maybe you were already gone.",
+          "next": "m_their_version_2",
+          "effects": { "addStats": { "clarity": 1, "grief": 2 }, "addClock": { "pressure": 2 }, "addMemory": { "id": "m_your_v2", "label": "Maybe you were already gone.", "kind": "contradiction", "tags": ["quiet"] } }
+        }
+      ]
+    },
+
+    {
+      "id": "m_their_version_2",
+      "kind": "memory",
+      "title": "More of their version",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You find out more. Not by asking — you wouldn't give them that. But it filters back." },
+        { "type": "p", "speaker": "narrator", "text": "They've told it to at least two people. In their version, they tried until the end. They say they asked you directly: do you still want this? They say you didn't answer." },
+        { "type": "p", "speaker": "narrator", "text": "You think: that never happened. Then: does my not remembering it mean it didn't, or just that I can't access it?" },
+        { "type": "whisper", "speaker": "brain", "text": "There's a difference between a false memory and a lost one. You're not certain which this is." }
+      ],
+      "choices": [
+        {
+          "id": "tv2_false",
+          "label": "It didn't happen. You'd remember a question like that.",
+          "next": "x_second_contact",
+          "effects": { "addStats": { "protection": 2 }, "addClock": { "pressure": 1 }, "setFlags": ["denied_the_question"] }
+        },
+        {
+          "id": "tv2_lost",
+          "label": "You genuinely don't know.",
+          "next": "x_second_contact",
+          "effects": { "addStats": { "doubt": 2 }, "addClock": { "pressure": 2 }, "setFlags": ["admitted_the_gap"] }
+        },
+        {
+          "id": "tv2_likely",
+          "label": "It sounds like something you would have done.",
+          "next": "x_second_contact",
+          "effects": { "addStats": { "clarity": 2, "grief": 1 }, "addClock": { "pressure": 2 }, "setFlags": ["accepted_possibility"] }
+        }
+      ]
+    },
+
+    {
+      "id": "x_second_contact",
+      "kind": "crossroads",
+      "title": "Holding both",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Two versions of the same night. Both told by someone who was there. Both internally consistent." },
+        { "type": "whisper", "speaker": "brain", "text": "The problem with memory isn't that it lies. It's that it's sincere." }
+      ],
+      "choices": [
+        {
+          "id": "sc_one_true",
+          "label": "One of these is closer to the truth.",
+          "next": "q_what_you_did",
+          "effects": { "addStats": { "protection": 1, "resentment": 1 }, "addWeights": { "verdict": 3 } }
+        },
+        {
+          "id": "sc_both_partial",
+          "label": "Both are partial. That doesn't make either of them wrong.",
+          "next": "q_what_you_did",
+          "effects": { "addStats": { "clarity": 2 }, "addWeights": { "integration": 3 } }
+        },
+        {
+          "id": "sc_neither",
+          "label": "The actual night exists somewhere neither version can reach.",
+          "next": "q_what_you_did",
+          "effects": { "addStats": { "doubt": 2, "grief": 1 }, "addClock": { "pressure": 1 }, "addWeights": { "suspension": 3 } }
+        }
+      ]
+    },
+
+    {
+      "id": "q_what_you_did",
+      "kind": "question",
+      "title": "What you actually did",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Set their version aside for a moment." },
+        { "type": "p", "speaker": "narrator", "text": "Just yours. What did you do that night? Not what happened to you. What did you do?" },
+        { "type": "whisper", "speaker": "brain", "text": "This question has two forms: the one where you answer it honestly, and the one where you wait for someone to tell you it wasn't your fault." }
+      ],
+      "choices": [
+        {
+          "id": "did_nothing_wrong",
+          "label": "I responded. I didn't start it.",
+          "next": "m_the_moment",
+          "effects": { "addStats": { "protection": 2, "resentment": 1 }, "addClock": { "pressure": 1 }, "setFlags": ["deflected_accountability"] }
+        },
+        {
+          "id": "did_some_things",
+          "label": "I did some things I'm not proud of.",
+          "next": "m_the_moment",
+          "effects": { "addStats": { "clarity": 1, "grief": 1 }, "addClock": { "pressure": 1 }, "setFlags": ["partial_accountability"] }
+        },
+        {
+          "id": "did_the_thing",
+          "label": "I withdrew. That was a choice I made.",
+          "next": "m_the_moment",
+          "effects": { "addStats": { "clarity": 2, "grief": 2 }, "addClock": { "pressure": 1 }, "setFlags": ["full_accountability"] }
+        }
+      ]
+    },
+
+    {
+      "id": "m_the_moment",
+      "kind": "memory",
+      "title": "The moment both versions hinge on",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Both versions return to the same moment. Each of you has named it as the turn." },
+        { "type": "p", "speaker": "narrator", "text": "In yours, it's the moment they made the choice. In theirs, it's the moment you did." },
+        { "type": "p", "speaker": "narrator", "text": "The moment: they asked if you were okay. Simple question. You said yes." },
+        { "type": "whisper", "speaker": "body", "text": "You were not okay." },
+        { "type": "whisper", "speaker": "brain", "text": "Neither version explains why you said yes." }
+      ],
+      "choices": [
+        {
+          "id": "moment_protect",
+          "label": "You said yes to protect them from something they couldn't have helped with anyway.",
+          "next": "x_reckoning",
+          "effects": { "addStats": { "protection": 1, "grief": 1 }, "addClock": { "pressure": 1 }, "addMemory": { "id": "m_the_moment", "label": "You said yes. You were protecting them.", "kind": "support", "tags": ["the_moment"] } }
+        },
+        {
+          "id": "moment_distance",
+          "label": "You said yes because you'd already decided they weren't the right person to tell.",
+          "next": "x_reckoning",
+          "effects": { "addStats": { "clarity": 1, "doubt": 1, "grief": 1 }, "addClock": { "pressure": 1 }, "addMemory": { "id": "m_the_moment", "label": "You said yes. You'd already decided.", "kind": "contradiction", "tags": ["the_moment"] } }
+        },
+        {
+          "id": "moment_numb",
+          "label": "You don't know why you said yes. You just did.",
+          "next": "x_reckoning",
+          "effects": { "addStats": { "doubt": 2 }, "addClock": { "pressure": 2 }, "addMemory": { "id": "m_the_moment", "label": "You said yes. You don't know why.", "kind": "support", "tags": ["the_moment"] } }
+        }
+      ]
+    },
+
+    {
+      "id": "x_reckoning",
+      "kind": "crossroads",
+      "title": "The gap",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "The gap between your version and theirs is not going to close." },
+        { "type": "p", "speaker": "narrator", "text": "You've been looking for the explanation that makes one account true and the other a distortion." },
+        { "type": "p", "speaker": "narrator", "text": "Maybe that's not the right thing to look for." }
+      ],
+      "choices": [
+        {
+          "id": "reckon_verdict",
+          "label": "One of us is more right. I know which one.",
+          "next": "r_reflection_final",
+          "effects": { "addStats": { "protection": 2, "resentment": 1 }, "setFlags": ["sought_verdict"] }
+        },
+        {
+          "id": "reckon_both",
+          "label": "Both versions are true for the person who lived them. That's the problem.",
+          "next": "r_reflection_final",
+          "effects": { "addStats": { "clarity": 2, "grief": 1 }, "setFlags": ["accepted_both"] }
+        },
+        {
+          "id": "reckon_neither",
+          "label": "Maybe what actually happened belongs to no one.",
+          "next": "r_reflection_final",
+          "effects": { "addStats": { "doubt": 2, "grief": 2 }, "addClock": { "pressure": 1 }, "setFlags": ["released_the_night"] }
+        }
+      ]
+    },
+
+    {
+      "id": "r_reflection_final",
+      "kind": "reflection",
+      "title": null,
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Later you replay both versions. Parallel." },
+        { "type": "p", "speaker": "narrator", "text": "In yours: you were present. Trying. Hurt by something they were doing that they didn't know they were doing." },
+        { "type": "p", "speaker": "narrator", "text": "In theirs: you were already elsewhere. Decided. Leaving without saying so." },
+        { "type": "p", "speaker": "narrator", "text": "You can see both. That's the uncomfortable part." },
+        { "type": "whisper", "speaker": "brain", "text": "What you remember most honestly is this: you don't know what they were experiencing. You only ever had access to yourself." }
+      ],
+      "choices": [
+        { "id": "to_endings", "label": "Continue.", "next": "x_ending_selector" }
+      ]
+    },
+
+    {
+      "id": "x_ending_selector",
+      "kind": "crossroads",
+      "title": null,
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You leave with something. You're not sure it's a conclusion." }
+      ],
+      "choices": [
+        { "id": "ending_suspension",        "label": "Continue.", "next": "e_suspension",   "conditions": [{ "type": "clock", "clock": "pressure", "op": ">=", "value": 8 }] },
+        { "id": "ending_revision",          "label": "Continue.", "next": "e_revision",    "conditions": [{ "type": "stat", "stat": "doubt", "op": ">=", "value": 5 }, { "type": "stat", "stat": "resentment", "op": "<", "value": 3 }] },
+        { "id": "ending_integration",       "label": "Continue.", "next": "e_integration", "conditions": [{ "type": "stat", "stat": "clarity", "op": ">=", "value": 6 }] },
+        { "id": "ending_fortress",          "label": "Continue.", "next": "e_fortress",    "conditions": [{ "type": "stat", "stat": "protection", "op": ">=", "value": 6 }] },
+        { "id": "ending_integration_low",   "label": "Continue.", "next": "e_integration", "conditions": [{ "type": "stat", "stat": "clarity", "op": ">=", "value": 4 }] },
+        { "id": "ending_fortress_default",  "label": "Continue.", "next": "e_fortress" }
+      ]
+    },
+
+    {
+      "id": "e_integration",
+      "kind": "ending",
+      "title": "Integration",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You stop trying to make one version win." },
+        { "type": "p", "speaker": "narrator", "text": "You hold both: the night you were trying and the night you'd already stopped. They overlap. They don't cancel each other out." },
+        { "type": "p", "speaker": "narrator", "text": "Their version of you is not you. But it's not nothing. It's what you looked like from where they were standing." },
+        { "type": "p", "speaker": "narrator", "text": "There's a kind of quiet in that. Not resolution — you won't call it resolution. The story just got bigger. Harder to carry, and somehow lighter." },
+        { "type": "whisper", "speaker": "brain", "text": "You don't have to agree with their version to let it matter." }
+      ],
+      "choices": [
+        { "id": "restart", "label": "Start over with the other version.", "next": "p_the_night", "effects": { "setFlags": ["wipe_run"] } }
+      ]
+    },
+
+    {
+      "id": "e_fortress",
+      "kind": "ending",
+      "title": "Fortress",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "Your version holds." },
+        { "type": "p", "speaker": "narrator", "text": "You were there. You know what happened. Their account is something they need — a story that makes the ending make sense for them. You understand that. You don't have to take it on." },
+        { "type": "p", "speaker": "narrator", "text": "The version you carry is coherent. It's been repeated enough that the shape feels permanent." },
+        { "type": "p", "speaker": "narrator", "text": "Somewhere, they're carrying theirs. You'll never compare notes." },
+        { "type": "whisper", "speaker": "brain", "text": "The wall keeps things out. It also keeps things in." }
+      ],
+      "choices": [
+        { "id": "restart", "label": "Start over with the other version.", "next": "p_the_night", "effects": { "setFlags": ["wipe_run"] } }
+      ]
+    },
+
+    {
+      "id": "e_revision",
+      "kind": "ending",
+      "title": "Revision",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You find yourself adopting pieces of their version." },
+        { "type": "p", "speaker": "narrator", "text": "Not because you're certain they're right. Because doubt, held long enough, starts to fill in on the side of guilt." },
+        { "type": "p", "speaker": "narrator", "text": "You catch yourself telling the story differently now. Quieter about what they did. Less certain of your own account." },
+        { "type": "p", "speaker": "narrator", "text": "Maybe this is growth. Maybe it's a different kind of distortion — the self-punishing kind, which feels like honesty but isn't always." },
+        { "type": "whisper", "speaker": "brain", "text": "Accepting blame is not the same as telling the truth." }
+      ],
+      "choices": [
+        { "id": "restart", "label": "Start over with the other version.", "next": "p_the_night", "effects": { "setFlags": ["wipe_run"] } }
+      ]
+    },
+
+    {
+      "id": "e_suspension",
+      "kind": "ending",
+      "title": "Suspension",
+      "blocks": [
+        { "type": "p", "speaker": "narrator", "text": "You stop." },
+        { "type": "p", "speaker": "narrator", "text": "Not because you've figured it out. Because you've run out of the kind of energy that trying requires." },
+        { "type": "p", "speaker": "narrator", "text": "The night sits there. Two versions, neither confirmed, both contaminated by the knowledge of the other." },
+        { "type": "p", "speaker": "narrator", "text": "At some point you stop calling it a question and start calling it a fact: something happened, you were there, and that's all you can say with any certainty." },
+        { "type": "whisper", "speaker": "brain", "text": "Not every story gets an ending. Some of them just stop." }
+      ],
+      "choices": [
+        { "id": "restart", "label": "Start over with the other version.", "next": "p_the_night", "effects": { "setFlags": ["wipe_run"] } }
+      ]
+    }
+  ]
+}

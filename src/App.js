@@ -10,13 +10,13 @@ import SpotifyBrain from './components/SpotifyBrain/SpotifyBrain';
 import MarketRadar from './components/MarketRadar/MarketRadar';
 
 // Lazy load the game for code splitting
-const GameRoute = lazy(() => import('./what-you-remember/ui/GameRoute'));
+const GameRoute = lazy(() => import('./the-same-night/ui/GameRoute'));
 const SystemRunning = lazy(() => import('./system-is-running/SystemRunning'));
 const Valentine = lazy(() => import('./valentine/Valentine'));
 
 // Routes with special styling (full-screen, no navigation padding)
 const SPECIAL_ROUTES = {
-  '/what-you-remember': 'game-main',
+  '/the-same-night': 'game-main',
   '/system': 'system-main',
   '/be-my-valentine': 'valentine-main',
 };
@@ -60,7 +60,7 @@ export default function App() {
           <Route path="/spotify-brain" element={<SpotifyBrain />} />
           <Route path="/market-radar" element={<MarketRadar />} />
           <Route 
-            path="/what-you-remember" 
+            path="/the-same-night" 
             element={
               <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>Loading...</div>}>
                 <GameRoute />

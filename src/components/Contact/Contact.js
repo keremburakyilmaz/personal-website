@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Contact.css';
 import roya from "../../assets/roya_arkhmammadova.JPG";
 import deniz from "../../assets/deniz_soylular.jpg";
-import my_love from "../../assets/emiliya_rafiyeva.jpg";
+import my_love from "../../assets/emiliya_rafiyeva.jpeg";
 import aina from "../../assets/ainaapp_logo.jpg";
 
 export default function Contact() {
@@ -28,9 +28,10 @@ export default function Contact() {
 
   return (
     <section className="contact-section">
-      <div className="section-header">
-        <h1>Let's <span>Connect</span></h1>
-        <div className="section-subtitle"> I'm always open to new opportunities and collaborations. Feel free to reach out through any of the channels!</div>
+      <div className="page-header">
+        <p className="page-header__label">Get in touch</p>
+        <h1 className="page-header__title">Let's <span>Connect</span></h1>
+        <p className="page-header__sub">Open to new opportunities and collaborations. Feel free to reach out.</p>
       </div>
       
       <div className="contact-container">
