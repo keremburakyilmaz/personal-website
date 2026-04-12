@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c8dc49a6.css",
-    "main.js": "/static/js/main.97df8a6e.js",
+    "main.css": "/static/css/main.692b0ca8.css",
+    "main.js": "/static/js/main.91bfcbb8.js",
     "static/css/303.f4b6935a.chunk.css": "/static/css/303.f4b6935a.chunk.css",
     "static/js/303.712238f2.chunk.js": "/static/js/303.712238f2.chunk.js",
     "static/css/468.deb50818.chunk.css": "/static/css/468.deb50818.chunk.css",
@@ -10,12 +10,11 @@
     "static/js/578.e7491643.chunk.js": "/static/js/578.e7491643.chunk.js",
     "static/js/260.1562bfd9.chunk.js": "/static/js/260.1562bfd9.chunk.js",
     "static/media/roya_arkhmammadova.JPG": "/static/media/roya_arkhmammadova.d98078e680cca35192bd.JPG",
-    "static/media/profile_picture.jpg": "/static/media/profile_picture.6e535c4296793e2136d4.jpg",
     "static/media/emiliya_rafiyeva.jpeg": "/static/media/emiliya_rafiyeva.954ebaab8203d8d66210.jpeg",
     "static/media/deniz_soylular.jpg": "/static/media/deniz_soylular.7f1f1ecc3e2d5799d51b.jpg",
     "index.html": "/index.html",
-    "main.c8dc49a6.css.map": "/static/css/main.c8dc49a6.css.map",
-    "main.97df8a6e.js.map": "/static/js/main.97df8a6e.js.map",
+    "main.692b0ca8.css.map": "/static/css/main.692b0ca8.css.map",
+    "main.91bfcbb8.js.map": "/static/js/main.91bfcbb8.js.map",
     "303.f4b6935a.chunk.css.map": "/static/css/303.f4b6935a.chunk.css.map",
     "303.712238f2.chunk.js.map": "/static/js/303.712238f2.chunk.js.map",
     "468.deb50818.chunk.css.map": "/static/css/468.deb50818.chunk.css.map",
@@ -25,7 +24,7 @@
     "260.1562bfd9.chunk.js.map": "/static/js/260.1562bfd9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c8dc49a6.css",
-    "static/js/main.97df8a6e.js"
+    "static/css/main.692b0ca8.css",
+    "static/js/main.91bfcbb8.js"
   ]
 }
