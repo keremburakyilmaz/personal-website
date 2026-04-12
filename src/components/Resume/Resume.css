@@ -96,11 +96,8 @@
 }
 
 .edu-cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1px;
-  border: 1px solid var(--card-border);
-  background: var(--card-border);
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
 }
 
@@ -108,34 +105,21 @@
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
-  padding: 1.75rem 2rem;
-  background: var(--dark);
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-bottom-color 0.3s ease;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--card-border);
+  transition: padding-left 0.4s var(--ease-editorial);
+}
+
+.edu-card:first-child {
+  border-top: 1px solid var(--card-border);
 }
 
 .edu-card:hover {
-  background: rgba(196, 181, 163, 0.02);
-  border-bottom-color: var(--primary);
+  padding-left: 1rem;
 }
 
 .edu-card__icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 3px;
-  background: rgba(196, 181, 163, 0.05);
-  border: 1px solid rgba(196, 181, 163, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.edu-card__icon svg {
-  stroke: var(--primary);
-  width: 16px;
-  height: 16px;
+  display: none;
 }
 
 .edu-card__degree {
@@ -207,10 +191,3 @@
   border-color: rgba(196, 181, 163, 0.25);
 }
 
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-
-@media (min-width: 768px) {
-  .edu-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}

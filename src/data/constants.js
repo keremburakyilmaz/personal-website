@@ -44,26 +44,27 @@ export const projects = [
 
 export const experience = [
   {
-    company: "AINA",
-    position: "Co-founder, CTO",
-    period: "Oct 2024 - Present (Remote)",
-    description: [
-      "Developing our hackathon-winner idea into a business.",
-      "Building an app where users can get outfits rated by stylist personas and share them in a social media environment.",
-      "Responsible for the full-stack Flutter + Supabase, and the AI rating system as CTO.",
-      "Currently has 100+ users worldwide."
-    ]
-  },
-  {
     company: "Digitopia",
     position: "AI Engineering Intern",
     period: "May 2025 - Present (Hybrid - Beyoglu/Istanbul)",
     description: [
       "Coded several chatbots to help customers understand DMI scores, motivate with success stories, provide step-by-step plans, and guide execution.",
       "Created an orchestration for chatbots in a single, tool-calling workflow.",
-      "Created an automated scoring and recommendation pipeline by transcribing meetings and providing output.",
-      "Created a knowledge graph to better visualize the data and relationships between the data.",
-      "Working on integrating AWS Kendra for document search and retrieval."
+      "Implemented an automated scoring and recommendation pipeline by transcribing meetings and providing output.",
+      "Developed a knowledge graph system to better visualize the data and relationships between the data.",
+      "Worked on integrating AWS Kendra for document search and retrieval, improving accuracy and latency.",
+      "Currently working on implementing knowledge graph to our recommendation system to further develop and make it smarter and more accurate."
+    ]
+  },
+  {
+    company: "AINA",
+    position: "Co-founder, CTO",
+    period: "Oct 2024 - Feb 2026 (Remote)",
+    description: [
+      "Developed our hackathon-winner idea into a business.",
+      "Built an app where users can get outfits rated by stylist personas and share them in a social media environment.",
+      "Was responsible for the full-stack Flutter + Supabase, and the AI rating system as CTO.",
+      "Currently has 100+ users worldwide."
     ]
   },
   {

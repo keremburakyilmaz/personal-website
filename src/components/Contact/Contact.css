@@ -269,28 +269,28 @@
 /* ── LOVE BOX ─────────────────────────────────────────────── */
 
 .special-box-love:hover {
-  border-left-color: rgba(196, 181, 163, 0.5);
+  border-left-color: rgba(255, 105, 180, 0.6);
 }
 
 .special-box-love:hover::before {
-  content: '';
+  content: '♡';
   position: absolute;
   left: 60%;
   bottom: -30px;
   font-size: 20px;
-  color: rgba(196, 181, 163, 0.4);
+  color: rgba(255, 105, 180, 0.6);
   opacity: 0;
   pointer-events: none;
   animation: heartRise1 2.5s ease-out infinite;
 }
 
 .special-box-love:hover::after {
-  content: '';
+  content: '♡';
   position: absolute;
   right: 10%;
   bottom: -30px;
   font-size: 16px;
-  color: rgba(196, 181, 163, 0.3);
+  color: rgba(255, 105, 180, 0.5);
   opacity: 0;
   pointer-events: none;
   animation: heartRise2 2.8s ease-out infinite 0.8s;
