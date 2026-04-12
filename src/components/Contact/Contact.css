@@ -36,20 +36,20 @@
   align-items: center;
   padding: 1.5rem;
   background: var(--card-bg);
-  border-left: 2px solid transparent;
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  border-left: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-method:hover {
-  background: rgba(196, 248, 112, 0.03);
+  background: rgba(196, 181, 163, 0.02);
   border-left-color: var(--primary);
 }
 
 .contact-icon {
-  width: 44px;
-  height: 44px;
-  background: rgba(196, 248, 112, 0.07);
-  border: 1px solid rgba(196, 248, 112, 0.15);
+  width: 40px;
+  height: 40px;
+  background: rgba(196, 181, 163, 0.04);
+  border: 1px solid rgba(196, 181, 163, 0.1);
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -58,15 +58,16 @@
 }
 
 .contact-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   stroke: var(--primary);
+  opacity: 0.7;
 }
 
 .contact-details h3 {
   font-size: 0.85rem;
-  font-weight: 700;
-  color: white;
+  font-weight: 500;
+  color: var(--light);
   margin-bottom: 0.2rem;
   font-family: 'Space Grotesk', sans-serif;
 }
@@ -75,8 +76,8 @@
 .contact-details span {
   color: var(--gray);
   text-decoration: none;
-  font-size: 0.875rem;
-  transition: color var(--transition-fast);
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
 }
 
 .contact-details a:hover {
@@ -93,9 +94,9 @@
 
 .contact-form h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--light);
   margin-bottom: 1.75rem;
   letter-spacing: -0.02em;
 }
@@ -108,25 +109,24 @@
 .form-group textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--card-border);
   border-radius: 2px;
-  color: white;
+  color: var(--light);
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease;
   outline: none;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(107, 114, 128, 0.6);
+  color: rgba(125, 120, 111, 0.5);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(196, 248, 112, 0.1);
 }
 
 .form-group textarea {
@@ -142,15 +142,15 @@
   width: 100%;
   padding: 0.875rem;
   background: var(--primary);
-  color: #080808;
+  color: var(--dark);
   border: none;
   border-radius: 2px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .submit-button:hover {
@@ -159,11 +159,13 @@
 }
 
 .submit-button svg {
-  transition: transform var(--transition-fast);
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
 }
 
 .submit-button:hover svg {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 /* ── SUCCESS POPUP ─────────────────────────────────────────── */
@@ -173,11 +175,11 @@
   bottom: 2rem;
   right: 2rem;
   background: var(--primary);
-  color: #080808;
+  color: var(--dark);
   padding: 0.875rem 1.25rem;
   border-radius: 3px;
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   z-index: 999;
   animation: fadeInOut 3s ease-in-out;
 }
@@ -203,15 +205,15 @@
   padding: 1.5rem;
   display: flex;
   align-items: center;
-  border-left: 2px solid transparent;
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  border-left: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
   min-height: 90px;
   position: relative;
   overflow: hidden;
 }
 
 .additional-link-box:hover {
-  background: rgba(196, 248, 112, 0.03);
+  background: rgba(196, 181, 163, 0.02);
   border-left-color: var(--primary);
 }
 
@@ -224,29 +226,35 @@
 }
 
 .link-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 3px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   object-fit: cover;
-  background: rgba(196, 248, 112, 0.07);
+  background: rgba(196, 181, 163, 0.05);
   flex-shrink: 0;
+  filter: grayscale(30%);
+  transition: filter 0.3s ease;
+}
+
+.additional-link-box:hover .link-avatar {
+  filter: grayscale(0%);
 }
 
 .additional-link-box h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light);
   margin-bottom: 0.25rem;
   letter-spacing: -0.01em;
 }
 
 .additional-link-box a {
   color: var(--gray);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 400;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color 0.3s ease;
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -261,28 +269,28 @@
 /* ── LOVE BOX ─────────────────────────────────────────────── */
 
 .special-box-love:hover {
-  border-left-color: rgba(255, 105, 180, 0.6);
+  border-left-color: rgba(196, 181, 163, 0.5);
 }
 
 .special-box-love:hover::before {
-  content: '♡';
+  content: '';
   position: absolute;
   left: 60%;
   bottom: -30px;
   font-size: 20px;
-  color: rgba(255, 105, 180, 0.6);
+  color: rgba(196, 181, 163, 0.4);
   opacity: 0;
   pointer-events: none;
   animation: heartRise1 2.5s ease-out infinite;
 }
 
 .special-box-love:hover::after {
-  content: '♡';
+  content: '';
   position: absolute;
   right: 10%;
   bottom: -30px;
   font-size: 16px;
-  color: rgba(255, 105, 180, 0.5);
+  color: rgba(196, 181, 163, 0.3);
   opacity: 0;
   pointer-events: none;
   animation: heartRise2 2.8s ease-out infinite 0.8s;
