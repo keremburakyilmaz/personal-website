@@ -24,6 +24,10 @@
   overscroll-behavior: none;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   background: var(--dark);
   color: var(--light);
