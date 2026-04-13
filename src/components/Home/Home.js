@@ -46,7 +46,8 @@ export default function Home() {
             <div className="hero-status-line">
               <span className="hero-status-label">Currently</span>
               <span className="hero-status-text">AI Engineer at Digitopia</span>
-              <span className="hero-status-sep">·</span>
+            </div>
+            <div className="hero-status-line">
               <span className="hero-status-label">Education</span>
               <span className="hero-status-text">Koç University — CS &amp; Business</span>
             </div>
