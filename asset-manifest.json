@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.66a1403e.css",
-    "main.js": "/static/js/main.d927849e.js",
+    "main.css": "/static/css/main.ad709caf.css",
+    "main.js": "/static/js/main.ce6b50e1.js",
     "static/css/303.f4b6935a.chunk.css": "/static/css/303.f4b6935a.chunk.css",
     "static/js/303.712238f2.chunk.js": "/static/js/303.712238f2.chunk.js",
     "static/css/468.deb50818.chunk.css": "/static/css/468.deb50818.chunk.css",
@@ -14,8 +14,8 @@
     "static/media/emiliya_rafiyeva.jpeg": "/static/media/emiliya_rafiyeva.954ebaab8203d8d66210.jpeg",
     "static/media/deniz_soylular.jpg": "/static/media/deniz_soylular.7f1f1ecc3e2d5799d51b.jpg",
     "index.html": "/index.html",
-    "main.66a1403e.css.map": "/static/css/main.66a1403e.css.map",
-    "main.d927849e.js.map": "/static/js/main.d927849e.js.map",
+    "main.ad709caf.css.map": "/static/css/main.ad709caf.css.map",
+    "main.ce6b50e1.js.map": "/static/js/main.ce6b50e1.js.map",
     "303.f4b6935a.chunk.css.map": "/static/css/303.f4b6935a.chunk.css.map",
     "303.712238f2.chunk.js.map": "/static/js/303.712238f2.chunk.js.map",
     "468.deb50818.chunk.css.map": "/static/css/468.deb50818.chunk.css.map",
@@ -25,7 +25,7 @@
     "260.5e4993e6.chunk.js.map": "/static/js/260.5e4993e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.66a1403e.css",
-    "static/js/main.d927849e.js"
+    "static/css/main.ad709caf.css",
+    "static/js/main.ce6b50e1.js"
   ]
 }
