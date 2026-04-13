@@ -162,7 +162,105 @@
   margin: 0 0.25rem;
 }
 
+/* ── WORKFLOW DIAGRAM ────────────────────────────────────── */
+
+.workflow-container {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(11, 11, 11, 0.55);
+  border: 1px solid rgba(201, 184, 161, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.workflow-svg {
+  width: 100%;
+  height: auto;
+}
+
+.wf-edge {
+  stroke: var(--primary);
+  stroke-width: 1.2;
+  stroke-dasharray: 5 5;
+  opacity: 0.5;
+  animation: wf-flow 1.8s linear infinite;
+}
+
+.wf-edge-loop {
+  fill: none;
+  animation: wf-flow 2.4s linear infinite;
+}
+
+.wf-node {
+  stroke: var(--primary);
+  stroke-width: 1.2;
+  fill: transparent;
+  opacity: 0.6;
+}
+
+.wf-rect {
+  fill: rgba(201, 184, 161, 0.1);
+}
+
+.wf-diamond {
+  fill: rgba(201, 184, 161, 0.08);
+}
+
+.wf-start {
+  fill: var(--primary);
+  stroke: none;
+  opacity: 0.7;
+}
+
+.wf-end {
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.wf-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--primary);
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.wf-text-label {
+  font-size: 9px;
+  opacity: 0.5;
+}
+
+.wf-pulse {
+  fill: var(--primary);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 3px var(--primary));
+}
+
+.wf-pulse-alt {
+  opacity: 0.5;
+}
+
+@keyframes wf-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .workflow-container {
+    display: none;
+  }
+}
 
 @media (max-width: 640px) {
   .hero {

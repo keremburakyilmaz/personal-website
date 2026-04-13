@@ -1,6 +1,7 @@
 import './Home.css';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import wave from '../../assets/great_wave.jpg';
+import WorkflowDiagram from './WorkflowDiagram';
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         <div className="hero-wave-bg" aria-hidden="true">
           <img src={wave} alt="" className="hero-wave-img" />
         </div>
+
+        <WorkflowDiagram />
 
         <div className="hero-content">
           <span className="hero-label">AI / ML Engineer · Istanbul</span>
@@ -45,7 +48,7 @@ export default function Home() {
           <div className="hero-status">
             <div className="hero-status-line">
               <span className="hero-status-label">Currently</span>
-              <span className="hero-status-text">AI Engineer at Digitopia</span>
+              <span className="hero-status-text">AI Engineer at Digitopia · Full Stack Engineer at Turkish Technology</span>
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Education</span>
