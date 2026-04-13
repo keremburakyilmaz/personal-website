@@ -16,6 +16,7 @@ const Valentine = lazy(() => import('./valentine/Valentine'));
 
 // Routes with special styling (full-screen, no navigation padding)
 const SPECIAL_ROUTES = {
+  '/': 'home-main',
   '/the-same-night': 'game-main',
   '/system': 'system-main',
   '/be-my-valentine': 'valentine-main',

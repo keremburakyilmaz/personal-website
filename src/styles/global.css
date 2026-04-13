@@ -152,6 +152,11 @@ section {
 }
 
 /* Special routes */
+.home-main {
+  padding: 0;
+  overflow: hidden;
+}
+
 .system-main {
   padding: 0;
   background: #0a0a0c;
