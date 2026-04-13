@@ -4,10 +4,11 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 8rem);
-  justify-content: space-between;
+  height: calc(100vh - 8rem);
+  justify-content: center;
   max-width: none;
   width: 100%;
+  overflow: hidden;
 }
 
 /* ── HERO ─────────────────────────────────────────────────── */
@@ -72,12 +73,14 @@
 
 .hero-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(2.2rem, 5.5vw, 7rem);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 0.95;
   color: var(--light);
   margin-bottom: 2rem;
+  white-space: nowrap;
+  width: fit-content;
 }
 
 .hero-desc {
@@ -93,6 +96,7 @@
 .hero-links {
   display: flex;
   gap: 2.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .hero-links a {
@@ -124,32 +128,38 @@
   opacity: 1;
 }
 
-/* ── BOTTOM INFO ─────────────────────────────────────────── */
+/* ── STATUS LINE ─────────────────────────────────────────── */
 
-.home-footer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--card-border);
-  padding: 2.5rem 4rem 3rem;
-  gap: 2rem;
+.hero-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.home-footer-label {
-  display: block;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+.hero-status-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-status-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 0.85rem;
-  opacity: 0.6;
 }
 
-.home-footer-text {
+.hero-status-text {
+  font-size: 0.82rem;
   color: var(--gray);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  margin: 0 0 0.2rem;
+}
+
+.hero-status-sep {
+  color: var(--gray);
+  opacity: 0.3;
+  margin: 0 0.25rem;
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
@@ -160,7 +170,7 @@
   }
 
   .hero-name {
-    font-size: clamp(2.75rem, 12vw, 3.5rem);
+    font-size: clamp(1.75rem, 9vw, 3.5rem);
   }
 
   .hero-wave-bg::before {
@@ -172,11 +182,5 @@
       rgba(11, 11, 11, 0.5) 70%,
       rgba(11, 11, 11, 0.25) 100%
     );
-  }
-
-  .home-footer {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    padding: 2rem 1.5rem 2.5rem;
   }
 }

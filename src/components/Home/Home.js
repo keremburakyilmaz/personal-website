@@ -41,24 +41,20 @@ export default function Home() {
               Email
             </a>
           </nav>
-        </div>
-      </div>
 
-      {/* ── BOTTOM INFO ──────────────────────────────────── */}
-      <div className="home-footer">
-        <div className="home-footer-col">
-          <span className="home-footer-label">Currently</span>
-          <p className="home-footer-text">AI Engineer at Digitopia</p>
-        </div>
-        <div className="home-footer-col">
-          <span className="home-footer-label">Education</span>
-          <p className="home-footer-text">Koç University - CS &amp; Business</p>
-        </div>
-        <div className="home-footer-col">
-          <span className="home-footer-label">Focus</span>
-          <p className="home-footer-text">AI Workflows · Automation</p>
-          <p className="home-footer-text">Generative AI · RAG Systems</p>
-          <p className="home-footer-text">MLOps · Full-Stack Development</p>
+          <div className="hero-status">
+            <div className="hero-status-line">
+              <span className="hero-status-label">Currently</span>
+              <span className="hero-status-text">AI Engineer at Digitopia</span>
+              <span className="hero-status-sep">·</span>
+              <span className="hero-status-label">Education</span>
+              <span className="hero-status-text">Koç University — CS &amp; Business</span>
+            </div>
+            <div className="hero-status-line">
+              <span className="hero-status-label">Focus</span>
+              <span className="hero-status-text">AI Workflows · Generative AI · RAG Systems · MLOps</span>
+            </div>
+          </div>
         </div>
       </div>
 
