@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
@@ -25,11 +26,29 @@ const SPECIAL_ROUTES = {
 // Routes where navigation should be hidden
 const HIDDEN_NAV_ROUTES = ['/system', '/be-my-valentine'];
 
+function PageTransition({ children }) {
+  const location = useLocation();
+  return (
+    <motion.div
+      key={location.pathname}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -44,45 +63,45 @@ export default function App() {
   return (
     <div className="app-container">
       {showNavigation && (
-        <Navigation 
+        <Navigation
           activeSection={location.pathname}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
           isScrolled={isScrolled}
         />
       )}
-      
+
       <main className={mainClassName}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/spotify-brain" element={<SpotifyBrain />} />
-          <Route path="/market-radar" element={<MarketRadar />} />
-          <Route 
-            path="/the-same-night" 
+        <Routes location={location}>
+          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+          <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
+          <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+          <Route path="/spotify-brain" element={<PageTransition><SpotifyBrain /></PageTransition>} />
+          <Route path="/market-radar" element={<PageTransition><MarketRadar /></PageTransition>} />
+          <Route
+            path="/the-same-night"
             element={
               <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>Loading...</div>}>
-                <GameRoute />
+                <PageTransition><GameRoute /></PageTransition>
               </Suspense>
-            } 
+            }
           />
-          <Route 
-            path="/system" 
+          <Route
+            path="/system"
             element={
               <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#0a0a0c' }}></div>}>
-                <SystemRunning />
+                <PageTransition><SystemRunning /></PageTransition>
               </Suspense>
-            } 
+            }
           />
-          <Route 
-            path="/be-my-valentine" 
+          <Route
+            path="/be-my-valentine"
             element={
               <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#fff8f0' }}></div>}>
-                <Valentine />
+                <PageTransition><Valentine /></PageTransition>
               </Suspense>
-            } 
+            }
           />
         </Routes>
       </main>

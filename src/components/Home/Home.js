@@ -15,7 +15,7 @@ export default function Home() {
           <img src={wave} alt="" className="hero-wave-img" />
         </div>
 
-        <WorkflowDiagram />
+     {/*<WorkflowDiagram /> */}
 
         <div className="hero-content">
           <span className="hero-label">AI / ML Engineer · Istanbul</span>
@@ -52,7 +52,7 @@ export default function Home() {
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Education</span>
-              <span className="hero-status-text">Koç University — CS &amp; Business</span>
+              <span className="hero-status-text">Koç University, CS &amp; Business</span>
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Focus</span>
