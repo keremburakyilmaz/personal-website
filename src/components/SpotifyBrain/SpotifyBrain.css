@@ -3,16 +3,19 @@
 }
 
 .spotify-brain-header {
-  text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .spotify-brain-header h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
   font-family: 'Space Grotesk', sans-serif;
-  color: white;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--light);
+  margin-bottom: 0.75rem;
 }
 
 .spotify-brain-header h1 span {
@@ -20,8 +23,9 @@
 }
 
 .last-updated {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--gray);
+  letter-spacing: 0.02em;
 }
 
 .loading-container {
@@ -42,34 +46,51 @@
   gap: 2rem;
 }
 
-/* Next Track Mood Prediction Card */
-.mood-prediction-card {
+/* ── CARD BASE ─────────────────────────────────── */
+.mood-prediction-card,
+.session-prob-card,
+.mood-trajectory-card,
+.mood-clusters-card,
+.metrics-card,
+.recently-played-stream-card {
   background: var(--card-bg);
-  border: 2px solid var(--card-border);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 2rem;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+}
+
+.mood-prediction-card {
+  border-width: 2px;
+  transition: box-shadow 0.3s ease;
 }
 
 .mood-prediction-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 8px 32px rgba(201, 184, 161, 0.08);
 }
 
-.mood-prediction-card h2 {
-  font-size: 1.5rem;
+.mood-prediction-card h2,
+.session-prob-card h2,
+.mood-trajectory-card h2,
+.mood-clusters-card h2,
+.metrics-card h2 {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.7;
   margin-bottom: 1.5rem;
-  color: white;
-  font-weight: 600;
 }
 
+/* ── MOOD PREDICTION ───────────────────────────── */
 .mood-label {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
   text-align: center;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .confidence-section {
@@ -77,28 +98,29 @@
 }
 
 .confidence-label {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--gray);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
 .confidence-bar-container {
   width: 100%;
-  height: 24px;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 12px;
+  height: 6px;
+  background: rgba(201, 184, 161, 0.1);
+  border-radius: 3px;
   overflow: hidden;
   margin-bottom: 0.5rem;
 }
 
 .confidence-bar {
   height: 100%;
-  border-radius: 12px;
-  transition: width 0.3s ease;
+  border-radius: 3px;
+  transition: width 0.4s ease;
 }
 
 .confidence-value {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
 }
@@ -107,23 +129,27 @@
   margin-bottom: 1rem;
   color: var(--gray);
   text-align: center;
+  font-size: 0.875rem;
 }
 
 .genre-label {
   font-weight: 600;
-  color: white;
+  color: var(--light);
 }
 
+/* ── RECOMMENDED TRACKS ────────────────────────── */
 .recommended-tracks-section {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
 
 .recommended-tracks-title {
-  font-size: 1rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 .recommended-tracks-grid {
@@ -135,17 +161,16 @@
 .recommended-track-card {
   display: flex;
   flex-direction: column;
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .recommended-track-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+  border-color: rgba(201, 184, 161, 0.2);
+  box-shadow: 0 4px 16px rgba(201, 184, 161, 0.06);
 }
 
 .recommended-track-image {
@@ -162,16 +187,16 @@
 }
 
 .recommended-track-name {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: white;
+  color: var(--light);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .recommended-track-artist {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--gray);
   white-space: nowrap;
   overflow: hidden;
@@ -179,45 +204,26 @@
 }
 
 .recommended-track-confidence {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--primary);
   margin-top: 0.25rem;
   font-weight: 600;
 }
 
-.cluster-badge {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: white;
-  text-align: center;
-  width: 100%;
-}
-
-/* Session Probability Chart Card */
-.session-prob-card,
-.mood-trajectory-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-}
-
+/* ── TOP HOURS ─────────────────────────────────── */
 .top-hours-info {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background: rgba(15, 23, 42, 0.5);
-  border-radius: 12px;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
 }
 
 .top-hours-label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--gray);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
 .top-hours-list {
@@ -227,16 +233,16 @@
 }
 
 .top-hour-badge {
-  padding: 0.5rem 1rem;
-  background: rgba(99, 102, 241, 0.2);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 0.35rem 0.85rem;
+  background: rgba(201, 184, 161, 0.08);
+  border: 1px solid rgba(201, 184, 161, 0.18);
   border-radius: 20px;
-  font-size: 0.875rem;
-  color: white;
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--light);
+  font-weight: 500;
 }
 
-/* Reduce bar chart hover brightness */
+/* ── CHART HOVER ───────────────────────────────── */
 .session-prob-card .recharts-bar-rectangle {
   transition: opacity 0.2s ease, filter 0.2s ease;
 }
@@ -251,18 +257,12 @@
   filter: brightness(0.85);
 }
 
-.session-prob-card .recharts-bar-rectangle:active {
-  opacity: 0.7 !important;
-  filter: brightness(0.8);
-}
-
-/* Reduce cursor/vertical highlight bar brightness */
 .session-prob-card .recharts-cursor,
 .session-prob-card .recharts-reference-line,
 .session-prob-card .recharts-tooltip-cursor,
 .session-prob-card .recharts-cursor-line {
-  opacity: 0.12 !important;
-  stroke: rgba(148, 163, 184, 0.25) !important;
+  opacity: 0.1 !important;
+  stroke: rgba(201, 184, 161, 0.2) !important;
   stroke-width: 1px !important;
 }
 
@@ -270,18 +270,9 @@
   opacity: 0.6 !important;
 }
 
-/* Target cursor line elements specifically (vertical highlight bar) */
 .session-prob-card .recharts-wrapper line.recharts-cursor {
-  opacity: 0.12 !important;
-  stroke: rgba(148, 163, 184, 0.25) !important;
-}
-
-.session-prob-card h2,
-.mood-trajectory-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: white;
-  font-weight: 600;
+  opacity: 0.1 !important;
+  stroke: rgba(201, 184, 161, 0.2) !important;
 }
 
 .no-data-message {
@@ -290,25 +281,10 @@
   justify-content: center;
   height: 300px;
   color: var(--gray);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
-/* Mood Clusters Overview */
-.mood-clusters-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-}
-
-.mood-clusters-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: white;
-  font-weight: 600;
-}
-
+/* ── MOOD CLUSTERS ─────────────────────────────── */
 .clusters-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -316,16 +292,15 @@
 }
 
 .cluster-card {
-  background: rgba(15, 23, 42, 0.5);
-  border: 2px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .cluster-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 20px rgba(201, 184, 161, 0.06);
 }
 
 .cluster-header {
@@ -336,17 +311,19 @@
 }
 
 .cluster-header h3 {
-  font-size: 1.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
   font-weight: 600;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
 .cluster-id-badge {
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 12px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: white;
+  color: #0b0b0b;
 }
 
 .cluster-radar {
@@ -361,7 +338,7 @@
 .feature-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0;
 }
 
 .feature-item {
@@ -369,7 +346,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .feature-item:last-child {
@@ -378,22 +355,17 @@
 
 .feature-name {
   color: var(--gray);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
 }
 
 .feature-value {
-  color: white;
+  color: var(--light);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
 }
 
-/* Recently Played Stream - Horizontal Cards */
+/* ── RECENTLY PLAYED ───────────────────────────── */
 .recently-played-stream-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
   grid-column: 1 / -1;
 }
 
@@ -405,9 +377,12 @@
 }
 
 .recently-played-stream-header h2 {
-  font-size: 1.5rem;
-  color: white;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.7;
   margin: 0;
 }
 
@@ -416,63 +391,61 @@
   border: none;
   color: var(--gray);
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 0.4rem;
+  border-radius: 6px;
+  transition: color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .refresh-button:hover {
-  color: white;
-  background: rgba(99, 102, 241, 0.1);
+  color: var(--light);
 }
 
 .recently-played-stream {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary) rgba(99, 102, 241, 0.1);
+  scrollbar-color: rgba(201, 184, 161, 0.3) transparent;
 }
 
 .recently-played-stream::-webkit-scrollbar {
-  height: 8px;
+  height: 4px;
 }
 
 .recently-played-stream::-webkit-scrollbar-track {
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 4px;
+  background: transparent;
 }
 
 .recently-played-stream::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+  background: rgba(201, 184, 161, 0.25);
+  border-radius: 2px;
 }
 
 .recently-played-stream::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  background: rgba(201, 184, 161, 0.4);
 }
 
 .recently-played-card-item {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 160px;
+  max-width: 160px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex-shrink: 0;
 }
 
 .card-album-art {
   position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 12px;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .card-album-art img {
@@ -486,30 +459,31 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  color: white;
+  color: #0b0b0b;
   text-align: center;
+  letter-spacing: 0.04em;
 }
 
 .card-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .card-song-title {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: white;
+  color: var(--light);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .card-artist {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--gray);
   white-space: nowrap;
   overflow: hidden;
@@ -517,27 +491,12 @@
 }
 
 .card-timestamp {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   color: var(--gray);
-  margin-top: 0.25rem;
+  opacity: 0.7;
 }
 
-/* Model Performance Metrics */
-.metrics-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-}
-
-.metrics-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: white;
-  font-weight: 600;
-}
-
+/* ── METRICS ───────────────────────────────────── */
 .metrics-content {
   display: flex;
   flex-direction: column;
@@ -549,71 +508,91 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .metric-stat {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .metric-label {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--gray);
 }
 
 .metric-value {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: var(--light);
+  letter-spacing: -0.03em;
 }
 
 .metric-value.good {
-  color: #10b981;
+  color: #7fc49d;
 }
 
 .metric-value.moderate {
-  color: #f59e0b;
+  color: #c4a67f;
 }
 
 .metric-value.poor {
-  color: #ef4444;
+  color: #c47f7f;
 }
 
 .metrics-details {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .model-metrics {
-  padding: 1.5rem;
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 12px;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
 }
 
 .model-metrics h3 {
-  font-size: 1.25rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.7;
   margin-bottom: 1rem;
-  color: white;
-  font-weight: 600;
 }
 
 .metric-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .metric-row:last-child {
   border-bottom: none;
 }
 
-/* Responsive Design */
+.metric-row .metric-label {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.metric-row .metric-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--light);
+}
+
+.metric-row .metric-value.good {
+  color: #7fc49d;
+}
+
+/* ── RESPONSIVE ────────────────────────────────── */
 @media (min-width: 768px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -641,15 +620,6 @@
 }
 
 @media (min-width: 992px) {
-  .spotify-brain-header h1 {
-    font-size: 3.5rem;
-  }
-
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -660,10 +630,6 @@
 }
 
 @media (min-width: 1200px) {
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-  }
-
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -120,9 +120,9 @@ export default function SpotifyBrain() {
   // Get confidence color
   const getConfidenceColor = (confidence) => {
     const conf = safeNumber(confidence, 0);
-    if (conf >= 0.8) return '#10b981'; // Green
-    if (conf >= 0.5) return '#f59e0b'; // Yellow
-    return '#ef4444'; // Red
+    if (conf >= 0.8) return '#7fc49d'; // Muted green
+    if (conf >= 0.5) return '#c4a67f'; // Muted amber
+    return '#c47f7f'; // Muted red
   };
 
   // Get mood color based on cluster - supports 3-15 clusters with muted colors
@@ -157,7 +157,8 @@ export default function SpotifyBrain() {
   return (
     <section className="spotify-brain-section">
       <div className="spotify-brain-header">
-        <h1>My Spotify Brain</h1>
+        <span className="page-header__label">Music Intelligence</span>
+        <h1>My Spotify <span>Brain</span></h1>
         <p className="last-updated">
           Last updated: {new Date(data.generated_at).toLocaleString()}
         </p>
@@ -285,43 +286,44 @@ export default function SpotifyBrain() {
             )}
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={sessionProbsData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(99, 102, 241, 0.2)" />
-                <XAxis 
-                  dataKey="hourLabel" 
-                  stroke="#94a3b8"
-                  tick={{ fill: '#94a3b8', fontSize: 12 }}
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(201, 184, 161, 0.08)" />
+                <XAxis
+                  dataKey="hourLabel"
+                  stroke="rgba(201, 184, 161, 0.2)"
+                  tick={{ fill: '#7d786f', fontSize: 11 }}
                 />
-                <YAxis 
-                  stroke="#94a3b8"
-                  tick={{ fill: '#94a3b8', fontSize: 12 }}
-                  label={{ value: 'Probability', angle: -90, position: 'insideLeft', fill: '#94a3b8' }}
+                <YAxis
+                  stroke="rgba(201, 184, 161, 0.2)"
+                  tick={{ fill: '#7d786f', fontSize: 11 }}
+                  label={{ value: 'Probability', angle: -90, position: 'insideLeft', fill: '#7d786f', fontSize: 11 }}
                 />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                    border: '1px solid rgba(99, 102, 241, 0.3)',
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: '#0b0b0b',
+                    border: '1px solid rgba(201, 184, 161, 0.15)',
                     borderRadius: '8px',
-                    color: '#f1f5f9'
+                    color: '#eae6e1',
+                    fontSize: '0.85rem'
                   }}
-                  cursor={{ stroke: 'rgba(148, 163, 184, 0.2)', strokeWidth: 1, opacity: 0.15 }}
+                  cursor={{ fill: 'rgba(201, 184, 161, 0.04)' }}
                   formatter={(value) => [safeToFixed(safeNumber(value, 0) * 100, 1) + '%', 'Probability']}
                 />
-                <Bar 
-                  dataKey="probability" 
+                <Bar
+                  dataKey="probability"
                   fill="url(#sessionGradient)"
-                  radius={[8, 8, 0, 0]}
+                  radius={[6, 6, 0, 0]}
                 >
                   {sessionProbsData.map((entry, index) => (
-                    <Cell 
+                    <Cell
                       key={`cell-${index}`}
-                      fill={entry.isCurrentHour ? '#6366f1' : 'url(#sessionGradient)'}
+                      fill={entry.isCurrentHour ? '#c9b8a1' : 'url(#sessionGradient)'}
                     />
                   ))}
                 </Bar>
                 <defs>
                   <linearGradient id="sessionGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#6366f1" stopOpacity={0.8} />
-                    <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.8} />
+                    <stop offset="0%" stopColor="#c9b8a1" stopOpacity={0.5} />
+                    <stop offset="100%" stopColor="#c9b8a1" stopOpacity={0.15} />
                   </linearGradient>
                 </defs>
               </BarChart>
@@ -334,52 +336,53 @@ export default function SpotifyBrain() {
             {moodTrajectoryData.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={moodTrajectoryData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(99, 102, 241, 0.2)" />
-                <XAxis 
-                  dataKey="time" 
-                  stroke="#94a3b8"
-                  tick={{ fill: '#94a3b8', fontSize: 12 }}
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(201, 184, 161, 0.08)" />
+                <XAxis
+                  dataKey="time"
+                  stroke="rgba(201, 184, 161, 0.2)"
+                  tick={{ fill: '#7d786f', fontSize: 11 }}
                 />
-                <YAxis 
+                <YAxis
                   yAxisId="left"
-                  stroke="#10b981"
-                  tick={{ fill: '#10b981', fontSize: 12 }}
-                  label={{ value: 'Valence', angle: -90, position: 'insideLeft', fill: '#10b981' }}
+                  stroke="rgba(201, 184, 161, 0.2)"
+                  tick={{ fill: '#7d786f', fontSize: 11 }}
+                  label={{ value: 'Valence', angle: -90, position: 'insideLeft', fill: '#7d786f', fontSize: 11 }}
                   domain={[0, 1]}
                 />
-                <YAxis 
+                <YAxis
                   yAxisId="right"
                   orientation="right"
-                  stroke="#f59e0b"
-                  tick={{ fill: '#f59e0b', fontSize: 12 }}
-                  label={{ value: 'Energy', angle: 90, position: 'insideRight', fill: '#f59e0b' }}
+                  stroke="rgba(201, 184, 161, 0.2)"
+                  tick={{ fill: '#7d786f', fontSize: 11 }}
+                  label={{ value: 'Energy', angle: 90, position: 'insideRight', fill: '#7d786f', fontSize: 11 }}
                   domain={[0, 1]}
                 />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                    border: '1px solid rgba(99, 102, 241, 0.3)',
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: '#0b0b0b',
+                    border: '1px solid rgba(201, 184, 161, 0.15)',
                     borderRadius: '8px',
-                    color: '#f1f5f9'
+                    color: '#eae6e1',
+                    fontSize: '0.85rem'
                   }}
                 />
-                <Legend />
-                <Line 
+                <Legend wrapperStyle={{ color: '#7d786f', fontSize: '0.8rem' }} />
+                <Line
                   yAxisId="left"
-                  type="monotone" 
-                  dataKey="valence" 
-                  stroke="#10b981" 
+                  type="monotone"
+                  dataKey="valence"
+                  stroke="#c9b8a1"
                   strokeWidth={2}
-                  dot={{ fill: '#10b981', r: 4 }}
+                  dot={{ fill: '#c9b8a1', r: 3 }}
                   name="Valence"
                 />
-                <Line 
+                <Line
                   yAxisId="right"
-                  type="monotone" 
-                  dataKey="energy" 
-                  stroke="#f59e0b" 
+                  type="monotone"
+                  dataKey="energy"
+                  stroke="#7fc49d"
                   strokeWidth={2}
-                  dot={{ fill: '#f59e0b', r: 4 }}
+                  dot={{ fill: '#7fc49d', r: 3 }}
                   name="Energy"
                 />
               </LineChart>
@@ -410,30 +413,31 @@ export default function SpotifyBrain() {
                     <div className="cluster-radar">
                       <ResponsiveContainer width="100%" height={200}>
                         <RadarChart data={radarData}>
-                          <PolarGrid stroke="rgba(99, 102, 241, 0.2)" />
-                          <PolarAngleAxis 
-                            dataKey="feature" 
-                            tick={{ fill: '#94a3b8', fontSize: 11 }}
+                          <PolarGrid stroke="rgba(201, 184, 161, 0.1)" />
+                          <PolarAngleAxis
+                            dataKey="feature"
+                            tick={{ fill: '#7d786f', fontSize: 11 }}
                           />
-                          <PolarRadiusAxis 
-                            angle={90} 
+                          <PolarRadiusAxis
+                            angle={90}
                             domain={[0, 100]}
-                            tick={{ fill: '#94a3b8', fontSize: 10 }}
+                            tick={{ fill: '#7d786f', fontSize: 10 }}
                           />
                           <Radar
                             name="Features"
                             dataKey="value"
                             stroke={clusterColor}
                             fill={clusterColor}
-                            fillOpacity={0.3}
-                            strokeWidth={2}
+                            fillOpacity={0.25}
+                            strokeWidth={1.5}
                           />
-                          <Tooltip 
-                            contentStyle={{ 
-                              backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                              border: `1px solid ${clusterColor}`,
+                          <Tooltip
+                            contentStyle={{
+                              backgroundColor: '#0b0b0b',
+                              border: `1px solid rgba(201, 184, 161, 0.15)`,
                               borderRadius: '8px',
-                              color: '#f1f5f9'
+                              color: '#eae6e1',
+                              fontSize: '0.85rem'
                             }}
                             formatter={(value) => [safeToFixed(safeNumber(value, 0), 1) + '%', 'Value']}
                           />
