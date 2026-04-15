@@ -1,7 +1,7 @@
 import './Home.css';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import wave from '../../assets/great_wave.jpg';
-/*import WorkflowDiagram from './WorkflowDiagram';*/
+
 
 export default function Home() {
   return (
@@ -15,7 +15,6 @@ export default function Home() {
           <img src={wave} alt="" className="hero-wave-img" />
         </div>
 
-     {/*<WorkflowDiagram /> */}
 
         <div className="hero-content">
           <span className="hero-label">AI / ML Engineer · Istanbul</span>
