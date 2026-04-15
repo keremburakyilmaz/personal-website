@@ -25,8 +25,8 @@ export default function Home() {
           </h1>
 
           <p className="hero-desc">
-            Building intelligent systems — from RAG pipelines
-            to full-stack deployments.
+            I build AI systems that run in production — from a Spotify ML pipeline
+            with 2,600+ automated executions to privacy tools and financial intelligence backends.
           </p>
 
           <nav className="hero-links">
@@ -47,15 +47,15 @@ export default function Home() {
           <div className="hero-status">
             <div className="hero-status-line">
               <span className="hero-status-label">Currently</span>
-              <span className="hero-status-text">AI Engineer at Digitopia · Full Stack Engineer at Turkish Technology</span>
+              <span className="hero-status-text">Full Stack Engineer at Turkish Technology</span>
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Education</span>
-              <span className="hero-status-text">Koç University, CS &amp; Business</span>
+              <span className="hero-status-text">Koç University — CS &amp; Business · KTH Erasmus Exchange</span>
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Focus</span>
-              <span className="hero-status-text">AI Workflows · Generative AI · RAG Systems · MLOps</span>
+              <span className="hero-status-text">AI Engineering · Full Stack Development · MLOps</span>
             </div>
           </div>
         </div>

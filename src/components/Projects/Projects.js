@@ -7,7 +7,7 @@ export default function Projects() {
       <div className="page-header">
         <p className="page-header__label">Selected work</p>
         <h1 className="page-header__title">Featured <span>Projects</span></h1>
-        <p className="page-header__sub">Innovative solutions leveraging cutting-edge AI technologies</p>
+        <p className="page-header__sub">ML systems, AI backends, and full-stack applications</p>
       </div>
 
       <div className="project-list">

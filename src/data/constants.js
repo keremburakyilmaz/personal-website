@@ -1,59 +1,104 @@
 export const projects = [
   {
-    title: "Business Solution Discovery Chatbot (RAG-based)",
+    title: "Spotify Brain - Listening Pattern Prediction System",
     description: [
-      "Designed an end-to-end chatbot using Retrieval-Augmented Generation (RAG) to match users with tailored business solutions.",
-      "Implemented semantic search with FAISS and SentenceTransformers; integrated LLaMA-3 via Groq API for real-time generation.",
-      "Built a feedback-aware retraining pipeline using MySQL logs and CosineSimilarityLoss.",
-      "Automated web scraping with Selenium and developed analytics dashboards with Matplotlib and Pandas.",
-      "Deployed production backend on AWS EC2 and managed cloud database with RDS."
+      "Built a continuously running ML system that learns personal listening patterns and predicts next-track mood and session timing, live with 2,600+ automated pipeline executions.",
+      "Trained XGBoost classifiers on mood clusters (K-Means with silhouette-based K selection) using sliding-window aggregation, cyclical time encoding, and rolling listening patterns from the Spotify and ReccoBeats APIs.",
+      "Automated two GitHub Actions workflows: an incremental update every 30 minutes and a daily full retrain that rebuilds clusters and redeploys.",
+      "Implemented drift detection comparing 7-day vs. 30-day distributions across session duration, listening frequency, and start-hour entropy."
     ],
-    tags: ["RAG", "FAISS", "LLaMA-3", "MySQL", "AWS EC2", "RDS", "Selenium", "Matplotlib", "Pandas"]
+    tags: ["XGBoost", "K-Means", "GitHub Actions", "Spotify API", "Drift Detection", "MLOps"]
   },
   {
-    title: "QuantFusion - AI-Powered Financial Intelligence Platform",
+    title: "PEFT of LLMs - LoRA and QLoRA Fine-Tuning Benchmark",
     description: [
-      "Building a modular AI-powered finance platform integrating portfolio optimization, risk analytics, sentiment analysis, and algorithmic trading into a unified backend-frontend system.",
-      "Developed FastAPI-based risk analysis supporting VaR, CVaR, volatility, drawdown, CAPM beta, and risk attribution using both historical and parametric methods.",
-      "Implemented advanced portfolio construction strategies including Mean-Variance Optimization (Markowitz), Risk Parity, and Black-Litterman with real-world constraints like sector limits, weight bounds, and tracking error.",
-      "Designing a React frontend for real-time dashboards, visualizations, and interactive model control.",
-      "Roadmap includes deployment of options pricing models, a sentiment-driven market forecasting engine, and a rule-based trading module."
+      "Ran a systematic study comparing LoRA vs. QLoRA fine-tuning on Llama 3.2 (1B and 3B), finding that 4-bit quantization cuts GPU memory by 58% with no meaningful quality loss, and GGUF export yields a 5.7x inference speedup.",
+      "Fine-tuned six model configurations comparing full-precision vs. 4-bit quantization and single-stage vs. two-stage domain adaptation.",
+      "Built a GGUF export pipeline that merges adapters, converts format, and quantizes to Q8_0/Q4_K_M.",
+      "Deployed a Gradio-based exam chatbot with six tools on HuggingFace Spaces, used by classmates to prepare for KTH course exams."
     ],
-    tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "CAPM", "Markowitz", "Black-Litterman", "Sentiment Analysis"]
+    tags: ["LoRA", "QLoRA", "Llama 3.2", "GGUF", "PyTorch", "Hugging Face", "Gradio"]
+  },
+  {
+    title: "RT-Shield - Adversarial Prompt Privacy Pipeline",
+    description: [
+      "Built a backend that strips personally identifiable information from LLM prompts before they reach external APIs, protecting user privacy through an iterative adversary/anonymizer loop.",
+      "Designed a LangGraph pipeline where an adversary agent detects PII with confidence scoring, an anonymizer rewrites the prompt, and routing logic repeats until the text passes.",
+      "Integrated Ollama for local LLM inference with structured JSON output schemas, Pydantic validation, and automatic repair for malformed responses.",
+      "Exposed a FastAPI endpoint returning the sanitized text, a change log, and iteration count.",
+      "Wrote end-to-end and unit test suites covering diverse PII scenarios with structured logging and automated reporting."
+    ],
+    tags: ["LangGraph", "FastAPI", "Ollama", "Pydantic", "PII Detection", "Privacy"]
+  },
+  {
+    title: "Finance News Radar - Real-time Financial Intelligence Backend",
+    description: [
+      "Building an automated financial news monitoring system that delivers LLM-enriched summaries, market context, and alerts to users via Telegram and API.",
+      "Implemented a scheduled pipeline that ingests, embeds, and indexes articles in Supabase with pgvector for semantic search, running four times daily via GitHub Actions.",
+      "Integrated real-time market data (VIX, DXY, Treasuries) via yfinance and built a market regime detection service.",
+      "Extending the platform with an economic calendar, catalyst tracking, and a React dashboard."
+    ],
+    tags: ["FastAPI", "Supabase", "pgvector", "GitHub Actions", "Groq", "yfinance", "Telegram"]
+  },
+  {
+    title: "Business Solution Discovery Chatbot (RAG-based)",
+    description: [
+      "Built a chatbot that matches users with relevant business solutions through conversational search, improving over time via a feedback-driven retraining loop.",
+      "Implemented semantic search with FAISS and SentenceTransformers; integrated LLaMA-3 via Groq for real-time generation.",
+      "Automated web scraping with Selenium and built analytics dashboards with Matplotlib and Pandas.",
+      "Deployed on AWS EC2 with RDS for the cloud database."
+    ],
+    tags: ["RAG", "FAISS", "LLaMA-3", "Groq", "AWS EC2", "RDS", "Selenium"]
   },
   {
     title: "ChurnSight - End-to-End MLOps Pipeline",
     description: [
-      "Developed a complete end-to-end MLOps pipeline for customer churn prediction with custom implementations of Logistic Regression, Decision Tree, Random Forest, XGBoost, MLP, and Gaussian Naive Bayes classifiers, and implemented a meta classifier using all the custom models.",
+      "Built a production-ready churn prediction system from data to deployment, comparing six custom classifiers and a meta-model to identify the best-performing approach.",
       "Automated hyperparameter tuning with Optuna and evaluated models using ROC-AUC and accuracy.",
-      "Deployed FastAPI inference API with support for batch predictions and SHAP-based feature explanations.",
-      "Containerized the app with Docker and integrated basic CI/CD workflows via GitHub Actions."
+      "Deployed a FastAPI inference API with batch predictions and SHAP-based feature explanations.",
+      "Containerized with Docker and integrated CI/CD via GitHub Actions."
     ],
-    tags: ["MLOps", "XGBoost", "FastAPI", "Docker", "SHAP", "Optuna", "GitHub Actions", "Meta Classifier"]
+    tags: ["MLOps", "XGBoost", "FastAPI", "Docker", "SHAP", "Optuna", "GitHub Actions"]
+  },
+  {
+    title: "QuantFusion - Financial Intelligence Platform",
+    description: [
+      "Building a platform that gives users portfolio optimization, risk analytics, and algorithmic trading through a single interface.",
+      "Developed FastAPI-based risk analysis supporting VaR, CVaR, volatility, drawdown, CAPM beta, and risk attribution.",
+      "Implemented portfolio construction with Mean-Variance Optimization, Risk Parity, and Black-Litterman under real-world constraints (sector limits, weight bounds, tracking error).",
+      "Extending with options pricing models, sentiment-driven forecasting, and a React dashboard."
+    ],
+    tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "Markowitz", "Black-Litterman"]
   },
   {
     title: "F1 Predictor - Driver Outcome Classification",
     description: [
-      "Built a multithreaded data pipeline with FastF1 and ThreadPoolExecutor to collect historical F1 race, weather, and qualifying data.",
-      "Trained a custom Random Forest classifier to predict driver categories (Top 3, Midfield, Backmarker) with 77% accuracy.",
-      "Achieved 100% recall on Top 3 predictions; validated model with precision/recall scores and confusion matrix analysis."
+      "Built a classifier that predicts F1 driver race outcomes (Top 3, Midfield, Backmarker) with 77% accuracy and 100% recall on podium finishes, trained on historical race, weather, and qualifying data.",
+      "Designed a multithreaded data pipeline with FastF1 to collect and process the training dataset."
     ],
-    tags: ["Random Forest", "FastF1", "ThreadPoolExecutor", "Data Pipeline", "Classification", "Precision/Recall"]
+    tags: ["Random Forest", "FastF1", "Classification", "Data Pipeline"]
   }
 ];
 
 export const experience = [
   {
+    company: "Turkish Technology",
+    position: "Part-time Full Stack Software Engineer",
+    period: "Jan 2026 - Present (Hybrid - Istanbul)",
+    description: [
+      "Delivering features for a cargo operations platform used by aviation staff to manage shipments, payments, and notifications across multiple security clearance levels.",
+      "Building the frontend with React and implementing backend services in Java across the full stack."
+    ]
+  },
+  {
     company: "Digitopia",
     position: "AI Engineering Intern",
-    period: "May 2025 - Present (Hybrid - Beyoglu/Istanbul)",
+    period: "May 2025 - May 2026 (Hybrid - Beyoglu/Istanbul)",
     description: [
-      "Coded several chatbots to help customers understand DMI scores, motivate with success stories, provide step-by-step plans, and guide execution.",
-      "Created an orchestration for chatbots in a single, tool-calling workflow.",
-      "Implemented an automated scoring and recommendation pipeline by transcribing meetings and providing output.",
-      "Developed a knowledge graph system to better visualize the data and relationships between the data.",
-      "Worked on integrating AWS Kendra for document search and retrieval, improving accuracy and latency.",
-      "Currently working on implementing knowledge graph to our recommendation system to further develop and make it smarter and more accurate."
+      "Built AI tools that helped enterprise customers understand, plan around, and improve their digital maturity scores, including chatbots that analyzed scores, surfaced success stories, generated action plans, and coached through execution.",
+      "Built an orchestration layer that routed between all chatbots through a single tool-calling workflow.",
+      "Integrated AWS Kendra for document search and retrieval, improving accuracy and latency.",
+      "Developed a knowledge-graph-powered recommendation system spanning 24 business outcomes, 121 KPIs, and 242 recommendations connected by 476 relationships."
     ]
   },
   {
@@ -61,10 +106,9 @@ export const experience = [
     position: "Co-founder, CTO",
     period: "Oct 2024 - Feb 2026 (Remote)",
     description: [
-      "Developed our hackathon-winner idea into a business.",
-      "Built an app where users can get outfits rated by stylist personas and share them in a social media environment.",
-      "Was responsible for the full-stack Flutter + Supabase, and the AI rating system as CTO.",
-      "Currently has 100+ users worldwide."
+      "Turned a hackathon-winning idea into a live product that reached 100+ users across multiple countries.",
+      "Built a social styling app where AI personas rate outfits across style dimensions, with a community feed for sharing looks.",
+      "Architected the full-stack application (Flutter + Supabase) and the AI rating system."
     ]
   },
   {
@@ -72,9 +116,8 @@ export const experience = [
     position: "AI Engineering Intern",
     period: "Aug 2025 - Dec 2025 (Remote)",
     description: [
-      "Worked on a workflow to help non-technical customers create custom websites.",
-      "Created multiple agents for LangGraph workflow, including orchestrator, UI management, language management, and web searching/scraping.",
-      "Wrote guardrails for the workflow to ensure the quality of the output."
+      "Enabled non-technical users to generate custom websites through a multi-agent LangGraph workflow.",
+      "Implemented 4 specialized agents: orchestrator, UI management, language management, and web searching/scraping."
     ]
   },
   {
@@ -82,9 +125,9 @@ export const experience = [
     position: "AI Engineering Intern",
     period: "June 2025 - Aug 2025 (Remote)",
     description: [
-      "Helped develop an iOS mobile app for digitalizing operation rooms and simplifying form filling using ASR, vision recognition, OCR, and LLMs.",
-      "Implemented an LLM-as-a-judge system in LangGraph to decrease hallucinations by +90%.",
-      "Created a thorough testing suite to automate endpoint testing for voice and image recognition."
+      "Developed an iOS app that digitized operating room workflows, replacing manual form entry with ASR, vision recognition, OCR, and LLMs.",
+      "Implemented an LLM-as-a-judge evaluation layer within the pipeline, reducing hallucinations by over 90%.",
+      "Built an automated test suite covering 500+ test cases, reducing QA time by 90%."
     ]
   },
   {
@@ -92,9 +135,8 @@ export const experience = [
     position: "AI Engineering Intern",
     period: "Feb 2025 - May 2025 (Remote)",
     description: [
-      "Worked on software applications based on LLM.",
-      "Wrote an automatic interview script generating questions for evaluating hard and soft skills based on job posts, CVs, and previous answers using TTS and STT.",
-      "Created automatic scripts that downloads Turkish audio-books, transcribes and chunks it for a dataset in order to finetune multiple TTS models to speak Turkish naturally."
+      "Built an automated interview system that replaced manual screening by generating skill-assessment questions from a job post and CV, adapting follow-ups based on prior answers using TTS and STT.",
+      "Automated a data pipeline that processed 200+ hours of Turkish audiobooks across 50 titles into 15,000 training segments for fine-tuning TTS models."
     ]
   },
   {
@@ -102,7 +144,7 @@ export const experience = [
     position: "Machine Learning Intern",
     period: "Dec 2024 - Feb 2025 (Remote)",
     description: [
-      "Learnt about statistics and mathematics of the machine learning algorithms."
+      "Implemented core ML algorithms (linear regression, logistic regression, SVM, decision trees) from scratch to build deep intuition for the underlying mathematics."
     ]
   }
 ];
@@ -129,6 +171,9 @@ export const education = [
 ];
 
 export const skills = [
-  "Machine Learning", "MLOps", "Generative AI", "Quantitative Analysis", "FastAPI", "Docker", "AWS EC2/RDS", "LangGraph", "MLflow", "Feedback-aware Fine-tuning", "Object-Oriented Programming", "Data Structures", "UI/UX", "Teamwork", "Flutter", "Supabase", "Vision Recognition", "OCR", "LLMs", "ASR", "TTS", "Selenium", "Matplotlib", "Pandas", "Optuna", "SHAP", "CI/CD", "GitHub Actions", "Python", "English (C1 Advanced - KUEPE: 91)", "Turkish (Native)"
+  "Python", "Java", "JavaScript/TypeScript", "Dart", "SQL",
+  "FastAPI", "React", "Flutter", "LangGraph", "PyTorch",
+  "Hugging Face Transformers", "scikit-learn", "XGBoost", "Pydantic",
+  "Docker", "AWS (EC2, RDS, Kendra)", "Supabase", "PostgreSQL", "GitHub Actions", "Git"
 ];
 
