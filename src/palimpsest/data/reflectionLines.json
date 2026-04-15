@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "primacy": {
+    "primacy_warmth": [
+      "You reached for the warmth first. That tells you something — grief holds the good memories closest.",
+      "The morning came back before the night did. Maybe that's where the truth starts.",
+      "You led with love. The harder question is whether that's honesty or habit."
+    ],
+    "primacy_fracture": [
+      "You reached for the wound first. Anger is a more reliable narrator than tenderness.",
+      "The night came back before the morning did. Pain has better recall than comfort.",
+      "You led with what hurt. Maybe that's where the truth lives. Maybe that's just where you live."
+    ]
+  },
+  "dominant": {
+    "clarity": [
+      "You let the contradictions stand. That takes something most people can't give.",
+      "Seeing clearly doesn't mean seeing cleanly. You held the mess without flinching."
+    ],
+    "protection": [
+      "The version you built was built to be carried. That's not dishonesty — it's survival.",
+      "Some truths are too sharp for a room full of mourners. You chose mercy."
+    ],
+    "grief": [
+      "You let the loss stay as loss, without converting it into a verdict.",
+      "Grief without resolution is harder to carry. It doesn't turn into anything cleaner."
+    ],
+    "resentment": [
+      "The anger kept the story from collapsing. That was its job.",
+      "Resentment is information. What it's information about is the harder question."
+    ],
+    "doubt": [
+      "Not knowing is an uncomfortable place to stay. You stayed there anyway.",
+      "Doubt isn't the same as truth. But it's closer to honesty than certainty ever is."
+    ]
+  },
+  "suppression": {
+    "present": [
+      "You set things aside tonight. The things didn't go anywhere.",
+      "The parts you avoided had weight. The eulogy felt lighter without them. It wasn't."
+    ],
+    "absent": [
+      "You let the difficult parts stay in the room.",
+      "You didn't force the eulogy to be clean. That took courage."
+    ]
+  },
+  "pressureTier": {
+    "low": [
+      "You moved through it slowly enough to hear the silence between the memories.",
+      "There was room to think before you chose what to keep."
+    ],
+    "mid": [
+      "The night started tightening before you noticed.",
+      "You were writing faster than you were feeling."
+    ],
+    "high": [
+      "When it becomes too much to hold, the mind starts dropping pieces.",
+      "The pressure made the memories brittle. What remains may not be what matters most."
+    ]
+  }
+}

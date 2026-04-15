@@ -1,3 +1,5 @@
+import ChoiceList from './ChoiceList';
+
 function getBlockClassName(block) {
   if (block.speaker === 'someone') {
     return 'ending-dialogue';
@@ -8,7 +10,7 @@ function getBlockClassName(block) {
   return 'ending-text';
 }
 
-export default function EndingView({ scene, state, onRestart }) {
+export default function EndingView({ scene, state, onRestart, onChoice, choices }) {
   return (
     <div className="ending-view">
       {scene.title && <h1 className="ending-title">{scene.title}</h1>}
@@ -24,13 +26,15 @@ export default function EndingView({ scene, state, onRestart }) {
         })}
       </div>
 
-      <div className="ending-actions">
-        <button className="ending-restart-button" onClick={onRestart}>
-          Restart with a different first memory
-        </button>
-      </div>
+      {choices && choices.length > 0 ? (
+        <ChoiceList choices={choices} onChoice={onChoice} />
+      ) : (
+        <div className="ending-actions">
+          <button className="ending-restart-button" onClick={onRestart}>
+            Begin again with a different first memory
+          </button>
+        </div>
+      )}
     </div>
   );
 }
-
-

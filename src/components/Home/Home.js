@@ -1,7 +1,7 @@
 import './Home.css';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import wave from '../../assets/great_wave.jpg';
-import WorkflowDiagram from './WorkflowDiagram';
+/*import WorkflowDiagram from './WorkflowDiagram';*/
 
 export default function Home() {
   return (

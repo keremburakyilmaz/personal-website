@@ -2,7 +2,7 @@
  * Persistence layer for game state
  */
 
-const STORAGE_KEY = 'the-same-night-game-state';
+const STORAGE_KEY = 'palimpsest-game-state';
 
 /**
  * Save game state to localStorage

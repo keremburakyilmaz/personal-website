@@ -50,19 +50,18 @@ export default function ReflectionView({ scene, state, choices, onChoice }) {
 
 function generateReflectionLines(state, tone) {
   const lines = [];
-  const { honesty, avoidance, tenderness, anger, shame } = state.stats;
+  const { clarity, protection, grief, resentment, doubt } = state.stats;
   const pressureTier = getPressureTier(state);
 
   // 1. Primacy-based lines (if primacy is set)
   if (state.primacyId && reflectionLinesData.primacy[state.primacyId]) {
     const primacyLines = reflectionLinesData.primacy[state.primacyId];
-    // Pick 1-2 random lines from primacy
     const selected = shuffleArray([...primacyLines]).slice(0, Math.min(2, primacyLines.length));
     lines.push(...selected);
   }
 
   // 2. Dominant stat lines
-  const stats = { honesty, avoidance, tenderness, anger, shame };
+  const stats = { clarity, protection, grief, resentment, doubt };
   const dominantStat = Object.entries(stats).reduce((a, b) => (stats[a[0]] > stats[b[0]] ? a : b))[0];
   const dominantValue = stats[dominantStat];
   

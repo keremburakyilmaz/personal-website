@@ -5,11 +5,11 @@ export const initialState = {
   sceneId: null,
   primacyId: null,
   stats: {
-    honesty: 0,
-    avoidance: 0,
-    tenderness: 0,
-    anger: 0,
-    shame: 0,
+    clarity: 0,
+    protection: 0,
+    grief: 0,
+    resentment: 0,
+    doubt: 0,
   },
   clocks: {
     pressure: 0,

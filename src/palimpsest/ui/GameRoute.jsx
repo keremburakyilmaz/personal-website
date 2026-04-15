@@ -143,6 +143,8 @@ export default function GameRoute() {
           scene={scene}
           state={state}
           onRestart={handleRestart}
+          onChoice={handleChoice}
+          choices={filteredChoices}
         />
         {process.env.NODE_ENV === 'development' && (
           <button

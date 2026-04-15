@@ -18,7 +18,7 @@ const Valentine = lazy(() => import('./valentine/Valentine'));
 // Routes with special styling (full-screen, no navigation padding)
 const SPECIAL_ROUTES = {
   '/': 'home-main',
-  '/the-same-night': 'game-main',
+  '/palimpsest': 'game-main',
   '/system': 'system-main',
   '/be-my-valentine': 'valentine-main',
 };
@@ -80,7 +80,7 @@ export default function App() {
           <Route path="/spotify-brain" element={<PageTransition><SpotifyBrain /></PageTransition>} />
           <Route path="/market-radar" element={<PageTransition><MarketRadar /></PageTransition>} />
           <Route
-            path="/the-same-night"
+            path="/palimpsest"
             element={
               <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>Loading...</div>}>
                 <PageTransition><GameRoute /></PageTransition>
