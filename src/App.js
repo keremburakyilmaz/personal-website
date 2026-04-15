@@ -11,7 +11,7 @@ import SpotifyBrain from './components/SpotifyBrain/SpotifyBrain';
 import MarketRadar from './components/MarketRadar/MarketRadar';
 
 // Lazy load the game for code splitting
-const GameRoute = lazy(() => import('./the-same-night/ui/GameRoute'));
+const GameRoute = lazy(() => import('./palimpsest/ui/GameRoute'));
 const SystemRunning = lazy(() => import('./system-is-running/SystemRunning'));
 const Valentine = lazy(() => import('./valentine/Valentine'));
 
