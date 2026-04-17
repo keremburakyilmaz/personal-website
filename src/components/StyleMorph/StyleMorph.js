@@ -110,9 +110,9 @@ export default function StyleMorph() {
     form.append('image', file);
     form.append('style_name', styleName);
 
-    // 120s timeout — Render free tier can be slow on cold start
+    // 10 min timeout — 4 sequential generations + 4 evaluations on free tier
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 120_000);
+    const timeout = setTimeout(() => controller.abort(), 600_000);
 
     try {
       const res = await fetch(`${API_BASE}/generate`, {
