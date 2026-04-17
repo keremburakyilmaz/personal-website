@@ -64,12 +64,6 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
               <span>Market Radar</span>
             </Link>
             <Link
-              to="/style-morph"
-              className={`nav-item nav-item--secondary ${isActive('/style-morph') ? 'active' : ''}`}
-            >
-              <span>StyleMorph</span>
-            </Link>
-            <Link
               to="/palimpsest"
               className={`nav-item nav-item--secondary ${isActive('/palimpsest') ? 'active' : ''}`}
             >
@@ -124,13 +118,6 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             onClick={() => setMenuOpen(false)}
           >
             <span>Market Radar</span>
-          </Link>
-          <Link
-            to="/style-morph"
-            className={`nav-item nav-item--secondary ${isActive('/style-morph') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>StyleMorph</span>
           </Link>
           <Link
             to="/palimpsest"
