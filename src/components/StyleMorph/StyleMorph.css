@@ -35,6 +35,72 @@
   padding: 0.25rem 0.6rem;
 }
 
+/* Health button */
+.sm-health-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--gray);
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.sm-health-btn:hover:not(:disabled) {
+  border-color: rgba(201, 184, 161, 0.35);
+  color: var(--light);
+}
+
+.sm-health-btn:disabled {
+  cursor: default;
+}
+
+.sm-health-btn--ok {
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+}
+
+.sm-health-btn--down {
+  border-color: rgba(248, 113, 113, 0.3);
+  color: #f87171;
+}
+
+.sm-health-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.sm-health-dot--checking {
+  background: var(--primary);
+  animation: sm-pulse 1s ease-in-out infinite;
+}
+
+.sm-health-dot--ok {
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+}
+
+.sm-health-dot--down {
+  background: #f87171;
+  box-shadow: 0 0 6px rgba(248, 113, 113, 0.4);
+}
+
+@keyframes sm-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
 /* ── Layout ───────────────────────────────────────────────── */
 
 .sm-layout {

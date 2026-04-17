@@ -60,7 +60,18 @@ export default function StyleMorph() {
   const [results, setResults]     = useState(null);
   const [errorMsg, setErrorMsg]   = useState('');
   const [dragging, setDragging]   = useState(false);
+  const [health, setHealth]       = useState('unknown'); // unknown | checking | ok | down
   const inputRef = useRef(null);
+
+  const checkHealth = async () => {
+    setHealth('checking');
+    try {
+      const res = await fetch(`${API_BASE}/health`, { signal: AbortSignal.timeout(10_000) });
+      setHealth(res.ok ? 'ok' : 'down');
+    } catch {
+      setHealth('down');
+    }
+  };
 
   const handleFile = useCallback((f) => {
     if (!f) return;
@@ -148,6 +159,18 @@ export default function StyleMorph() {
             <span key={t} className="sm-pill">{t}</span>
           ))}
         </div>
+
+        <button
+          className={`sm-health-btn sm-health-btn--${health}`}
+          onClick={checkHealth}
+          disabled={health === 'checking'}
+        >
+          <span className={`sm-health-dot sm-health-dot--${health}`} />
+          {health === 'unknown' && 'Check API Status'}
+          {health === 'checking' && 'Checking…'}
+          {health === 'ok' && 'API Online'}
+          {health === 'down' && 'API Offline - Retry?'}
+        </button>
       </div>
 
       <div className="sm-layout">
