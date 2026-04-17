@@ -3,6 +3,65 @@
   padding: 2rem 0;
 }
 
+/* Construction banner */
+.mr-construction-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(250, 204, 21, 0.25);
+  background: rgba(250, 204, 21, 0.06);
+  color: #facc15;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.mr-construction-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.mr-construction-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.mr-construction-content strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.mr-construction-detail {
+  display: block;
+  color: rgba(250, 204, 21, 0.7);
+  font-size: 0.78rem;
+}
+
+.mr-construction-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: rgba(250, 204, 21, 0.5);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mr-construction-close:hover {
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.1);
+}
+
 .radar-header {
   display: flex;
   justify-content: space-between;
