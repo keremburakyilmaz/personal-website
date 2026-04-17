@@ -11,9 +11,9 @@
       "kind": "prompt",
       "title": "Palimpsest",
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "Palimpsest (noun) — a manuscript page that has been written on, scraped off, and written over. The original text is never fully erased. Traces remain visible beneath the new." },
-        { "type": "whisper", "speaker": "brain", "text": "Memory works the same way. Every time you remember something, you write over it. The version you hold now is not the original — it's the latest draft, layered on top of all the others. But the earlier versions bleed through. You can never be sure which layer you're reading." },
-        { "type": "p", "speaker": "narrator", "text": "This is a game about writing a eulogy. About reaching for memories and finding them changed. There are no right answers — only the ones you choose to keep." }
+        { "type": "p", "speaker": "narrator", "text": "Palimpsest (noun)  - a manuscript page that has been written on, scraped off, and written over. The original text is never fully erased. Traces remain visible beneath the new." },
+        { "type": "whisper", "speaker": "brain", "text": "Memory works the same way. Every time you remember something, you write over it. The version you hold now is not the original  - it's the latest draft, layered on top of all the others. But the earlier versions bleed through. You can never be sure which layer you're reading." },
+        { "type": "p", "speaker": "narrator", "text": "This is a game about writing a eulogy. About reaching for memories and finding them changed. There are no right answers  - only the ones you choose to keep." }
       ],
       "choices": [
         { "id": "start", "label": "Begin.", "next": "p_the_desk" },
@@ -26,7 +26,7 @@
       "kind": "prompt",
       "title": null,
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "The desk lamp hums. Outside the window, the city is quiet in the way it only gets at 2 AM — not silent, just holding its breath." },
+        { "type": "p", "speaker": "narrator", "text": "The desk lamp hums. Outside the window, the city is quiet in the way it only gets at 2 AM  - not silent, just holding its breath." },
         { "type": "p", "speaker": "narrator", "text": "The funeral is in seven hours. You have a blank page and the wreckage of a relationship you've never been able to summarize in a single sentence." },
         { "type": "p", "speaker": "narrator", "text": "They were the most important person in your life. They were also the one who hurt you most. These are not contradictions. That's the problem." },
         { "type": "p", "speaker": "narrator", "text": "You need words by morning. Something to stand up and say to a room full of people who knew a version of them. Maybe not your version. Maybe not the real one." },
@@ -42,7 +42,7 @@
       "kind": "prompt",
       "title": "The first memory",
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "Two memories surface at once. They always compete — the warmth and the wound, rising together like two drafts of the same sentence." },
+        { "type": "p", "speaker": "narrator", "text": "Two memories surface at once. They always compete  - the warmth and the wound, rising together like two drafts of the same sentence." },
         { "type": "p", "speaker": "narrator", "text": "You can only reach for one first. The other will come later, colored by whatever this one leaves behind." }
       ],
       "choices": [
@@ -74,10 +74,10 @@
       "kind": "memory",
       "title": "The morning",
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "A Saturday. Early. They were already up — coffee made, something spread out on the kitchen table. They looked up when you came in and said: sit down, I want to show you something." },
-        { "type": "p", "speaker": "narrator", "text": "You don't remember what it was anymore. Something practical — how to fix a thing, or read a thing, or make sense of something that had seemed impenetrable. What you remember is their hands moving slowly, the patience in it, the way they assumed you could learn." },
+        { "type": "p", "speaker": "narrator", "text": "A Saturday. Early. They were already up  - coffee made, something spread out on the kitchen table. They looked up when you came in and said: sit down, I want to show you something." },
+        { "type": "p", "speaker": "narrator", "text": "You don't remember what it was anymore. Something practical  - how to fix a thing, or read a thing, or make sense of something that had seemed impenetrable. What you remember is their hands moving slowly, the patience in it, the way they assumed you could learn." },
         { "type": "p", "speaker": "narrator", "text": "For an hour, the world was small and warm and legible." },
-        { "type": "whisper", "speaker": "brain", "text": "There's a part you leave out. Midway through, a phone rang. Their face changed for half a second — something tight and private — before they silenced it and turned back to you. You never asked who called." },
+        { "type": "whisper", "speaker": "brain", "text": "There's a part you leave out. Midway through, a phone rang. Their face changed for half a second  - something tight and private  - before they silenced it and turned back to you. You never asked who called." },
         { "type": "p", "speaker": "narrator", "text": "You've polished this memory until it glows. It's the one you bring out when someone asks what they were like. But even here, that half-second flicker. The face beneath the face." }
       ],
       "choices": [
@@ -102,7 +102,7 @@
       "title": "The night",
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "Not an argument. You could have survived an argument." },
-        { "type": "p", "speaker": "narrator", "text": "You were in the same room. You said something — asked something ordinary — and they answered with a flatness that told you everything the words didn't. Like the conversation was a duty they were performing." },
+        { "type": "p", "speaker": "narrator", "text": "You were in the same room. You said something  - asked something ordinary  - and they answered with a flatness that told you everything the words didn't. Like the conversation was a duty they were performing." },
         { "type": "p", "speaker": "narrator", "text": "You tried again. A different angle. Same flatness. The room filled with something invisible and heavy." },
         { "type": "p", "speaker": "narrator", "text": "The night didn't end with a door slamming. It ended with you both pretending to sleep. The silence between you was the loudest thing they ever said." },
         { "type": "whisper", "speaker": "brain", "text": "You've told this story as though it came out of nowhere. But you know that's not true. There were weeks before it. Months, maybe. You just didn't look directly at them." }
@@ -143,8 +143,8 @@
       "kind": "memory",
       "title": "The phone call",
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "There was a phone call. Late afternoon, or maybe evening — the light was going. One of you called the other after weeks of nothing." },
-        { "type": "p", "speaker": "narrator", "text": "You remember the sound of their breathing before they spoke. The way the silence on the line felt different from the silence in person — thinner, easier to mistake for connection." },
+        { "type": "p", "speaker": "narrator", "text": "There was a phone call. Late afternoon, or maybe evening  - the light was going. One of you called the other after weeks of nothing." },
+        { "type": "p", "speaker": "narrator", "text": "You remember the sound of their breathing before they spoke. The way the silence on the line felt different from the silence in person  - thinner, easier to mistake for connection." },
         { "type": "p", "speaker": "narrator", "text": "Something was said about wanting to fix things. Or about being too tired to keep trying. The words don't stay still. Every time you reach for them, they rearrange." },
         { "type": "whisper", "speaker": "brain", "text": "Memory doesn't record phone calls. It records how they made you feel. Then it builds the conversation around the feeling." },
         { "type": "p", "speaker": "narrator", "text": "What you remember most clearly is hanging up and sitting very still, holding something heavy that you couldn't name." }
@@ -178,7 +178,7 @@
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "The page has a few paragraphs now. You read them back and they sound like someone else wrote them. Someone more certain than you." },
         { "type": "p", "speaker": "narrator", "text": "The clock on the wall ticks. Outside, a car passes with its windows down, trailing music that disappears around a corner." },
-        { "type": "p", "speaker": "narrator", "text": "You keep writing. Another memory rises — the promise." },
+        { "type": "p", "speaker": "narrator", "text": "You keep writing. Another memory rises  - the promise." },
         { "type": "whisper", "speaker": "brain", "text": "This is the one that still has weight. The one you carry whether you want to or not." }
       ],
       "choices": [
@@ -191,7 +191,7 @@
       "kind": "memory",
       "title": "The promise",
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "They made you a promise once. Not casually — they looked at you and said it like they were placing something fragile into your hands." },
+        { "type": "p", "speaker": "narrator", "text": "They made you a promise once. Not casually  - they looked at you and said it like they were placing something fragile into your hands." },
         { "type": "p", "speaker": "narrator", "text": "You can't say the exact words anymore. But you remember the weight of them. The way the air in the room changed. You believed them completely, because not believing would have meant seeing something you weren't ready to see." },
         { "type": "p", "speaker": "narrator", "text": "The promise was broken. Or it wasn't. Depending on how you define the terms." },
         { "type": "whisper", "speaker": "brain", "text": "Promises are just sentences. What gives them weight is what happens after." }
@@ -224,7 +224,7 @@
       "title": "The crossroads",
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "You stop typing. Read what you have." },
-        { "type": "p", "speaker": "narrator", "text": "It's coherent. It's even moving, in places. But it reads like a draft of someone else's eulogy — the safe version, the one that won't make anyone in the pews uncomfortable." },
+        { "type": "p", "speaker": "narrator", "text": "It's coherent. It's even moving, in places. But it reads like a draft of someone else's eulogy  - the safe version, the one that won't make anyone in the pews uncomfortable." },
         { "type": "p", "speaker": "narrator", "text": "You could stop here. Clean it up, practice it once, deliver something respectable by morning." },
         { "type": "whisper", "speaker": "brain", "text": "Or you could keep going. Into the parts that are harder to hold. The parts that might be the only true thing you've ever said about them." }
       ],
@@ -257,7 +257,7 @@
       "title": "The last time",
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "The last time you saw them." },
-        { "type": "p", "speaker": "narrator", "text": "You didn't know it was the last time. Nobody ever does, and that's what makes it unbearable — the ordinary way it ended. A doorway. A coat being put on. Something said over a shoulder that you can't reconstruct no matter how hard you try." },
+        { "type": "p", "speaker": "narrator", "text": "You didn't know it was the last time. Nobody ever does, and that's what makes it unbearable  - the ordinary way it ended. A doorway. A coat being put on. Something said over a shoulder that you can't reconstruct no matter how hard you try." },
         { "type": "p", "speaker": "narrator", "text": "You've replayed it hundreds of times, looking for the moment you should have known. The sign you should have read. But the memory gives you nothing. It was just a day. Just a goodbye that sounded like all the others." },
         { "type": "whisper", "speaker": "brain", "text": "You keep editing the ending. Adding weight to words that probably had none. Making the last look linger longer than it did." },
         { "type": "p", "speaker": "narrator", "text": "The truth is, you weren't paying attention. You were thinking about something else." }
@@ -339,7 +339,7 @@
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "The window is turning grey. Dawn, or the suggestion of it." },
         { "type": "p", "speaker": "narrator", "text": "The eulogy is on the screen in front of you. Pages, or fragments, or just a scattered constellation of moments that don't add up to a person. They add up to the space where a person used to be." },
-        { "type": "p", "speaker": "narrator", "text": "In a few hours you'll stand in front of people who loved them — who loved a version of them — and try to say something true." },
+        { "type": "p", "speaker": "narrator", "text": "In a few hours you'll stand in front of people who loved them  - who loved a version of them  - and try to say something true." },
         { "type": "whisper", "speaker": "brain", "text": "What you have isn't true. But it's honest, in the way that trying is honest. You reached for them in the dark and this is what your hands came back with." }
       ],
       "choices": [
@@ -352,7 +352,7 @@
       "kind": "reflection",
       "title": null,
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "You read what you've written. All of it. The layers are visible — the early drafts bleeding through the latest version, the scratched-out words still legible beneath the new ones." },
+        { "type": "p", "speaker": "narrator", "text": "You read what you've written. All of it. The layers are visible  - the early drafts bleeding through the latest version, the scratched-out words still legible beneath the new ones." },
         { "type": "p", "speaker": "narrator", "text": "A palimpsest. That's what this is. Every memory you reached for, you changed by reaching. Every sentence you wrote replaced the one that was there before. The original is gone. Maybe it was always gone." },
         { "type": "whisper", "speaker": "brain", "text": "The question was never what really happened. The question was always which version you could live with." }
       ],
@@ -384,12 +384,12 @@
       "kind": "ending",
       "title": "The Honest Eulogy",
       "blocks": [
-        { "type": "p", "speaker": "narrator", "text": "You stand at the podium. The room is full — people who knew them, people who loved them, people who loved a version of them that may or may not have existed." },
+        { "type": "p", "speaker": "narrator", "text": "You stand at the podium. The room is full  - people who knew them, people who loved them, people who loved a version of them that may or may not have existed." },
         { "type": "p", "speaker": "narrator", "text": "You read what you wrote. The real version. The one with the cracks left in." },
-        { "type": "p", "speaker": "narrator", "text": "You say: they were not easy to love. Loving them was like holding something beautiful and sharp — you did it carefully, knowing you'd bleed. You did it anyway, because the alternative was letting go, and letting go would have meant admitting that the sharpness was all there was." },
+        { "type": "p", "speaker": "narrator", "text": "You say: they were not easy to love. Loving them was like holding something beautiful and sharp  - you did it carefully, knowing you'd bleed. You did it anyway, because the alternative was letting go, and letting go would have meant admitting that the sharpness was all there was." },
         { "type": "p", "speaker": "narrator", "text": "You say: it wasn't all there was. They were kind in ways that surprised you. Patient in ways that cost them. Broken in ways they couldn't show you, and you were broken in ways you couldn't show them, and between the two of you there was something that looked nothing like the word love but was the closest either of you got." },
         { "type": "p", "speaker": "narrator", "text": "Someone in the back row shifts uncomfortably. Someone in the front row is crying." },
-        { "type": "whisper", "speaker": "brain", "text": "It's not the whole truth. There is no whole truth. But it's the closest you've come to saying something honest about them — and the closest you've come to saying it about yourself." }
+        { "type": "whisper", "speaker": "brain", "text": "It's not the whole truth. There is no whole truth. But it's the closest you've come to saying something honest about them  - and the closest you've come to saying it about yourself." }
       ],
       "choices": [
         { "id": "restart", "label": "Begin again with a different first memory.", "next": "p_content_note" }
@@ -406,7 +406,7 @@
         { "type": "p", "speaker": "narrator", "text": "You talk about the Saturday mornings. The patience. The way they could make a room feel safe just by being in it. You leave out the phone calls that changed their face. The silences that lasted weeks. The promise." },
         { "type": "p", "speaker": "narrator", "text": "It's beautiful. People come up to you afterward and say: that was exactly right. That was exactly who they were." },
         { "type": "p", "speaker": "narrator", "text": "You nod. You accept the hugs. You drive home alone." },
-        { "type": "whisper", "speaker": "brain", "text": "Maybe mercy is its own kind of honesty. You gave them the version that lets everyone grieve cleanly — the version that doesn't ask anyone to hold two things at once. Maybe that's enough. Maybe it has to be." }
+        { "type": "whisper", "speaker": "brain", "text": "Maybe mercy is its own kind of honesty. You gave them the version that lets everyone grieve cleanly  - the version that doesn't ask anyone to hold two things at once. Maybe that's enough. Maybe it has to be." }
       ],
       "choices": [
         { "id": "restart", "label": "Begin again with a different first memory.", "next": "p_content_note" }
@@ -437,11 +437,11 @@
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "You stand at the podium. The page is in your hand." },
         { "type": "p", "speaker": "narrator", "text": "You open your mouth. Nothing comes." },
-        { "type": "p", "speaker": "narrator", "text": "The page has words on it — you wrote them, you know you did — but they look like someone else's handwriting now. The sentences don't connect. The memories don't add up. Every version you tried to commit to dissolves when you look at it directly." },
+        { "type": "p", "speaker": "narrator", "text": "The page has words on it  - you wrote them, you know you did  - but they look like someone else's handwriting now. The sentences don't connect. The memories don't add up. Every version you tried to commit to dissolves when you look at it directly." },
         { "type": "p", "speaker": "narrator", "text": "The room waits. Ten seconds. Twenty. Someone coughs." },
         { "type": "p", "speaker": "narrator", "text": "What comes out is not the eulogy. What comes out is: I don't know how to talk about them. I've been trying all night and I don't know how. Every time I reach for who they were, I get a different person. I can't hold them still long enough to describe them." },
         { "type": "p", "speaker": "narrator", "text": "You fold the page. You sit down." },
-        { "type": "whisper", "speaker": "brain", "text": "It was the most honest thing you said all night. Not because it was true — you don't know if it was true — but because it was the only thing you said that you didn't write over first." }
+        { "type": "whisper", "speaker": "brain", "text": "It was the most honest thing you said all night. Not because it was true  - you don't know if it was true  - but because it was the only thing you said that you didn't write over first." }
       ],
       "choices": [
         { "id": "restart", "label": "Begin again with a different first memory.", "next": "p_content_note" }
@@ -454,7 +454,7 @@
       "title": "The Fire",
       "blocks": [
         { "type": "p", "speaker": "narrator", "text": "You write it. All of it." },
-        { "type": "p", "speaker": "narrator", "text": "The broken promises. The silences that were punishments dressed as patience. The way they could make you feel invisible while standing right next to you. The specific, surgical cruelties that only someone who knows you can perform — because only someone who knows you knows exactly where to cut." },
+        { "type": "p", "speaker": "narrator", "text": "The broken promises. The silences that were punishments dressed as patience. The way they could make you feel invisible while standing right next to you. The specific, surgical cruelties that only someone who knows you can perform  - because only someone who knows you knows exactly where to cut." },
         { "type": "p", "speaker": "narrator", "text": "You write until the window is bright and your hands are shaking and the page is so full of truth it's almost unbearable to look at." },
         { "type": "p", "speaker": "narrator", "text": "Then you select all. Delete." },
         { "type": "p", "speaker": "narrator", "text": "You write something polite. Something warm. Something with their name in it that sounds like a person everyone could love. You save it. You print it." },

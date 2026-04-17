@@ -9,6 +9,7 @@ import Resume from './components/Resume/Resume';
 import Contact from './components/Contact/Contact';
 import SpotifyBrain from './components/SpotifyBrain/SpotifyBrain';
 import MarketRadar from './components/MarketRadar/MarketRadar';
+import StyleMorph from './components/StyleMorph/StyleMorph';
 
 // Lazy load the game for code splitting
 const GameRoute = lazy(() => import('./palimpsest/ui/GameRoute'));
@@ -79,6 +80,7 @@ export default function App() {
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/spotify-brain" element={<PageTransition><SpotifyBrain /></PageTransition>} />
           <Route path="/market-radar" element={<PageTransition><MarketRadar /></PageTransition>} />
+          <Route path="/style-morph" element={<PageTransition><StyleMorph /></PageTransition>} />
           <Route
             path="/palimpsest"
             element={

@@ -17,7 +17,7 @@ export function filterChoicesByPressure(choices, pressure) {
 }
 
 /**
- * Get intrusive lines based on pressure — the voice you can't silence.
+ * Get intrusive lines based on pressure - the voice you can't silence.
  */
 export function getIntrusiveLines(pressure, tone) {
   if (pressure < 6) return [];
@@ -25,7 +25,7 @@ export function getIntrusiveLines(pressure, tone) {
   const lines = [
     "The night is running out.",
     "You're editing the memory as you write it.",
-    "Which version is this — the third? The fourth?",
+    "Which version is this - the third? The fourth?",
     "They can't correct you anymore. That should make this easier. It doesn't.",
   ];
 
@@ -38,7 +38,7 @@ export function getIntrusiveLines(pressure, tone) {
 }
 
 /**
- * Apply tone to text blocks — under intrusive/sharp tone, whispers gain emphasis
+ * Apply tone to text blocks - under intrusive/sharp tone, whispers gain emphasis
  */
 export function applyToneToBlocks(blocks, tone) {
   if (tone === 'intrusive' || tone === 'sharp') {

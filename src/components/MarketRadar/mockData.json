@@ -106,7 +106,7 @@
       "country": "US",
       "impact": "medium",
       "previous": "4.365%",
-      "forecast": "—",
+      "forecast": "-",
       "tags": ["rates", "auction"]
     },
     {
@@ -116,8 +116,8 @@
       "event": "Fed's Waller Speech",
       "country": "US",
       "impact": "high",
-      "previous": "—",
-      "forecast": "—",
+      "previous": "-",
+      "forecast": "-",
       "tags": ["rates", "fed"]
     }
   ],

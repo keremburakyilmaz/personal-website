@@ -414,7 +414,7 @@ const dreams = [
   {
     icon: Sun,
     title: "Everyday Magic",
-    description: "Finding joy in simple moments — morning coffee, evening walks, and quiet nights",
+    description: "Finding joy in simple moments - morning coffee, evening walks, and quiet nights",
   },
 ];
 

@@ -25,7 +25,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-desc">
-            I build AI systems that run in production — from a Spotify ML pipeline
+            I build AI systems that run in production - from a Spotify ML pipeline
             with 2,600+ automated executions to privacy tools and financial intelligence backends.
           </p>
 
@@ -51,7 +51,7 @@ export default function Home() {
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Education</span>
-              <span className="hero-status-text">Koç University — CS &amp; Business · KTH Erasmus Exchange</span>
+              <span className="hero-status-text">Koç University - CS &amp; Business · KTH Exchange</span>
             </div>
             <div className="hero-status-line">
               <span className="hero-status-label">Focus</span>
