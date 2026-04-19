@@ -2,12 +2,17 @@ export const projects = [
   {
     title: "Spotify Brain - Listening Pattern Prediction System",
     description: [
-      "Built a continuously running ML system that learns personal listening patterns and predicts next-track mood and session timing, live with 2,600+ automated pipeline executions.",
+      "Built a continuously running ML system that learns personal listening patterns and predicts next-track mood and session timing, live with 2,600+ automated pipeline executions and deployed to a live dashboard.",
       "Trained XGBoost classifiers on mood clusters (K-Means with silhouette-based K selection) using sliding-window aggregation, cyclical time encoding, and rolling listening patterns from the Spotify and ReccoBeats APIs.",
-      "Automated two GitHub Actions workflows: an incremental update every 30 minutes and a daily full retrain that rebuilds clusters and redeploys.",
+      "Orchestrated the production pipeline with two GitHub Actions workflows: an incremental update every 30 minutes and a daily full retrain that rebuilds clusters and redeploys.",
+      "Authored parallel Airflow DAGs (LocalExecutor on Postgres via Docker Compose) that decompose each pipeline into per-step tasks with per-task retries, XCom-based data flow, and backfill support.",
       "Implemented drift detection comparing 7-day vs. 30-day distributions across session duration, listening frequency, and start-hour entropy."
     ],
-    tags: ["XGBoost", "K-Means", "GitHub Actions", "Spotify API", "Drift Detection", "MLOps"]
+    tags: ["XGBoost", "K-Means", "Airflow", "GitHub Actions", "Spotify API", "Drift Detection", "MLOps"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/spotify-brain", type: "github" },
+      { label: "Live Dashboard", url: "/spotify-brain", type: "internal" }
+    ]
   },
   {
     title: "PEFT of LLMs - LoRA and QLoRA Fine-Tuning Benchmark",
@@ -17,7 +22,11 @@ export const projects = [
       "Built a GGUF export pipeline that merges adapters, converts format, and quantizes to Q8_0/Q4_K_M.",
       "Deployed a Gradio-based exam chatbot with six tools on HuggingFace Spaces, used by classmates to prepare for KTH course exams."
     ],
-    tags: ["LoRA", "QLoRA", "Llama 3.2", "GGUF", "PyTorch", "Hugging Face", "Gradio"]
+    tags: ["LoRA", "QLoRA", "Llama 3.2", "GGUF", "PyTorch", "Hugging Face", "Gradio"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/PEFT-of-LLM", type: "github" },
+      { label: "HuggingFace Space", url: "https://huggingface.co/spaces/kevembuvak/iris", type: "external" }
+    ]
   },
   {
     title: "RT-Shield - Adversarial Prompt Privacy Pipeline",
@@ -41,6 +50,17 @@ export const projects = [
     tags: ["FastAPI", "Supabase", "pgvector", "GitHub Actions", "Groq", "yfinance", "Telegram"]
   },
   {
+    title: "Game Metrics - Player Behaviour Analytics Warehouse",
+    description: [
+      "Built a local DuckDB + dbt warehouse over two Kaggle gaming datasets (21.7M Steam reviews, 90K Cookie Cats A/B players), transforming raw CSVs into a tested star schema with 2 facts, 3 dimensions, and 2 staging views.",
+      "Authored 64 dbt tests (uniqueness, not-null, accepted values, FK relationships, range constraints) across staging and marts, all passing on a 9.5 GB warehouse that rebuilds end-to-end in ~20 seconds.",
+      "Diagnosed and fixed a data quality issue in the source dump: 134,927 duplicate review IDs from overlapping scrape passes, resolved with a qualify row_number() window that keeps the freshest capture per review.",
+      "Wrote parked dbt analyses measuring Steam's 2-hour refund-window effect on review sentiment, sliced by reviewer tier, as source-of-truth numbers for the BI layer.",
+      "Connected Looker Studio dashboards read-only to the analytics.* tables over DuckDB."
+    ],
+    tags: ["DuckDB", "dbt", "Star Schema", "Looker Studio", "Data Quality", "Analytics"]
+  },
+  {
     title: "Business Solution Discovery Chatbot (RAG-based)",
     description: [
       "Built a chatbot that matches users with relevant business solutions through conversational search, improving over time via a feedback-driven retraining loop.",
@@ -58,7 +78,10 @@ export const projects = [
       "Deployed a FastAPI inference API with batch predictions and SHAP-based feature explanations.",
       "Containerized with Docker and integrated CI/CD via GitHub Actions."
     ],
-    tags: ["MLOps", "XGBoost", "FastAPI", "Docker", "SHAP", "Optuna", "GitHub Actions"]
+    tags: ["MLOps", "XGBoost", "FastAPI", "Docker", "SHAP", "Optuna", "GitHub Actions"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/churn-sight", type: "github" }
+    ]
   },
   {
     title: "QuantFusion - Financial Intelligence Platform",
@@ -68,7 +91,10 @@ export const projects = [
       "Implemented portfolio construction with Mean-Variance Optimization, Risk Parity, and Black-Litterman under real-world constraints (sector limits, weight bounds, tracking error).",
       "Extending with options pricing models, sentiment-driven forecasting, and a React dashboard."
     ],
-    tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "Markowitz", "Black-Litterman"]
+    tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "Markowitz", "Black-Litterman"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/QuantFusion", type: "github" }
+    ]
   },
   {
     title: "F1 Predictor - Driver Outcome Classification",
@@ -76,13 +102,17 @@ export const projects = [
       "Built a classifier that predicts F1 driver race outcomes (Top 3, Midfield, Backmarker) with 77% accuracy and 100% recall on podium finishes, trained on historical race, weather, and qualifying data.",
       "Designed a multithreaded data pipeline with FastF1 to collect and process the training dataset."
     ],
-    tags: ["Random Forest", "FastF1", "Classification", "Data Pipeline"]
+    tags: ["Random Forest", "FastF1", "Classification", "Data Pipeline"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/f1-predictor", type: "github" }
+    ]
   }
 ];
 
 export const experience = [
   {
     company: "Turkish Technology",
+    companyUrl: "https://turkishtechnology.com/",
     position: "Part-time Full Stack Software Engineer",
     period: "Jan 2026 - Present (Hybrid - Istanbul)",
     description: [
@@ -92,6 +122,7 @@ export const experience = [
   },
   {
     company: "Digitopia",
+    companyUrl: "https://digitopia.co/",
     position: "AI Engineering Intern",
     period: "May 2025 - May 2026 (Hybrid - Beyoglu/Istanbul)",
     description: [
@@ -103,6 +134,7 @@ export const experience = [
   },
   {
     company: "AINA",
+    companyUrl: "https://www.aina.one/",
     position: "Co-founder, CTO",
     period: "Oct 2024 - Feb 2026 (Remote)",
     description: [
@@ -113,6 +145,7 @@ export const experience = [
   },
   {
     company: "Promake AI",
+    companyUrl: "https://www.promake.ai/",
     position: "AI Engineering Intern",
     period: "Aug 2025 - Dec 2025 (Remote)",
     description: [
@@ -122,6 +155,7 @@ export const experience = [
   },
   {
     company: "Exin Health AI",
+    companyUrl: "https://exinhealth.ai/",
     position: "AI Engineering Intern",
     period: "June 2025 - Aug 2025 (Remote)",
     description: [
@@ -132,6 +166,7 @@ export const experience = [
   },
   {
     company: "Genarion",
+    companyUrl: "https://www.genarion.com/",
     position: "AI Engineering Intern",
     period: "Feb 2025 - May 2025 (Remote)",
     description: [
@@ -141,10 +176,15 @@ export const experience = [
   },
   {
     company: "Forma Makine",
+    companyUrl: "https://www.formamakina.com/",
     position: "Machine Learning Intern",
     period: "Dec 2024 - Feb 2025 (Remote)",
     description: [
-      "Implemented core ML algorithms (linear regression, logistic regression, SVM, decision trees) from scratch to build deep intuition for the underlying mathematics."
+      {
+        text: "Implemented core ML algorithms (linear regression, logistic regression, SVM, decision trees) ",
+        link: { text: "from scratch", url: "https://github.com/keremburakyilmaz/ml-algorithms" },
+        suffix: " to build deep intuition for the underlying mathematics."
+      }
     ]
   }
 ];
@@ -176,4 +216,3 @@ export const skills = [
   "Hugging Face Transformers", "scikit-learn", "XGBoost", "Pydantic",
   "Docker", "AWS (EC2, RDS, Kendra)", "Supabase", "PostgreSQL", "GitHub Actions", "Git"
 ];
-

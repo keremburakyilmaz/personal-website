@@ -1,6 +1,21 @@
 import './Resume.css';
 import { experience, education, skills } from '../../data/constants';
 
+function DescriptionItem({ point }) {
+  if (typeof point === 'string') {
+    return <li>{point}</li>;
+  }
+  return (
+    <li>
+      {point.text}
+      <a href={point.link.url} target="_blank" rel="noopener noreferrer" className="exp-entry__inline-link">
+        {point.link.text}
+      </a>
+      {point.suffix}
+    </li>
+  );
+}
+
 export default function Resume() {
   return (
     <section className="resume-section">
@@ -18,10 +33,19 @@ export default function Resume() {
             <div className="exp-entry__period">{job.period}</div>
             <div className="exp-entry__body">
               <h3 className="exp-entry__role">{job.position}</h3>
-              <span className="exp-entry__company">at {job.company}</span>
+              <span className="exp-entry__company">
+                at{' '}
+                {job.companyUrl ? (
+                  <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="exp-entry__company-link">
+                    {job.company}
+                  </a>
+                ) : (
+                  job.company
+                )}
+              </span>
               <ul className="exp-entry__desc">
                 {job.description.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <DescriptionItem key={i} point={point} />
                 ))}
               </ul>
             </div>

@@ -77,6 +77,28 @@
   margin-bottom: 1rem;
 }
 
+.exp-entry__company-link {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.exp-entry__company-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+.exp-entry__inline-link {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 184, 161, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.exp-entry__inline-link:hover {
+  border-bottom-color: var(--primary);
+}
+
 .exp-entry__desc {
   color: var(--gray);
   font-size: 0.875rem;
