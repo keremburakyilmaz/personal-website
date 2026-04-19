@@ -1,31 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.afe8ed46.css",
-    "main.js": "/static/js/main.a06c2908.js",
+    "main.css": "/static/css/main.a640cb3c.css",
+    "main.js": "/static/js/main.73273ab4.js",
     "static/css/752.f24fb253.chunk.css": "/static/css/752.f24fb253.chunk.css",
     "static/js/752.5dc7d83d.chunk.js": "/static/js/752.5dc7d83d.chunk.js",
     "static/css/468.deb50818.chunk.css": "/static/css/468.deb50818.chunk.css",
     "static/js/468.6df422fc.chunk.js": "/static/js/468.6df422fc.chunk.js",
     "static/css/578.21eae10f.chunk.css": "/static/css/578.21eae10f.chunk.css",
     "static/js/578.e7491643.chunk.js": "/static/js/578.e7491643.chunk.js",
-    "static/js/461.3813493d.chunk.js": "/static/js/461.3813493d.chunk.js",
+    "static/js/528.34b71eca.chunk.js": "/static/js/528.34b71eca.chunk.js",
     "static/media/great_wave.jpg": "/static/media/great_wave.12abdd055e51dc2cc722.jpg",
     "static/media/roya_arkhmammadova.JPG": "/static/media/roya_arkhmammadova.d98078e680cca35192bd.JPG",
     "static/media/emiliya_rafiyeva.jpeg": "/static/media/emiliya_rafiyeva.954ebaab8203d8d66210.jpeg",
     "static/media/deniz_soylular.jpg": "/static/media/deniz_soylular.7f1f1ecc3e2d5799d51b.jpg",
     "index.html": "/index.html",
-    "main.afe8ed46.css.map": "/static/css/main.afe8ed46.css.map",
-    "main.a06c2908.js.map": "/static/js/main.a06c2908.js.map",
+    "main.a640cb3c.css.map": "/static/css/main.a640cb3c.css.map",
+    "main.73273ab4.js.map": "/static/js/main.73273ab4.js.map",
     "752.f24fb253.chunk.css.map": "/static/css/752.f24fb253.chunk.css.map",
     "752.5dc7d83d.chunk.js.map": "/static/js/752.5dc7d83d.chunk.js.map",
     "468.deb50818.chunk.css.map": "/static/css/468.deb50818.chunk.css.map",
     "468.6df422fc.chunk.js.map": "/static/js/468.6df422fc.chunk.js.map",
     "578.21eae10f.chunk.css.map": "/static/css/578.21eae10f.chunk.css.map",
     "578.e7491643.chunk.js.map": "/static/js/578.e7491643.chunk.js.map",
-    "461.3813493d.chunk.js.map": "/static/js/461.3813493d.chunk.js.map"
+    "528.34b71eca.chunk.js.map": "/static/js/528.34b71eca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.afe8ed46.css",
-    "static/js/main.a06c2908.js"
+    "static/css/main.a640cb3c.css",
+    "static/js/main.73273ab4.js"
   ]
 }
