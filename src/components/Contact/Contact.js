@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './Contact.css';
-import roya from "../../assets/roya_arkhmammadova.JPG";
-import deniz from "../../assets/deniz_soylular.jpg";
-import my_love from "../../assets/emiliya_rafiyeva.jpeg";
-import aina from "../../assets/ainaapp_logo.jpg";
+// import roya from "../../assets/roya_arkhmammadova.JPG";
+// import deniz from "../../assets/deniz_soylular.jpg";
+// import my_love from "../../assets/emiliya_rafiyeva.jpeg";
+// import aina from "../../assets/ainaapp_logo.jpg";
 
 export default function Contact() {
   const [popupVisible, setPopupVisible] = useState(false);
@@ -108,6 +108,7 @@ export default function Contact() {
         </div>
       </div>
 
+      {/*
       <hr className="section-divider" />
 
       <div className="secondary-section-header">
@@ -162,6 +163,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 }
