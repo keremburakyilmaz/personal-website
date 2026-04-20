@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a640cb3c.css",
-    "main.js": "/static/js/main.486295f7.js",
+    "main.js": "/static/js/main.1a77e5f2.js",
     "static/css/752.f24fb253.chunk.css": "/static/css/752.f24fb253.chunk.css",
     "static/js/752.5dc7d83d.chunk.js": "/static/js/752.5dc7d83d.chunk.js",
     "static/css/468.deb50818.chunk.css": "/static/css/468.deb50818.chunk.css",
@@ -10,12 +10,9 @@
     "static/js/578.e7491643.chunk.js": "/static/js/578.e7491643.chunk.js",
     "static/js/528.34b71eca.chunk.js": "/static/js/528.34b71eca.chunk.js",
     "static/media/great_wave.jpg": "/static/media/great_wave.12abdd055e51dc2cc722.jpg",
-    "static/media/roya_arkhmammadova.JPG": "/static/media/roya_arkhmammadova.d98078e680cca35192bd.JPG",
-    "static/media/emiliya_rafiyeva.jpeg": "/static/media/emiliya_rafiyeva.954ebaab8203d8d66210.jpeg",
-    "static/media/deniz_soylular.jpg": "/static/media/deniz_soylular.7f1f1ecc3e2d5799d51b.jpg",
     "index.html": "/index.html",
     "main.a640cb3c.css.map": "/static/css/main.a640cb3c.css.map",
-    "main.486295f7.js.map": "/static/js/main.486295f7.js.map",
+    "main.1a77e5f2.js.map": "/static/js/main.1a77e5f2.js.map",
     "752.f24fb253.chunk.css.map": "/static/css/752.f24fb253.chunk.css.map",
     "752.5dc7d83d.chunk.js.map": "/static/js/752.5dc7d83d.chunk.js.map",
     "468.deb50818.chunk.css.map": "/static/css/468.deb50818.chunk.css.map",
@@ -26,6 +23,6 @@
   },
   "entrypoints": [
     "static/css/main.a640cb3c.css",
-    "static/js/main.486295f7.js"
+    "static/js/main.1a77e5f2.js"
   ]
 }
