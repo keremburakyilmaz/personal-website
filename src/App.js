@@ -4,16 +4,24 @@ import { motion } from 'framer-motion';
 import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
-import Projects from './components/Projects/Projects';
-import Resume from './components/Resume/Resume';
-import Contact from './components/Contact/Contact';
-import MarketRadar from './components/MarketRadar/MarketRadar';
-import GameRoute from './palimpsest/ui/GameRoute';
 
-// Lazy load heavier routes (palimpsest is eager to avoid dev chunk load failures after HMR/restart)
-const SpotifyBrain = lazy(() => import('./components/SpotifyBrain/SpotifyBrain'));
-const SystemRunning = lazy(() => import('./system-is-running/SystemRunning'));
-const Valentine = lazy(() => import('./valentine/Valentine'));
+const loadProjects = () => import('./components/Projects/Projects');
+const loadResume = () => import('./components/Resume/Resume');
+const loadContact = () => import('./components/Contact/Contact');
+const loadSpotifyBrain = () => import('./components/SpotifyBrain/SpotifyBrain');
+const loadMarketRadar = () => import('./components/MarketRadar/MarketRadar');
+const loadGameRoute = () => import('./palimpsest/ui/GameRoute');
+const loadSystemRunning = () => import('./system-is-running/SystemRunning');
+const loadValentine = () => import('./valentine/Valentine');
+
+const Projects = lazy(loadProjects);
+const Resume = lazy(loadResume);
+const Contact = lazy(loadContact);
+const SpotifyBrain = lazy(loadSpotifyBrain);
+const MarketRadar = lazy(loadMarketRadar);
+const GameRoute = lazy(loadGameRoute);
+const SystemRunning = lazy(loadSystemRunning);
+const Valentine = lazy(loadValentine);
 
 // Routes with special styling (full-screen, no navigation padding)
 const SPECIAL_ROUTES = {
@@ -56,8 +64,37 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      return undefined;
+    }
+
+    const preloadRoutes = () => {
+      loadProjects();
+      loadResume();
+      loadContact();
+      loadSpotifyBrain();
+      loadMarketRadar();
+      loadGameRoute();
+      loadSystemRunning();
+      loadValentine();
+    };
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(preloadRoutes, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(preloadRoutes, 1200);
+    return () => window.clearTimeout(timeoutId);
+  }, [location.pathname]);
+
   const showNavigation = !HIDDEN_NAV_ROUTES.includes(location.pathname);
   const mainClassName = SPECIAL_ROUTES[location.pathname] || '';
+
+  const routeFallback = (
+    <div style={{ minHeight: '40vh' }}></div>
+  );
 
   return (
     <div className="app-container">
@@ -73,23 +110,58 @@ export default function App() {
       <main className={mainClassName}>
         <Routes location={location}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-          <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
-          <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
-          <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+          <Route
+            path="/projects"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><Projects /></PageTransition>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/resume"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><Resume /></PageTransition>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><Contact /></PageTransition>
+              </Suspense>
+            }
+          />
           <Route
             path="/spotify-brain"
             element={
-              <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#0b0b0b' }}></div>}>
+              <Suspense fallback={routeFallback}>
                 <PageTransition><SpotifyBrain /></PageTransition>
               </Suspense>
             }
           />
-          <Route path="/market-radar" element={<PageTransition><MarketRadar /></PageTransition>} />
-          <Route path="/palimpsest" element={<PageTransition><GameRoute /></PageTransition>} />
+          <Route
+            path="/market-radar"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><MarketRadar /></PageTransition>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/palimpsest"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><GameRoute /></PageTransition>
+              </Suspense>
+            }
+          />
           <Route
             path="/system"
             element={
-              <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#0a0a0c' }}></div>}>
+              <Suspense fallback={routeFallback}>
                 <PageTransition><SystemRunning /></PageTransition>
               </Suspense>
             }
@@ -97,7 +169,7 @@ export default function App() {
           <Route
             path="/be-my-valentine"
             element={
-              <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#fff8f0' }}></div>}>
+              <Suspense fallback={routeFallback}>
                 <PageTransition><Valentine /></PageTransition>
               </Suspense>
             }
