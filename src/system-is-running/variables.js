@@ -1,32 +1,52 @@
 export const variables = [
   {
     key: "music",
-    label: "Music",
-    states: ["absent", "anxious", "relaxed", "muffled"],
-    hover: "Silence does not always arrive empty."
+    label: "music",
+    states: ["anxious", "too loud", "muffled", "absent", "looping"]
   },
   {
     key: "attention",
-    label: "Attention",
-    states: ["settled", "thinning", "scattered", "fractured"],
-    hover: "It spreads before it settles."
+    label: "attention",
+    states: ["scattered", "fractured", "split", "hijacked", "nowhere"]
   },
   {
     key: "thoughtVelocity",
-    label: "Thought Velocity",
-    states: ["low", "moderate", "high"],
-    hover: "Some thoughts arrive before they are ready."
+    label: "thought velocity",
+    states: ["high", "very high", "exceeds buffer", "cascading"]
   },
   {
     key: "dissociation",
-    label: "Dissociation",
-    states: ["near", "traveling", "distant"],
-    hover: "The self is not always nearby."
+    label: "dissociation",
+    states: ["near", "traveling", "distant", "returning"]
   },
   {
     key: "continuity",
-    label: "Continuity",
-    states: ["stable", "fragile"],
-    hover: "Things hold together until they don't."
+    label: "continuity",
+    states: ["fragile", "stable", "breaking", "restitching"]
+  },
+  {
+    key: "rumination",
+    label: "rumination depth",
+    states: ["shallow", "deep", "deeper", "unreachable"]
+  },
+  {
+    key: "unfinished",
+    label: "unfinished tasks",
+    states: ["12", "23", "41", "too many to count"]
+  },
+  {
+    key: "innerCritic",
+    label: "inner critic",
+    states: ["loud", "very loud", "screaming", "whispering"]
+  },
+  {
+    key: "body",
+    label: "body awareness",
+    states: ["muted", "tight chest", "jaw clenched", "elsewhere"]
+  },
+  {
+    key: "timePerception",
+    label: "time perception",
+    states: ["elastic", "compressed", "stuck", "accelerating"]
   }
 ];

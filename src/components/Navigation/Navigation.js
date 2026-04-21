@@ -69,6 +69,12 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             >
               <span>Palimpsest</span>
             </Link>
+            <Link
+              to="/system"
+              className={`nav-item nav-item--secondary ${isActive('/system') ? 'active' : ''}`}
+            >
+              <span>System</span>
+            </Link>
           </div>
         </div>
       </nav>
@@ -125,6 +131,13 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             onClick={() => setMenuOpen(false)}
           >
             <span>Palimpsest</span>
+          </Link>
+          <Link
+            to="/system"
+            className={`nav-item nav-item--secondary ${isActive('/system') ? 'active' : ''}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            <span>System</span>
           </Link>
         </div>
       )}
