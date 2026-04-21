@@ -113,6 +113,8 @@
   display: flex;
   flex-direction: column;
   max-width: 640px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .hero-label {
@@ -149,7 +151,7 @@
   line-height: 0.92;
   color: var(--light);
   margin-bottom: 1.6rem;
-  text-wrap: balance;
+  text-align: left;
 }
 
 .hero-desc {
@@ -158,6 +160,7 @@
   line-height: 1.82;
   max-width: 40rem;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .hero-signal-row {
@@ -185,6 +188,7 @@
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-bottom: 1.5rem;
+  justify-content: flex-start;
 }
 
 .hero-cta {
@@ -238,6 +242,7 @@
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-bottom: 2rem;
+  justify-content: flex-start;
 }
 
 .hero-links a {
