@@ -7,11 +7,11 @@ import Home from './components/Home/Home';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
 import Contact from './components/Contact/Contact';
-import SpotifyBrain from './components/SpotifyBrain/SpotifyBrain';
 import MarketRadar from './components/MarketRadar/MarketRadar';
 import GameRoute from './palimpsest/ui/GameRoute';
 
 // Lazy load heavier routes (palimpsest is eager to avoid dev chunk load failures after HMR/restart)
+const SpotifyBrain = lazy(() => import('./components/SpotifyBrain/SpotifyBrain'));
 const SystemRunning = lazy(() => import('./system-is-running/SystemRunning'));
 const Valentine = lazy(() => import('./valentine/Valentine'));
 
@@ -77,7 +77,14 @@ export default function App() {
           <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
           <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-          <Route path="/spotify-brain" element={<PageTransition><SpotifyBrain /></PageTransition>} />
+          <Route
+            path="/spotify-brain"
+            element={
+              <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#0b0b0b' }}></div>}>
+                <PageTransition><SpotifyBrain /></PageTransition>
+              </Suspense>
+            }
+          />
           <Route path="/market-radar" element={<PageTransition><MarketRadar /></PageTransition>} />
           <Route path="/palimpsest" element={<PageTransition><GameRoute /></PageTransition>} />
           <Route

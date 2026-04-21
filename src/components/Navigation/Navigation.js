@@ -1,5 +1,40 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import './Navigation.css';
+
+const primaryLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/resume', label: 'Resume' },
+  { to: '/contact', label: 'Contact' },
+];
+
+const secondaryLinks = [
+  { to: '/spotify-brain', label: 'Spotify' },
+  { to: '/market-radar', label: 'Market Radar' },
+  { to: '/palimpsest', label: 'Palimpsest' },
+  { to: '/system', label: 'System' },
+];
+
+function NavLinkItem({ to, label, isActive, onClick, secondary = false }) {
+  return (
+    <Link
+      to={to}
+      className={`nav-item ${secondary ? 'nav-item--secondary' : ''} ${isActive ? 'active' : ''}`}
+      onClick={onClick}
+    >
+      {isActive && (
+        <motion.span
+          layoutId="nav-active-pill"
+          className="nav-item__pill"
+          transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+        />
+      )}
+      <span className="nav-item__label">{label}</span>
+    </Link>
+  );
+}
 
 export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScrolled }) {
   const isActive = (path) => {
@@ -9,15 +44,28 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
     return activeSection === path;
   };
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   return (
     <>
       <nav className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
           <Link to="/" className="nav-brand">
             <span className="nav-brand-name">Kerem Burak Yılmaz</span>
+            <span className="nav-brand-role">AI systems and product engineering</span>
           </Link>
 
-          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            className="menu-button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          >
             <div className={`menu-icon ${menuOpen ? 'open' : ''}`}>
               <span></span>
               <span></span>
@@ -25,122 +73,101 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
             </div>
           </button>
 
-          <div className="desktop-nav">
-            <Link
-              to="/"
-              className={`nav-item ${isActive('/') ? 'active' : ''}`}
-            >
-              <span>Home</span>
-            </Link>
-            <Link
-              to="/projects"
-              className={`nav-item ${isActive('/projects') ? 'active' : ''}`}
-            >
-              <span>Projects</span>
-            </Link>
-            <Link
-              to="/resume"
-              className={`nav-item ${isActive('/resume') ? 'active' : ''}`}
-            >
-              <span>Resume</span>
-            </Link>
-            <Link
-              to="/contact"
-              className={`nav-item ${isActive('/contact') ? 'active' : ''}`}
-            >
-              <span>Contact</span>
-            </Link>
-            <span className="nav-sep" aria-hidden="true"></span>
-            <Link
-              to="/spotify-brain"
-              className={`nav-item nav-item--secondary ${isActive('/spotify-brain') ? 'active' : ''}`}
-            >
-              <span>Spotify</span>
-            </Link>
-            <Link
-              to="/market-radar"
-              className={`nav-item nav-item--secondary ${isActive('/market-radar') ? 'active' : ''}`}
-            >
-              <span>Market Radar</span>
-            </Link>
-            <Link
-              to="/palimpsest"
-              className={`nav-item nav-item--secondary ${isActive('/palimpsest') ? 'active' : ''}`}
-            >
-              <span>Palimpsest</span>
-            </Link>
-            <Link
-              to="/system"
-              className={`nav-item nav-item--secondary ${isActive('/system') ? 'active' : ''}`}
-            >
-              <span>System</span>
-            </Link>
+          <div className="desktop-nav-shell">
+            <div className="desktop-nav">
+              {primaryLinks.map((link) => (
+                <NavLinkItem
+                  key={link.to}
+                  to={link.to}
+                  label={link.label}
+                  isActive={isActive(link.to)}
+                />
+              ))}
+              <span className="nav-sep" aria-hidden="true"></span>
+              {secondaryLinks.map((link) => (
+                <NavLinkItem
+                  key={link.to}
+                  to={link.to}
+                  label={link.label}
+                  isActive={isActive(link.to)}
+                  secondary
+                />
+              ))}
+            </div>
+            <div className="nav-status">
+              <span className="nav-status__dot"></span>
+              Building with AI
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div className="mobile-nav">
-          <Link
-            to="/"
-            className={`nav-item ${isActive('/') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="mobile-nav"
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(18px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span>Home</span>
-          </Link>
-          <Link
-            to="/projects"
-            className={`nav-item ${isActive('/projects') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Projects</span>
-          </Link>
-          <Link
-            to="/resume"
-            className={`nav-item ${isActive('/resume') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Resume</span>
-          </Link>
-          <Link
-            to="/contact"
-            className={`nav-item ${isActive('/contact') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Contact</span>
-          </Link>
-          <div className="mobile-nav-divider"></div>
-          <Link
-            to="/spotify-brain"
-            className={`nav-item nav-item--secondary ${isActive('/spotify-brain') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Spotify</span>
-          </Link>
-          <Link
-            to="/market-radar"
-            className={`nav-item nav-item--secondary ${isActive('/market-radar') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Market Radar</span>
-          </Link>
-          <Link
-            to="/palimpsest"
-            className={`nav-item nav-item--secondary ${isActive('/palimpsest') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Palimpsest</span>
-          </Link>
-          <Link
-            to="/system"
-            className={`nav-item nav-item--secondary ${isActive('/system') ? 'active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>System</span>
-          </Link>
-        </div>
-      )}
+            <motion.div
+              className="mobile-nav__inner"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delayChildren: 0.08,
+                    staggerChildren: 0.05,
+                  },
+                },
+              }}
+            >
+              {primaryLinks.map((link) => (
+                <motion.div
+                  key={link.to}
+                  variants={{
+                    hidden: { opacity: 0, y: 18 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <NavLinkItem
+                    to={link.to}
+                    label={link.label}
+                    isActive={isActive(link.to)}
+                    onClick={() => setMenuOpen(false)}
+                  />
+                </motion.div>
+              ))}
+              <div className="mobile-nav-divider"></div>
+              {secondaryLinks.map((link) => (
+                <motion.div
+                  key={link.to}
+                  variants={{
+                    hidden: { opacity: 0, y: 18 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <NavLinkItem
+                    to={link.to}
+                    label={link.label}
+                    isActive={isActive(link.to)}
+                    onClick={() => setMenuOpen(false)}
+                    secondary
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

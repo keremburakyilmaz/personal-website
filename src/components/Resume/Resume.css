@@ -24,11 +24,17 @@
 .exp-entry {
   position: relative;
   padding: 0 0 2.75rem 2.5rem;
-  transition: padding-left 0.4s var(--ease-editorial);
+  border-radius: 20px;
+  transition:
+    padding-left 0.4s var(--ease-editorial),
+    transform 0.4s var(--ease-editorial),
+    background 0.4s var(--ease-editorial);
 }
 
 .exp-entry:hover {
   padding-left: 3rem;
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, rgba(201, 184, 161, 0.06), transparent 65%);
 }
 
 /* Timeline dot */
@@ -129,7 +135,11 @@
   align-items: flex-start;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--card-border);
-  transition: padding-left 0.4s var(--ease-editorial);
+  border-radius: 18px;
+  transition:
+    padding-left 0.4s var(--ease-editorial),
+    transform 0.4s var(--ease-editorial),
+    background 0.4s var(--ease-editorial);
 }
 
 .edu-card:first-child {
@@ -138,6 +148,8 @@
 
 .edu-card:hover {
   padding-left: 1rem;
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, rgba(201, 184, 161, 0.05), transparent 60%);
 }
 
 .edu-card__icon {
@@ -179,6 +191,17 @@
   border: 1px solid var(--card-border);
   padding: 2rem;
   background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 0.4s var(--ease-editorial),
+    border-color 0.4s var(--ease-editorial),
+    background 0.4s var(--ease-editorial);
+}
+
+.skills-block:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 184, 161, 0.18);
+  background: rgba(255, 255, 255, 0.035);
 }
 
 .skills-block__title {
@@ -212,4 +235,3 @@
   color: var(--primary);
   border-color: rgba(196, 181, 163, 0.25);
 }
-

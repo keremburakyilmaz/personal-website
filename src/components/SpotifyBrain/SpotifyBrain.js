@@ -1,15 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Cell } from 'recharts';
 import './SpotifyBrain.css';
 import dashboardData from '../../assets/dashboard_data.json';
 
-export default function SpotifyBrain() {
-  const [data, setData] = useState(null);
-  const [currentHour, setCurrentHour] = useState(new Date().getHours());
+const MOOD_PALETTE = [
+  '#c49d7f',
+  '#7fc49d',
+  '#7f9dc4',
+  '#c47f9d',
+  '#9d7fc4',
+  '#7fc4a6',
+  '#c4a67f',
+  '#9dc47f',
+  '#7fa6c4',
+  '#c47f7f',
+  '#7fc47f',
+  '#a67fc4',
+  '#7fc4c4',
+  '#c4c47f',
+  '#c49d9d'
+];
 
-  useEffect(() => {
-    setData(dashboardData);
-  }, []);
+const data = dashboardData;
+
+export default function SpotifyBrain() {
+  const [currentHour, setCurrentHour] = useState(new Date().getHours());
 
   // Update current hour periodically to keep the highlight accurate
   useEffect(() => {
@@ -23,16 +38,6 @@ export default function SpotifyBrain() {
     
     return () => clearInterval(interval);
   }, []);
-
-  if (!data) {
-    return (
-      <section className="spotify-brain-section">
-        <div className="loading-container">
-          <p>Loading dashboard data...</p>
-        </div>
-      </section>
-    );
-  }
 
   // Format timestamp for display
   const formatTimestamp = (timestamp) => {
@@ -85,24 +90,30 @@ export default function SpotifyBrain() {
   };
 
   // Prepare session probabilities data
-  const sessionProbsData = Object.entries(data.session_probs || {}).map(([hour, prob]) => ({
-    hour: parseInt(hour),
-    hourLabel: `${parseInt(hour) % 12 || 12}${parseInt(hour) >= 12 ? 'PM' : 'AM'}`,
-    probability: safeNumber(prob, 0),
-    isCurrentHour: parseInt(hour) === currentHour
-  }));
+  const sessionProbsData = useMemo(
+    () => Object.entries(data.session_probs || {}).map(([hour, prob]) => ({
+      hour: parseInt(hour, 10),
+      hourLabel: `${parseInt(hour, 10) % 12 || 12}${parseInt(hour, 10) >= 12 ? 'PM' : 'AM'}`,
+      probability: safeNumber(prob, 0),
+      isCurrentHour: parseInt(hour, 10) === currentHour
+    })),
+    [currentHour]
+  );
 
   // Prepare mood trajectory data
-  const moodTrajectoryData = data.mood_trajectory && Array.isArray(data.mood_trajectory) 
-    ? data.mood_trajectory
+  const moodTrajectoryData = useMemo(
+    () => data.mood_trajectory && Array.isArray(data.mood_trajectory)
+      ? data.mood_trajectory
         .filter(item => item && item.time && !isNaN(item.valence) && !isNaN(item.energy))
         .map(item => ({
-    time: new Date(item.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-    timestamp: new Date(item.time).getTime(),
+          time: new Date(item.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+          timestamp: new Date(item.time).getTime(),
           valence: safeNumber(item.valence),
           energy: safeNumber(item.energy)
         }))
-    : [];
+      : [],
+    []
+  );
 
   // Prepare cluster radar data
   const getClusterRadarData = (cluster) => {
@@ -126,33 +137,19 @@ export default function SpotifyBrain() {
   };
 
   // Get mood color based on cluster - supports 3-15 clusters with muted colors
-  const getMoodColor = (clusterId, totalClusters) => {
-    // Predefined palette of 15 muted colors - well-spaced hues for easy distinction
-    const mutedPalette = [
-      '#c49d7f', // Muted terracotta/orange
-      '#7fc49d', // Muted green
-      '#7f9dc4', // Muted blue
-      '#c47f9d', // Muted pink/magenta
-      '#9d7fc4', // Muted purple
-      '#7fc4a6', // Muted teal/cyan
-      '#c4a67f', // Muted yellow/amber
-      '#9dc47f', // Muted lime
-      '#7fa6c4', // Muted sky blue
-      '#c47f7f', // Muted red/coral
-      '#7fc47f', // Muted emerald
-      '#a67fc4', // Muted violet
-      '#7fc4c4', // Muted aqua
-      '#c4c47f', // Muted chartreuse
-      '#c49d9d'  // Muted rose
-    ];
-    
-    // Use modulo to cycle through palette if clusterId exceeds palette size
-    return mutedPalette[clusterId % mutedPalette.length];
+  const getMoodColor = (clusterId) => {
+    return MOOD_PALETTE[clusterId % MOOD_PALETTE.length];
   };
 
   const nextPrediction = data.next_prediction || {};
   const confidencePercent = safeToFixed(safeNumber(nextPrediction.confidence, 0) * 100, 1, '0.0');
-  const totalClusters = (data.mood_clusters && data.mood_clusters.length) || 0;
+  const visibleRecentlyPlayed = useMemo(() => (data.recently_played || []).slice(0, 12), []);
+  const visibleMoodClusters = useMemo(() => (data.mood_clusters || []).slice(0, 6), []);
+  const moodClusterLabels = useMemo(
+    () => new Map((data.mood_clusters || []).map((cluster) => [cluster.cluster_id, cluster.label])),
+    []
+  );
+  const topHours = useMemo(() => (data.top_hours || []).slice(0, 3), []);
 
   return (
     <section className="spotify-brain-section">
@@ -171,7 +168,7 @@ export default function SpotifyBrain() {
           <div className="recently-played-stream-card">
             <div className="recently-played-stream-header">
               <h2>Recently Played</h2>
-              <button className="refresh-button" aria-label="Refresh">
+              <button className="refresh-button" aria-label="Refresh" type="button">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
                   <path d="M21 3v5h-5" />
@@ -181,9 +178,9 @@ export default function SpotifyBrain() {
               </button>
             </div>
             <div className="recently-played-stream">
-              {(data.recently_played || []).slice(0, 20).map((track, index) => {
-                const moodLabel = (data.mood_clusters || []).find(c => c.cluster_id === track.mood_cluster_id)?.label || `Cluster ${track.mood_cluster_id}`;
-                const moodColor = getMoodColor(safeNumber(track.mood_cluster_id, 0), totalClusters);
+              {visibleRecentlyPlayed.map((track, index) => {
+                const moodLabel = moodClusterLabels.get(track.mood_cluster_id) || `Cluster ${track.mood_cluster_id}`;
+                const moodColor = getMoodColor(safeNumber(track.mood_cluster_id, 0));
                 
                 return (
                   <div key={`${track.track_id}-${index}`} className="recently-played-card-item">
@@ -191,6 +188,8 @@ export default function SpotifyBrain() {
                   <img 
                     src={track.image_url} 
                     alt={`${track.track_name} by ${track.artist_name}`}
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/200?text=No+Image';
                     }}
@@ -214,9 +213,9 @@ export default function SpotifyBrain() {
             </div>
           </div>
           {/* Next Track Mood Prediction Card */}
-          <div className="mood-prediction-card" style={{ borderColor: getMoodColor(nextPrediction.mood_cluster_id, totalClusters) }}>
+          <div className="mood-prediction-card" style={{ borderColor: getMoodColor(nextPrediction.mood_cluster_id) }}>
             <h2>Next Track Mood Prediction</h2>
-            <div className="mood-label" style={{ color: getMoodColor(nextPrediction.mood_cluster_id, totalClusters) }}>
+            <div className="mood-label" style={{ color: getMoodColor(nextPrediction.mood_cluster_id) }}>
               {nextPrediction.mood_label}
             </div>
             <div className="confidence-section">
@@ -272,11 +271,11 @@ export default function SpotifyBrain() {
           {/* Hourly Session Start Probability Chart */}
           <div className="session-prob-card">
             <h2>Hourly Session Start Probability</h2>
-            {data.top_hours && data.top_hours.length > 0 && (
+            {topHours.length > 0 && (
               <div className="top-hours-info">
                 <p className="top-hours-label">Top Hours:</p>
                 <div className="top-hours-list">
-                  {data.top_hours.slice(0, 3).map((item, idx) => (
+                  {topHours.map((item, idx) => (
                     <span key={idx} className="top-hour-badge">
                       {item.hour % 12 || 12}{item.hour >= 12 ? 'PM' : 'AM'} ({safeToFixed(item.probability * 100, 1)}%)
                     </span>
@@ -398,9 +397,9 @@ export default function SpotifyBrain() {
           <div className="mood-clusters-card">
             <h2>Mood Clusters Overview</h2>
             <div className="clusters-grid">
-              {(data.mood_clusters || []).map((cluster) => {
+              {visibleMoodClusters.map((cluster) => {
                 const radarData = getClusterRadarData(cluster);
-                const clusterColor = getMoodColor(cluster.cluster_id, totalClusters);
+                const clusterColor = getMoodColor(cluster.cluster_id);
                 
                 return (
                   <div key={cluster.cluster_id} className="cluster-card" style={{ borderColor: clusterColor }}>
