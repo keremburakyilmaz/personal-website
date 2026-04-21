@@ -19,12 +19,11 @@ const Valentine = lazy(() => import('./valentine/Valentine'));
 const SPECIAL_ROUTES = {
   '/': 'home-main',
   '/palimpsest': 'game-main',
-  '/system': 'system-main',
   '/be-my-valentine': 'valentine-main',
 };
 
 // Routes where navigation should be hidden
-const HIDDEN_NAV_ROUTES = ['/system', '/be-my-valentine'];
+const HIDDEN_NAV_ROUTES = ['/be-my-valentine'];
 
 function PageTransition({ children }) {
   const location = useLocation();

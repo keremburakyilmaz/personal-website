@@ -42,8 +42,6 @@ const statusCards = [
   },
 ];
 
-const signalPills = ['2600+ automated runs', 'Production AI systems', 'Privacy and fintech'];
-
 export default function Home() {
   return (
     <section className="home-section">
@@ -80,14 +78,6 @@ export default function Home() {
               with 2,600+ automated executions to privacy tooling and financial
               intelligence backends.
             </motion.p>
-
-            <motion.div className="hero-signal-row" variants={heroItem}>
-              {signalPills.map((pill) => (
-                <span key={pill} className="hero-signal-pill">
-                  {pill}
-                </span>
-              ))}
-            </motion.div>
 
             <motion.div className="hero-actions" variants={heroItem}>
               <Link to="/projects" className="hero-cta hero-cta--primary">
