@@ -94,10 +94,6 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                 />
               ))}
             </div>
-            <div className="nav-status">
-              <span className="nav-status__dot"></span>
-              Building with AI
-            </div>
           </div>
         </div>
       </nav>
