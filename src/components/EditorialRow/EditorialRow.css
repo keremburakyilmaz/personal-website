@@ -1,0 +1,199 @@
+.editorial-row {
+  position: relative;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition:
+    padding-left 0.4s var(--ease-editorial),
+    transform 0.4s var(--ease-editorial),
+    border-color 0.4s var(--ease-editorial);
+}
+
+.editorial-row::before {
+  content: '';
+  position: absolute;
+  inset: 0.7rem -1rem;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(201, 184, 161, 0.06), rgba(255, 255, 255, 0.015));
+  opacity: 0;
+  transform: scale(0.98);
+  transition:
+    opacity 0.4s var(--ease-editorial),
+    transform 0.4s var(--ease-editorial);
+  pointer-events: none;
+}
+
+.editorial-row:hover {
+  padding-left: 1rem;
+  transform: translateY(-2px);
+  border-color: rgba(201, 184, 161, 0.16);
+}
+
+.editorial-row:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.editorial-row__top,
+.editorial-row__body,
+.editorial-row__footer {
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-row__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.editorial-row__lead {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+  flex-shrink: 0;
+  padding-top: 0.35rem;
+}
+
+.editorial-row__heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-row__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+  display: block;
+  opacity: 0.6;
+}
+
+.editorial-row__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.45rem, 2.7vw, 2rem);
+  font-weight: 500;
+  color: var(--light);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.editorial-row:hover .editorial-row__title {
+  color: var(--primary);
+}
+
+.editorial-row__subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+.editorial-row__body {
+  color: var(--gray);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.editorial-row__body--offset,
+.editorial-row__footer--offset {
+  padding-left: 3.25rem;
+}
+
+.editorial-row__list {
+  margin: 0;
+}
+
+.editorial-row__list li {
+  margin-bottom: 0.25rem;
+}
+
+.editorial-row__copy {
+  margin: 0;
+}
+
+.editorial-row__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.editorial-row__tags,
+.editorial-row__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.editorial-row__links {
+  gap: 0.75rem;
+}
+
+.editorial-row__tag,
+.editorial-row__link {
+  color: var(--gray);
+  border: 1px solid var(--card-border);
+  border-radius: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.3s var(--ease-editorial);
+}
+
+.editorial-row__tag {
+  padding: 0.28rem 0.72rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.editorial-row:hover .editorial-row__tag {
+  color: var(--primary);
+  border-color: rgba(196, 181, 163, 0.25);
+}
+
+.editorial-row__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.editorial-row__link:hover {
+  color: var(--light);
+  border-color: rgba(201, 184, 161, 0.45);
+  background: rgba(201, 184, 161, 0.06);
+  transform: translateY(-2px);
+}
+
+.editorial-row__inline-link {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 184, 161, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.editorial-row__inline-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .editorial-row__body--offset,
+  .editorial-row__footer--offset {
+    padding-left: 0;
+  }
+}

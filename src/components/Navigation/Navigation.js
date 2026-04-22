@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './Navigation.css';
 
 const primaryLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/resume', label: 'Resume' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/#home', section: 'home', label: 'Home' },
+  { to: '/#resume', section: 'resume', label: 'Resume' },
+  { to: '/#projects', section: 'projects', label: 'Projects' },
+  { to: '/#contact', section: 'contact', label: 'Contact' },
 ];
 
 const secondaryLinks = [
@@ -37,9 +37,29 @@ function NavLinkItem({ to, label, isActive, onClick, secondary = false }) {
 }
 
 export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScrolled }) {
-  const isActive = (path) => {
-    if (path === '/') {
-      return activeSection === '/' || activeSection === '';
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (section) => {
+    const targetHash = `#${section}`;
+
+    if (location.pathname !== '/') {
+      navigate(`/${targetHash}`);
+      setMenuOpen(false);
+      return;
+    }
+
+    const target = document.getElementById(section);
+    if (target) {
+      window.history.replaceState(null, '', targetHash);
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setMenuOpen(false);
+  };
+
+  const isActive = (path, section) => {
+    if (section) {
+      return location.pathname === '/' && activeSection === section;
     }
     return activeSection === path;
   };
@@ -80,7 +100,11 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   key={link.to}
                   to={link.to}
                   label={link.label}
-                  isActive={isActive(link.to)}
+                  isActive={isActive(link.to, link.section)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection(link.section);
+                  }}
                 />
               ))}
               <span className="nav-sep" aria-hidden="true"></span>
@@ -136,8 +160,11 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   <NavLinkItem
                     to={link.to}
                     label={link.label}
-                    isActive={isActive(link.to)}
-                    onClick={() => setMenuOpen(false)}
+                    isActive={isActive(link.to, link.section)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection(link.section);
+                    }}
                   />
                 </motion.div>
               ))}

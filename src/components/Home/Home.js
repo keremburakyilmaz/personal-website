@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 import './Home.css';
@@ -43,7 +42,7 @@ const statusCards = [
 
 export default function Home() {
   return (
-    <section className="home-section">
+    <section id="home" className="home-section scroll-section">
       <div className="hero">
         <div className="hero-atmosphere" aria-hidden="true">
           <span className="hero-orb hero-orb--gold"></span>
@@ -79,13 +78,13 @@ export default function Home() {
             </motion.p>
 
             <motion.div className="hero-actions" variants={heroItem}>
-              <Link to="/projects" className="hero-cta hero-cta--primary">
+              <a href="#projects" className="hero-cta hero-cta--primary">
                 View Projects
                 <ArrowUpRight size={16} strokeWidth={1.8} />
-              </Link>
-              <Link to="/resume" className="hero-cta hero-cta--ghost">
+              </a>
+              <a href="#resume" className="hero-cta hero-cta--ghost">
                 Open Resume
-              </Link>
+              </a>
             </motion.div>
 
             <motion.nav className="hero-links" variants={heroItem}>

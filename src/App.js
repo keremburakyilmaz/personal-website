@@ -1,22 +1,19 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
+import Projects from './components/Projects/Projects';
+import Resume from './components/Resume/Resume';
+import Contact from './components/Contact/Contact';
 
-const loadProjects = () => import('./components/Projects/Projects');
-const loadResume = () => import('./components/Resume/Resume');
-const loadContact = () => import('./components/Contact/Contact');
 const loadSpotifyBrain = () => import('./components/SpotifyBrain/SpotifyBrain');
 const loadMarketRadar = () => import('./components/MarketRadar/MarketRadar');
 const loadGameRoute = () => import('./palimpsest/ui/GameRoute');
 const loadSystemRunning = () => import('./system-is-running/SystemRunning');
 const loadValentine = () => import('./valentine/Valentine');
 
-const Projects = lazy(loadProjects);
-const Resume = lazy(loadResume);
-const Contact = lazy(loadContact);
 const SpotifyBrain = lazy(loadSpotifyBrain);
 const MarketRadar = lazy(loadMarketRadar);
 const GameRoute = lazy(loadGameRoute);
@@ -32,6 +29,18 @@ const SPECIAL_ROUTES = {
 
 // Routes where navigation should be hidden
 const HIDDEN_NAV_ROUTES = ['/be-my-valentine'];
+const HOME_SECTION_IDS = ['home', 'resume', 'projects', 'contact'];
+
+function OnePageHome() {
+  return (
+    <div className="one-page-shell">
+      <Home />
+      <Resume />
+      <Projects />
+      <Contact />
+    </div>
+  );
+}
 
 function PageTransition({ children }) {
   const location = useLocation();
@@ -50,19 +59,56 @@ function PageTransition({ children }) {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('/');
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [location.pathname]);
+    if (location.pathname !== '/') {
+      setActiveSection(location.pathname);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      return;
+    }
+
+    const sectionId = location.hash.replace('#', '') || 'home';
+    const section = document.getElementById(sectionId);
+
+    setActiveSection(sectionId);
+
+    if (section) {
+      section.scrollIntoView({ behavior: 'instant', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      if (location.pathname !== '/') {
+        return;
+      }
+
+      const navOffset = 120;
+      const scrollPosition = window.scrollY + navOffset;
+      let currentSection = HOME_SECTION_IDS[0];
+
+      HOME_SECTION_IDS.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section && section.offsetTop <= scrollPosition) {
+          currentSection = id;
+        }
+      });
+
+      setActiveSection((previous) => (
+        previous === currentSection ? previous : currentSection
+      ));
     };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.pathname !== '/') {
@@ -70,9 +116,6 @@ export default function App() {
     }
 
     const preloadRoutes = () => {
-      loadProjects();
-      loadResume();
-      loadContact();
       loadSpotifyBrain();
       loadMarketRadar();
       loadGameRoute();
@@ -100,7 +143,7 @@ export default function App() {
     <div className="app-container">
       {showNavigation && (
         <Navigation
-          activeSection={location.pathname}
+          activeSection={activeSection}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
           isScrolled={isScrolled}
@@ -109,30 +152,18 @@ export default function App() {
 
       <main className={mainClassName}>
         <Routes location={location}>
-          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/" element={<PageTransition><OnePageHome /></PageTransition>} />
           <Route
             path="/projects"
-            element={
-              <Suspense fallback={routeFallback}>
-                <PageTransition><Projects /></PageTransition>
-              </Suspense>
-            }
+            element={<Navigate to="/#projects" replace />}
           />
           <Route
             path="/resume"
-            element={
-              <Suspense fallback={routeFallback}>
-                <PageTransition><Resume /></PageTransition>
-              </Suspense>
-            }
+            element={<Navigate to="/#resume" replace />}
           />
           <Route
             path="/contact"
-            element={
-              <Suspense fallback={routeFallback}>
-                <PageTransition><Contact /></PageTransition>
-              </Suspense>
-            }
+            element={<Navigate to="/#contact" replace />}
           />
           <Route
             path="/spotify-brain"

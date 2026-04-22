@@ -1,14 +1,16 @@
 import './Resume.css';
-import { experience, education, skills } from '../../data/constants';
+import { experience, education } from '../../data/constants';
+import EditorialRow from '../EditorialRow/EditorialRow';
 
 function DescriptionItem({ point }) {
   if (typeof point === 'string') {
     return <li>{point}</li>;
   }
+
   return (
     <li>
       {point.text}
-      <a href={point.link.url} target="_blank" rel="noopener noreferrer" className="exp-entry__inline-link">
+      <a href={point.link.url} target="_blank" rel="noopener noreferrer" className="editorial-row__inline-link">
         {point.link.text}
       </a>
       {point.suffix}
@@ -18,76 +20,69 @@ function DescriptionItem({ point }) {
 
 export default function Resume() {
   return (
-    <section className="resume-section">
-
-      {/* ── EXPERIENCE ───────────────────────────────────────── */}
-      <div className="page-header">
-        <p className="page-header__label">Career</p>
-        <h1 className="page-header__title">Professional <span>Experience</span></h1>
-        <p className="page-header__sub">My journey through AI and entrepreneurship</p>
-      </div>
-
-      <div className="exp-timeline">
-        {experience.map((job, index) => (
-          <div key={index} className="exp-entry">
-            <div className="exp-entry__period">{job.period}</div>
-            <div className="exp-entry__body">
-              <h3 className="exp-entry__role">{job.position}</h3>
-              <span className="exp-entry__company">
-                at{' '}
-                {job.companyUrl ? (
-                  <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="exp-entry__company-link">
-                    {job.company}
-                  </a>
-                ) : (
-                  job.company
-                )}
-              </span>
-              <ul className="exp-entry__desc">
-                {job.description.map((point, i) => (
-                  <DescriptionItem key={i} point={point} />
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* ── EDUCATION & SKILLS ──────────────────────────────── */}
+    <section id="resume" className="resume-section scroll-section">
       <div className="edu-section">
-        <div className="section-header">
-          <h1>Education &amp; <span>Skills</span></h1>
+        <div className="page-header">
+          <p className="page-header__label">Education</p>
+          <h1 className="page-header__title">Academic <span>Background</span></h1>
+          <p className="page-header__sub">Degrees, honors, and international study experience.</p>
         </div>
 
-
-        <div className="edu-cards">
-          {education.map((edu, index) => (
-            <div key={index} className="edu-card">
-              <div className="edu-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-                </svg>
-              </div>
-              <div className="edu-card__body">
-                <h3 className="edu-card__degree">{edu.degree}</h3>
-                <div className="edu-card__institution">{edu.institution}</div>
-                <div className="edu-card__period">{edu.period}</div>
-                {edu.description && <p className="edu-card__desc">{edu.description}</p>}
-              </div>
+        <div className="edu-timeline">
+          {education.map((edu) => (
+            <div key={`${edu.degree}-${edu.period}`} className="edu-entry">
+              <EditorialRow
+                eyebrow={edu.period}
+                title={edu.degree}
+                titleLevel="h3"
+                subtitle={edu.institution}
+                body={edu.description ? <p className="editorial-row__copy">{edu.description}</p> : null}
+                className="editorial-row--timeline"
+              />
             </div>
           ))}
         </div>
-
-        <div className="skills-block">
-          <h3 className="skills-block__title">Technical Expertise</h3>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-item">{skill}</div>
-            ))}
-          </div>
-        </div>
       </div>
 
+      <div className="exp-section">
+        <div className="page-header">
+          <p className="page-header__label">Career</p>
+          <h1 className="page-header__title">Professional <span>Experience</span></h1>
+          <p className="page-header__sub">My journey through AI and entrepreneurship</p>
+        </div>
+
+        <div className="exp-timeline">
+          {experience.map((job) => (
+            <div key={`${job.company}-${job.period}`} className="exp-entry">
+              <EditorialRow
+                eyebrow={job.period}
+                title={job.position}
+                titleLevel="h3"
+                subtitle={(
+                  <>
+                    at{' '}
+                    {job.companyUrl ? (
+                      <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="editorial-row__inline-link">
+                        {job.company}
+                      </a>
+                    ) : (
+                      job.company
+                    )}
+                  </>
+                )}
+                body={(
+                  <ul className="editorial-row__list editorial-row__copy">
+                    {job.description.map((point, index) => (
+                      <DescriptionItem key={index} point={point} />
+                    ))}
+                  </ul>
+                )}
+                className="editorial-row--timeline"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

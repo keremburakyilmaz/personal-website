@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import './Contact.css';
-// import roya from "../../assets/roya_arkhmammadova.JPG";
-// import deniz from "../../assets/deniz_soylular.jpg";
-// import my_love from "../../assets/emiliya_rafiyeva.jpeg";
-// import aina from "../../assets/ainaapp_logo.jpg";
 
 export default function Contact() {
   const [popupVisible, setPopupVisible] = useState(false);
@@ -13,27 +9,29 @@ export default function Contact() {
     const formData = new FormData(e.target);
 
     try {
-      await fetch("https://formsubmit.co/kyilmaz22@ku.edu.tr", {
-        method: "POST",
-        body: formData
+      await fetch('https://formsubmit.co/kyilmaz22@ku.edu.tr', {
+        method: 'POST',
+        body: formData,
       });
 
       setPopupVisible(true);
       setTimeout(() => setPopupVisible(false), 3000);
       e.target.reset();
     } catch (err) {
-      alert("Message failed to send.");
+      alert('Message failed to send.');
     }
   };
 
   return (
-    <section className="contact-section">
-      <div className="page-header">
-        <p className="page-header__label">Get in touch</p>
-        <h1 className="page-header__title">Let's <span>Connect</span></h1>
-        <p className="page-header__sub">Open to new opportunities and collaborations. Feel free to reach out.</p>
+    <section id="contact" className="contact-section scroll-section">
+      <div className="contact-hero">
+        <div className="page-header contact-header">
+          <p className="page-header__label">Get in touch</p>
+          <h1 className="page-header__title">Let's <span>Connect</span></h1>
+          <p className="page-header__sub">Open to new opportunities and collaborations. Feel free to reach out.</p>
+        </div>
       </div>
-      
+
       <div className="contact-container">
         <div className="contact-info">
           <div className="contact-method">
@@ -48,7 +46,7 @@ export default function Contact() {
               <a href="mailto:kyilmaz22@ku.edu.tr">kyilmaz22@ku.edu.tr</a>
             </div>
           </div>
-          
+
           <div className="contact-method">
             <div className="contact-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -60,7 +58,7 @@ export default function Contact() {
               <a href="tel:+905555555555">+90 (531) 379 28 91</a>
             </div>
           </div>
-          
+
           <div className="contact-method">
             <div className="contact-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -74,7 +72,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        
+
         <div className="contact-form">
           <h3>Send me a message</h3>
           <form onSubmit={handleSubmit}>
@@ -102,69 +100,11 @@ export default function Contact() {
 
           {popupVisible && (
             <div className="popup-success">
-              ✅ Message sent successfully!
+              Message sent successfully!
             </div>
           )}
         </div>
       </div>
-
-      {/*
-      <hr className="section-divider" />
-
-      <div className="secondary-section-header">
-        <h1>Additional Links</h1>
-      </div>
-
-      <div className="additional-links">
-        <div className="additional-link-box special-box-love">
-          <div className="link-box-content">
-            <img src={my_love} alt="Emiliya Rafiyeva" className="link-avatar" />
-            <div>
-              <h3>Emiliya Rafiyeva</h3>
-              <a href="https://www.linkedin.com/in/emiliya-rafiyeva/" target="_blank" rel="noopener noreferrer">
-                www.linkedin.com/in/emiliya-rafiyeva ↗
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="additional-link-box">
-          <div className="link-box-content">
-            <img src={roya} alt="Roya Arkhmammadova" className="link-avatar" />
-            <div>
-              <h3>Roya Arkhmammadova</h3>
-              <a href="https://www.royaarkh.com" target="_blank" rel="noopener noreferrer">
-                www.royaarkh.com ↗
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="additional-link-box">
-          <div className="link-box-content">
-            <img src={deniz} alt="Deniz Soylular" className="link-avatar" />
-            <div>
-              <h3>Deniz Soylular</h3>
-              <a href="https://www.linkedin.com/in/deniz-soylular/" target="_blank" rel="noopener noreferrer">
-                www.linkedin.com/in/deniz-soylular ↗
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="additional-link-box">
-          <div className="link-box-content">
-            <img src={aina} alt="AINA" className="link-avatar" />
-            <div>
-              <h3>AINA - Tinder for Your Clothing</h3>
-              <a href="https://www.aina.one" target="_blank" rel="noopener noreferrer">
-                www.aina.one ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      */}
     </section>
   );
 }
-
