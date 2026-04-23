@@ -34,9 +34,42 @@ const statusCards = [
     label: 'Education',
     value: 'Koç University - CS & Business, with KTH exchange',
   },
+];
+
+const focusRoadmapStats = [
+  { label: 'Duration', value: '24 weeks' },
+  { label: 'Target', value: 'ML Quant / Quant Researcher' },
+  { label: 'Pace', value: '10-15 hrs/week' },
+];
+
+const focusRoadmapPhases = [
   {
-    label: 'Focus',
-    value: 'AI Engineering, Full Stack Development, and MLOps',
+    number: '01',
+    name: 'Foundation',
+    range: 'Weeks 1-6',
+    signal: 'Probability, linear algebra, stochastic processes',
+    accent: '#c9d772',
+  },
+  {
+    number: '02',
+    name: 'Markets + Stats',
+    range: 'Weeks 7-12',
+    signal: 'Microstructure, time series, risk, portfolios',
+    accent: '#78c0c8',
+  },
+  {
+    number: '03',
+    name: 'Quant Systems',
+    range: 'Weeks 13-18',
+    signal: 'Backtesting, options pricing, ML alpha',
+    accent: '#d2a05f',
+  },
+  {
+    number: '04',
+    name: 'Portfolio Building',
+    range: 'Weeks 19-24',
+    signal: 'Flagship projects, interviews, alpha submissions',
+    accent: '#bda0cf',
   },
 ];
 
@@ -124,6 +157,52 @@ export default function Home() {
                   <p className="hero-status-text">{card.value}</p>
                 </article>
               ))}
+
+              <article className="hero-focus-card">
+                <div className="hero-focus-heading">
+                  <span className="hero-status-label">Focus</span>
+                  <span className="hero-focus-code">{'// roadmap.quant'}</span>
+                </div>
+
+                <h2 className="hero-focus-title">
+                  From zero to quant-ready
+                </h2>
+
+                <p className="hero-focus-copy">
+                  A six-month curriculum: math first, markets second, code always.
+                  Built around the path from AI engineering toward ML quant research.
+                </p>
+
+                <div className="hero-focus-meta" aria-label="Quant roadmap summary">
+                  {focusRoadmapStats.map((stat) => (
+                    <div key={stat.label} className="hero-focus-stat">
+                      <span>{stat.label}</span>
+                      <strong>{stat.value}</strong>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="hero-focus-track" aria-label="Quant roadmap phases">
+                  {focusRoadmapPhases.map((phase) => (
+                    <div
+                      key={phase.number}
+                      className="hero-focus-phase"
+                      style={{ '--phase-accent': phase.accent }}
+                    >
+                      <div className="hero-focus-phase__marker">
+                        {phase.number}
+                      </div>
+                      <div className="hero-focus-phase__body">
+                        <div className="hero-focus-phase__topline">
+                          <span>{phase.name}</span>
+                          <small>{phase.range}</small>
+                        </div>
+                        <p>{phase.signal}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
             </div>
           </motion.div>
         </div>
