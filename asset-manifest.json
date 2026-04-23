@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6cc535c8.css",
-    "main.js": "/static/js/main.fc8219ea.js",
+    "main.css": "/static/css/main.122c72d2.css",
+    "main.js": "/static/js/main.f16788f7.js",
     "static/css/974.ce48c86b.chunk.css": "/static/css/974.ce48c86b.chunk.css",
     "static/js/974.110d111d.chunk.js": "/static/js/974.110d111d.chunk.js",
     "static/css/941.e331c8a9.chunk.css": "/static/css/941.e331c8a9.chunk.css",
@@ -16,8 +16,8 @@
     "static/js/603.a6d1a9f5.chunk.js": "/static/js/603.a6d1a9f5.chunk.js",
     "static/media/great_wave.jpg": "/static/media/great_wave.65f2408b7b161abd56c0.jpg",
     "index.html": "/index.html",
-    "main.6cc535c8.css.map": "/static/css/main.6cc535c8.css.map",
-    "main.fc8219ea.js.map": "/static/js/main.fc8219ea.js.map",
+    "main.122c72d2.css.map": "/static/css/main.122c72d2.css.map",
+    "main.f16788f7.js.map": "/static/js/main.f16788f7.js.map",
     "974.ce48c86b.chunk.css.map": "/static/css/974.ce48c86b.chunk.css.map",
     "974.110d111d.chunk.js.map": "/static/js/974.110d111d.chunk.js.map",
     "941.e331c8a9.chunk.css.map": "/static/css/941.e331c8a9.chunk.css.map",
@@ -32,7 +32,7 @@
     "603.a6d1a9f5.chunk.js.map": "/static/js/603.a6d1a9f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cc535c8.css",
-    "static/js/main.fc8219ea.js"
+    "static/css/main.122c72d2.css",
+    "static/js/main.f16788f7.js"
   ]
 }
