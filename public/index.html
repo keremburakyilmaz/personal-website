@@ -15,6 +15,30 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <style>
+      html {
+        background: #0b0b0b;
+        color: #eae6e1;
+      }
+
+      body {
+        margin: 0;
+        background: transparent;
+        color: inherit;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+    <script>
+      (function() {
+        if (window.location.pathname === '/be-my-valentine') {
+          document.documentElement.style.background = '#fff8f0';
+          document.documentElement.style.color = '#4a2232';
+        }
+      }());
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

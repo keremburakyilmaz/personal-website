@@ -11,6 +11,7 @@
 # production
 /build
 /build-verify
+/build-verify*
 
 # misc
 .DS_Store
