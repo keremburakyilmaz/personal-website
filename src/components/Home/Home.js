@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 import './Home.css';
-import wave from '../../assets/great_wave.jpg';
+import waveJpg from '../../assets/great_wave.jpg';
+import waveWebp from '../../assets/great_wave_optimized.webp';
 
 const heroContainer = {
   hidden: {},
@@ -84,7 +85,16 @@ export default function Home() {
         </div>
 
         <div className="hero-wave-bg" aria-hidden="true">
-          <img src={wave} alt="" className="hero-wave-img" />
+          <picture>
+            <source srcSet={waveWebp} type="image/webp" />
+            <img
+              src={waveJpg}
+              alt=""
+              className="hero-wave-img"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
 
         <div className="hero-shell">

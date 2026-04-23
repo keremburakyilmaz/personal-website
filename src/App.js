@@ -110,28 +110,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  useEffect(() => {
-    if (location.pathname !== '/') {
-      return undefined;
-    }
-
-    const preloadRoutes = () => {
-      loadSpotifyBrain();
-      loadMarketRadar();
-      loadGameRoute();
-      loadSystemRunning();
-      loadValentine();
-    };
-
-    if ('requestIdleCallback' in window) {
-      const idleId = window.requestIdleCallback(preloadRoutes, { timeout: 1500 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-
-    const timeoutId = window.setTimeout(preloadRoutes, 1200);
-    return () => window.clearTimeout(timeoutId);
-  }, [location.pathname]);
-
   const showNavigation = !HIDDEN_NAV_ROUTES.includes(location.pathname);
   const mainClassName = SPECIAL_ROUTES[location.pathname] || '';
 
