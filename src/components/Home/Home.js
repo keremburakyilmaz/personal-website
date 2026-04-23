@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, ChevronDown } from 'lucide-react';
 import './Home.css';
 import waveJpg from '../../assets/great_wave.jpg';
 import waveWebp from '../../assets/great_wave_optimized.webp';
@@ -75,6 +75,13 @@ const focusRoadmapPhases = [
 ];
 
 export default function Home() {
+  const scrollToNextSection = () => {
+    document.getElementById('resume')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   return (
     <section id="home" className="home-section scroll-section">
       <div className="hero">
@@ -216,6 +223,22 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+
+        <motion.button
+          type="button"
+          onClick={scrollToNextSection}
+          className="hero-scroll-cue"
+          initial={{ opacity: 0, x: '-50%' }}
+          animate={{ opacity: 1, x: '-50%', y: [0, 9, 0] }}
+          transition={{
+            opacity: { delay: 1.15, duration: 0.7 },
+            y: { duration: 2.1, repeat: Infinity, ease: 'easeInOut' },
+          }}
+          aria-label="Scroll to explore"
+        >
+          <span>Scroll to explore</span>
+          <ChevronDown size={26} strokeWidth={1.7} />
+        </motion.button>
       </div>
     </section>
   );
