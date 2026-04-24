@@ -12,6 +12,7 @@
 /build
 /build-verify
 /build-verify*
+/build*
 
 # misc
 .DS_Store
