@@ -134,7 +134,6 @@ export const experience = [
   },
   {
     company: "AINA",
-    companyUrl: "https://www.aina.one/",
     position: "Co-founder, CTO",
     period: "Oct 2024 - Feb 2026 (Remote)",
     description: [
