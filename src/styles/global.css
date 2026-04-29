@@ -209,6 +209,12 @@ textarea {
   }
 }
 
+@media (max-width: 767px) {
+  .home-main .one-page-shell > .scroll-section:not(.home-section) {
+    width: calc(100% - 2rem);
+  }
+}
+
 /* Special routes */
 .home-main {
   padding: 0;
