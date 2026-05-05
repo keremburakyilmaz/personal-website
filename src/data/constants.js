@@ -15,6 +15,21 @@ export const projects = [
     ]
   },
   {
+    title: "QuantFusion - Financial Intelligence Platform",
+    description: [
+      "Built a production FastAPI backend serving both a personal ETF portfolio (JEPI/JEPQ/VOO/QQQ) and a stateless public portfolio analyzer where visitors submit tickers and weights to receive a full risk, optimization, and backtest report.",
+      "Implemented shareable snapshot links with 30-day expiry via UUID tokens, backed by async SQLAlchemy 2.0 models for portfolios, holdings, transactions, price history, regime snapshots, and analyzer reports.",
+      "Implemented 10 risk metrics (historical, parametric, and Monte Carlo VaR, CVaR, Sharpe, Sortino, Calmar, CAPM beta, and tracking error) plus MVO, Risk Parity, and Black-Litterman optimization.",
+      "Built HMM regime detection on five years of SPY and VIX features to classify Bull/Bear/Sideways markets and auto-select portfolio strategies.",
+      "Integrated NVIDIA NIM services for earnings PDF OCR, structured table extraction, LangGraph-backed natural-language portfolio queries, and per-analysis regime commentary.",
+      "Orchestrated concurrent analysis with asyncio.gather() across risk, optimization, backtesting, and LLM calls, with Redis-backed rate limiting and APScheduler jobs for hourly price sync and daily regime reclassification."
+    ],
+    tags: ["FastAPI", "SQLAlchemy", "Redis", "LangGraph", "NVIDIA NIM", "Risk Analytics", "Portfolio Optimization", "Backtesting"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/QuantFusion", type: "github" }
+    ]
+  },
+  {
     title: "PEFT of LLMs - LoRA and QLoRA Fine-Tuning Benchmark",
     description: [
       "Ran a systematic study comparing LoRA vs. QLoRA fine-tuning on Llama 3.2 (1B and 3B), finding that 4-bit quantization cuts GPU memory by 58% with no meaningful quality loss, and GGUF export yields a 5.7x inference speedup.",
@@ -81,21 +96,6 @@ export const projects = [
     tags: ["MLOps", "XGBoost", "FastAPI", "Docker", "SHAP", "Optuna", "GitHub Actions"],
     links: [
       { label: "GitHub", url: "https://github.com/keremburakyilmaz/churn-sight", type: "github" }
-    ]
-  },
-  {
-    title: "QuantFusion - Financial Intelligence Platform",
-    description: [
-      "Built a production FastAPI backend serving both a personal ETF portfolio (JEPI/JEPQ/VOO/QQQ) and a stateless public portfolio analyzer where visitors submit tickers and weights to receive a full risk, optimization, and backtest report.",
-      "Implemented shareable snapshot links with 30-day expiry via UUID tokens, backed by async SQLAlchemy 2.0 models for portfolios, holdings, transactions, price history, regime snapshots, and analyzer reports.",
-      "Implemented 10 risk metrics (historical, parametric, and Monte Carlo VaR, CVaR, Sharpe, Sortino, Calmar, CAPM beta, and tracking error) plus MVO, Risk Parity, and Black-Litterman optimization.",
-      "Built HMM regime detection on five years of SPY and VIX features to classify Bull/Bear/Sideways markets and auto-select portfolio strategies.",
-      "Integrated NVIDIA NIM services for earnings PDF OCR, structured table extraction, LangGraph-backed natural-language portfolio queries, and per-analysis regime commentary.",
-      "Orchestrated concurrent analysis with asyncio.gather() across risk, optimization, backtesting, and LLM calls, with Redis-backed rate limiting and APScheduler jobs for hourly price sync and daily regime reclassification."
-    ],
-    tags: ["FastAPI", "SQLAlchemy", "Redis", "LangGraph", "NVIDIA NIM", "Risk Analytics", "Portfolio Optimization", "Backtesting"],
-    links: [
-      { label: "GitHub", url: "https://github.com/keremburakyilmaz/QuantFusion", type: "github" }
     ]
   },
   {
