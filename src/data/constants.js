@@ -86,12 +86,14 @@ export const projects = [
   {
     title: "QuantFusion - Financial Intelligence Platform",
     description: [
-      "Building a platform that gives users portfolio optimization, risk analytics, and algorithmic trading through a single interface.",
-      "Developed FastAPI-based risk analysis supporting VaR, CVaR, volatility, drawdown, CAPM beta, and risk attribution.",
-      "Implemented portfolio construction with Mean-Variance Optimization, Risk Parity, and Black-Litterman under real-world constraints (sector limits, weight bounds, tracking error).",
-      "Extending with options pricing models, sentiment-driven forecasting, and a React dashboard."
+      "Built a production FastAPI backend serving both a personal ETF portfolio (JEPI/JEPQ/VOO/QQQ) and a stateless public portfolio analyzer where visitors submit tickers and weights to receive a full risk, optimization, and backtest report.",
+      "Implemented shareable snapshot links with 30-day expiry via UUID tokens, backed by async SQLAlchemy 2.0 models for portfolios, holdings, transactions, price history, regime snapshots, and analyzer reports.",
+      "Implemented 10 risk metrics (historical, parametric, and Monte Carlo VaR, CVaR, Sharpe, Sortino, Calmar, CAPM beta, and tracking error) plus MVO, Risk Parity, and Black-Litterman optimization.",
+      "Built HMM regime detection on five years of SPY and VIX features to classify Bull/Bear/Sideways markets and auto-select portfolio strategies.",
+      "Integrated NVIDIA NIM services for earnings PDF OCR, structured table extraction, LangGraph-backed natural-language portfolio queries, and per-analysis regime commentary.",
+      "Orchestrated concurrent analysis with asyncio.gather() across risk, optimization, backtesting, and LLM calls, with Redis-backed rate limiting and APScheduler jobs for hourly price sync and daily regime reclassification."
     ],
-    tags: ["FastAPI", "React", "Portfolio Optimization", "Risk Analytics", "Markowitz", "Black-Litterman"],
+    tags: ["FastAPI", "SQLAlchemy", "Redis", "LangGraph", "NVIDIA NIM", "Risk Analytics", "Portfolio Optimization", "Backtesting"],
     links: [
       { label: "GitHub", url: "https://github.com/keremburakyilmaz/QuantFusion", type: "github" }
     ]
