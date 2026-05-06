@@ -35,17 +35,17 @@ const DETAIL_TABS = [
 ];
 
 const fmt = {
-  pct: (v, d = 2) => v == null ? 'â€”' : `${(v * 100).toFixed(d)}%`,
-  num: (v, d = 2) => v == null ? 'â€”' : Number(v).toFixed(d),
-  money: (v) => v == null ? 'â€”' : v.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }),
+  pct: (v, d = 2) => v == null ? '-' : `${(v * 100).toFixed(d)}%`,
+  num: (v, d = 2) => v == null ? '-' : Number(v).toFixed(d),
+  money: (v) => v == null ? '-' : v.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }),
   cap: (v) => {
-    if (v == null) return 'â€”';
+    if (v == null) return '-';
     if (v >= 1e12) return `$${(v / 1e12).toFixed(2)}T`;
     if (v >= 1e9)  return `$${(v / 1e9).toFixed(2)}B`;
     if (v >= 1e6)  return `$${(v / 1e6).toFixed(1)}M`;
     return `$${v}`;
   },
-  date: (s) => s ? new Date(s).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'â€”',
+  date: (s) => s ? new Date(s).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '-',
 };
 
 const rangeFill = (value, min, max) => {
@@ -61,7 +61,7 @@ async function api(path, opts = {}) {
   });
   if (!res.ok) {
     const text = await res.text().catch(() => '');
-    throw new Error(`${res.status} ${res.statusText} â€” ${text.slice(0, 200)}`);
+    throw new Error(`${res.status} ${res.statusText} - ${text.slice(0, 200)}`);
   }
   return res.json();
 }
@@ -81,7 +81,7 @@ function StatusBanner() {
     return () => { cancelled = true; };
   }, []);
   const color = status === 'ok' ? '#7ed09b' : status === 'down' ? '#e08987' : '#c9b8a1';
-  const label = status === 'ok' ? 'Service online' : status === 'down' ? 'Service unreachable' : 'Pingingâ€¦';
+  const label = status === 'ok' ? 'Service online' : status === 'down' ? 'Service unreachable' : 'Pinging...';
   return (
     <span className="qf-status">
       <span className="qf-status__dot" style={{ background: color }} />
@@ -542,7 +542,7 @@ function HoldingsEditor({ holdings, setHoldings, readOnly, fundamentals, validat
               />
               <span className="qf-pct-suffix">%</span>
             </div>
-            <span className="qf-cell-muted">{f.sector || 'â€”'}</span>
+            <span className="qf-cell-muted">{f.sector || '-'}</span>
             <span className="qf-cell-muted">{fmt.cap(f.market_cap)}</span>
             <span className="qf-cell-muted">{fmt.num(f.trailing_pe)}</span>
             <button className="qf-icon-btn" disabled={readOnly} onClick={() => remove(i)} aria-label="remove">
@@ -585,9 +585,9 @@ function HoldingsEditor({ holdings, setHoldings, readOnly, fundamentals, validat
 
 const RISK_TILES = [
   { key: 'sharpe',          label: 'Sharpe',    fmt: (v) => fmt.num(v, 2), def: 'Excess return per unit of total volatility. Higher is better; >1 is solid, >2 is exceptional.' },
-  { key: 'annualized_volatility', label: 'Volatility',fmt: (v) => fmt.pct(v, 1), def: 'Annualized standard deviation of daily returns â€” the size of typical swings.' },
+  { key: 'annualized_volatility', label: 'Volatility',fmt: (v) => fmt.pct(v, 1), def: 'Annualized standard deviation of daily returns - the size of typical swings.' },
   { key: 'var_historical',  label: 'VaR 95%',   fmt: (v) => fmt.pct(v, 2), def: 'Historical 1-day 95% Value-at-Risk: the loss exceeded only 5% of trading days.' },
-  { key: 'max_drawdown',    label: 'Max DD',    fmt: (v) => fmt.pct(v, 1), def: 'Worst peak-to-trough decline â€” your deepest drawdown over the lookback window.' },
+  { key: 'max_drawdown',    label: 'Max DD',    fmt: (v) => fmt.pct(v, 1), def: 'Worst peak-to-trough decline - your deepest drawdown over the lookback window.' },
   { key: 'beta',            label: 'Beta',      fmt: (v) => fmt.num(v, 2), def: 'Sensitivity to SPY: 1.0 moves with the market; <1 is defensive, >1 is amplified.' },
 ];
 
@@ -636,8 +636,8 @@ function FrontierChart({ frontier, optimized }) {
       <div className="qf-section__head">
         <h2>Efficient Frontier</h2>
         <div className="qf-tabs">
-          <button className={mode === 'return' ? 'on' : ''} onClick={() => setMode('return')}>Return Ã- Vol</button>
-          <button className={mode === 'sharpe' ? 'on' : ''} onClick={() => setMode('sharpe')}>Sharpe Ã- Vol</button>
+          <button className={mode === 'return' ? 'on' : ''} onClick={() => setMode('return')}>Return vs Vol</button>
+          <button className={mode === 'sharpe' ? 'on' : ''} onClick={() => setMode('sharpe')}>Sharpe vs Vol</button>
         </div>
       </div>
       <div className="qf-chart">
@@ -669,7 +669,7 @@ function FrontierChart({ frontier, optimized }) {
             <div className="qf-frontier-marker" key={o.name}>
               <span />
               <strong>{o.name}</strong>
-              <em>{fmt.pct(o.x, 1)} vol Â· {mode === 'return' ? fmt.pct(o.y, 1) : `${fmt.num(o.y, 2)} Sharpe`}</em>
+              <em>{fmt.pct(o.x, 1)} vol - {mode === 'return' ? fmt.pct(o.y, 1) : `${fmt.num(o.y, 2)} Sharpe`}</em>
             </div>
           ))}
         </div>
@@ -724,11 +724,11 @@ function OptimizationLab({ report, holdings, baselineRisk }) {
   const before = useMemo(() => Object.fromEntries(holdings.map(h => [h.ticker, h.weight])), [holdings]);
 
   const cards = [
-    { key: 'mvo_max', title: 'MVO Â· Max Sharpe', desc: 'Mean-variance frontier optimized for the highest risk-adjusted return.',
+    { key: 'mvo_max', title: 'MVO - Max Sharpe', desc: 'Mean-variance frontier optimized for the highest risk-adjusted return.',
       run: () => run('mvo_max', { method: 'mvo', target: 'max_sharpe', holdings }) },
-    { key: 'mvo_min', title: 'MVO Â· Min Vol', desc: 'Lowest-variance allocation â€” the global minimum-volatility portfolio.',
+    { key: 'mvo_min', title: 'MVO - Min Vol', desc: 'Lowest-variance allocation - the global minimum-volatility portfolio.',
       run: () => run('mvo_min', { method: 'mvo', target: 'min_vol', holdings }) },
-    { key: 'mvo_target', title: 'MVO Â· Target Return', desc: `Minimum-vol portfolio hitting the chosen return target.`,
+    { key: 'mvo_target', title: 'MVO - Target Return', desc: `Minimum-vol portfolio hitting the chosen return target.`,
       extra: (
         <div className="qf-card-extra">
           <label>Target return: {fmt.pct(targetReturn, 1)}</label>
@@ -740,7 +740,7 @@ function OptimizationLab({ report, holdings, baselineRisk }) {
       run: () => run('mvo_target', { method: 'mvo', target: 'target_return', holdings, constraints: { target_return: targetReturn } }) },
     { key: 'rp', title: 'Risk Parity', desc: 'Each asset contributes equally to total portfolio risk.',
       run: () => run('rp', { method: 'risk_parity', holdings }) },
-    { key: 'bl', title: 'Blackâ€“Litterman', desc: 'Blend equilibrium priors with your subjective views.',
+    { key: 'bl', title: 'Black-Litterman', desc: 'Blend equilibrium priors with your subjective views.',
       extra: (
         <div className="qf-card-extra">
           <div className="qf-views-row">
@@ -756,7 +756,7 @@ function OptimizationLab({ report, holdings, baselineRisk }) {
               <option value={0.75}>High</option>
             </select>
           </div>
-          <span className="qf-cell-muted">View: {view.ticker} â†’ {fmt.pct(view.view_return, 1)} annual</span>
+          <span className="qf-cell-muted">View: {view.ticker} -> {fmt.pct(view.view_return, 1)} annual</span>
         </div>
       ),
       run: () => run('bl', { method: 'black_litterman', holdings, views: [view] }) },
@@ -791,7 +791,7 @@ function OptimizationLab({ report, holdings, baselineRisk }) {
                     <span>Sharpe <strong>{fmt.num(r.sharpe, 2)}</strong></span>
                     {dSharpe != null && (
                       <span className={`qf-delta ${dSharpe >= 0 ? 'pos' : 'neg'}`}>
-                        Î”Sharpe {dSharpe >= 0 ? '+' : ''}{dSharpe.toFixed(2)}
+                        Delta Sharpe {dSharpe >= 0 ? '+' : ''}{dSharpe.toFixed(2)}
                       </span>
                     )}
                   </div>
@@ -845,7 +845,7 @@ function RegimeDetector({ regime, refresh }) {
           </div>
           <div className="qf-regime__label">
             <span className="qf-cell-muted">Detected regime</span>
-            <strong>{snap?.regime || 'â€”'}</strong>
+            <strong>{snap?.regime || '-'}</strong>
             <span className="qf-cell-muted">{snap?.ts ? new Date(snap.ts).toLocaleString() : ''}</span>
           </div>
         </div>
@@ -916,11 +916,11 @@ function EarningsPipeline({ holdings, signals, fetchEarnings, fetchSignals }) {
                   </div>
                   <div className="qf-earn__row">
                     <span>Filing</span>
-                    <span>{fmt.date(s.filing_date)} Â· {s.form_type} Â· {s.pages}pp</span>
+                    <span>{fmt.date(s.filing_date)} - {s.form_type} - {s.pages}pp</span>
                   </div>
                   {s.exhibit_url && (
                     <a className="qf-link" href={s.exhibit_url} target="_blank" rel="noopener noreferrer">
-                      View on EDGAR â†-
+                      View on EDGAR ->
                     </a>
                   )}
                 </div>
@@ -1052,7 +1052,7 @@ function BacktestTheater({ bt1y, bt3y, holdings, optimized }) {
       {renderHeatmap(bt3y)}
       {override && (
         <div className="qf-bt-override">
-          <div className="qf-section__head"><h3>Override Â· {override.label}</h3></div>
+          <div className="qf-section__head"><h3>Override - {override.label}</h3></div>
           {renderCurve(override.result, `${override.label} (3-year)`)}
         </div>
       )}
@@ -1082,7 +1082,7 @@ function Commentary({ text }) {
         <span className="qf-pill qf-pill--neutral"><Sparkles size={11} /> Cached narrative</span>
       </div>
       <div className="qf-commentary">
-        <p>{shown}<span className="qf-cursor">â-</span></p>
+        <p>{shown}<span className="qf-cursor">|</span></p>
         <button className="qf-link qf-link--btn" onClick={() => setOpen(o => !o)}>
           {open ? 'Hide inputs' : 'Why this commentary?'}
         </button>
@@ -1130,7 +1130,7 @@ function ChatDock({ portfolioId }) {
   return (
     <>
       <button className="qf-chat-fab" onClick={() => setOpen(o => !o)}>
-        {open ? 'Ã-' : 'â-‡ Ask'}
+        {open ? 'Close' : 'Ask AI'}
       </button>
       {open && (
         <div className="qf-chat">
@@ -1157,10 +1157,10 @@ function ChatDock({ portfolioId }) {
                 )}
               </div>
             ))}
-            {busy && <div className="qf-chat__msg qf-chat__msg--agent"><Spinner /> thinkingâ€¦</div>}
+            {busy && <div className="qf-chat__msg qf-chat__msg--agent"><Spinner /> thinking...</div>}
           </div>
           <form className="qf-chat__input" onSubmit={(e) => { e.preventDefault(); send(input); }}>
-            <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask about your portfolioâ€¦" />
+            <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask about your portfolio..." />
             <button type="submit" disabled={busy}><Send size={14} /></button>
           </form>
         </div>
@@ -1237,7 +1237,7 @@ function MethodsFooter() {
   return (
     <div className="qf-section qf-footer">
       <button className="qf-link qf-link--btn" onClick={() => setOpen(o => !o)}>
-        {open ? 'â-¾' : 'â-¸'} Endpoint coverage map
+        {open ? 'v' : '>'} Endpoint coverage map
       </button>
       {open && (
         <table className="qf-endpoints">
@@ -1250,8 +1250,8 @@ function MethodsFooter() {
         </table>
       )}
       <p className="qf-footer__note">
-        Rate limits: <code>/analyzer/run</code> is 3/min Â· <code>/analyzer/validate</code> is 30/min.
-        Methods reference and source: <a className="qf-link" href="https://github.com/keremburakyilmaz/QuantFusion" target="_blank" rel="noopener noreferrer">GitHub â†-</a>
+        Rate limits: <code>/analyzer/run</code> is 3/min - <code>/analyzer/validate</code> is 30/min.
+        Methods reference and source: <a className="qf-link" href="https://github.com/keremburakyilmaz/QuantFusion" target="_blank" rel="noopener noreferrer">GitHub -></a>
       </p>
     </div>
   );
@@ -1338,17 +1338,17 @@ export default function QuantFusion() {
   return (
     <section className="qf-page scroll-section">
       <div className="page-header">
-        <p className="page-header__label">QuantFusion Â· Showcase</p>
+        <p className="page-header__label">QuantFusion - Showcase</p>
         <h1 className="page-header__title">Portfolio intelligence, <span>made inspectable</span></h1>
         <p className="page-header__sub">
-          A FastAPI portfolio analytics platform â€” risk, optimization, regime detection, earnings OCR, and an
-          LLM agent â€” wired end-to-end. <StatusBanner />
+          A FastAPI portfolio analytics platform - risk, optimization, regime detection, earnings OCR, and an
+          LLM agent - wired end-to-end. <StatusBanner />
         </p>
       </div>
 
       {error && <div className="qf-error"><AlertTriangle size={14} /> {error}</div>}
       {readOnly && (
-        <div className="qf-readonly"><ShieldCheck size={14} /> Read-only shared snapshot Â· token <code>{sharedToken}</code></div>
+        <div className="qf-readonly"><ShieldCheck size={14} /> Read-only shared snapshot - token <code>{sharedToken}</code></div>
       )}
 
       <PortfolioCommandCenter
@@ -1369,7 +1369,7 @@ export default function QuantFusion() {
           Build your own
         </button>
         <button className="qf-btn qf-btn--accent" onClick={analyze} disabled={running || readOnly}>
-          {running ? <Spinner /> : <Activity size={14} />} {running ? 'Running full analysisâ€¦' : 'Analyze'}
+          {running ? <Spinner /> : <Activity size={14} />} {running ? 'Running full analysis...' : 'Analyze'}
         </button>
       </div>
 
@@ -1388,7 +1388,7 @@ export default function QuantFusion() {
         <div className="qf-placeholder">
           Click <strong>Analyze</strong> to run the full pipeline: risk metrics, efficient frontier (150 points),
           MVO/RP/Blended optimization, 1Y &amp; 3Y backtests, regime classification, and AI commentary.
-          Expect <strong>30â€“60s</strong> on first call (cold start + market data fetch).
+          Expect <strong>30-60s</strong> on first call (cold start + market data fetch).
         </div>
       )}
 
