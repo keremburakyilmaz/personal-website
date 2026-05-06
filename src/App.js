@@ -13,12 +13,14 @@ const loadMarketRadar = () => import('./components/MarketRadar/MarketRadar');
 const loadGameRoute = () => import('./palimpsest/ui/GameRoute');
 const loadSystemRunning = () => import('./system-is-running/SystemRunning');
 const loadValentine = () => import('./valentine/Valentine');
+const loadQuantFusion = () => import('./components/QuantFusion/QuantFusion');
 
 const SpotifyBrain = lazy(loadSpotifyBrain);
 const MarketRadar = lazy(loadMarketRadar);
 const GameRoute = lazy(loadGameRoute);
 const SystemRunning = lazy(loadSystemRunning);
 const Valentine = lazy(loadValentine);
+const QuantFusion = lazy(loadQuantFusion);
 
 // Routes with special styling (full-screen, no navigation padding)
 const SPECIAL_ROUTES = {
@@ -148,6 +150,14 @@ export default function App() {
             element={
               <Suspense fallback={routeFallback}>
                 <PageTransition><SpotifyBrain /></PageTransition>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/quantfusion"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><QuantFusion /></PageTransition>
               </Suspense>
             }
           />

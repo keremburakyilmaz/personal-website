@@ -26,7 +26,8 @@ export const projects = [
     ],
     tags: ["FastAPI", "SQLAlchemy", "Redis", "LangGraph", "NVIDIA NIM", "Risk Analytics", "Portfolio Optimization", "Backtesting"],
     links: [
-      { label: "GitHub", url: "https://github.com/keremburakyilmaz/QuantFusion", type: "github" }
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/QuantFusion", type: "github" },
+      { label: "Showcase", url: "/quantfusion", type: "internal" }
     ]
   },
   {

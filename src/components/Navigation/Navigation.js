@@ -11,6 +11,7 @@ const primaryLinks = [
 ];
 
 const secondaryLinks = [
+  { to: '/quantfusion', label: 'QuantFusion' },
   { to: '/spotify-brain', label: 'Spotify' },
   { to: '/market-radar', label: 'Market Radar' },
   { to: '/palimpsest', label: 'Palimpsest' },
