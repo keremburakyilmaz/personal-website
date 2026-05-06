@@ -1,8 +1,8 @@
-﻿import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
-  ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, LineChart, Line, BarChart, Bar, Cell, Legend,
+  Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
+  ResponsiveContainer, LineChart, Line, BarChart, Bar, Legend,
   AreaChart, Area,
 } from 'recharts';
 import {
@@ -812,7 +812,6 @@ function RegimeDetector({ regime, refresh }) {
   useEffect(() => setSnap(regime), [regime]);
   const probs = snap?.probabilities || {};
   const order = ['bull', 'sideways', 'bear'];
-  const max = Math.max(...Object.values(probs), 0.001);
   const onRefresh = async () => {
     setBusy(true);
     try { setSnap(await api('/api/regime/current')); refresh?.(); }
