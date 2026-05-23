@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T09:22:10.971709",
+  "generated_at": "2026-05-23T10:54:20.290736",
   "next_prediction": {
     "mood_cluster_id": 1,
     "mood_label": "High energy, neutral",
@@ -14,16 +14,16 @@
     },
     "recommended_tracks": [
       {
-        "track_id": "5dxCaYXS5l2ZmMGAVGB2lQ",
-        "track_name": "After All The Bars Are Closed",
-        "artist_name": "Thomas Rhett",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e020be8321d194b379cc1a3fe24"
-      },
-      {
         "track_id": "1wlKw9NAWVWpx7OIAyg9EA",
         "track_name": "Fell On Black Days",
         "artist_name": "Soundgarden",
         "image_url": "https://i.scdn.co/image/ab67616d00001e02ae6d8e36136353d550b2587d"
+      },
+      {
+        "track_id": "5dxCaYXS5l2ZmMGAVGB2lQ",
+        "track_name": "After All The Bars Are Closed",
+        "artist_name": "Thomas Rhett",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e020be8321d194b379cc1a3fe24"
       }
     ]
   },
@@ -3217,6 +3217,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2026-05-23T09:22:10.959014"
+    "detection_date": "2026-05-23T10:54:20.279012"
   }
 }
