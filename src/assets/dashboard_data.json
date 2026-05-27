@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T11:54:59.342966",
+  "generated_at": "2026-05-27T15:51:00.360225",
   "next_prediction": {
     "mood_cluster_id": 1,
     "mood_label": "Low energy, negative, acoustic",
@@ -14,16 +14,22 @@
     },
     "recommended_tracks": [
       {
+        "track_id": "6MHUYde9edp2cjzwYgIjiw",
+        "track_name": "J\u2019avais juste envie d\u2019\u00e9crire.",
+        "artist_name": "Damso",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e0238725334ed673f77cac888b9"
+      },
+      {
         "track_id": "23KYNQyJ0nW1kdIwbVT2qI",
         "track_name": "Hey Ya!",
         "artist_name": "PL\u00dcM, Trinix",
         "image_url": "https://i.scdn.co/image/ab67616d00001e025e61071fc76312f16dff85d9"
       },
       {
-        "track_id": "02aS4O8n7k4UGLXqodbfSk",
-        "track_name": "Siempre Clave",
-        "artist_name": "T3R Elemento, Clave 702",
-        "image_url": "https://i.scdn.co/image/ab67616d00001e02448174c3a7a38ec4a5daa74b"
+        "track_id": "6DIt34Pm9LXZUfs4ap67fJ",
+        "track_name": "Con los Ojos Cerrados",
+        "artist_name": "Gloria Trevi",
+        "image_url": "https://i.scdn.co/image/ab67616d00001e02ddf72b1f9ffe09bdaf2c2205"
       }
     ]
   },
@@ -3217,6 +3223,6 @@
       }
     },
     "overall_drift_detected": true,
-    "detection_date": "2026-05-27T11:54:59.330481"
+    "detection_date": "2026-05-27T15:51:00.348745"
   }
 }
