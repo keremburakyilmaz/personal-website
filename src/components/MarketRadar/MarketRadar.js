@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './MarketRadar.css';
+import '../../styles/route-system.css';
 import mockData from './mockData.json';
 
 export default function MarketRadar() {

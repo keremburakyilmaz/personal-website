@@ -12,6 +12,7 @@ import EndingView from './EndingView';
 import SettingsDrawer from './SettingsDrawer';
 import storyData from '../data/story.json';
 import '../styles/game.css';
+import '../../styles/route-system.css';
 
 export default function GameRoute() {
   const [state, dispatch] = useReducer(
@@ -199,5 +200,4 @@ export default function GameRoute() {
     </div>
   );
 }
-
 

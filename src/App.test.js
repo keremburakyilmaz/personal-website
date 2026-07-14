@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { MemoryRouter } from 'react-router-dom';
+import RunningPortfolio from './components/RunningPortfolio/RunningPortfolio';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders the systems portfolio', () => {
+  render(
+    <MemoryRouter>
+      <RunningPortfolio />
+    </MemoryRouter>
+  );
+  expect(screen.getByRole('heading', { name: /systems that keep running/i })).toBeInTheDocument();
+  expect(screen.getByText('QUANTFUSION')).toBeInTheDocument();
 });

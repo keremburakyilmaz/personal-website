@@ -74,7 +74,10 @@ export const projects = [
       "Wrote parked dbt analyses measuring Steam's 2-hour refund-window effect on review sentiment, sliced by reviewer tier, as source-of-truth numbers for the BI layer.",
       "Connected Looker Studio dashboards read-only to the analytics.* tables over DuckDB."
     ],
-    tags: ["DuckDB", "dbt", "Star Schema", "Looker Studio", "Data Quality", "Analytics"]
+    tags: ["DuckDB", "dbt", "Star Schema", "Looker Studio", "Data Quality", "Analytics"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/game-metrics", type: "github" }
+    ]
   },
   {
     title: "Business Solution Discovery Chatbot (RAG-based)",

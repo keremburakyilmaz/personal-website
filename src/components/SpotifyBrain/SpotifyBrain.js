@@ -1,24 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Cell } from 'recharts';
 import './SpotifyBrain.css';
+import '../../styles/route-system.css';
 import dashboardData from '../../assets/dashboard_data.json';
 
 const MOOD_PALETTE = [
-  '#c49d7f',
-  '#7fc49d',
-  '#7f9dc4',
-  '#c47f9d',
-  '#9d7fc4',
-  '#7fc4a6',
-  '#c4a67f',
-  '#9dc47f',
-  '#7fa6c4',
-  '#c47f7f',
-  '#7fc47f',
-  '#a67fc4',
-  '#7fc4c4',
-  '#c4c47f',
-  '#c49d9d'
+  '#ededed',
+  '#cfcfcf',
+  '#b3b3b3',
+  '#979797',
+  '#7b7b7b',
+  '#5f5f5f'
 ];
 
 const data = dashboardData;
@@ -131,9 +123,9 @@ export default function SpotifyBrain() {
   // Get confidence color
   const getConfidenceColor = (confidence) => {
     const conf = safeNumber(confidence, 0);
-    if (conf >= 0.8) return '#7fc49d'; // Muted green
-    if (conf >= 0.5) return '#c4a67f'; // Muted amber
-    return '#c47f7f'; // Muted red
+    if (conf >= 0.8) return '#ededed';
+    if (conf >= 0.5) return '#8a8a8a';
+    return '#d71921';
   };
 
   // Get mood color based on cluster - supports 3-15 clusters with muted colors
@@ -180,25 +172,19 @@ export default function SpotifyBrain() {
             <div className="recently-played-stream">
               {visibleRecentlyPlayed.map((track, index) => {
                 const moodLabel = moodClusterLabels.get(track.mood_cluster_id) || `Cluster ${track.mood_cluster_id}`;
-                const moodColor = getMoodColor(safeNumber(track.mood_cluster_id, 0));
                 
                 return (
                   <div key={`${track.track_id}-${index}`} className="recently-played-card-item">
                     <div className="card-album-art">
-                  <img 
-                    src={track.image_url} 
-                    alt={`${track.track_name} by ${track.artist_name}`}
-                    loading="lazy"
-                    decoding="async"
-                    onError={(e) => {
+                      <img
+                        src={track.image_url}
+                        alt={`${track.track_name} by ${track.artist_name}`}
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/200?text=No+Image';
-                    }}
-                  />
-                      {track.mood_cluster_id !== undefined && (
-                        <div className="card-mood-tag" style={{ backgroundColor: moodColor }}>
-                          {moodLabel}
-                  </div>
-                      )}
+                        }}
+                      />
                     </div>
                     <div className="card-info">
                       <div className="card-song-title">{track.track_name}</div>
@@ -206,6 +192,9 @@ export default function SpotifyBrain() {
                       <div className="card-timestamp" title={formatTimestamp(track.played_at)}>
                         {formatTimestampShort(track.played_at)}
                       </div>
+                      {track.mood_cluster_id !== undefined && (
+                        <div className="card-mood-tag">Mood / {moodLabel}</div>
+                      )}
                     </div>
                   </div>
                 );
@@ -285,26 +274,26 @@ export default function SpotifyBrain() {
             )}
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={sessionProbsData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(201, 184, 161, 0.08)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#242424" />
                 <XAxis
                   dataKey="hourLabel"
-                  stroke="rgba(201, 184, 161, 0.2)"
-                  tick={{ fill: '#7d786f', fontSize: 11 }}
+                  stroke="#343434"
+                  tick={{ fill: '#8a8a8a', fontSize: 11 }}
                 />
                 <YAxis
-                  stroke="rgba(201, 184, 161, 0.2)"
-                  tick={{ fill: '#7d786f', fontSize: 11 }}
-                  label={{ value: 'Probability', angle: -90, position: 'insideLeft', fill: '#7d786f', fontSize: 11 }}
+                  stroke="#343434"
+                  tick={{ fill: '#8a8a8a', fontSize: 11 }}
+                  label={{ value: 'Probability', angle: -90, position: 'insideLeft', fill: '#8a8a8a', fontSize: 11 }}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#0b0b0b',
-                    border: '1px solid rgba(201, 184, 161, 0.15)',
-                    borderRadius: '8px',
-                    color: '#eae6e1',
+                    backgroundColor: '#0a0a0a',
+                    border: '1px solid #343434',
+                    borderRadius: '1px',
+                    color: '#ededed',
                     fontSize: '0.85rem'
                   }}
-                  cursor={{ fill: 'rgba(201, 184, 161, 0.04)' }}
+                  cursor={{ fill: 'rgba(255, 255, 255, 0.035)' }}
                   formatter={(value) => [safeToFixed(safeNumber(value, 0) * 100, 1) + '%', 'Probability']}
                 />
                 <Bar
@@ -315,14 +304,14 @@ export default function SpotifyBrain() {
                   {sessionProbsData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={entry.isCurrentHour ? '#c9b8a1' : 'url(#sessionGradient)'}
+                      fill={entry.isCurrentHour ? '#d71921' : 'url(#sessionGradient)'}
                     />
                   ))}
                 </Bar>
                 <defs>
                   <linearGradient id="sessionGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#c9b8a1" stopOpacity={0.5} />
-                    <stop offset="100%" stopColor="#c9b8a1" stopOpacity={0.15} />
+                    <stop offset="0%" stopColor="#8a8a8a" stopOpacity={0.65} />
+                    <stop offset="100%" stopColor="#505050" stopOpacity={0.32} />
                   </linearGradient>
                 </defs>
               </BarChart>
@@ -335,53 +324,53 @@ export default function SpotifyBrain() {
             {moodTrajectoryData.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={moodTrajectoryData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(201, 184, 161, 0.08)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#242424" />
                 <XAxis
                   dataKey="time"
-                  stroke="rgba(201, 184, 161, 0.2)"
-                  tick={{ fill: '#7d786f', fontSize: 11 }}
+                  stroke="#343434"
+                  tick={{ fill: '#8a8a8a', fontSize: 11 }}
                 />
                 <YAxis
                   yAxisId="left"
-                  stroke="rgba(201, 184, 161, 0.2)"
-                  tick={{ fill: '#7d786f', fontSize: 11 }}
-                  label={{ value: 'Valence', angle: -90, position: 'insideLeft', fill: '#7d786f', fontSize: 11 }}
+                  stroke="#343434"
+                  tick={{ fill: '#8a8a8a', fontSize: 11 }}
+                  label={{ value: 'Valence', angle: -90, position: 'insideLeft', fill: '#8a8a8a', fontSize: 11 }}
                   domain={[0, 1]}
                 />
                 <YAxis
                   yAxisId="right"
                   orientation="right"
-                  stroke="rgba(201, 184, 161, 0.2)"
-                  tick={{ fill: '#7d786f', fontSize: 11 }}
-                  label={{ value: 'Energy', angle: 90, position: 'insideRight', fill: '#7d786f', fontSize: 11 }}
+                  stroke="#343434"
+                  tick={{ fill: '#8a8a8a', fontSize: 11 }}
+                  label={{ value: 'Energy', angle: 90, position: 'insideRight', fill: '#8a8a8a', fontSize: 11 }}
                   domain={[0, 1]}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#0b0b0b',
-                    border: '1px solid rgba(201, 184, 161, 0.15)',
-                    borderRadius: '8px',
-                    color: '#eae6e1',
+                    backgroundColor: '#0a0a0a',
+                    border: '1px solid #343434',
+                    borderRadius: '1px',
+                    color: '#ededed',
                     fontSize: '0.85rem'
                   }}
                 />
-                <Legend wrapperStyle={{ color: '#7d786f', fontSize: '0.8rem' }} />
+                <Legend wrapperStyle={{ color: '#8a8a8a', fontSize: '0.8rem' }} />
                 <Line
                   yAxisId="left"
                   type="monotone"
                   dataKey="valence"
-                  stroke="#c9b8a1"
+                  stroke="#ededed"
                   strokeWidth={2}
-                  dot={{ fill: '#c9b8a1', r: 3 }}
+                  dot={{ fill: '#ededed', r: 3 }}
                   name="Valence"
                 />
                 <Line
                   yAxisId="right"
                   type="monotone"
                   dataKey="energy"
-                  stroke="#7fc49d"
+                  stroke="#8a8a8a"
                   strokeWidth={2}
-                  dot={{ fill: '#7fc49d', r: 3 }}
+                  dot={{ fill: '#8a8a8a', r: 3 }}
                   name="Energy"
                 />
               </LineChart>
@@ -412,15 +401,15 @@ export default function SpotifyBrain() {
                     <div className="cluster-radar">
                       <ResponsiveContainer width="100%" height={200}>
                         <RadarChart data={radarData}>
-                          <PolarGrid stroke="rgba(201, 184, 161, 0.1)" />
+                          <PolarGrid stroke="#242424" />
                           <PolarAngleAxis
                             dataKey="feature"
-                            tick={{ fill: '#7d786f', fontSize: 11 }}
+                            tick={{ fill: '#8a8a8a', fontSize: 11 }}
                           />
                           <PolarRadiusAxis
                             angle={90}
                             domain={[0, 100]}
-                            tick={{ fill: '#7d786f', fontSize: 10 }}
+                            tick={{ fill: '#8a8a8a', fontSize: 10 }}
                           />
                           <Radar
                             name="Features"
@@ -432,10 +421,10 @@ export default function SpotifyBrain() {
                           />
                           <Tooltip
                             contentStyle={{
-                              backgroundColor: '#0b0b0b',
-                              border: `1px solid rgba(201, 184, 161, 0.15)`,
-                              borderRadius: '8px',
-                              color: '#eae6e1',
+                              backgroundColor: '#0a0a0a',
+                              border: '1px solid #343434',
+                              borderRadius: '1px',
+                              color: '#ededed',
                               fontSize: '0.85rem'
                             }}
                             formatter={(value) => [safeToFixed(safeNumber(value, 0), 1) + '%', 'Value']}

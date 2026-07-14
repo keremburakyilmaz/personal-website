@@ -3,10 +3,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
-import Home from './components/Home/Home';
-import Projects from './components/Projects/Projects';
-import Resume from './components/Resume/Resume';
-import Contact from './components/Contact/Contact';
+import RunningPortfolio from './components/RunningPortfolio/RunningPortfolio';
 
 const loadSpotifyBrain = () => import('./components/SpotifyBrain/SpotifyBrain');
 const loadMarketRadar = () => import('./components/MarketRadar/MarketRadar');
@@ -26,22 +23,16 @@ const QuantFusion = lazy(loadQuantFusion);
 const SPECIAL_ROUTES = {
   '/': 'home-main',
   '/palimpsest': 'game-main',
+  '/system': 'system-main',
   '/be-my-valentine': 'valentine-main',
 };
 
 // Routes where navigation should be hidden
-const HIDDEN_NAV_ROUTES = ['/be-my-valentine'];
-const HOME_SECTION_IDS = ['home', 'resume', 'projects', 'contact'];
+const HIDDEN_NAV_ROUTES = ['/', '/be-my-valentine'];
+const HOME_SECTION_IDS = ['top', 'systems', 'orchestration', 'record', 'contact'];
 
 function OnePageHome() {
-  return (
-    <div className="one-page-shell">
-      <Home />
-      <Resume />
-      <Projects />
-      <Contact />
-    </div>
-  );
+  return <RunningPortfolio />;
 }
 
 function PageTransition({ children }) {
@@ -49,9 +40,9 @@ function PageTransition({ children }) {
   return (
     <motion.div
       key={location.pathname}
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       {children}
     </motion.div>
@@ -132,14 +123,14 @@ export default function App() {
 
       <main className={mainClassName}>
         <Routes location={location}>
-          <Route path="/" element={<PageTransition><OnePageHome /></PageTransition>} />
+          <Route path="/" element={<OnePageHome />} />
           <Route
             path="/projects"
-            element={<Navigate to="/#projects" replace />}
+            element={<Navigate to="/#systems" replace />}
           />
           <Route
             path="/resume"
-            element={<Navigate to="/#resume" replace />}
+            element={<Navigate to="/#record" replace />}
           />
           <Route
             path="/contact"

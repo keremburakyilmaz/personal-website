@@ -4,34 +4,28 @@ import { AnimatePresence, motion } from 'framer-motion';
 import './Navigation.css';
 
 const primaryLinks = [
-  { to: '/#home', section: 'home', label: 'Home' },
-  { to: '/#resume', section: 'resume', label: 'Resume' },
-  { to: '/#projects', section: 'projects', label: 'Projects' },
-  { to: '/#contact', section: 'contact', label: 'Contact' },
+  { to: '/#top', section: 'top', label: 'Home', index: '01' },
+  { to: '/#systems', section: 'systems', label: 'Systems', index: '02' },
+  { to: '/#record', section: 'record', label: 'Record', index: '03' },
+  { to: '/#contact', section: 'contact', label: 'Contact', index: '04' },
 ];
 
 const secondaryLinks = [
-  { to: '/quantfusion', label: 'QuantFusion' },
-  { to: '/spotify-brain', label: 'Spotify' },
-  { to: '/market-radar', label: 'Market Radar' },
-  { to: '/palimpsest', label: 'Palimpsest' },
-  { to: '/system', label: 'System' },
+  { to: '/quantfusion', label: 'QuantFusion', index: '05' },
+  { to: '/spotify-brain', label: 'Spotify', index: '06' },
+  { to: '/market-radar', label: 'Radar', index: '07' },
+  { to: '/palimpsest', label: 'Palimpsest', index: '08' },
+  { to: '/system', label: 'System', index: '09' },
 ];
 
-function NavLinkItem({ to, label, isActive, onClick, secondary = false }) {
+function NavLinkItem({ to, label, index, isActive, onClick, secondary = false }) {
   return (
     <Link
       to={to}
       className={`nav-item ${secondary ? 'nav-item--secondary' : ''} ${isActive ? 'active' : ''}`}
       onClick={onClick}
     >
-      {isActive && (
-        <motion.span
-          layoutId="nav-active-pill"
-          className="nav-item__pill"
-          transition={{ type: 'spring', stiffness: 380, damping: 34 }}
-        />
-      )}
+      <span className="nav-item__index" aria-hidden="true">{index}</span>
       <span className="nav-item__label">{label}</span>
     </Link>
   );
@@ -77,8 +71,8 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
       <nav className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
           <Link to="/" className="nav-brand">
-            <span className="nav-brand-name">Kerem Burak Yılmaz</span>
-            <span className="nav-brand-role">AI systems and product engineering</span>
+            <span className="nav-brand-name">NODE / KEREM BURAK YILMAZ</span>
+            <span className="nav-brand-role">ISTANBUL / SYS.IST</span>
           </Link>
 
           <button
@@ -101,6 +95,7 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   key={link.to}
                   to={link.to}
                   label={link.label}
+                  index={link.index}
                   isActive={isActive(link.to, link.section)}
                   onClick={(event) => {
                     event.preventDefault();
@@ -114,6 +109,7 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   key={link.to}
                   to={link.to}
                   label={link.label}
+                  index={link.index}
                   isActive={isActive(link.to)}
                   secondary
                 />
@@ -127,9 +123,9 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
         {menuOpen && (
           <motion.div
             className="mobile-nav"
-            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(18px)' }}
-            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.div
@@ -161,6 +157,7 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   <NavLinkItem
                     to={link.to}
                     label={link.label}
+                    index={link.index}
                     isActive={isActive(link.to, link.section)}
                     onClick={(event) => {
                       event.preventDefault();
@@ -182,6 +179,7 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   <NavLinkItem
                     to={link.to}
                     label={link.label}
+                    index={link.index}
                     isActive={isActive(link.to)}
                     onClick={() => setMenuOpen(false)}
                     secondary

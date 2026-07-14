@@ -10,6 +10,7 @@ import {
   PlayCircle, Share2, Trash2, Plus, AlertTriangle, FileText, Send,
 } from 'lucide-react';
 import './QuantFusion.css';
+import '../../styles/route-system.css';
 
 const API = 'https://quantfusion-q2as.onrender.com';
 const DEMO = [
@@ -80,7 +81,7 @@ function StatusBanner() {
     );
     return () => { cancelled = true; };
   }, []);
-  const color = status === 'ok' ? '#7ed09b' : status === 'down' ? '#e08987' : '#c9b8a1';
+  const color = status === 'checking' ? '#8a8a8a' : '#d71921';
   const label = status === 'ok' ? 'Service online' : status === 'down' ? 'Service unreachable' : 'Pinging...';
   return (
     <span className="qf-status">
@@ -553,7 +554,7 @@ function HoldingsEditor({ holdings, setHoldings, readOnly, fundamentals, validat
       })}
       <div className="qf-table__foot">
         <div className="qf-table__total">
-          Total: <strong style={{ color: Math.abs(total - 1) < 0.001 ? '#7ed09b' : '#e0c187' }}>
+          Total: <strong style={{ color: Math.abs(total - 1) < 0.001 ? '#ededed' : '#d71921' }}>
             {(total * 100).toFixed(1)}%
           </strong>
         </div>
@@ -645,23 +646,23 @@ function FrontierChart({ frontier, optimized }) {
           <AreaChart data={series} margin={{ top: 12, right: 24, left: 0, bottom: 18 }}>
             <defs>
               <linearGradient id="qf-frontier-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#c9b8a1" stopOpacity={0.22} />
-                <stop offset="100%" stopColor="#c9b8a1" stopOpacity={0.02} />
+                <stop offset="0%" stopColor="#ededed" stopOpacity={0.2} />
+                <stop offset="100%" stopColor="#ededed" stopOpacity={0.01} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-            <XAxis type="number" dataKey="x" stroke="#7d786f" tickFormatter={(v) => `${(v*100).toFixed(0)}%`}
-                   label={{ value: 'Annualized volatility', position: 'insideBottom', offset: -8, fill: '#7d786f', fontSize: 11 }} />
-            <YAxis type="number" dataKey="y" stroke="#7d786f"
+            <XAxis type="number" dataKey="x" stroke="#505050" tickFormatter={(v) => `${(v*100).toFixed(0)}%`}
+                   label={{ value: 'Annualized volatility', position: 'insideBottom', offset: -8, fill: '#8a8a8a', fontSize: 11 }} />
+            <YAxis type="number" dataKey="y" stroke="#505050"
                    tickFormatter={(v) => mode === 'return' ? `${(v*100).toFixed(0)}%` : v.toFixed(1)}
-                   label={{ value: mode === 'return' ? 'Expected return' : 'Sharpe', angle: -90, position: 'insideLeft', fill: '#7d786f', fontSize: 11 }} />
-            <Tooltip cursor={{ stroke: 'rgba(201,184,161,0.28)', strokeWidth: 1 }}
+                   label={{ value: mode === 'return' ? 'Expected return' : 'Sharpe', angle: -90, position: 'insideLeft', fill: '#8a8a8a', fontSize: 11 }} />
+            <Tooltip cursor={{ stroke: '#505050', strokeWidth: 1 }}
                      content={<FrontierTooltip mode={mode} />} />
-            <Area type="monotone" dataKey="y" name="Frontier" stroke="#c9b8a1" strokeWidth={4}
+            <Area type="monotone" dataKey="y" name="Frontier" stroke="#ededed" strokeWidth={3}
                   fill="url(#qf-frontier-fill)" dot={false} activeDot={false} />
             <Line type="monotone" dataKey="y" stroke="rgba(255,255,255,0.16)" strokeWidth={1}
                   dot={false} activeDot={false} isAnimationActive={false} />
-            <Scatter name="Optimized portfolios" data={opts} fill="#e08987" shape="circle" />
+            <Scatter name="Optimized portfolios" data={opts} fill="#d71921" shape="circle" />
           </AreaChart>
         </ResponsiveContainer>
         <div className="qf-frontier-markers">
@@ -685,14 +686,14 @@ function WeightsBar({ before, after }) {
     <div className="qf-weights-bar">
       <ResponsiveContainer width="100%" height={Math.max(170, tickers.length * 48)}>
         <BarChart data={data} layout="vertical" margin={{ left: 12, right: 12 }}>
-          <XAxis type="number" stroke="#7d786f" tickFormatter={(v) => `${v}%`} />
-          <YAxis type="category" dataKey="ticker" stroke="#7d786f" width={56} />
-          <Tooltip cursor={{ fill: 'rgba(201,184,161,0.04)' }}
+          <XAxis type="number" stroke="#505050" tickFormatter={(v) => `${v}%`} />
+          <YAxis type="category" dataKey="ticker" stroke="#505050" width={56} />
+          <Tooltip cursor={{ fill: 'rgba(255,255,255,0.035)' }}
                    contentStyle={{ background: '#101010', border: '1px solid rgba(255,255,255,0.1)' }}
                    formatter={(v) => `${Number(v).toFixed(1)}%`} />
           <Legend wrapperStyle={{ fontSize: 11 }} />
-          <Bar dataKey="before" fill="#6f6a61" name="Current" activeBar={false} />
-          <Bar dataKey="after" fill="#c9b8a1" name="Optimized" activeBar={false} />
+          <Bar dataKey="before" fill="#505050" name="Current" activeBar={false} />
+          <Bar dataKey="after" fill="#ededed" name="Optimized" activeBar={false} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -833,7 +834,7 @@ function RegimeDetector({ regime, refresh }) {
               <div className="qf-regime__bar-label">{k}</div>
               <div className="qf-regime__bar-track">
                 <div className="qf-regime__bar-fill" style={{ width: `${(probs[k] || 0) * 100}%`,
-                  background: k === 'bull' ? '#7ed09b' : k === 'bear' ? '#e08987' : '#c9b8a1' }} />
+                  background: k === 'bear' ? '#d71921' : k === 'bull' ? '#ededed' : '#8a8a8a' }} />
               </div>
               <div className="qf-regime__bar-pct">{fmt.pct(probs[k] || 0, 0)}</div>
             </div>
@@ -976,11 +977,11 @@ function BacktestTheater({ bt1y, bt3y, holdings, optimized }) {
         <ResponsiveContainer width="100%" height={180}>
           <LineChart data={data} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-            <XAxis dataKey="d" stroke="#7d786f" hide />
-            <YAxis stroke="#7d786f" tickFormatter={(v) => `$${(v/1000).toFixed(0)}k`} />
+            <XAxis dataKey="d" stroke="#505050" hide />
+            <YAxis stroke="#505050" tickFormatter={(v) => `$${(v/1000).toFixed(0)}k`} />
             <Tooltip contentStyle={{ background: '#101010', border: '1px solid rgba(255,255,255,0.1)' }}
                      formatter={(v) => fmt.money(v)} />
-            <Line type="monotone" dataKey="v" stroke="#c9b8a1" strokeWidth={1.6} dot={false} />
+            <Line type="monotone" dataKey="v" stroke="#ededed" strokeWidth={1.6} dot={false} />
           </LineChart>
         </ResponsiveContainer>
         <div className="qf-bt-stats">
@@ -1014,8 +1015,8 @@ function BacktestTheater({ bt1y, bt3y, holdings, optimized }) {
         {rows.slice(-36).map(({ r, label }, i) => {
           const intensity = Math.min(Math.abs(r) / max, 1);
           const color = r >= 0
-            ? `rgba(126, 208, 155, ${0.15 + intensity * 0.85})`
-            : `rgba(224, 137, 135, ${0.15 + intensity * 0.85})`;
+            ? `rgba(237, 237, 237, ${0.12 + intensity * 0.72})`
+            : `rgba(215, 25, 33, ${0.18 + intensity * 0.82})`;
           return (
             <div key={i} className="qf-heatmap__cell" style={{ background: color }}
                  title={`${label}: ${fmt.pct(r, 2)}`}>

@@ -6,6 +6,7 @@ import { useMeters } from './useMeters';
 import { useProcesses } from './useProcesses';
 import { useLogStream } from './useLogStream';
 import './System.css';
+import '../styles/route-system.css';
 
 function pad(n, w = 2) {
   return String(n).padStart(w, '0');
