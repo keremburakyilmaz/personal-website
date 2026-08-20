@@ -1575,7 +1575,7 @@ export default function RunningPortfolio() {
 
       <footer className="rp-footer">
         <div>
-          <span>KEREM BURAK YILMAZ</span>
+          <span>© {now.getFullYear()} KEREM BURAK YILMAZ™</span>
           <span>ISTANBUL / TURKEY</span>
         </div>
         <div>

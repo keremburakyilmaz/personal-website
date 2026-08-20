@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
+import NotFound from './components/NotFound/NotFound';
 import RunningPortfolio from './components/RunningPortfolio/RunningPortfolio';
 
 const loadSpotifyBrain = () => import('./components/SpotifyBrain/SpotifyBrain');
@@ -204,6 +205,7 @@ export default function App() {
               </Suspense>
             }
           />
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
         </Routes>
       </main>
     </div>

@@ -1,4 +1,5 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import NotFound from '../components/NotFound/NotFound';
 import FoundObject from './FoundObject';
 import Somewhere from './Somewhere';
 import WordCorridor from './WordCorridor';
@@ -36,10 +37,10 @@ function ExperimentPager({ previous, next }) {
 export default function LabExperimentRoute() {
   const { experimentSlug } = useParams();
   const context = experimentNeighbors(experimentSlug);
-  if (!context) return <Navigate to="/lab" replace />;
+  if (!context) return <NotFound />;
 
   const Instrument = INSTRUMENTS[experimentSlug];
-  if (!Instrument) return <Navigate to="/lab" replace />;
+  if (!Instrument) return <NotFound />;
 
   return (
     <div className="lab-page lab-experiment-page">

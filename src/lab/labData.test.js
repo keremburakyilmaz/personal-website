@@ -40,5 +40,5 @@ test('action openings never pair with restraint weather lines', () => {
     const omen = composeOmen(`regression:${index}`, 'clear', 'warm');
     openings.push(omen.opening);
   }
-  expect(openings).not.toContain('What feels late may simply be ready now.');
+  expect(openings).not.toContain('What feels late is ready now. It will not remain patient.');
 });

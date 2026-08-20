@@ -10,3 +10,4 @@ if (!global.TextEncoder) global.TextEncoder = TextEncoder;
 if (!global.TextDecoder) global.TextDecoder = TextDecoder;
 
 HTMLCanvasElement.prototype.getContext = jest.fn(() => null);
+window.scrollTo = jest.fn();
