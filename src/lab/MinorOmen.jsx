@@ -1,11 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import ExperimentFrame from './ExperimentFrame';
 import {
-  OMEN_OPENINGS,
-  OMEN_CLOSINGS,
-  OMEN_WEATHER_LINES,
+  composeOmen,
   omenClosingFamily,
-  pickStable,
   weatherFamily,
   weatherSentence,
 } from './labData';
@@ -60,9 +57,7 @@ export default function MinorOmen() {
       weather?.current?.is_day ?? 1
     );
     return {
-      opening: pickStable(OMEN_OPENINGS, seed),
-      weatherLine: pickStable(OMEN_WEATHER_LINES[family], seed, 1),
-      closing: pickStable(OMEN_CLOSINGS[closingFamily], seed, 2),
+      ...composeOmen(seed, family, closingFamily),
       number: 10 + (Math.abs(seed.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0)) % 89),
     };
   }, [date, weather]);

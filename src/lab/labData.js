@@ -176,6 +176,75 @@ export const OMEN_CLOSINGS = {
   ],
 };
 
+const OMEN_POSTURES = ['wait', 'act', 'notice', 'protect', 'release'];
+
+const OPENING_POSTURES = [
+  ['wait'], ['wait'], ['notice'], ['wait'], ['notice'], ['wait', 'protect'],
+  ['notice'], ['act'], ['act'], ['act'], ['notice'], ['wait'],
+  ['notice', 'release'], ['act'], ['notice', 'release'], ['wait', 'notice'],
+  ['notice'], ['notice'], ['wait', 'release'], ['notice'], ['protect', 'release'],
+  ['wait'], ['act'], ['act', 'notice'], ['release'], ['act', 'notice'],
+  ['act'], ['notice'], ['notice'], ['act'], ['notice'], ['release'],
+];
+
+const WEATHER_LINE_POSTURES = {
+  clear: [
+    ['wait'], ['wait'], ['wait', 'notice'], ['notice'],
+    ['wait', 'notice'], ['notice', 'release'], ['wait'], ['wait', 'notice'],
+  ],
+  cloud: [
+    ['wait'], ['wait', 'notice'], ['act'], ['notice'],
+    ['wait'], ['notice'], ['notice'], ['notice', 'release'],
+  ],
+  rain: [
+    ['wait'], ['wait', 'release'], ['notice'], ['wait'],
+    ['notice', 'release'], ['notice'], ['notice', 'release'], ['notice'],
+  ],
+  snow: [
+    ['notice'], ['act', 'notice'], ['wait', 'notice'], ['notice'],
+    ['wait', 'release'], ['notice'], ['wait', 'release'], ['notice'],
+  ],
+  storm: [
+    ['wait'], ['wait', 'notice'], ['protect'], ['wait'],
+    ['wait', 'protect'], ['protect', 'release'], ['wait', 'notice'], ['wait'],
+  ],
+  fog: [
+    ['wait'], ['act'], ['notice'], ['notice'],
+    ['wait', 'notice'], ['wait'], ['act', 'protect'], ['wait', 'notice'],
+  ],
+};
+
+const CLOSING_POSTURES = {
+  cold: [['protect'], ['wait', 'release'], ['notice']],
+  mild: [['act'], ['act'], ['wait', 'release']],
+  warm: [['act'], ['wait', 'protect'], ['wait', 'protect', 'release']],
+  night: [['wait'], ['wait'], ['wait', 'protect', 'release']],
+};
+
+function entriesForPosture(lines, postureMap, posture) {
+  return lines.filter((_, index) => postureMap[index].includes(posture));
+}
+
+export function composeOmen(seed, weather, closing) {
+  const weatherLines = OMEN_WEATHER_LINES[weather] || OMEN_WEATHER_LINES.clear;
+  const weatherPostures = WEATHER_LINE_POSTURES[weather] || WEATHER_LINE_POSTURES.clear;
+  const closingLines = OMEN_CLOSINGS[closing] || OMEN_CLOSINGS.mild;
+  const closingPostures = CLOSING_POSTURES[closing] || CLOSING_POSTURES.mild;
+  const compatiblePostures = OMEN_POSTURES.filter((posture) => (
+    weatherPostures.some((postures) => postures.includes(posture))
+    && closingPostures.some((postures) => postures.includes(posture))
+    && OPENING_POSTURES.some((postures) => postures.includes(posture))
+  ));
+  const posture = pickStable(compatiblePostures, seed);
+
+  return {
+    posture,
+    opening: pickStable(entriesForPosture(OMEN_OPENINGS, OPENING_POSTURES, posture), seed, 1),
+    weatherLine: pickStable(entriesForPosture(weatherLines, weatherPostures, posture), seed, 2),
+    closing: pickStable(entriesForPosture(closingLines, closingPostures, posture), seed, 3),
+  };
+}
+
 export function omenClosingFamily(temperature, isDay) {
   if (!isDay) return 'night';
   if (temperature < 12) return 'cold';

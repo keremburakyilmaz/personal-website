@@ -2,12 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import {
-  OMEN_OPENINGS,
-  OMEN_CLOSINGS,
-  OMEN_WEATHER_LINES,
   PLACES,
+  composeOmen,
   omenClosingFamily,
-  pickStable,
   weatherFamily,
   weatherSentence,
 } from '../../lab/labData';
@@ -81,7 +78,7 @@ export function MinorOmenInterlude() {
     const params = new URLSearchParams({
       latitude: ISTANBUL.latitude,
       longitude: ISTANBUL.longitude,
-      current: 'temperature_2m,weather_code',
+      current: 'temperature_2m,weather_code,is_day',
       timezone: 'Europe/Istanbul',
     });
 
@@ -103,11 +100,7 @@ export function MinorOmenInterlude() {
     const seed = `${date}:${code}:${Math.round(weather?.temperature_2m || 0)}`;
     const family = weatherFamily(code);
     const closingFamily = omenClosingFamily(weather?.temperature_2m || 0, weather?.is_day ?? 1);
-    return {
-      opening: pickStable(OMEN_OPENINGS, seed),
-      weatherLine: pickStable(OMEN_WEATHER_LINES[family], seed, 1),
-      closing: pickStable(OMEN_CLOSINGS[closingFamily], seed, 2),
-    };
+    return composeOmen(seed, family, closingFamily);
   }, [date, weather]);
 
   return (
