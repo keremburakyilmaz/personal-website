@@ -16,6 +16,7 @@ const secondaryLinks = [
   { to: '/market-radar', label: 'Radar', index: '07' },
   { to: '/palimpsest', label: 'Palimpsest', index: '08' },
   { to: '/system', label: 'System', index: '09' },
+  { to: '/lab', label: 'Lab', index: '10' },
 ];
 
 function NavLinkItem({ to, label, index, isActive, onClick, secondary = false }) {

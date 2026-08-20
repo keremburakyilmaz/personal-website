@@ -1,8 +1,8 @@
 {
-  "version": 2,
+  "version": 3,
   "primacy": {
     "primacy_warmth": [
-      "You reached for the warmth first. That tells you something  - grief holds the good memories closest.",
+      "You reached for the warmth first. That tells you something — grief holds the good memories closest.",
       "The morning came back before the night did. Maybe that's where the truth starts.",
       "You led with love. The harder question is whether that's honesty or habit."
     ],
@@ -15,33 +15,40 @@
   "dominant": {
     "clarity": [
       "You let the contradictions stand. That takes something most people can't give.",
-      "Seeing clearly doesn't mean seeing cleanly. You held the mess without flinching."
+      "Seeing clearly doesn't mean seeing cleanly. You held the mess without flinching.",
+      "You kept choosing the harder sentence. The page is rougher for it, and truer."
     ],
     "protection": [
-      "The version you built was built to be carried. That's not dishonesty  - it's survival.",
-      "Some truths are too sharp for a room full of mourners. You chose mercy."
+      "The version you built was built to be carried. That's not dishonesty — it's survival.",
+      "Some truths are too sharp for a room full of mourners. You chose mercy.",
+      "You wrote the eulogy the way you'd wrap something breakable — for the people who have to hold it."
     ],
     "grief": [
       "You let the loss stay as loss, without converting it into a verdict.",
-      "Grief without resolution is harder to carry. It doesn't turn into anything cleaner."
+      "Grief without resolution is harder to carry. It doesn't turn into anything cleaner.",
+      "Missing them kept interrupting the writing. You let it. That was the writing."
     ],
     "resentment": [
       "The anger kept the story from collapsing. That was its job.",
-      "Resentment is information. What it's information about is the harder question."
+      "Resentment is information. What it's information about is the harder question.",
+      "You wrote with a clenched hand tonight. Some sentences can only be written that way."
     ],
     "doubt": [
       "Not knowing is an uncomfortable place to stay. You stayed there anyway.",
-      "Doubt isn't the same as truth. But it's closer to honesty than certainty ever is."
+      "Doubt isn't the same as truth. But it's closer to honesty than certainty ever is.",
+      "Every version you committed to, you questioned. Maybe that was the most faithful reading."
     ]
   },
   "suppression": {
     "present": [
       "You set things aside tonight. The things didn't go anywhere.",
-      "The parts you avoided had weight. The eulogy felt lighter without them. It wasn't."
+      "The parts you avoided had weight. The eulogy felt lighter without them. It wasn't.",
+      "What you left out is still on the page — as the shape of the space around what you kept."
     ],
     "absent": [
       "You let the difficult parts stay in the room.",
-      "You didn't force the eulogy to be clean. That took courage."
+      "You didn't force the eulogy to be clean. That took courage.",
+      "Nothing was scraped off tonight. Every layer you found, you kept."
     ]
   },
   "pressureTier": {

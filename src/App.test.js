@@ -9,5 +9,5 @@ test('renders the systems portfolio', () => {
     </MemoryRouter>
   );
   expect(screen.getByRole('heading', { name: /systems that keep running/i })).toBeInTheDocument();
-  expect(screen.getByText('QUANTFUSION')).toBeInTheDocument();
+  expect(screen.getAllByText('QUANTFUSION').length).toBeGreaterThan(0);
 });

@@ -11,6 +11,8 @@ const loadGameRoute = () => import('./palimpsest/ui/GameRoute');
 const loadSystemRunning = () => import('./system-is-running/SystemRunning');
 const loadValentine = () => import('./valentine/Valentine');
 const loadQuantFusion = () => import('./components/QuantFusion/QuantFusion');
+const loadLab = () => import('./lab/LabRoute');
+const loadLabExperiment = () => import('./lab/LabExperimentRoute');
 
 const SpotifyBrain = lazy(loadSpotifyBrain);
 const MarketRadar = lazy(loadMarketRadar);
@@ -18,6 +20,8 @@ const GameRoute = lazy(loadGameRoute);
 const SystemRunning = lazy(loadSystemRunning);
 const Valentine = lazy(loadValentine);
 const QuantFusion = lazy(loadQuantFusion);
+const Lab = lazy(loadLab);
+const LabExperiment = lazy(loadLabExperiment);
 
 // Routes with special styling (full-screen, no navigation padding)
 const SPECIAL_ROUTES = {
@@ -173,6 +177,22 @@ export default function App() {
             element={
               <Suspense fallback={routeFallback}>
                 <PageTransition><SystemRunning /></PageTransition>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/lab"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><Lab /></PageTransition>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/lab/:experimentSlug"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PageTransition><LabExperiment /></PageTransition>
               </Suspense>
             }
           />

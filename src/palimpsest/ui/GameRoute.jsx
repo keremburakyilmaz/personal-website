@@ -48,6 +48,12 @@ export default function GameRoute() {
   }, [state]);
 
   const handleChoice = (choice) => {
+    // Restart choices (e.g. from endings) wipe the run so primacy can be chosen again
+    if (choice.restart) {
+      handleRestart();
+      return;
+    }
+
     // Apply effects
     if (choice.effects) {
       dispatch({ type: 'APPLY_EFFECTS', payload: { effects: choice.effects } });

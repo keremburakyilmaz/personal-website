@@ -25,7 +25,7 @@ export function getIntrusiveLines(pressure, tone) {
   const lines = [
     "The night is running out.",
     "You're editing the memory as you write it.",
-    "Which version is this - the third? The fourth?",
+    "Which version is this — the third? The fourth?",
     "They can't correct you anymore. That should make this easier. It doesn't.",
   ];
 

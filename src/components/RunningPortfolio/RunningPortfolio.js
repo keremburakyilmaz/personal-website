@@ -15,6 +15,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { education, experience, projects, skills } from '../../data/constants';
+import { MinorOmenInterlude, SomewhereInterlude } from './LabInterludes';
 import './RunningPortfolio.css';
 
 const SECTION_LINKS = [
@@ -34,6 +35,7 @@ const HEADER_LINKS = [
   { label: 'Radar', to: '/market-radar' },
   { label: 'Palimpsest', to: '/palimpsest' },
   { label: 'System', to: '/system' },
+  { label: 'Lab', to: '/lab' },
 ];
 
 const LIVE_SURFACES = [
@@ -1523,6 +1525,8 @@ export default function RunningPortfolio() {
 
         <LiveOperations now={now} />
 
+        <SomewhereInterlude />
+
         <section className="rp-record" id="record" aria-labelledby="record-heading">
           <SectionIndex headingId="record-heading" number="03" name="Operating record" meta={`${pad(experience.length)} ROLES / ${pad(education.length)} EDUCATION`} />
           <div className="rp-record__layout">
@@ -1560,6 +1564,8 @@ export default function RunningPortfolio() {
             </aside>
           </div>
         </section>
+
+        <MinorOmenInterlude />
 
         <section className="rp-contact" id="contact" aria-labelledby="contact-heading">
           <SectionIndex headingId="contact-heading" number="04" name="Open a channel" meta="RESPONSE MODE / HUMAN" />
