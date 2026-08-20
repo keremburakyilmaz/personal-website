@@ -3,6 +3,7 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 import './SpotifyBrain.css';
 import '../../styles/route-system.css';
 import dashboardData from '../../assets/dashboard_data.json';
+import { buildPredictionView } from './spotifyPredictionView';
 
 const MOOD_PALETTE = [
   '#ededed',
@@ -130,11 +131,19 @@ export default function SpotifyBrain() {
 
   // Get mood color based on cluster - supports 3-15 clusters with muted colors
   const getMoodColor = (clusterId) => {
-    return MOOD_PALETTE[clusterId % MOOD_PALETTE.length];
+    const normalizedId = Number(clusterId);
+    if (!Number.isFinite(normalizedId)) return MOOD_PALETTE[0];
+    return MOOD_PALETTE[Math.abs(Math.trunc(normalizedId)) % MOOD_PALETTE.length];
   };
 
   const nextPrediction = data.next_prediction || {};
-  const confidencePercent = safeToFixed(safeNumber(nextPrediction.confidence, 0) * 100, 1, '0.0');
+  const predictionView = buildPredictionView(nextPrediction);
+  const confidencePercent = safeToFixed(predictionView.confidence * 100, 1, '0.0');
+  const leadingDirection = predictionView.directions[0] || {
+    clusterId: nextPrediction.mood_cluster_id,
+    label: nextPrediction.mood_label || 'Awaiting enough listening context',
+    probability: predictionView.confidence
+  };
   const visibleRecentlyPlayed = useMemo(() => (data.recently_played || []).slice(0, 12), []);
   const visibleMoodClusters = useMemo(() => (data.mood_clusters || []).slice(0, 6), []);
   const moodClusterLabels = useMemo(
@@ -201,27 +210,65 @@ export default function SpotifyBrain() {
               })}
             </div>
           </div>
-          {/* Next Track Mood Prediction Card */}
-          <div className="mood-prediction-card" style={{ borderColor: getMoodColor(nextPrediction.mood_cluster_id) }}>
-            <h2>Next Track Mood Prediction</h2>
-            <div className="mood-label" style={{ color: getMoodColor(nextPrediction.mood_cluster_id) }}>
-              {nextPrediction.mood_label}
+          {/* Listening Direction Prediction Card */}
+          <div className="mood-prediction-card" style={{ borderColor: getMoodColor(leadingDirection.clusterId) }}>
+            <div className="prediction-card-header">
+              <h2>Where My Listening Is Going</h2>
+              <span className="prediction-source" data-baseline={predictionView.isBaseline || undefined}>
+                {predictionView.sourceLabel}
+              </span>
             </div>
+            <p className="prediction-intro">
+              Likely next directions from the current session, not an exact-song promise.
+            </p>
+            {predictionView.directions.length > 0 ? (
+              <ol className="mood-direction-list" aria-label="Likely listening directions">
+                {predictionView.directions.map((direction, index) => (
+                  <li key={`${direction.clusterId}-${direction.label}-${index}`} className="mood-direction-item">
+                    <span className="direction-rank">{String(index + 1).padStart(2, '0')}</span>
+                    <div className="direction-content">
+                      <div className="direction-copy">
+                        <span className="direction-label">{direction.label}</span>
+                        <span className="direction-probability">
+                          {safeToFixed(direction.probability * 100, 1)}%
+                        </span>
+                      </div>
+                      <div className="direction-track" aria-hidden="true">
+                        <span
+                          style={{
+                            width: `${direction.probability * 100}%`,
+                            backgroundColor: getMoodColor(direction.clusterId)
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <div className="mood-label">{leadingDirection.label}</div>
+            )}
             <div className="confidence-section">
-              <div className="confidence-label">Confidence</div>
+              <div className="confidence-label">{predictionView.confidenceLabel}</div>
               <div className="confidence-bar-container">
                 <div 
                   className="confidence-bar" 
                   style={{ 
                     width: `${confidencePercent}%`,
-                    backgroundColor: getConfidenceColor(nextPrediction.confidence)
+                    backgroundColor: getConfidenceColor(predictionView.confidence)
                   }}
                 />
               </div>
-              <div className="confidence-value" style={{ color: getConfidenceColor(nextPrediction.confidence) }}>
+              <div className="confidence-value" style={{ color: getConfidenceColor(predictionView.confidence) }}>
                 {confidencePercent}%
               </div>
             </div>
+            <p className="prediction-method-note">
+              {predictionView.sourceDetail}
+              {predictionView.modelVersion && (
+                <span className="prediction-version"> Model {predictionView.modelVersion}.</span>
+              )}
+            </p>
             {nextPrediction.genre_family && (
               <div className="genre-family">
                 <span className="genre-label">Genre:</span> {nextPrediction.genre_family}
@@ -229,7 +276,7 @@ export default function SpotifyBrain() {
             )}
             {nextPrediction.recommended_tracks && nextPrediction.recommended_tracks.length > 0 && (
               <div className="recommended-tracks-section">
-                <h3 className="recommended-tracks-title">Recommended Tracks</h3>
+                <h3 className="recommended-tracks-title">Tracks Near the Leading Direction</h3>
                 <div className="recommended-tracks-grid">
                   {nextPrediction.recommended_tracks.slice(0, 3).map((track, index) => (
                     <div key={track.track_id || index} className="recommended-track-card">
