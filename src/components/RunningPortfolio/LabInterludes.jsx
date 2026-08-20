@@ -96,6 +96,7 @@ export function MinorOmenInterlude() {
   }, []);
 
   const omen = useMemo(() => {
+    if (!weather) return null;
     const code = weather?.weather_code ?? 0;
     const seed = `${date}:${code}:${Math.round(weather?.temperature_2m || 0)}`;
     const family = weatherFamily(code);
@@ -110,9 +111,15 @@ export function MinorOmenInterlude() {
         <span>{date} / ISTANBUL</span>
       </div>
       <blockquote>
-        <p>{omen.opening}</p>
-        <p>{omen.weatherLine}</p>
-        <p className="rp-omen-interlude__closing">{omen.closing}</p>
+        {omen ? (
+          <>
+            <p>{omen.opening}</p>
+            <p>{omen.weatherLine}</p>
+            <p className="rp-omen-interlude__closing">{omen.closing}</p>
+          </>
+        ) : (
+          <p>Reading the sky before drawing an omen.</p>
+        )}
       </blockquote>
       <div className="rp-omen-interlude__footer">
         <span>{weather ? weatherSentence(weather.weather_code).toUpperCase() : 'READING THE SKY'}</span>

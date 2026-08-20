@@ -52,7 +52,13 @@ export function stableHash(value) {
 
 export function pickStable(items, seed, offset = 0) {
   if (!items.length) return '';
-  return items[Math.abs(stableHash(`${seed}:${offset}`)) % items.length];
+  let hash = stableHash(`${seed}:${offset}`) >>> 0;
+  hash ^= hash >>> 16;
+  hash = Math.imul(hash, 0x7feb352d);
+  hash ^= hash >>> 15;
+  hash = Math.imul(hash, 0x846ca68b);
+  hash ^= hash >>> 16;
+  return items[(hash >>> 0) % items.length];
 }
 
 export const OMEN_OPENINGS = [
@@ -63,7 +69,7 @@ export const OMEN_OPENINGS = [
   'Something ordinary will repeat once too often.',
   'A small delay is holding something closed.',
   'Return to the thought you dismissed. It has changed since then.',
-  'The second attempt should happen before the first one finds its way back.',
+  'Make the second attempt before the first becomes your method.',
   'Keep the smallest promise first. The others are listening.',
   'What you are avoiding became easier overnight. Ask what changed.',
   'A familiar route has acquired an exit you do not remember.',
@@ -73,14 +79,14 @@ export const OMEN_OPENINGS = [
   'An old assumption has begun making decisions without you.',
   'The quieter option is carrying a warning.',
   'Notice what only happens when no one is watching.',
-  'A misplaced object will be found somewhere it has never been.',
+  'A misplaced object will be found where no one remembers leaving it.',
   'Do not repair what changed while you were away.',
-  'The answer will arrive as a practical detail with no clear owner.',
+  'The answer will arrive disguised as a practical detail. Notice who leaves it unattended.',
   'One refusal will close a door that should not have opened.',
-  'The useful mistake has not happened yet. Do not volunteer for it.',
+  'The useful mistake has not happened yet. Do not force it.',
   'Choose the door that was not open yesterday.',
   'A repeated thought is rehearsing you.',
-  'Let one expectation expire before it acquires a purpose of its own.',
+  'Let one expectation expire before maintaining it becomes the work.',
   'The smallest task is where the damage first becomes visible.',
   'What feels late is ready now. It will not remain patient.',
   'A minor inconvenience is moving you out of something’s way.',
@@ -105,7 +111,7 @@ export const OMEN_WEATHER_LINES = {
     'Wait for the shape of the problem to change. It already has.',
     'The clouds are moving. The shadow below them is not.',
     'A partial view is enough. Do not wait for the missing part to return.',
-    'The missing outline is becoming more accurate.',
+    'The missing part is defining the shape around it.',
     'Let the day remain undecided until the second shadow passes.',
     'A softened edge may be hiding a sharper one.',
     'What is obscured has not disappeared. It has moved closer.',
@@ -118,13 +124,13 @@ export const OMEN_WEATHER_LINES = {
     'Allow the surface to become unreadable. Something underneath is correcting it.',
     'Water is redrawing a boundary you crossed without seeing.',
     'Listen beneath the rain. The repeated sound is not water.',
-    'The inconvenient plan is the one that noticed the change.',
+    'The inconvenient plan is the one that still accounts for the change.',
     'Do not measure progress by how dry you remain. Check what followed you inside.',
   ],
   snow: [
     'Quiet changes are accumulating where the light cannot reach.',
     'Preserve the first mark you make. The next one may not be yours.',
-    'Move slowly enough to notice which tracks do not follow you.',
+    'Move slowly enough to notice which tracks were there before yours.',
     'The blank surface has already recorded an arrival.',
     'Let accumulation make the decision. It has covered the alternative.',
     'The familiar route is missing one familiar thing.',
@@ -156,8 +162,8 @@ export const OMEN_WEATHER_LINES = {
 export const OMEN_CLOSINGS = {
   cold: [
     'Keep one room warm even if no one enters it.',
-    'The day will open slowly. Listen for the hinge that answers.',
-    'Carry warmth. You may need to prove where you have been.',
+    'The day will open slowly. Listen for the first thing that gives way.',
+    'Carry warmth. You may need it somewhere that expected you not to arrive.',
   ],
   mild: [
     'The ordinary air will make the unusual thing harder to excuse.',
@@ -177,6 +183,7 @@ export const OMEN_CLOSINGS = {
 };
 
 const OMEN_POSTURES = ['wait', 'act', 'notice', 'protect', 'release'];
+const OMEN_MOTIFS = ['attention', 'timing', 'change', 'boundary', 'evidence'];
 
 const OPENING_POSTURES = [
   ['wait'], ['wait'], ['notice'], ['wait'], ['notice'], ['wait', 'protect'],
@@ -185,6 +192,17 @@ const OPENING_POSTURES = [
   ['notice'], ['notice'], ['wait', 'release'], ['notice'], ['protect', 'release'],
   ['wait'], ['act'], ['act', 'notice'], ['release'], ['act', 'notice'],
   ['act'], ['notice'], ['notice'], ['act'], ['notice'], ['release'],
+];
+
+const OPENING_MOTIFS = [
+  ['attention', 'timing'], ['timing'], ['evidence'], ['timing', 'evidence'],
+  ['attention'], ['timing', 'boundary'], ['attention', 'change'], ['timing', 'change'],
+  ['attention'], ['change', 'evidence'], ['boundary', 'change'], ['attention', 'timing'],
+  ['evidence'], ['attention', 'evidence'], ['attention', 'change'], ['attention'],
+  ['attention', 'evidence'], ['evidence'], ['change'], ['attention', 'evidence'],
+  ['boundary'], ['timing'], ['boundary', 'change'], ['attention'],
+  ['change'], ['attention', 'evidence'], ['timing'], ['change', 'boundary'],
+  ['evidence'], ['attention', 'evidence'], ['attention', 'change'], ['change', 'evidence'],
 ];
 
 const WEATHER_LINE_POSTURES = {
@@ -214,6 +232,33 @@ const WEATHER_LINE_POSTURES = {
   ],
 };
 
+const WEATHER_LINE_MOTIFS = {
+  clear: [
+    ['evidence'], ['attention', 'evidence'], ['change', 'evidence'], ['change', 'evidence'],
+    ['attention', 'boundary'], ['boundary'], ['attention'], ['evidence'],
+  ],
+  cloud: [
+    ['timing', 'change'], ['change', 'evidence'], ['timing', 'evidence'], ['evidence'],
+    ['timing'], ['boundary', 'evidence'], ['attention', 'boundary'], ['change'],
+  ],
+  rain: [
+    ['timing', 'evidence'], ['change'], ['change'], ['timing', 'change'],
+    ['change', 'boundary'], ['attention', 'evidence'], ['change', 'evidence'], ['boundary', 'evidence'],
+  ],
+  snow: [
+    ['attention', 'change'], ['attention', 'evidence'], ['attention', 'evidence'], ['evidence'],
+    ['change'], ['attention', 'evidence'], ['change'], ['attention', 'evidence'],
+  ],
+  storm: [
+    ['timing'], ['evidence'], ['boundary'], ['timing'],
+    ['boundary'], ['boundary', 'change'], ['attention'], ['timing', 'boundary'],
+  ],
+  fog: [
+    ['change', 'evidence'], ['timing', 'boundary'], ['attention', 'evidence'], ['boundary'],
+    ['attention', 'evidence'], ['boundary'], ['boundary'], ['attention', 'timing'],
+  ],
+};
+
 const CLOSING_POSTURES = {
   cold: [['protect'], ['wait', 'release'], ['notice']],
   mild: [['act'], ['act'], ['wait', 'release']],
@@ -221,27 +266,64 @@ const CLOSING_POSTURES = {
   night: [['wait'], ['wait'], ['wait', 'protect', 'release']],
 };
 
-function entriesForPosture(lines, postureMap, posture) {
-  return lines.filter((_, index) => postureMap[index].includes(posture));
+const CLOSING_MOTIFS = {
+  cold: [
+    ['boundary'], ['timing', 'change'], ['attention', 'boundary', 'change', 'evidence'],
+  ],
+  mild: [
+    ['attention', 'evidence'], ['boundary', 'evidence'], ['attention', 'evidence'],
+  ],
+  warm: [
+    ['timing'], ['timing', 'boundary'], ['boundary', 'evidence'],
+  ],
+  night: [
+    ['attention', 'boundary'], ['timing'], ['attention', 'evidence'],
+  ],
+};
+
+function entriesForThread(lines, postureMap, motifMap, posture, motif) {
+  return lines.filter((_, index) => (
+    postureMap[index].includes(posture) && motifMap[index].includes(motif)
+  ));
 }
 
 export function composeOmen(seed, weather, closing) {
   const weatherLines = OMEN_WEATHER_LINES[weather] || OMEN_WEATHER_LINES.clear;
   const weatherPostures = WEATHER_LINE_POSTURES[weather] || WEATHER_LINE_POSTURES.clear;
+  const weatherMotifs = WEATHER_LINE_MOTIFS[weather] || WEATHER_LINE_MOTIFS.clear;
   const closingLines = OMEN_CLOSINGS[closing] || OMEN_CLOSINGS.mild;
   const closingPostures = CLOSING_POSTURES[closing] || CLOSING_POSTURES.mild;
-  const compatiblePostures = OMEN_POSTURES.filter((posture) => (
-    weatherPostures.some((postures) => postures.includes(posture))
-    && closingPostures.some((postures) => postures.includes(posture))
-    && OPENING_POSTURES.some((postures) => postures.includes(posture))
+  const closingMotifs = CLOSING_MOTIFS[closing] || CLOSING_MOTIFS.mild;
+  const compatibleThreads = OMEN_POSTURES.flatMap((posture) => (
+    OMEN_MOTIFS
+      .filter((motif) => (
+        entriesForThread(OMEN_OPENINGS, OPENING_POSTURES, OPENING_MOTIFS, posture, motif).length
+        && entriesForThread(weatherLines, weatherPostures, weatherMotifs, posture, motif).length
+        && entriesForThread(closingLines, closingPostures, closingMotifs, posture, motif).length
+      ))
+      .map((motif) => ({ posture, motif }))
   ));
-  const posture = pickStable(compatiblePostures, seed);
+  const thread = pickStable(compatibleThreads, seed);
+  const { posture, motif } = thread;
 
   return {
     posture,
-    opening: pickStable(entriesForPosture(OMEN_OPENINGS, OPENING_POSTURES, posture), seed, 1),
-    weatherLine: pickStable(entriesForPosture(weatherLines, weatherPostures, posture), seed, 2),
-    closing: pickStable(entriesForPosture(closingLines, closingPostures, posture), seed, 3),
+    motif,
+    opening: pickStable(
+      entriesForThread(OMEN_OPENINGS, OPENING_POSTURES, OPENING_MOTIFS, posture, motif),
+      seed,
+      1
+    ),
+    weatherLine: pickStable(
+      entriesForThread(weatherLines, weatherPostures, weatherMotifs, posture, motif),
+      seed,
+      2
+    ),
+    closing: pickStable(
+      entriesForThread(closingLines, closingPostures, closingMotifs, posture, motif),
+      seed,
+      3
+    ),
   };
 }
 
@@ -255,8 +337,8 @@ export function omenClosingFamily(temperature, isDay) {
 export function weatherFamily(code) {
   if ([45, 48].includes(code)) return 'fog';
   if (code >= 95) return 'storm';
-  if (code >= 71 && code <= 86) return 'snow';
-  if (code >= 51 && code <= 82) return 'rain';
+  if ((code >= 71 && code <= 77) || [85, 86].includes(code)) return 'snow';
+  if ((code >= 51 && code <= 65) || (code >= 80 && code <= 82)) return 'rain';
   if ([1, 2, 3].includes(code)) return 'cloud';
   return 'clear';
 }

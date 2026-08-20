@@ -49,6 +49,7 @@ export default function MinorOmen() {
   }, []);
 
   const omen = useMemo(() => {
+    if (!weather?.current) return null;
     const code = weather?.current?.weather_code ?? 0;
     const family = weatherFamily(code);
     const seed = `${date}:${code}:${Math.round(weather?.current?.temperature_2m || 0)}`;
@@ -69,23 +70,27 @@ export default function MinorOmen() {
     <ExperimentFrame
       number="005"
       title="Minor Omen"
-      question="One small, deterministic warning for Istanbul each day."
+      question="One small, deterministic warning drawn from Istanbul's current conditions."
     >
       <div className="omen" aria-live="polite">
         <div className="omen__meta">
-          <span>OMEN {omen.number}</span><span>{date}</span><span>ISTANBUL</span>
+          <span>{omen ? `OMEN ${omen.number}` : 'READING THE SKY'}</span><span>{date}</span><span>ISTANBUL</span>
         </div>
-        <p>{omen.opening}</p>
-        <p>{omen.weatherLine}</p>
-        <p className="omen__closing">{omen.closing}</p>
+        {omen && (
+          <>
+            <p>{omen.opening}</p>
+            <p>{omen.weatherLine}</p>
+            <p className="omen__closing">{omen.closing}</p>
+          </>
+        )}
         <div className="omen__conditions">
           {status === 'ready' && <span>{weatherSentence(weather.current.weather_code).toUpperCase()}</span>}
           {status === 'loading' && <span>READING THE SKY</span>}
-          {status === 'error' && <span>THE SKY IS UNAVAILABLE; THE OMEN REMAINS</span>}
+          {status === 'error' && <span>THE SKY IS UNAVAILABLE; NO OMEN WAS DRAWN</span>}
           {sunrise && <span>SUNRISE {sunrise}</span>}
           {sunset && <span>SUNSET {sunset}</span>}
         </div>
-        <small>Valid until midnight. Interpretation is the responsibility of the reader.</small>
+        <small>Valid while conditions hold. Interpretation is the responsibility of the reader.</small>
       </div>
     </ExperimentFrame>
   );
