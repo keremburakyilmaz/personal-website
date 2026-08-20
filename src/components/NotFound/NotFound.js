@@ -1,16 +1,9 @@
-import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import './NotFound.css';
 
 export default function NotFound() {
   const location = useLocation();
-
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = '404 | Kerem Burak Yılmaz';
-    return () => { document.title = previousTitle; };
-  }, []);
 
   return (
     <section className="not-found" aria-labelledby="not-found-heading">

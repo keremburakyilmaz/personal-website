@@ -44,7 +44,7 @@ export default function SystemRunning() {
     <div className="system-container">
       <div className="system-content">
         <div className="system-header">
-          <span className="system-title">the system is running</span>
+          <h1 className="system-title">the system is running</h1>
           <span className="system-status">status: overcommitted</span>
         </div>
 

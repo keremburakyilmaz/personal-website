@@ -1254,7 +1254,7 @@
     padding: 1.25rem;
   }
   .qf-table {
-    padding: 1rem;
+    padding: 0.75rem;
   }
   .qf-section {
     margin: 2.5rem 0;
@@ -1311,8 +1311,11 @@
     grid-template-columns: 1fr 1fr;
   }
   .qf-table__head, .qf-table__row {
-    grid-template-columns: 80px 1fr 70px 32px;
+    grid-template-columns: minmax(64px, 0.8fr) minmax(0, 1.5fr) minmax(48px, 0.6fr) 32px;
+    gap: 0.5rem;
   }
+  .qf-table__head > *, .qf-table__row > * { min-width: 0; }
+  .qf-table__row .qf-input { box-sizing: border-box; min-width: 0; }
   .qf-table__head > span:nth-child(3), .qf-table__row > *:nth-child(3),
   .qf-table__head > span:nth-child(4), .qf-table__row > *:nth-child(4) { display: none; }
   .qf-bt-grid { grid-template-columns: 1fr; }

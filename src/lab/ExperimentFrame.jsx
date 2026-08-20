@@ -4,7 +4,7 @@ export default function ExperimentFrame({ number, title, question, status = 'LIV
       <header className="lab-experiment__header">
         <div>
           <span className="lab-experiment__number">EXP / {number}</span>
-          <h2 id={`experiment-${number}-title`}>{title}</h2>
+          <h1 id={`experiment-${number}-title`}>{title}</h1>
         </div>
         <span className="lab-experiment__status"><i aria-hidden="true" />{status}</span>
       </header>

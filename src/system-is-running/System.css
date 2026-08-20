@@ -42,6 +42,8 @@
 .system-title {
   color: #6a6a6a;
   text-transform: lowercase;
+  margin: 0;
+  font: inherit;
 }
 
 .system-status {

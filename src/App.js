@@ -5,6 +5,7 @@ import './styles/global.css';
 import Navigation from './components/Navigation/Navigation';
 import NotFound from './components/NotFound/NotFound';
 import RunningPortfolio from './components/RunningPortfolio/RunningPortfolio';
+import PageMetadata from './components/PageMetadata/PageMetadata';
 
 const loadSpotifyBrain = () => import('./components/SpotifyBrain/SpotifyBrain');
 const loadMarketRadar = () => import('./components/MarketRadar/MarketRadar');
@@ -117,6 +118,7 @@ export default function App() {
 
   return (
     <div className="app-container">
+      <PageMetadata />
       {showNavigation && (
         <Navigation
           activeSection={activeSection}

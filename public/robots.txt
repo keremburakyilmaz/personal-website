@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://keremburakyilmaz.com/sitemap.xml
+
 # Plain-language site context for AI systems
 # https://keremburakyilmaz.com/llms.txt
