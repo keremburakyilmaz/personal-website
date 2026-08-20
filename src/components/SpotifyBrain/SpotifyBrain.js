@@ -214,12 +214,21 @@ export default function SpotifyBrain() {
           <div className="mood-prediction-card" style={{ borderColor: getMoodColor(leadingDirection.clusterId) }}>
             <div className="prediction-card-header">
               <h2>Where My Listening Is Going</h2>
-              <span className="prediction-source" data-baseline={predictionView.isBaseline || undefined}>
-                {predictionView.sourceLabel}
-              </span>
+              <div className="prediction-badges">
+                {predictionView.predictabilityLabel && (
+                  <span className="predictability-badge" data-level={predictionView.predictability}>
+                    {predictionView.predictabilityLabel}
+                  </span>
+                )}
+                <span className="prediction-source" data-baseline={predictionView.isBaseline || undefined}>
+                  {predictionView.sourceLabel}
+                </span>
+              </div>
             </div>
             <p className="prediction-intro">
-              Likely next directions from the current session, not an exact-song promise.
+              {predictionView.abstained
+                ? 'No direction clears the reliability threshold. These are scenarios, not a committed prediction.'
+                : 'Likely next directions from the current session, not an exact-song promise.'}
             </p>
             {predictionView.directions.length > 0 ? (
               <ol className="mood-direction-list" aria-label="Likely listening directions">
@@ -269,6 +278,36 @@ export default function SpotifyBrain() {
                 <span className="prediction-version"> Model {predictionView.modelVersion}.</span>
               )}
             </p>
+            {(predictionView.validationReliability !== null
+              || predictionView.switchProbability !== null
+              || predictionView.normalizedEntropy !== null) && (
+              <dl className="prediction-evidence-grid">
+                {predictionView.validationReliability !== null && (
+                  <div>
+                    <dt>Holdout reliability</dt>
+                    <dd>{safeToFixed(predictionView.validationReliability * 100, 1)}%</dd>
+                  </div>
+                )}
+                {predictionView.switchProbability !== null && (
+                  <div>
+                    <dt>Direction-switch likelihood</dt>
+                    <dd>{safeToFixed(predictionView.switchProbability * 100, 1)}%</dd>
+                  </div>
+                )}
+                {predictionView.normalizedEntropy !== null && (
+                  <div>
+                    <dt>Uncertainty</dt>
+                    <dd>{safeToFixed(predictionView.normalizedEntropy * 100, 1)}%</dd>
+                  </div>
+                )}
+              </dl>
+            )}
+            {(predictionView.contextDescription || predictionView.recentWindowSize) && (
+              <p className="prediction-context-note">
+                Based on {predictionView.recentWindowSize || 'recent'} tracks
+                {predictionView.contextDescription && ` · ${predictionView.contextDescription}`}.
+              </p>
+            )}
             {nextPrediction.genre_family && (
               <div className="genre-family">
                 <span className="genre-label">Genre:</span> {nextPrediction.genre_family}

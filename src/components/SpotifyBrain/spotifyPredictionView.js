@@ -9,13 +9,21 @@ const sourceCopy = {
     label: 'Model active',
     detail: 'Ranked model probabilities; they describe direction, not an exact next track.'
   },
+  two_stage_model: {
+    label: 'Switch model active',
+    detail: 'A calibrated model first estimates continuation versus switching, then ranks likely destination moods.'
+  },
   majority_baseline: {
-    label: 'Baseline active',
-    detail: 'The learned model did not beat the historical majority on the latest temporal holdout.'
+    label: 'History baseline',
+    detail: 'Recent context did not beat the recency-weighted historical distribution on the latest temporal holdout.'
   },
   persistence_baseline: {
-    label: 'Baseline active',
+    label: 'Continuity baseline',
     detail: 'The learned model did not beat session continuity on the latest temporal holdout.'
+  },
+  contextual_transition_baseline: {
+    label: 'Context baseline',
+    detail: 'A smoothed recent-sequence and time-context transition is more reliable than the learned model.'
   }
 };
 
@@ -53,7 +61,19 @@ export function buildPredictionView(prediction = {}) {
   const confidenceLabels = {
     validation_accuracy: 'Observed holdout reliability',
     uncalibrated_model_probability: 'Uncalibrated model score',
+    calibrated_model_probability: 'Calibrated likelihood',
+    estimated_baseline_probability: 'Estimated likelihood',
     legacy_model_score: 'Model score'
+  };
+
+  const predictability = ['high', 'medium', 'low'].includes(prediction.predictability)
+    ? prediction.predictability
+    : null;
+  const contextLabels = {
+    seq3: 'three-track, time and session context',
+    seq2: 'two-track and time context',
+    last: 'latest-mood context',
+    global: 'global listening history'
   };
 
   return {
@@ -64,6 +84,25 @@ export function buildPredictionView(prediction = {}) {
     isBaseline: source.endsWith('_baseline'),
     confidence: clampProbability(prediction.confidence),
     confidenceLabel: confidenceLabels[confidenceKind] || 'Prediction score',
-    modelVersion: prediction.model_version || null
+    modelVersion: prediction.model_version || null,
+    validationReliability: prediction.validation_reliability == null
+      ? null
+      : clampProbability(prediction.validation_reliability),
+    predictability,
+    predictabilityLabel: predictability
+      ? `${predictability[0].toUpperCase()}${predictability.slice(1)} predictability`
+      : null,
+    normalizedEntropy: prediction.normalized_entropy == null
+      ? null
+      : clampProbability(prediction.normalized_entropy),
+    abstained: prediction.abstained === true,
+    switchProbability: prediction.switch_probability == null
+      ? null
+      : clampProbability(prediction.switch_probability),
+    contextLevel: prediction.context_level || null,
+    contextDescription: contextLabels[prediction.context_level] || null,
+    recentWindowSize: Number.isFinite(Number(prediction.recent_window_size))
+      ? Number(prediction.recent_window_size)
+      : null
   };
 }
