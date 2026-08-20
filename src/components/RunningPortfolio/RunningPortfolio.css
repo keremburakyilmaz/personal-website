@@ -710,8 +710,8 @@
   font-family: var(--rp-grotesk);
   font-size: var(--rp-type-display);
   font-stretch: condensed;
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.93;
 }
