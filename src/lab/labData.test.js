@@ -14,6 +14,18 @@ test('omen vocabulary has the intended authored range', () => {
   expect(Object.values(OMEN_CLOSINGS).flat()).toHaveLength(12);
 });
 
+test('every omen component stays terse', () => {
+  const allLines = [
+    ...OMEN_OPENINGS,
+    ...Object.values(OMEN_WEATHER_LINES).flat(),
+    ...Object.values(OMEN_CLOSINGS).flat(),
+  ];
+
+  allLines.forEach((line) => {
+    expect(line.trim().split(/\s+/).length).toBeLessThanOrEqual(8);
+  });
+});
+
 test('omen closings follow daylight and temperature', () => {
   expect(omenClosingFamily(6, 1)).toBe('cold');
   expect(omenClosingFamily(18, 1)).toBe('mild');
@@ -72,5 +84,5 @@ test('action openings never pair with restraint weather lines', () => {
     const omen = composeOmen(`regression:${index}`, 'clear', 'warm');
     openings.push(omen.opening);
   }
-  expect(openings).not.toContain('What feels late is ready now. It will not remain patient.');
+  expect(openings).not.toContain('What feels late is ready.');
 });
