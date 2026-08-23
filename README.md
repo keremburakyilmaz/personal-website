@@ -14,7 +14,7 @@ This repository is the home of **[keremburakyilmaz.com](https://keremburakyilmaz
 
 **Spotify Brain** is a live dashboard tied to a personal listening project-charts and signals from an ML pipeline I run on my own data.
 
-**Market Radar** is a demo-style view of market and macro charts-useful as a sample of how I present dense time-series data on the web.
+**Market Radar** is a source-first macro intelligence instrument. It renders a deterministic conditions score, attributable observations, official events, stories, and source health from a separately deployed snapshot engine.
 
 **Palimpsest** is an interactive story you play in the browser. It is meant to be read slowly; your choices are remembered for your next visit on the same device.
 

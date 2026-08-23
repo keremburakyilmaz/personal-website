@@ -56,14 +56,14 @@ export const projects = [
     tags: ["LangGraph", "FastAPI", "Ollama", "Pydantic", "PII Detection", "Privacy"]
   },
   {
-    title: "Finance News Radar - Real-time Financial Intelligence Backend",
+    title: "Market Radar - Source-First Macro Intelligence Engine",
     description: [
-      "Building an automated financial news monitoring system that delivers LLM-enriched summaries, market context, and alerts to users via Telegram and API.",
-      "Implemented a scheduled pipeline that ingests, embeds, and indexes articles in Supabase with pgvector for semantic search, running four times daily via GitHub Actions.",
-      "Integrated real-time market data (VIX, DXY, Treasuries) via yfinance and built a market regime detection service.",
-      "Extending the platform with an economic calendar, catalyst tracking, and a React dashboard."
+      "Built a headless pipeline that normalizes official Treasury, Federal Reserve, CBRT, central-bank release, economic-calendar, and bounded news-discovery data into one public contract.",
+      "Designed a deterministic macro-conditions score whose weights, normalized signals, contribution points, and source provenance are all published with each snapshot.",
+      "Implemented immutable, content-addressed snapshots with an integrity-checked latest manifest, last-good state, fail-closed validation, publication pause, and verified rollback on Cloudflare R2.",
+      "Automated collection and protected operations with GitHub Actions, then built a read-only React instrument that verifies the public manifest before rendering freshness and source health."
     ],
-    tags: ["FastAPI", "Supabase", "pgvector", "GitHub Actions", "Groq", "yfinance", "Telegram"]
+    tags: ["Python", "Cloudflare R2", "GitHub Actions", "JSON Schema", "React", "Data Provenance"]
   },
   {
     title: "Game Metrics - Player Behaviour Analytics Warehouse",

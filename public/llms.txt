@@ -8,7 +8,7 @@
 - [Lab](https://keremburakyilmaz.com/lab): Small interactive browser experiments.
 - [QuantFusion](https://keremburakyilmaz.com/quantfusion): Financial intelligence system.
 - [Spotify Brain](https://keremburakyilmaz.com/spotify-brain): Listening-pattern prediction system.
-- [Market Radar](https://keremburakyilmaz.com/market-radar): Market-monitoring interface.
+- [Market Radar](https://keremburakyilmaz.com/market-radar): Source-first macro intelligence with explainable conditions, provenance, freshness, and official events.
 - [Palimpsest](https://keremburakyilmaz.com/palimpsest): Interactive narrative experiment.
 - [System Is Running](https://keremburakyilmaz.com/system): Generative systems interface.
 

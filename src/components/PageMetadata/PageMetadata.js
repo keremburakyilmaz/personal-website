@@ -19,7 +19,7 @@ const ROUTE_METADATA = {
   },
   '/market-radar': {
     title: 'Market Radar | Kerem Burak Yılmaz',
-    description: 'An experimental market-monitoring interface for stories, signals, regimes, and scheduled events.',
+    description: 'A source-first macro intelligence system with explainable conditions, attributable observations, official events, and transparent source health.',
   },
   '/palimpsest': {
     title: 'Palimpsest | Kerem Burak Yılmaz',
