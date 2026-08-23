@@ -43,7 +43,6 @@
 .mr-section-heading,
 .mr-indicator__topline,
 .mr-indicator__change,
-.mr-preview-note,
 .mr-empty__label {
   font-family: var(--font-mono);
   text-transform: uppercase;
@@ -133,17 +132,6 @@
 .mr-status-dot--healthy { background: #bcbcbc; }
 .mr-status-dot--degraded,
 .mr-status-dot--expired { background: var(--primary); }
-
-.mr-preview-note {
-  margin: 0;
-  padding: 0.7rem 1rem;
-  border: 1px solid rgba(215, 25, 33, 0.38);
-  border-top: 0;
-  color: #a65f62;
-  font-size: 0.56rem;
-  letter-spacing: 0.08em;
-  line-height: 1.5;
-}
 
 .mr-conditions {
   display: grid;
@@ -358,6 +346,14 @@
 }
 
 .mr-scope > div { display: flex; gap: 1px; }
+
+.mr-scope__label { display: flex; flex-direction: column; gap: 0.25rem; }
+.mr-scope__label small {
+  color: #444;
+  font-size: 0.46rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
 
 .mr-scope button,
 .mr-retry {

@@ -2,11 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import './MarketRadar.css';
 import '../../styles/route-system.css';
 import { fetchLatestSnapshot, getSnapshotState } from './marketRadarData';
-import { createPreviewSnapshot } from './previewSnapshot';
 
 const MANIFEST_OVERRIDE = process.env.REACT_APP_MARKET_RADAR_MANIFEST_URL?.trim();
-const PREVIEW_ENABLED = process.env.REACT_APP_MARKET_RADAR_PREVIEW === 'true'
-  || (process.env.NODE_ENV === 'development' && !MANIFEST_OVERRIDE);
 
 function formatTimestamp(value) {
   if (!value) return 'Not available';
@@ -42,19 +39,14 @@ function inScope(item, scope) {
 }
 
 function useMarketRadarSnapshot() {
-  const previewSnapshot = useMemo(() => (
-    PREVIEW_ENABLED ? createPreviewSnapshot() : null
-  ), []);
-  const [state, setState] = useState(() => (
-    previewSnapshot
-      ? { status: 'ready', snapshot: previewSnapshot, mode: 'preview', error: null }
-      : { status: 'loading', snapshot: null, mode: 'live', error: null }
-  ));
+  const [state, setState] = useState({
+    status: 'loading',
+    snapshot: null,
+    error: null,
+  });
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    if (previewSnapshot) return undefined;
-
     const controller = new AbortController();
 
     fetchLatestSnapshot({
@@ -62,31 +54,29 @@ function useMarketRadarSnapshot() {
       signal: controller.signal,
     })
       .then(({ snapshot }) => {
-        setState({ status: 'ready', snapshot, mode: 'live', error: null });
+        setState({ status: 'ready', snapshot, error: null });
       })
       .catch((error) => {
         if (error.name === 'AbortError') return;
         setState({
           status: 'error',
           snapshot: null,
-          mode: 'live',
           error: error.message,
         });
       });
 
     return () => controller.abort();
-  }, [attempt, previewSnapshot]);
+  }, [attempt]);
 
   const retry = () => {
-    if (previewSnapshot) return;
-    setState({ status: 'loading', snapshot: null, mode: 'live', error: null });
+    setState({ status: 'loading', snapshot: null, error: null });
     setAttempt((value) => value + 1);
   };
 
   return { ...state, retry };
 }
 
-function StatusRail({ snapshot, mode }) {
+function StatusRail({ snapshot }) {
   const coverage = snapshot.pipeline.coverage;
   const health = getSnapshotState(snapshot);
 
@@ -95,7 +85,7 @@ function StatusRail({ snapshot, mode }) {
       <div className="mr-status-cell mr-status-cell--state">
         <span className={`mr-status-dot mr-status-dot--${health}`} aria-hidden="true" />
         <span className="mr-status-key">State</span>
-        <strong>{mode === 'preview' ? 'Design preview' : health}</strong>
+        <strong>{health}</strong>
       </div>
       <div className="mr-status-cell">
         <span className="mr-status-key">Published</span>
@@ -154,6 +144,10 @@ function MacroConditions({ conditions }) {
         <div
           className="mr-scale"
           style={{ '--mr-score': `${conditions.score}%` }}
+          role="meter"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={conditions.score}
           aria-label={`Macro conditions score ${conditions.score} out of 100`}
         >
           <span className="mr-scale__marker" />
@@ -181,7 +175,10 @@ function SectionHeading({ index, id, title, meta }) {
 function ScopeControl({ scope, onChange }) {
   return (
     <div className="mr-scope" aria-label="Filter published details by market scope">
-      <span>Detail scope</span>
+      <span className="mr-scope__label">
+        Evidence scope
+        <small>Score and digest remain snapshot-wide</small>
+      </span>
       <div>
         <button
           type="button"
@@ -386,12 +383,12 @@ function SourceHealth({ sources, coverage }) {
         title="Source health"
         meta={`${coverage.staleSources} stale / ${coverage.failedSources} unavailable`}
       />
-      <div className="mr-source-table" role="table" aria-label="Published source health">
-        <div className="mr-source-row mr-source-row--head" role="row">
-          <span role="columnheader">State</span>
-          <span role="columnheader">Source</span>
-          <span role="columnheader">Used</span>
-          <span role="columnheader">Last success</span>
+      <div className="mr-source-table" aria-label="Published source health">
+        <div className="mr-source-row mr-source-row--head" aria-hidden="true">
+          <span>State</span>
+          <span>Source</span>
+          <span>Used</span>
+          <span>Last success</span>
         </div>
         {sources.map((source) => (
           <a
@@ -399,15 +396,14 @@ function SourceHealth({ sources, coverage }) {
             href={source.url}
             target="_blank"
             rel="noreferrer"
-            role="row"
             key={source.id}
           >
-            <span role="cell" data-status={source.status}>
+            <span data-status={source.status}>
               <i aria-hidden="true" />{source.status}
             </span>
-            <strong role="cell">{source.name}<small>{source.type}</small></strong>
-            <span role="cell">{source.itemsUsed}</span>
-            <span role="cell">{formatTimestamp(source.lastSuccessAt)}</span>
+            <strong>{source.name}<small>{source.type}</small></strong>
+            <span>{source.itemsUsed}</span>
+            <span>{formatTimestamp(source.lastSuccessAt)}</span>
           </a>
         ))}
         {sources.length === 0 && (
@@ -472,12 +468,7 @@ export default function MarketRadar() {
 
       {state.status === 'ready' ? (
         <>
-          <StatusRail snapshot={snapshot} mode={state.mode} />
-          {state.mode === 'preview' && (
-            <p className="mr-preview-note">
-              Local design preview. Values are illustrative; production only renders verified public snapshots.
-            </p>
-          )}
+          <StatusRail snapshot={snapshot} />
           <MacroConditions conditions={snapshot.macroConditions} />
           <ScopeControl scope={scope} onChange={setScope} />
           <DriverLedger drivers={scopedData.drivers} />
