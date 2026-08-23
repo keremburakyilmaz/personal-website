@@ -4,6 +4,8 @@ import '../../styles/route-system.css';
 import { fetchLatestSnapshot, getSnapshotState } from './marketRadarData';
 
 const MANIFEST_OVERRIDE = process.env.REACT_APP_MARKET_RADAR_MANIFEST_URL?.trim();
+const MANIFEST_POLL_INTERVAL_MS = 5 * 60 * 1000;
+const MAX_TIMER_DELAY_MS = 2_147_483_647;
 
 function formatTimestamp(value) {
   if (!value) return 'Not available';
@@ -42,6 +44,7 @@ function useMarketRadarSnapshot() {
   const [state, setState] = useState({
     status: 'loading',
     snapshot: null,
+    publishedAt: null,
     error: null,
   });
   const [attempt, setAttempt] = useState(0);
@@ -53,32 +56,52 @@ function useMarketRadarSnapshot() {
       manifestUrl: MANIFEST_OVERRIDE,
       signal: controller.signal,
     })
-      .then(({ snapshot }) => {
-        setState({ status: 'ready', snapshot, error: null });
+      .then(({ manifest, snapshot }) => {
+        setState({
+          status: 'ready',
+          snapshot,
+          publishedAt: manifest.publishedAt,
+          error: null,
+        });
       })
       .catch((error) => {
         if (error.name === 'AbortError') return;
-        setState({
-          status: 'error',
-          snapshot: null,
-          error: error.message,
-        });
+        setState((current) => (
+          current.snapshot
+            ? { ...current, error: error.message }
+            : {
+              status: 'error',
+              snapshot: null,
+              publishedAt: null,
+              error: error.message,
+            }
+        ));
       });
 
     return () => controller.abort();
   }, [attempt]);
 
+  useEffect(() => {
+    if (!state.snapshot) return undefined;
+
+    const interval = window.setInterval(() => {
+      setAttempt((value) => value + 1);
+    }, MANIFEST_POLL_INTERVAL_MS);
+
+    return () => window.clearInterval(interval);
+  }, [state.snapshot]);
+
   const retry = () => {
-    setState({ status: 'loading', snapshot: null, error: null });
+    setState({ status: 'loading', snapshot: null, publishedAt: null, error: null });
     setAttempt((value) => value + 1);
   };
 
   return { ...state, retry };
 }
 
-function StatusRail({ snapshot }) {
+function StatusRail({ snapshot, publishedAt, now }) {
   const coverage = snapshot.pipeline.coverage;
-  const health = getSnapshotState(snapshot);
+  const health = getSnapshotState(snapshot, now);
 
   return (
     <div className="mr-status-rail" aria-label="Snapshot status">
@@ -89,7 +112,7 @@ function StatusRail({ snapshot }) {
       </div>
       <div className="mr-status-cell">
         <span className="mr-status-key">Published</span>
-        <strong>{formatTimestamp(snapshot.generatedAt)}</strong>
+        <strong>{formatTimestamp(publishedAt)}</strong>
       </div>
       <div className="mr-status-cell">
         <span className="mr-status-key">Coverage</span>
@@ -354,12 +377,14 @@ function StoriesAndCalendar({ stories, calendar }) {
                   <span>{scheduled.time}</span>
                 </div>
                 <div>
-                  <span className="mr-calendar__country">{event.countryCode} / {event.impact}</span>
+                  <span className="mr-calendar__country">
+                    {event.countryCode} / {event.impact} / {event.status}
+                  </span>
                   <h3>{event.title}</h3>
                   <p>
-                    {event.previous && `Previous ${event.previous}`}
+                    {event.actual ? `Actual ${event.actual}` : 'Actual —'}
                     {event.forecast && ` / Forecast ${event.forecast}`}
-                    {!event.previous && !event.forecast && event.status}
+                    {event.previous && ` / Previous ${event.previous}`}
                   </p>
                 </div>
               </article>
@@ -374,14 +399,17 @@ function StoriesAndCalendar({ stories, calendar }) {
   );
 }
 
-function SourceHealth({ sources, coverage }) {
+function SourceHealth({ sources }) {
+  const staleSources = sources.filter((source) => source.status === 'stale').length;
+  const unavailableSources = sources.filter((source) => source.status === 'unavailable').length;
+
   return (
     <section className="mr-section" aria-labelledby="mr-sources-title">
       <SectionHeading
         index="05"
         id="mr-sources-title"
         title="Source health"
-        meta={`${coverage.staleSources} stale / ${coverage.failedSources} unavailable`}
+        meta={`${staleSources} stale / ${unavailableSources} unavailable`}
       />
       <div className="mr-source-table" aria-label="Published source health">
         <div className="mr-source-row mr-source-row--head" aria-hidden="true">
@@ -433,7 +461,22 @@ function Methodology({ methodology, publicNote }) {
 export default function MarketRadar() {
   const state = useMarketRadarSnapshot();
   const [scope, setScope] = useState('all');
+  const [clock, setClock] = useState(() => Date.now());
   const snapshot = state.snapshot;
+
+  useEffect(() => {
+    if (!snapshot) return undefined;
+
+    setClock(Date.now());
+    const delay = Math.max(0, Date.parse(snapshot.validUntil) - Date.now() + 250);
+    const timer = window.setTimeout(
+      () => setClock(Date.now()),
+      Math.min(delay, MAX_TIMER_DELAY_MS),
+    );
+
+    return () => window.clearTimeout(timer);
+  }, [snapshot]);
+
   const scopedData = useMemo(() => {
     if (!snapshot) return null;
 
@@ -468,14 +511,14 @@ export default function MarketRadar() {
 
       {state.status === 'ready' ? (
         <>
-          <StatusRail snapshot={snapshot} />
+          <StatusRail snapshot={snapshot} publishedAt={state.publishedAt} now={clock} />
           <MacroConditions conditions={snapshot.macroConditions} />
           <ScopeControl scope={scope} onChange={setScope} />
           <DriverLedger drivers={scopedData.drivers} />
           <IndicatorTape indicators={scopedData.indicators} />
           <Briefing digest={snapshot.digest} developments={scopedData.developments} />
           <StoriesAndCalendar stories={scopedData.stories} calendar={scopedData.calendar} />
-          <SourceHealth sources={scopedData.sources} coverage={snapshot.pipeline.coverage} />
+          <SourceHealth sources={scopedData.sources} />
           <Methodology
             methodology={snapshot.macroConditions.methodology}
             publicNote={snapshot.pipeline.publicNote}

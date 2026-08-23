@@ -15,9 +15,9 @@
   gap: 1rem;
   border-top: 1px solid var(--mr-line);
   border-bottom: 1px solid var(--mr-line);
-  color: #575757;
+  color: #747474;
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.62rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -105,8 +105,8 @@
 .mr-status-cell--state .mr-status-dot { grid-row: 1 / 3; }
 
 .mr-status-key {
-  color: #555;
-  font-size: 0.52rem;
+  color: #777;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
 }
 
@@ -115,7 +115,7 @@
   overflow: hidden;
   color: #c8c8c8;
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.67rem;
   font-weight: 400;
   text-overflow: ellipsis;
   text-transform: uppercase;
@@ -155,8 +155,8 @@
 }
 
 .mr-kicker {
-  color: #626262;
-  font-size: 0.56rem;
+  color: #797979;
+  font-size: 0.62rem;
   letter-spacing: 0.12em;
 }
 
@@ -180,7 +180,7 @@
 .mr-score-readout span {
   color: var(--primary);
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -225,9 +225,9 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.7rem;
-  color: #565656;
+  color: #777;
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -242,8 +242,8 @@
   gap: 1rem;
   border-top: 1px solid var(--mr-line);
   border-bottom: 1px solid var(--mr-line);
-  color: #656565;
-  font-size: 0.55rem;
+  color: #777;
+  font-size: 0.62rem;
   letter-spacing: 0.1em;
 }
 
@@ -285,8 +285,8 @@
   display: flex;
   justify-content: space-between;
   gap: 0.75rem;
-  color: #666;
-  font-size: 0.52rem;
+  color: #858585;
+  font-size: 0.62rem;
   letter-spacing: 0.07em;
 }
 
@@ -318,9 +318,9 @@
 .mr-indicator a {
   margin-top: 0.65rem;
   overflow: hidden;
-  color: #5d5d5d;
+  color: #797979;
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -338,9 +338,9 @@
   gap: 1rem;
   border: 1px solid var(--mr-line);
   background: var(--mr-panel-deep);
-  color: #5e5e5e;
+  color: #797979;
   font-family: var(--font-mono);
-  font-size: 0.54rem;
+  font-size: 0.62rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -349,8 +349,8 @@
 
 .mr-scope__label { display: flex; flex-direction: column; gap: 0.25rem; }
 .mr-scope__label small {
-  color: #444;
-  font-size: 0.46rem;
+  color: #707070;
+  font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.06em;
 }
@@ -362,7 +362,7 @@
   background: #0a0a0a;
   color: #777;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
@@ -411,9 +411,9 @@
 
 .mr-driver__name span,
 .mr-driver p {
-  color: #636363;
+  color: #858585;
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.64rem;
   line-height: 1.6;
 }
 
@@ -491,9 +491,9 @@
 .mr-story__meta,
 .mr-calendar__country,
 .mr-developments small {
-  color: #5d5d5d;
+  color: #797979;
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -539,9 +539,9 @@
 .mr-stories p,
 .mr-calendar p {
   margin: 0 0 0.7rem;
-  color: #6d6d6d;
+  color: #858585;
   font-family: var(--font-mono);
-  font-size: 0.57rem;
+  font-size: 0.64rem;
   line-height: 1.65;
 }
 
@@ -563,9 +563,9 @@
 .mr-stories h3 a:hover { color: var(--light); }
 
 .mr-stories small {
-  color: #4f4f4f;
+  color: #797979;
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 
 .mr-calendar article {
@@ -578,7 +578,7 @@
 
 .mr-calendar__time { display: flex; flex-direction: column; gap: 0.3rem; }
 .mr-calendar__time strong { color: #bdbdbd; font-family: var(--font-display); font-size: 0.9rem; font-weight: 500; }
-.mr-calendar__time span { color: #555; font-family: var(--font-mono); font-size: 0.48rem; line-height: 1.4; }
+.mr-calendar__time span { color: #797979; font-family: var(--font-mono); font-size: 0.6rem; line-height: 1.4; }
 .mr-calendar__country { display: block; margin-bottom: 0.45rem; }
 
 .mr-source-table {
@@ -595,9 +595,9 @@
   gap: 1rem;
   border-bottom: 1px solid var(--mr-line);
   border-left: 1px solid var(--mr-line);
-  color: #686868;
+  color: #858585;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   text-decoration: none;
 }
 
@@ -605,8 +605,8 @@
 
 .mr-source-row--head {
   min-height: 38px;
-  color: #4f4f4f;
-  font-size: 0.5rem;
+  color: #797979;
+  font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -635,13 +635,13 @@
   flex-direction: column;
   gap: 0.28rem;
   color: #bdbdbd;
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 400;
 }
 
 .mr-source-row small {
-  color: #505050;
-  font-size: 0.48rem;
+  color: #797979;
+  font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -669,24 +669,24 @@
   background: var(--mr-panel-deep);
   color: #a4a4a4;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   white-space: nowrap;
 }
 
 .mr-methodology small {
   display: block;
-  color: #555;
+  color: #797979;
   font-family: var(--font-mono);
-  font-size: 0.54rem;
+  font-size: 0.62rem;
   line-height: 1.6;
 }
 
 .mr-no-results {
   margin: 0;
   padding: 1.5rem;
-  color: #5e5e5e;
+  color: #797979;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   line-height: 1.6;
 }
 
@@ -709,8 +709,8 @@
 
 .mr-empty__label {
   margin: 0 0 1.25rem;
-  color: #666;
-  font-size: 0.56rem;
+  color: #797979;
+  font-size: 0.62rem;
   letter-spacing: 0.12em;
 }
 

@@ -66,8 +66,8 @@ export function createPreviewSnapshot(now = new Date()) {
       startedAt: isoFrom(now, -0.5),
       completedAt: generatedAt,
       coverage: {
-        expectedSources: 9,
-        successfulSources: 7,
+        expectedSources: 5,
+        successfulSources: 3,
         staleSources: 1,
         failedSources: 1,
         marketTags: ['global', 'united-states', 'turkey', 'rates', 'fx'],
@@ -75,8 +75,8 @@ export function createPreviewSnapshot(now = new Date()) {
       publicNote: 'Local interface preview. All displayed values are illustrative.',
     },
     macroConditions: {
-      score: 55,
-      label: 'balanced',
+      score: 61,
+      label: 'restrictive',
       summary: 'Rate levels keep conditions firm while a positively sloped U.S. curve offsets part of the pressure. The Turkey-specific currency input remains isolated from the global readout.',
       scoreScale: {
         minimum: 0,

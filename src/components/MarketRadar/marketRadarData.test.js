@@ -29,6 +29,10 @@ function createManifest(overrides = {}) {
   };
 }
 
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
 describe('Market Radar public data boundary', () => {
   test('accepts the canonical preview snapshot shape', () => {
     const snapshot = createPreviewSnapshot(new Date('2026-08-23T12:00:00Z'));
@@ -54,6 +58,38 @@ describe('Market Radar public data boundary', () => {
   test('rejects an oversized public snapshot before retrieval', () => {
     expect(() => validateManifest(createManifest({ sizeBytes: 524289 })))
       .toThrow('Latest publication manifest is invalid.');
+  });
+
+  test('rejects fields outside the closed manifest contract', () => {
+    const manifest = createManifest();
+    manifest.snapshot.mutableUrl = 'https://example.com/latest.json';
+
+    expect(() => validateManifest(manifest))
+      .toThrow('Latest publication manifest is invalid.');
+  });
+
+  test('rejects snapshots missing methodology scale semantics', () => {
+    const snapshot = clone(createPreviewSnapshot(new Date('2026-08-23T12:00:00Z')));
+    delete snapshot.macroConditions.scoreScale;
+
+    expect(() => validateSnapshot(snapshot))
+      .toThrow('Published snapshot does not match contract v1.');
+  });
+
+  test('rejects snapshots whose source totals contradict source health', () => {
+    const snapshot = clone(createPreviewSnapshot(new Date('2026-08-23T12:00:00Z')));
+    snapshot.pipeline.coverage.failedSources = 0;
+
+    expect(() => validateSnapshot(snapshot))
+      .toThrow('Published snapshot does not match contract v1.');
+  });
+
+  test('rejects additional fields inside published records', () => {
+    const snapshot = clone(createPreviewSnapshot(new Date('2026-08-23T12:00:00Z')));
+    snapshot.stories[0].trackingPixel = 'https://example.com/pixel';
+
+    expect(() => validateSnapshot(snapshot))
+      .toThrow('Published snapshot does not match contract v1.');
   });
 
   test('marks valid snapshots expired without changing their pipeline status', () => {
