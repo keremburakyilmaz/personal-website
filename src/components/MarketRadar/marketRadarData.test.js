@@ -50,6 +50,19 @@ describe('Market Radar public data boundary', () => {
       .toThrow('Manifest must use HTTPS.');
   });
 
+  test('allows a same-origin HTTP manifest only for an explicit localhost trial', () => {
+    expect(resolveSnapshotUrl('/v1/latest.json', snapshotPath, {
+      allowInsecureLocalhost: true,
+    })).toBe(`http://localhost/${snapshotPath}`);
+    expect(() => resolveSnapshotUrl('/v1/latest.json', snapshotPath))
+      .toThrow('Manifest must use HTTPS.');
+    expect(() => resolveSnapshotUrl(
+      'http://example.com/v1/latest.json',
+      snapshotPath,
+      { allowInsecureLocalhost: true },
+    )).toThrow('Manifest must use HTTPS.');
+  });
+
   test('rejects a manifest whose path does not contain its declared digest', () => {
     expect(() => validateManifest(createManifest({ sha256: 'b'.repeat(64) })))
       .toThrow('Latest publication manifest is invalid.');

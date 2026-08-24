@@ -4,6 +4,7 @@ import '../../styles/route-system.css';
 import { fetchLatestSnapshot, getSnapshotState } from './marketRadarData';
 
 const MANIFEST_OVERRIDE = process.env.REACT_APP_MARKET_RADAR_MANIFEST_URL?.trim();
+const ALLOW_LOCAL_TRIAL = process.env.NODE_ENV === 'development';
 const MANIFEST_POLL_INTERVAL_MS = 5 * 60 * 1000;
 const MAX_TIMER_DELAY_MS = 2_147_483_647;
 
@@ -54,6 +55,7 @@ function useMarketRadarSnapshot() {
 
     fetchLatestSnapshot({
       manifestUrl: MANIFEST_OVERRIDE,
+      allowInsecureLocalhost: ALLOW_LOCAL_TRIAL,
       signal: controller.signal,
     })
       .then(({ manifest, snapshot }) => {

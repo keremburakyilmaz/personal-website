@@ -522,20 +522,35 @@ export function validateSnapshot(value) {
   return value;
 }
 
-export function resolveSnapshotUrl(manifestUrl, snapshotPath) {
+function resolveManifestUrl(manifestUrl, allowInsecureLocalhost) {
+  let manifest;
+  try {
+    manifest = new URL(manifestUrl, window.location.origin);
+  } catch {
+    throw new MarketRadarDataError('Manifest URL is invalid.');
+  }
+
+  const localHostnames = new Set(['localhost', '127.0.0.1', '[::1]']);
+  const isLocalTrial = allowInsecureLocalhost
+    && localHostnames.has(manifest.hostname)
+    && manifest.origin === window.location.origin;
+  if (manifest.protocol !== 'https:' && !isLocalTrial) {
+    throw new MarketRadarDataError('Manifest must use HTTPS.');
+  }
+
+  return manifest;
+}
+
+export function resolveSnapshotUrl(
+  manifestUrl,
+  snapshotPath,
+  { allowInsecureLocalhost = false } = {},
+) {
   if (!SNAPSHOT_PATH_PATTERN.test(snapshotPath)) {
     throw new MarketRadarDataError('Snapshot path is invalid.');
   }
 
-  let manifest;
-  try {
-    manifest = new URL(manifestUrl);
-  } catch {
-    throw new MarketRadarDataError('Manifest URL is invalid.');
-  }
-  if (manifest.protocol !== 'https:') {
-    throw new MarketRadarDataError('Manifest must use HTTPS.');
-  }
+  const manifest = resolveManifestUrl(manifestUrl, allowInsecureLocalhost);
 
   return new URL(`/${snapshotPath}`, manifest.origin).toString();
 }
@@ -574,13 +589,17 @@ async function requestJsonResponse(fetchImpl, url, options, label) {
 export async function fetchLatestSnapshot({
   manifestUrl = DEFAULT_MANIFEST_URL,
   fetchImpl = window.fetch,
+  allowInsecureLocalhost = false,
   signal,
 } = {}) {
   if (typeof fetchImpl !== 'function') {
     throw new MarketRadarDataError('Snapshot retrieval is unavailable.');
   }
 
-  const resolvedManifestUrl = manifestUrl || DEFAULT_MANIFEST_URL;
+  const resolvedManifestUrl = resolveManifestUrl(
+    manifestUrl || DEFAULT_MANIFEST_URL,
+    allowInsecureLocalhost,
+  ).toString();
   const manifestResponse = await requestJsonResponse(fetchImpl, resolvedManifestUrl, {
     cache: 'no-store',
     credentials: 'omit',
@@ -594,7 +613,11 @@ export async function fetchLatestSnapshot({
     throw new MarketRadarDataError('Latest publication manifest is not valid JSON.');
   }
   const manifest = validateManifest(manifestPayload);
-  const snapshotUrl = resolveSnapshotUrl(resolvedManifestUrl, manifest.snapshot.path);
+  const snapshotUrl = resolveSnapshotUrl(
+    resolvedManifestUrl,
+    manifest.snapshot.path,
+    { allowInsecureLocalhost },
+  );
   const snapshotResponse = await requestJsonResponse(fetchImpl, snapshotUrl, {
     cache: 'force-cache',
     credentials: 'omit',
