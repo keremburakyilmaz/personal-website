@@ -16,6 +16,8 @@
 
 # local Market Radar publication trial
 /public/v1/
+/public/.market-radar-object-metadata/
+/public/.market-radar-object-store.lock
 
 # misc
 .DS_Store
