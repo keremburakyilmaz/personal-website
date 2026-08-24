@@ -294,31 +294,109 @@ function IndicatorTape({ indicators }) {
   );
 }
 
-function Briefing({ digest, developments }) {
+const COMMENTARY_SECTIONS = [
+  ['dataRead', 'Data read'],
+  ['newsRead', 'News read'],
+  ['watchNext', 'Watch next'],
+];
+
+function BriefingEvidence({ evidenceIds, evidenceById }) {
+  const records = evidenceIds
+    .map((id) => evidenceById.get(id))
+    .filter(Boolean);
+  if (!records.length) return null;
+
+  return (
+    <div className="mr-commentary__evidence" aria-label="Commentary evidence">
+      <span>Evidence</span>
+      {records.map((record) => (
+        <a href={record.url} target="_blank" rel="noreferrer" key={record.id}>
+          {record.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function Briefing({ digest, developments, indicators, stories, calendar }) {
+  const evidenceById = new Map([
+    ...indicators.map((indicator) => [indicator.id, {
+      id: indicator.id,
+      label: indicator.label,
+      url: indicator.source.sourceUrl,
+    }]),
+    ...stories.map((story) => [story.id, {
+      id: story.id,
+      label: story.headline,
+      url: story.url,
+    }]),
+    ...calendar.map((event) => [event.id, {
+      id: event.id,
+      label: event.title,
+      url: event.source.sourceUrl,
+    }]),
+  ]);
+  const commentary = digest.commentary;
+
   return (
     <section className="mr-section" aria-labelledby="mr-briefing-title">
       <SectionHeading
         index="03"
         id="mr-briefing-title"
-        title="Briefing"
-        meta={`${digest.itemCount} referenced items`}
+        title="Daily briefing"
+        meta={`${digest.itemCount} news items / ${commentary?.generation.mode || 'legacy'} commentary`}
       />
       <div className="mr-briefing-grid">
         <article className="mr-digest">
-          <span className="mr-kicker">24-hour readout</span>
+          <div className="mr-digest__topline">
+            <span className="mr-kicker">Your 24-hour market read</span>
+            {commentary && (
+              <span className="mr-commentary-mode">
+                {commentary.generation.mode} / {commentary.generation.method}
+              </span>
+            )}
+          </div>
           <h3>{digest.title}</h3>
           <p>{digest.summary}</p>
-          <ul>
-            {digest.highlights.map((highlight) => (
-              <li key={highlight.id} data-impact={highlight.impact}>
-                <span>{highlight.impact}</span>
-                <p>{highlight.text}</p>
-              </li>
-            ))}
-          </ul>
+          {commentary ? (
+            <div className="mr-commentary">
+              {COMMENTARY_SECTIONS.map(([key, label]) => {
+                const section = commentary[key];
+                return (
+                  <section key={key} className={`mr-commentary__section mr-commentary__section--${key}`}>
+                    <span>{label}</span>
+                    <h4>{section.headline}</h4>
+                    <p>{section.body}</p>
+                    <BriefingEvidence
+                      evidenceIds={section.evidenceIds}
+                      evidenceById={evidenceById}
+                    />
+                  </section>
+                );
+              })}
+            </div>
+          ) : (
+            <ul>
+              {digest.highlights.map((highlight) => (
+                <li key={highlight.id} data-impact={highlight.impact}>
+                  <span>{highlight.impact}</span>
+                  <p>{highlight.text}</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </article>
         <div className="mr-developments">
-          <span className="mr-kicker">Priority developments</span>
+          <span className="mr-kicker">Source notes</span>
+          <div className="mr-briefing-highlights">
+            {digest.highlights.map((highlight) => (
+              <article key={highlight.id} data-impact={highlight.impact}>
+                <span>{highlight.impact}</span>
+                <p>{highlight.text}</p>
+              </article>
+            ))}
+          </div>
+          <span className="mr-kicker mr-kicker--developments">Priority developments</span>
           {developments.map((development, index) => (
             <article key={development.id}>
               <span>{String(index + 1).padStart(2, '0')}</span>
@@ -502,12 +580,12 @@ export default function MarketRadar() {
 
       <header className="mr-header">
         <div>
-          <span className="mr-eyebrow">Source-first market conditions engine</span>
+          <span className="mr-eyebrow">Daily market briefing / sourced and explained</span>
           <h1 id="market-radar-title">Market Radar</h1>
         </div>
         <p>
-          A compact macro readout built from attributable observations—not a trading terminal,
-          prediction feed, or black-box market call.
+          Start here each day to understand what changed in the data, what the verified news adds,
+          why it matters, and which official release comes next.
         </p>
       </header>
 
@@ -518,7 +596,13 @@ export default function MarketRadar() {
           <ScopeControl scope={scope} onChange={setScope} />
           <DriverLedger drivers={scopedData.drivers} />
           <IndicatorTape indicators={scopedData.indicators} />
-          <Briefing digest={snapshot.digest} developments={scopedData.developments} />
+          <Briefing
+            digest={snapshot.digest}
+            developments={scopedData.developments}
+            indicators={snapshot.indicators}
+            stories={snapshot.stories}
+            calendar={snapshot.calendar}
+          />
           <StoriesAndCalendar stories={scopedData.stories} calendar={scopedData.calendar} />
           <SourceHealth sources={scopedData.sources} />
           <Methodology

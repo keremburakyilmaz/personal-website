@@ -279,6 +279,27 @@ export function createPreviewSnapshot(now = new Date()) {
       storyIds: ['story-us-yield-curve', 'story-broad-dollar', 'story-cbrt-usdtry'],
       itemCount: 3,
       marketTags: ['global', 'united-states', 'turkey', 'rates', 'fx'],
+      commentary: {
+        generation: {
+          mode: 'deterministic',
+          method: 'daily-commentary-v1',
+        },
+        dataRead: {
+          headline: 'Treasury yields set the tone in a restrictive backdrop',
+          body: 'The macro-conditions score is 61.0/100, a restrictive reading. U.S. Treasury 10Y is the largest tightening input at +5.0 points. The U.S. 2Y–10Y curve offsets part of that pressure at -2.0 points. Read the result as a description of current conditions, not a directional market call.',
+          evidenceIds: ['us-treasury-10y', 'us-curve-2s10s'],
+        },
+        newsRead: {
+          headline: 'Official observations anchor today’s verified context',
+          body: 'Three attributable stories connect the rate, dollar, and Türkiye-specific currency inputs to their official sources. They explain the published data without turning it into a forecast.',
+          evidenceIds: ['story-us-yield-curve', 'story-broad-dollar', 'story-cbrt-usdtry'],
+        },
+        watchNext: {
+          headline: 'The next U.S. macro release is the first test',
+          body: 'The next high-impact event in the verified calendar is the U.S. macro release window. The key question is whether it reinforces or offsets the radar’s largest scored rate driver.',
+          evidenceIds: ['calendar-us-release-preview', 'us-treasury-10y'],
+        },
+      },
     },
     sources: [
       {

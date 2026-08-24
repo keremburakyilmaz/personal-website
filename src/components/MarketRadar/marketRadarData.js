@@ -303,6 +303,32 @@ function isDigestHighlight(value) {
     && new Set(value.relatedStoryIds).size === value.relatedStoryIds.length;
 }
 
+function isCommentaryGeneration(value) {
+  return isObject(value)
+    && hasOnlyKeys(value, ['mode', 'method', 'model'])
+    && ['deterministic', 'model-assisted'].includes(value.mode)
+    && isSlug(value.method)
+    && (!hasOwn(value, 'model') || isSafeText(value.model, 80));
+}
+
+function isCommentarySection(value) {
+  return isObject(value)
+    && hasOnlyKeys(value, ['headline', 'body', 'evidenceIds'])
+    && isSafeText(value.headline, 240)
+    && isSafeText(value.body, 800)
+    && isArrayBetween(value.evidenceIds, 0, 12, isIdentifier)
+    && new Set(value.evidenceIds).size === value.evidenceIds.length;
+}
+
+function isDailyCommentary(value) {
+  return isObject(value)
+    && hasOnlyKeys(value, ['generation', 'dataRead', 'newsRead', 'watchNext'])
+    && isCommentaryGeneration(value.generation)
+    && isCommentarySection(value.dataRead)
+    && isCommentarySection(value.newsRead)
+    && isCommentarySection(value.watchNext);
+}
+
 function isDigest(value) {
   return isObject(value)
     && hasOnlyKeys(value, [
@@ -316,6 +342,7 @@ function isDigest(value) {
       'storyIds',
       'itemCount',
       'marketTags',
+      'commentary',
     ])
     && isIdentifier(value.id)
     && isTimestamp(value.periodStart)
@@ -327,7 +354,8 @@ function isDigest(value) {
     && isArrayBetween(value.storyIds, 0, 30, isIdentifier)
     && new Set(value.storyIds).size === value.storyIds.length
     && isIntegerBetween(value.itemCount, 0, 500)
-    && hasMarketTags(value.marketTags);
+    && hasMarketTags(value.marketTags)
+    && (!hasOwn(value, 'commentary') || isDailyCommentary(value.commentary));
 }
 
 function isCoverage(value) {
@@ -430,6 +458,22 @@ function hasValidSnapshotSemantics(value) {
   if (storyIdSet.size !== storyIds.length
       || value.digest.storyIds.some((storyId) => !storyIdSet.has(storyId))) {
     return false;
+  }
+
+  if (value.digest.commentary) {
+    const evidenceIdSet = new Set([
+      ...indicatorIds,
+      ...storyIds,
+      ...value.calendar.map((event) => event.id),
+    ]);
+    const commentarySections = [
+      value.digest.commentary.dataRead,
+      value.digest.commentary.newsRead,
+      value.digest.commentary.watchNext,
+    ];
+    if (commentarySections.some(
+      (section) => section.evidenceIds.some((evidenceId) => !evidenceIdSet.has(evidenceId)),
+    )) return false;
   }
 
   const sourceIds = value.sources.map((source) => source.id);

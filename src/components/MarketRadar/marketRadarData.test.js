@@ -40,6 +40,21 @@ describe('Market Radar public data boundary', () => {
     expect(validateSnapshot(snapshot)).toBe(snapshot);
   });
 
+  test('keeps pre-commentary v1 snapshots readable during rollout', () => {
+    const snapshot = createPreviewSnapshot(new Date('2026-08-23T12:00:00Z'));
+    delete snapshot.digest.commentary;
+
+    expect(validateSnapshot(snapshot)).toBe(snapshot);
+  });
+
+  test('rejects commentary evidence that is absent from the snapshot', () => {
+    const snapshot = createPreviewSnapshot(new Date('2026-08-23T12:00:00Z'));
+    snapshot.digest.commentary.newsRead.evidenceIds.push('story-not-published');
+
+    expect(() => validateSnapshot(snapshot))
+      .toThrow('Published snapshot does not match contract v1.');
+  });
+
   test('resolves only a safe same-origin immutable snapshot path', () => {
     expect(resolveSnapshotUrl(DEFAULT_MANIFEST_URL, snapshotPath)).toBe(
       `https://radar-data.keremburakyilmaz.com/${snapshotPath}`,

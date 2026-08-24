@@ -40,6 +40,11 @@ describe('Market Radar interface', () => {
     render(<MarketRadar />);
 
     expect(await screen.findByRole('heading', { name: 'Driver ledger' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Daily briefing' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', {
+      name: 'Treasury yields set the tone in a restrictive backdrop',
+    })).toBeInTheDocument();
+    expect(screen.getByText('deterministic / daily-commentary-v1')).toBeInTheDocument();
     expect(screen.getAllByText('U.S. Treasury 2Y')).not.toHaveLength(0);
     expect(screen.getAllByText('CBRT USD/TRY')).not.toHaveLength(0);
     expect(screen.getByText('US / high / released')).toBeInTheDocument();
