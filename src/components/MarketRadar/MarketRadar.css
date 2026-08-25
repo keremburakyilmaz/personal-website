@@ -896,7 +896,17 @@
   }
   .mr-source-row > span:last-child,
   .mr-source-row--head > span:last-child { display: none; }
-  .mr-methodology { grid-template-columns: 1fr; gap: 1rem; }
+  .mr-methodology {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    min-width: 0;
+  }
+  .mr-methodology > div { min-width: 0; }
+  .mr-methodology code {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
   .mr-empty { grid-template-columns: 28px 1fr; padding: 2rem 1rem; }
 }
 
