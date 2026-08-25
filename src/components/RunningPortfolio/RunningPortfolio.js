@@ -33,17 +33,25 @@ const LIVE_SURFACES = [
   },
   {
     index: '03',
+    name: 'MARKET RADAR',
+    description: 'Daily macro briefing and source health',
+    to: '/market-radar',
+  },
+  {
+    index: '04',
     name: 'PALIMPSEST',
     description: 'Interactive narrative state machine',
     to: '/palimpsest',
   },
   {
-    index: '04',
+    index: '05',
     name: 'SYSTEM',
     description: 'Live client-side process simulation',
     to: '/system',
   },
 ];
+
+const LIVE_DATA_SOURCE_COUNT = 2;
 
 const QUANTFUSION_API = 'https://quantfusion-q2as.onrender.com';
 const SPOTIFY_BRAIN_FEED = 'https://raw.githubusercontent.com/keremburakyilmaz/spotify-brain/main/export/dashboard_data.json';
@@ -1008,7 +1016,7 @@ function LiveOperations({ now }) {
         headingId="orchestration-heading"
         number="02"
         name="Live note"
-        meta={`AUTO-ASSEMBLED / SOURCES ${pad(currentSources)} OF ${pad(LIVE_SURFACES.length)}`}
+        meta={`AUTO-ASSEMBLED / SOURCES ${pad(currentSources)} OF ${pad(LIVE_DATA_SOURCE_COUNT)}`}
       />
 
       <div className="rp-live-operations__grid">
@@ -1115,7 +1123,7 @@ function LiveOperations({ now }) {
               ))}
             </div>
             <p>
-              SOURCES CURRENT: {pad(currentSources)} / {pad(LIVE_SURFACES.length)}
+              SOURCES CURRENT: {pad(currentSources)} / {pad(LIVE_DATA_SOURCE_COUNT)}
               <span>QF {quantfusion.error || 'SIGNAL RECEIVED'} / SB {spotify.error || 'SIGNAL RECEIVED'}</span>
             </p>
           </div>
