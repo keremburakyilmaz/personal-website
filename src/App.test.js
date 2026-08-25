@@ -11,8 +11,9 @@ test('renders the systems portfolio', () => {
   );
   expect(screen.getByRole('heading', { name: /systems that keep running/i })).toBeInTheDocument();
   expect(screen.getAllByText('QUANTFUSION').length).toBeGreaterThan(0);
-  expect(screen.getByText('05 ACTIVE')).toBeInTheDocument();
+  expect(screen.getByText('06 ACTIVE')).toBeInTheDocument();
   expect(screen.getAllByText('MARKET RADAR').length).toBeGreaterThan(0);
+  expect(screen.getAllByText('LAB').length).toBeGreaterThan(0);
 });
 
 test('renders the custom 404 page for an unknown route', () => {

@@ -49,6 +49,12 @@ const LIVE_SURFACES = [
     description: 'Live client-side process simulation',
     to: '/system',
   },
+  {
+    index: '06',
+    name: 'LAB',
+    description: 'Experiments in language, weather, and chance',
+    to: '/lab',
+  },
 ];
 
 const LIVE_DATA_SOURCE_COUNT = 2;
