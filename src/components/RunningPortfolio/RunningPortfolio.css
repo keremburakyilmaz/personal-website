@@ -1038,7 +1038,7 @@
 .rp-live-operations__controls {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.4rem;
   margin-top: 1.25rem;
 }
@@ -2431,7 +2431,7 @@
   .rp-process__facts > div:last-child { border-bottom: 0; }
 
   .rp-live-operations__copy h3 { font-size: 3rem; }
-  .rp-live-operations__controls { grid-template-columns: 1fr 1fr; }
+  .rp-live-operations__controls { grid-template-columns: 1fr; }
   .rp-live-operations__controls > button { grid-column: 1 / -1; }
   .rp-live-console__header { align-items: flex-start; flex-direction: column; justify-content: center; gap: 0.2rem; }
   .rp-live-console__body { min-height: 440px; padding: 1rem; }

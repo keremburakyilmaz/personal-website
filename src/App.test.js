@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import RunningPortfolio from './components/RunningPortfolio/RunningPortfolio';
@@ -14,6 +14,10 @@ test('renders the systems portfolio', () => {
   expect(screen.getByText('06 ACTIVE')).toBeInTheDocument();
   expect(screen.getAllByText('MARKET RADAR').length).toBeGreaterThan(0);
   expect(screen.getAllByText('LAB').length).toBeGreaterThan(0);
+  expect(
+    within(screen.getByRole('region', { name: /live machine note/i }))
+      .getByRole('link', { name: /no current market read/i })
+  ).toHaveAttribute('href', '/market-radar');
 });
 
 test('renders the custom 404 page for an unknown route', () => {

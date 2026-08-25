@@ -15,6 +15,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { education, experience, projects, skills } from '../../data/constants';
+import { fetchLatestSnapshot } from '../MarketRadar/marketRadarData';
 import { MinorOmenInterlude, SomewhereInterlude } from './LabInterludes';
 import './RunningPortfolio.css';
 
@@ -57,10 +58,12 @@ const LIVE_SURFACES = [
   },
 ];
 
-const LIVE_DATA_SOURCE_COUNT = 2;
+const LIVE_DATA_SOURCE_COUNT = 3;
 
 const QUANTFUSION_API = 'https://quantfusion-q2as.onrender.com';
 const SPOTIFY_BRAIN_FEED = 'https://raw.githubusercontent.com/keremburakyilmaz/spotify-brain/main/export/dashboard_data.json';
+const MARKET_RADAR_MANIFEST = process.env.REACT_APP_MARKET_RADAR_MANIFEST_URL?.trim();
+const ALLOW_LOCAL_MARKET_RADAR_TRIAL = process.env.NODE_ENV === 'development';
 
 function pad(value) {
   return String(value).padStart(2, '0');
@@ -154,6 +157,14 @@ function useLiveSurfaceTelemetry() {
     lastChecked: null,
     error: null,
   });
+  const [marketRadar, setMarketRadar] = useState({
+    status: 'checking',
+    snapshot: null,
+    publishedAt: null,
+    latency: null,
+    lastChecked: null,
+    error: null,
+  });
 
   useEffect(() => {
     const controller = new AbortController();
@@ -225,9 +236,45 @@ function useLiveSurfaceTelemetry() {
       }
     };
 
+    const loadMarketRadar = async () => {
+      const startedAt = performance.now();
+      setMarketRadar((current) => ({
+        ...current,
+        status: current.lastChecked ? 'refreshing' : 'checking',
+        error: null,
+      }));
+
+      try {
+        const { manifest, snapshot } = await fetchLatestSnapshot({
+          manifestUrl: MARKET_RADAR_MANIFEST,
+          allowInsecureLocalhost: ALLOW_LOCAL_MARKET_RADAR_TRIAL,
+          signal: controller.signal,
+        });
+        if (cancelled) return;
+        setMarketRadar({
+          status: 'published',
+          snapshot,
+          publishedAt: manifest.publishedAt,
+          latency: Math.max(1, Math.round(performance.now() - startedAt)),
+          lastChecked: new Date(),
+          error: null,
+        });
+      } catch (error) {
+        if (cancelled || error.name === 'AbortError') return;
+        setMarketRadar((current) => ({
+          ...current,
+          status: 'unreachable',
+          latency: Math.max(1, Math.round(performance.now() - startedAt)),
+          lastChecked: new Date(),
+          error: 'VERIFIED SNAPSHOT UNREACHABLE',
+        }));
+      }
+    };
+
     const refresh = () => {
       loadQuantfusion();
       loadSpotify();
+      loadMarketRadar();
     };
 
     refresh();
@@ -243,6 +290,7 @@ function useLiveSurfaceTelemetry() {
   return {
     quantfusion,
     spotify,
+    marketRadar,
     refresh: () => setRefreshSequence((sequence) => sequence + 1),
   };
 }
@@ -819,9 +867,10 @@ function SystemMapView({ quantfusion, spotifyData, statusLabel, statusTone }) {
   );
 }
 
-function MachineNoteView({ quantfusion, spotifyData, now, currentSources }) {
+function MachineNoteView({ quantfusion, spotifyData, marketRadarSnapshot, now, currentSources }) {
   const regime = quantfusion.regime?.regime;
   const mood = spotifyData.next_prediction?.mood_label;
+  const marketConditions = marketRadarSnapshot?.macroConditions;
   return (
     <div className="rp-machine-note">
       <span className="rp-machine-note__label">LATEST OUTPUTS / AUTO-GENERATED</span>
@@ -830,11 +879,20 @@ function MachineNoteView({ quantfusion, spotifyData, now, currentSources }) {
         <Link to="/quantfusion">{regime ? `${regime} (${asPercent(quantfusion.regime?.confidence)})` : 'no current regime'}</Link>.
         {' '}Spotify Brain predicts{' '}
         <Link to="/spotify-brain">{mood ? `${mood.toLowerCase()} (${asPercent(spotifyData.next_prediction?.confidence)})` : 'no current mood'}</Link>.
-        {' '}{currentSources === 2 ? 'Both sources are available.' : `${currentSources} of 2 sources is available.`}
+        {' '}Market Radar reads{' '}
+        <Link to="/market-radar">
+          {marketConditions
+            ? `${marketConditions.label.toLowerCase()} (${Math.round(marketConditions.score)}/100)`
+            : 'no current market read'}
+        </Link>.
+        {' '}{currentSources === LIVE_DATA_SOURCE_COUNT
+          ? 'All three sources are available.'
+          : `${currentSources} of ${LIVE_DATA_SOURCE_COUNT} sources are available.`}
       </p>
       <div>
         <span>QF / {formatDataAge(quantfusion.regime?.ts, now)}</span>
         <span>SB / {formatDataAge(spotifyData.generated_at, now)}</span>
+        <span>MR / {formatDataAge(marketRadarSnapshot?.generatedAt, now)}</span>
         <span>GENERATED / {formatSourceTime(now)}</span>
       </div>
     </div>
@@ -958,22 +1016,37 @@ function LiveOperations({ now }) {
     qf: null,
     spotify: null,
   });
-  const { quantfusion, spotify, refresh } = useLiveSurfaceTelemetry();
+  const { quantfusion, spotify, marketRadar, refresh } = useLiveSurfaceTelemetry();
   const spotifyData = spotify.data || {};
+  const marketRadarSnapshot = marketRadar.snapshot;
   const quantfusionLive = ['operational', 'degraded', 'refreshing'].includes(quantfusion.status)
     && Boolean(quantfusion.lastChecked);
   const spotifyPublished = ['published', 'refreshing'].includes(spotify.status)
     && Boolean(spotify.data);
-  const currentSources = Number(quantfusionLive) + Number(spotifyPublished);
+  const marketRadarPublished = ['published', 'refreshing'].includes(marketRadar.status)
+    && Boolean(marketRadarSnapshot);
+  const currentSources = Number(quantfusionLive)
+    + Number(spotifyPublished)
+    + Number(marketRadarPublished);
 
   const spotifyGeneratedAt = parseMachineTime(spotifyData.generated_at);
   const spotifyAgeHours = spotifyGeneratedAt
     ? Math.max(0, (now.getTime() - spotifyGeneratedAt.getTime()) / 3600000)
     : Infinity;
   const spotifyFreshness = spotifyPublished
-    ? (spotifyAgeHours <= 1 ? 50 : spotifyAgeHours <= 24 ? 42 : spotifyAgeHours <= 72 ? 28 : 12)
+    ? (spotifyAgeHours <= 1 ? 100 : spotifyAgeHours <= 24 ? 84 : spotifyAgeHours <= 72 ? 56 : 24)
     : 0;
-  const freshness = Math.round((quantfusionLive ? 50 : 0) + spotifyFreshness);
+  const marketRadarGeneratedAt = parseMachineTime(marketRadarSnapshot?.generatedAt);
+  const marketRadarAgeHours = marketRadarGeneratedAt
+    ? Math.max(0, (now.getTime() - marketRadarGeneratedAt.getTime()) / 3600000)
+    : Infinity;
+  const marketRadarFreshness = marketRadarPublished
+    ? (marketRadarAgeHours <= 1 ? 100 : marketRadarAgeHours <= 24 ? 84 : marketRadarAgeHours <= 72 ? 56 : 24)
+    : 0;
+  const freshness = Math.round(
+    ((quantfusionLive ? 100 : 0) + spotifyFreshness + marketRadarFreshness)
+      / LIVE_DATA_SOURCE_COUNT,
+  );
 
   const qfBaselineKey = quantfusion.regime
     ? `${quantfusion.regime.ts}|${quantfusion.regime.regime}|${quantfusion.regime.confidence}`
@@ -1027,10 +1100,10 @@ function LiveOperations({ now }) {
 
       <div className="rp-live-operations__grid">
         <div className="rp-live-operations__copy">
-          <span className="rp-micro-label">LIVE DATA / 02 SOURCES</span>
+          <span className="rp-micro-label">LIVE DATA / 03 SOURCES</span>
           <h3>Latest readings.</h3>
           <p>
-            Latest public outputs from QuantFusion and Spotify Brain. Updated every 60 seconds.
+            Latest public outputs from QuantFusion, Spotify Brain, and Market Radar. Updated every 60 seconds.
           </p>
 
           <div className="rp-live-operations__controls">
@@ -1039,6 +1112,7 @@ function LiveOperations({ now }) {
             </button>
             <Link to="/quantfusion">QUANTFUSION <ArrowUpRight size={12} aria-hidden="true" /></Link>
             <Link to="/spotify-brain">SPOTIFY BRAIN <ArrowUpRight size={12} aria-hidden="true" /></Link>
+            <Link to="/market-radar">MARKET RADAR <ArrowUpRight size={12} aria-hidden="true" /></Link>
           </div>
         </div>
 
@@ -1086,6 +1160,7 @@ function LiveOperations({ now }) {
               <MachineNoteView
                 quantfusion={quantfusion}
                 spotifyData={spotifyData}
+                marketRadarSnapshot={marketRadarSnapshot}
                 now={now}
                 currentSources={currentSources}
               />
@@ -1130,7 +1205,9 @@ function LiveOperations({ now }) {
             </div>
             <p>
               SOURCES CURRENT: {pad(currentSources)} / {pad(LIVE_DATA_SOURCE_COUNT)}
-              <span>QF {quantfusion.error || 'SIGNAL RECEIVED'} / SB {spotify.error || 'SIGNAL RECEIVED'}</span>
+              <span>
+                QF {quantfusion.error || 'SIGNAL RECEIVED'} / SB {spotify.error || 'SIGNAL RECEIVED'} / MR {marketRadar.error || 'SIGNAL RECEIVED'}
+              </span>
             </p>
           </div>
         </div>
