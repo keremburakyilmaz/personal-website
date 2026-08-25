@@ -3,12 +3,12 @@ export const projects = [
     title: "Spotify Brain - Listening Pattern Prediction System",
     description: [
       "Built a continuously running ML system that learns personal listening patterns and predicts next-track mood and session timing, live with 2,600+ automated pipeline executions and deployed to a live dashboard.",
-      "Trained XGBoost classifiers on mood clusters (K-Means with silhouette-based K selection) using sliding-window aggregation, cyclical time encoding, and rolling listening patterns from the Spotify and ReccoBeats APIs.",
-      "Orchestrated the production pipeline with two GitHub Actions workflows: an incremental update every 30 minutes and a daily full retrain that rebuilds clusters and redeploys.",
-      "Authored parallel Airflow DAGs (LocalExecutor on Postgres via Docker Compose) that decompose each pipeline into per-step tasks with per-task retries, XCom-based data flow, and backfill support.",
+      "Rebuilt mood prediction around leakage-safe chronological splits, an inner calibration window, and rolling backtests that compare XGBoost against recency-weighted majority, smoothed persistence, and contextual transition baselines before activating the learned model.",
+      "Kept mood-cluster identities stable across retrains with centroid matching, then exposed calibrated probabilities, predictability, entropy-based abstention, switch likelihood, and model version in the public dashboard.",
+      "Runs an incremental GitHub Actions pipeline every 30 minutes and a daily full retrain, with parallel Airflow DAGs for per-step retries, XCom data flow, and backfills on Postgres.",
       "Implemented drift detection comparing 7-day vs. 30-day distributions across session duration, listening frequency, and start-hour entropy."
     ],
-    tags: ["XGBoost", "K-Means", "Airflow", "GitHub Actions", "Spotify API", "Drift Detection", "MLOps"],
+    tags: ["XGBoost", "K-Means", "Temporal Validation", "Probability Calibration", "Airflow", "GitHub Actions", "Spotify API", "Drift Detection", "MLOps"],
     links: [
       { label: "GitHub", url: "https://github.com/keremburakyilmaz/spotify-brain", type: "github" },
       { label: "Live Dashboard", url: "/spotify-brain", type: "internal" }
@@ -60,10 +60,14 @@ export const projects = [
     description: [
       "Built a headless pipeline that normalizes official Treasury, Federal Reserve, CBRT, central-bank release, economic-calendar, and bounded news-discovery data into one public contract.",
       "Designed a deterministic macro-conditions score whose weights, normalized signals, contribution points, and source provenance are all published with each snapshot.",
-      "Implemented immutable, content-addressed snapshots with an integrity-checked latest manifest, last-good state, fail-closed validation, publication pause, and verified rollback on Cloudflare R2.",
-      "Automated collection and protected operations with GitHub Actions, then built a read-only React instrument that verifies the public manifest before rendering freshness and source health."
+      "Implemented immutable, content-addressed snapshots with an integrity-checked latest manifest, last-good state, fail-closed validation, and pause and rollback controls on Cloudflare R2.",
+      "Published a citation-linked daily briefing with deterministic fallback and bounded server-side LLM rewriting, then built a read-only React instrument that verifies manifest integrity, freshness, and source health before rendering."
     ],
-    tags: ["Python", "Cloudflare R2", "GitHub Actions", "JSON Schema", "React", "Data Provenance"]
+    tags: ["Python", "Cloudflare R2", "GitHub Actions", "JSON Schema", "React", "Data Provenance"],
+    links: [
+      { label: "GitHub", url: "https://github.com/keremburakyilmaz/market-radar", type: "github" },
+      { label: "Live Briefing", url: "/market-radar", type: "internal" }
+    ]
   },
   {
     title: "Game Metrics - Player Behaviour Analytics Warehouse",
