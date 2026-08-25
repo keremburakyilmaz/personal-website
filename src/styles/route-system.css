@@ -411,7 +411,7 @@
 
 /* The System Is Running */
 .system-container {
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - var(--global-header-height));
   padding: clamp(1rem, 4vw, 3rem);
   align-items: flex-start;
 }
@@ -460,13 +460,13 @@
 main.game-main,
 main:has(.game-container) {
   height: 100vh;
-  padding: 64px 0 0 !important;
+  padding: var(--global-header-height) 0 0 !important;
   background: var(--dark);
 }
 .game-container {
   width: 100%;
   max-width: none;
-  height: calc(100vh - 64px);
+  height: calc(100vh - var(--global-header-height));
   padding: clamp(1rem, 4vw, 3rem);
   color: var(--light);
   font-family: var(--font-grotesk);
@@ -562,9 +562,9 @@ main:has(.game-container) {
 
 @media (max-width: 767px) {
   main.game-main,
-  main:has(.game-container) { padding-top: 58px !important; }
-  .game-container { height: calc(100vh - 58px); }
-  .system-container { min-height: calc(100vh - 58px); }
+  main:has(.game-container) { padding-top: var(--global-header-height-mobile) !important; }
+  .game-container { height: calc(100vh - var(--global-header-height-mobile)); }
+  .system-container { min-height: calc(100vh - var(--global-header-height-mobile)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -33,8 +33,6 @@ const SPECIAL_ROUTES = {
   '/be-my-valentine': 'valentine-main',
 };
 
-// Routes where navigation should be hidden
-const HIDDEN_NAV_ROUTES = ['/', '/be-my-valentine'];
 const HOME_SECTION_IDS = ['top', 'systems', 'orchestration', 'record', 'contact'];
 
 function OnePageHome() {
@@ -109,7 +107,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  const showNavigation = !HIDDEN_NAV_ROUTES.includes(location.pathname);
   const mainClassName = SPECIAL_ROUTES[location.pathname] || '';
 
   const routeFallback = (
@@ -119,14 +116,12 @@ export default function App() {
   return (
     <div className="app-container">
       <PageMetadata />
-      {showNavigation && (
-        <Navigation
-          activeSection={activeSection}
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
-          isScrolled={isScrolled}
-        />
-      )}
+      <Navigation
+        activeSection={activeSection}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        isScrolled={isScrolled}
+      />
 
       <main className={mainClassName}>
         <Routes location={location}>

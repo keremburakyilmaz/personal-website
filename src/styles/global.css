@@ -16,6 +16,8 @@
   --font-grotesk: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
   --font-display: 'Doto', var(--font-mono);
+  --global-header-height: 72px;
+  --global-header-height-mobile: 64px;
   --ease-editorial: cubic-bezier(0.76, 0, 0.24, 1);
   --transition-base: 0.3s var(--ease-editorial);
   --transition-fast: 0.16s ease;
@@ -135,18 +137,20 @@ textarea { font: inherit; }
 :focus-visible { outline: 1px solid var(--primary); outline-offset: 3px; }
 ::selection { background: rgba(215, 25, 33, 0.3); color: var(--light); }
 
-.home-main { padding: 0; overflow: visible; }
-.system-main { padding: 64px 0 0; background: var(--dark); }
-.game-main { padding: 64px 0 0; background: var(--dark); }
-.valentine-main { padding: 0; background: #fff8f0; }
+.home-main { padding: var(--global-header-height) 0 0; overflow: visible; }
+.system-main { padding: var(--global-header-height) 0 0; background: var(--dark); }
+.game-main { padding: var(--global-header-height) 0 0; background: var(--dark); }
+.valentine-main { padding: var(--global-header-height) 0 0; background: #fff8f0; }
 .valentine-main section { max-width: none; margin: 0; }
 body:has(.valentine-main) { background: #fff8f0; }
 
 @media (max-width: 767px) {
   main { padding: 5.75rem 1rem 3rem; }
   .home-main .one-page-shell > .scroll-section:not(.home-section) { width: calc(100% - 2rem); }
+  .home-main,
   .system-main,
-  .game-main { padding-top: 58px; }
+  .game-main,
+  .valentine-main { padding-top: var(--global-header-height-mobile); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -18,26 +18,6 @@ import { education, experience, projects, skills } from '../../data/constants';
 import { MinorOmenInterlude, SomewhereInterlude } from './LabInterludes';
 import './RunningPortfolio.css';
 
-const SECTION_LINKS = [
-  { id: 'systems', label: 'Systems' },
-  { id: 'orchestration', label: 'Live note' },
-  { id: 'record', label: 'Record' },
-  { id: 'contact', label: 'Contact' },
-];
-
-const HEADER_LINKS = [
-  { id: 'top', label: 'Home', href: '#top' },
-  { id: 'systems', label: 'Systems', href: '#systems' },
-  { id: 'record', label: 'Record', href: '#record' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
-  { label: 'QuantFusion', to: '/quantfusion' },
-  { label: 'Spotify', to: '/spotify-brain' },
-  { label: 'Radar', to: '/market-radar' },
-  { label: 'Palimpsest', to: '/palimpsest' },
-  { label: 'System', to: '/system' },
-  { label: 'Lab', to: '/lab' },
-];
-
 const LIVE_SURFACES = [
   {
     index: '01',
@@ -102,25 +82,6 @@ function useSessionUptime() {
   }, []);
 
   return formatDuration(seconds);
-}
-
-function useNetworkStatus() {
-  const [online, setOnline] = useState(() => (
-    typeof navigator === 'undefined' ? true : navigator.onLine
-  ));
-
-  useEffect(() => {
-    const goOnline = () => setOnline(true);
-    const goOffline = () => setOnline(false);
-    window.addEventListener('online', goOnline);
-    window.addEventListener('offline', goOffline);
-    return () => {
-      window.removeEventListener('online', goOnline);
-      window.removeEventListener('offline', goOffline);
-    };
-  }, []);
-
-  return online;
 }
 
 function parseMachineTime(value) {
@@ -270,29 +231,6 @@ function useLiveSurfaceTelemetry() {
     spotify,
     refresh: () => setRefreshSequence((sequence) => sequence + 1),
   };
-}
-
-function useActiveSection() {
-  const [activeSection, setActiveSection] = useState('systems');
-
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) return undefined;
-
-    const sections = SECTION_LINKS
-      .map(({ id }) => document.getElementById(id))
-      .filter(Boolean);
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setActiveSection(visible.target.id);
-    }, { rootMargin: '-25% 0px -60% 0px', threshold: [0.05, 0.25, 0.5] });
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
-
-  return activeSection;
 }
 
 function SignalNumber({ value, label }) {
@@ -1390,17 +1328,7 @@ function ContactConsole() {
 export default function RunningPortfolio() {
   const now = useLiveClock();
   const sessionUptime = useSessionUptime();
-  const online = useNetworkStatus();
-  const activeSection = useActiveSection();
   const [openProcess, setOpenProcess] = useState(0);
-
-  const istanbulTime = useMemo(() => new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Europe/Istanbul',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-  }).format(now), [now]);
 
   const dateStamp = useMemo(() => new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Europe/Istanbul',
@@ -1412,40 +1340,6 @@ export default function RunningPortfolio() {
   return (
     <div className="rp-portfolio" id="top">
       <a className="rp-skip-link" href="#systems">Skip to systems</a>
-
-      <header className="rp-header">
-        <a className="rp-wordmark" href="#top" aria-label="Kerem Burak Yılmaz, back to top">
-          <span>KBY</span>
-          <i>/</i>
-          <small>SYS.IST</small>
-        </a>
-
-        <div className="rp-header__telemetry">
-          <span>ISTANBUL / UTC+3</span>
-          <SignalNumber value={istanbulTime} label={`Istanbul time ${istanbulTime}`} />
-          <span className={`rp-live-state ${online ? '' : 'rp-live-state--offline'}`}>
-            <i aria-hidden="true" />{online ? 'LIVE' : 'OFFLINE'}
-          </span>
-        </div>
-
-        <nav className="rp-header__nav" aria-label="Primary navigation">
-          {HEADER_LINKS.map((link, index) => {
-            const content = <><span>{pad(index + 1)}</span>{link.label}</>;
-
-            return link.to ? (
-              <Link to={link.to} key={link.to}>{content}</Link>
-            ) : (
-              <a
-                className={activeSection === link.id ? 'active' : ''}
-                href={link.href}
-                key={link.id}
-              >
-                {content}
-              </a>
-            );
-          })}
-        </nav>
-      </header>
 
       <main className="rp-main">
         <section className="rp-hero" aria-labelledby="rp-title">

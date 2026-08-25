@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './Navigation.css';
@@ -19,11 +19,45 @@ const secondaryLinks = [
   { to: '/lab', label: 'Lab', index: '10' },
 ];
 
-function NavLinkItem({ to, label, index, isActive, onClick, secondary = false }) {
+const navigationLinks = [...primaryLinks, ...secondaryLinks];
+
+function useLiveStatus() {
+  const [now, setNow] = useState(() => new Date());
+  const [online, setOnline] = useState(() => (
+    typeof navigator === 'undefined' ? true : navigator.onLine
+  ));
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 1000);
+    const goOnline = () => setOnline(true);
+    const goOffline = () => setOnline(false);
+
+    window.addEventListener('online', goOnline);
+    window.addEventListener('offline', goOffline);
+
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener('online', goOnline);
+      window.removeEventListener('offline', goOffline);
+    };
+  }, []);
+
+  const istanbulTime = useMemo(() => new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Istanbul',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(now), [now]);
+
+  return { istanbulTime, online };
+}
+
+function NavLinkItem({ to, label, index, isActive, onClick }) {
   return (
     <Link
       to={to}
-      className={`nav-item ${secondary ? 'nav-item--secondary' : ''} ${isActive ? 'active' : ''}`}
+      className={`nav-item ${isActive ? 'active' : ''}`}
       onClick={onClick}
     >
       <span className="nav-item__index" aria-hidden="true">{index}</span>
@@ -35,6 +69,7 @@ function NavLinkItem({ to, label, index, isActive, onClick, secondary = false })
 export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScrolled }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const { istanbulTime, online } = useLiveStatus();
 
   const scrollToSection = (section) => {
     const targetHash = `#${section}`;
@@ -57,7 +92,9 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
     if (section) {
       return location.pathname === '/' && activeSection === section;
     }
-    return activeSection === path;
+
+    return location.pathname === path
+      || (path === '/lab' && location.pathname.startsWith('/lab/'));
   };
 
   useEffect(() => {
@@ -67,63 +104,79 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname, location.hash, setMenuOpen]);
+
+  const renderLink = (link) => (
+    <NavLinkItem
+      key={link.to}
+      to={link.to}
+      label={link.label}
+      index={link.index}
+      isActive={isActive(link.to, link.section)}
+      onClick={link.section
+        ? (event) => {
+          event.preventDefault();
+          scrollToSection(link.section);
+        }
+        : () => setMenuOpen(false)}
+    />
+  );
+
   return (
     <>
-      <nav className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
+      <header className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
-          <Link to="/" className="nav-brand">
-            <span className="nav-brand-name">NODE / KEREM BURAK YILMAZ</span>
-            <span className="nav-brand-role">ISTANBUL / SYS.IST</span>
+          <Link
+            to="/#top"
+            className="nav-brand"
+            aria-label="Kerem Burak Yilmaz, back to top"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection('top');
+            }}
+          >
+            <span className="nav-brand__mark">KBY</span>
+            <span className="nav-brand__slash" aria-hidden="true">/</span>
+            <span className="nav-brand__system">SYS.IST</span>
           </Link>
+
+          <div className="nav-telemetry" aria-label={`Istanbul time ${istanbulTime}. System ${online ? 'live' : 'offline'}.`}>
+            <span>ISTANBUL / UTC+3</span>
+            <time className="nav-telemetry__clock">{istanbulTime}</time>
+            <span className={`nav-live-state ${online ? '' : 'nav-live-state--offline'}`}>
+              <i aria-hidden="true" />{online ? 'LIVE' : 'OFFLINE'}
+            </span>
+          </div>
+
+          <nav className="desktop-nav" aria-label="Primary navigation">
+            {navigationLinks.map(renderLink)}
+          </nav>
 
           <button
             className="menu-button"
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
             aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
-            <div className={`menu-icon ${menuOpen ? 'open' : ''}`}>
+            <span className={`menu-icon ${menuOpen ? 'open' : ''}`} aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </span>
           </button>
-
-          <div className="desktop-nav-shell">
-            <div className="desktop-nav">
-              {primaryLinks.map((link) => (
-                <NavLinkItem
-                  key={link.to}
-                  to={link.to}
-                  label={link.label}
-                  index={link.index}
-                  isActive={isActive(link.to, link.section)}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    scrollToSection(link.section);
-                  }}
-                />
-              ))}
-              <span className="nav-sep" aria-hidden="true"></span>
-              {secondaryLinks.map((link) => (
-                <NavLinkItem
-                  key={link.to}
-                  to={link.to}
-                  label={link.label}
-                  index={link.index}
-                  isActive={isActive(link.to)}
-                  secondary
-                />
-              ))}
-            </div>
-          </div>
         </div>
-      </nav>
+      </header>
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <motion.nav
+            id="mobile-navigation"
             className="mobile-nav"
+            aria-label="Primary navigation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -146,7 +199,7 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                 },
               }}
             >
-              {primaryLinks.map((link) => (
+              {navigationLinks.map((link) => (
                 <motion.div
                   key={link.to}
                   variants={{
@@ -155,40 +208,11 @@ export default function Navigation({ activeSection, menuOpen, setMenuOpen, isScr
                   }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <NavLinkItem
-                    to={link.to}
-                    label={link.label}
-                    index={link.index}
-                    isActive={isActive(link.to, link.section)}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      scrollToSection(link.section);
-                    }}
-                  />
-                </motion.div>
-              ))}
-              <div className="mobile-nav-divider"></div>
-              {secondaryLinks.map((link) => (
-                <motion.div
-                  key={link.to}
-                  variants={{
-                    hidden: { opacity: 0, y: 18 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <NavLinkItem
-                    to={link.to}
-                    label={link.label}
-                    index={link.index}
-                    isActive={isActive(link.to)}
-                    onClick={() => setMenuOpen(false)}
-                    secondary
-                  />
+                  {renderLink(link)}
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>

@@ -19,6 +19,7 @@ test('renders the custom 404 page for an unknown route', () => {
       <App />
     </MemoryRouter>
   );
+  expect(screen.getByRole('banner')).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /this path does not belong to the system/i })).toBeInTheDocument();
   expect(screen.getByText('/not-a-real-route')).toBeInTheDocument();
 });
