@@ -14,6 +14,9 @@ test('renders the systems portfolio', () => {
   expect(screen.getByText('06 ACTIVE')).toBeInTheDocument();
   expect(screen.getAllByText('MARKET RADAR').length).toBeGreaterThan(0);
   expect(screen.getAllByText('LAB').length).toBeGreaterThan(0);
+  expect(screen.getByText('Quantus Labs')).toBeInTheDocument();
+  expect(screen.getByText('Software Engineering')).toBeInTheDocument();
+  expect(screen.getByText('June 2026 - Present')).toBeInTheDocument();
   expect(
     within(screen.getByRole('region', { name: /live machine note/i }))
       .getByRole('link', { name: /no current market read/i })

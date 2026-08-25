@@ -121,6 +121,18 @@ export const projects = [
 
 export const experience = [
   {
+    company: "Quantus Labs",
+    companyUrl: "https://www.quantuslabs.ai/",
+    position: "Software Engineering",
+    period: "June 2026 - Present",
+    description: [
+      "Building Folio AI, a multi-tenant B2B platform where organizations manage products and pricing, publish AI-assisted storefronts, and create branded content across web and mobile.",
+      "Developing the generative AI stack across agent workflows, reusable memories and custom agents, and image, video, and PDF generation.",
+      "Improving production reliability around credit and billing checks, asynchronous media jobs, provider callbacks, tenant boundaries, and web and native compatibility.",
+      "Working across a TypeScript and React monorepo built with Bun, Turborepo, PostgreSQL, Prisma, gemi, and Next.js."
+    ]
+  },
+  {
     company: "Turkish Technology",
     companyUrl: "https://turkishtechnology.com/",
     position: "Part-time Full Stack Software Engineer",
