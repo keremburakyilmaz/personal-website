@@ -78,11 +78,12 @@ export default function PageMetadata() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const metadata = ROUTE_METADATA[pathname] || {
+    const normalizedPathname = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
+    const metadata = ROUTE_METADATA[normalizedPathname] || {
       title: '404 | Kerem Burak Yılmaz',
       description: 'The requested path does not exist on keremburakyilmaz.com.',
     };
-    const canonicalUrl = `${SITE_URL}${pathname === '/' ? '/' : pathname}`;
+    const canonicalUrl = `${SITE_URL}${normalizedPathname}`;
 
     document.title = metadata.title;
     document.head.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl);
