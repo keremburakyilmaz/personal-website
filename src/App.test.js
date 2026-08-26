@@ -20,7 +20,7 @@ test('renders the systems portfolio', () => {
   expect(screen.getByText('June 2026 - Present')).toBeInTheDocument();
   expect(screen.getByText('Jan 2026 - June 2026 (Hybrid - Istanbul)')).toBeInTheDocument();
   expect(screen.getByText(/Cloudflare \(R2, DNS, CORS\)/)).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /read cv/i })).toHaveAttribute('href', resumePdf);
+  expect(screen.getByRole('link', { name: /read cv/i })).toHaveAttribute('href', `${resumePdf}?v=1`);
   expect(
     within(screen.getByRole('region', { name: /live machine note/i }))
       .getByRole('link', { name: /no current market read/i })

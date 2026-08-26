@@ -1450,7 +1450,7 @@ export default function RunningPortfolio() {
             </p>
             <div className="rp-hero__actions">
               <a href="#systems">INSPECT SYSTEMS <ArrowDown size={14} aria-hidden="true" /></a>
-              <a href={resumePdf} target="_blank" rel="noreferrer">READ CV <ArrowUpRight size={14} aria-hidden="true" /></a>
+              <a href={`${resumePdf}?v=1`} target="_blank" rel="noreferrer">READ CV <ArrowUpRight size={14} aria-hidden="true" /></a>
             </div>
             <LiveSurfaceLauncher />
           </div>
