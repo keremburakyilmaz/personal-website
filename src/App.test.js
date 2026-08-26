@@ -17,6 +17,8 @@ test('renders the systems portfolio', () => {
   expect(screen.getByText('Quantus Labs')).toBeInTheDocument();
   expect(screen.getByText('Software Engineering')).toBeInTheDocument();
   expect(screen.getByText('June 2026 - Present')).toBeInTheDocument();
+  expect(screen.getByText('Jan 2026 - June 2026 (Hybrid - Istanbul)')).toBeInTheDocument();
+  expect(screen.getByText(/Cloudflare \(R2, DNS, CORS\)/)).toBeInTheDocument();
   expect(
     within(screen.getByRole('region', { name: /live machine note/i }))
       .getByRole('link', { name: /no current market read/i })

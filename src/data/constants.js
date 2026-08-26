@@ -8,7 +8,7 @@ export const projects = [
       "Runs an incremental GitHub Actions pipeline every 30 minutes and a daily full retrain, with parallel Airflow DAGs for per-step retries, XCom data flow, and backfills on Postgres.",
       "Implemented drift detection comparing 7-day vs. 30-day distributions across session duration, listening frequency, and start-hour entropy."
     ],
-    tags: ["XGBoost", "K-Means", "Temporal Validation", "Probability Calibration", "Airflow", "GitHub Actions", "Spotify API", "Drift Detection", "MLOps"],
+    tags: ["Python", "pandas", "scikit-learn", "XGBoost", "K-Means", "Temporal Validation", "Probability Calibration", "Apache Airflow", "Docker", "GitHub Actions", "Spotify API", "Parquet", "Drift Detection", "MLOps"],
     links: [
       { label: "GitHub", url: "https://github.com/keremburakyilmaz/spotify-brain", type: "github" },
       { label: "Live Dashboard", url: "/spotify-brain", type: "internal" }
@@ -63,7 +63,7 @@ export const projects = [
       "Implemented immutable, content-addressed snapshots with an integrity-checked latest manifest, last-good state, fail-closed validation, and pause and rollback controls on Cloudflare R2.",
       "Published a citation-linked daily briefing with deterministic fallback and bounded server-side LLM rewriting, then built a read-only React instrument that verifies manifest integrity, freshness, and source health before rendering."
     ],
-    tags: ["Python", "Cloudflare R2", "GitHub Actions", "JSON Schema", "React", "Data Provenance"],
+    tags: ["Python", "Cloudflare R2", "Boto3", "GitHub Actions", "JSON Schema", "React", "Ruff", "mypy", "CORS", "Data Provenance"],
     links: [
       { label: "GitHub", url: "https://github.com/keremburakyilmaz/market-radar", type: "github" },
       { label: "Live Briefing", url: "/market-radar", type: "internal" }
@@ -136,7 +136,7 @@ export const experience = [
     company: "Turkish Technology",
     companyUrl: "https://turkishtechnology.com/",
     position: "Part-time Full Stack Software Engineer",
-    period: "Jan 2026 - Present (Hybrid - Istanbul)",
+    period: "Jan 2026 - June 2026 (Hybrid - Istanbul)",
     description: [
       "Delivering features for a cargo operations platform used by aviation staff to manage shipments, payments, and notifications across multiple security clearance levels.",
       "Building the frontend with React and implementing backend services in Java across the full stack."
@@ -233,7 +233,9 @@ export const education = [
 
 export const skills = [
   "Python", "Java", "JavaScript/TypeScript", "Dart", "SQL",
-  "FastAPI", "React", "Flutter", "LangGraph", "PyTorch",
-  "Hugging Face Transformers", "scikit-learn", "XGBoost", "Pydantic",
-  "Docker", "AWS (EC2, RDS, Kendra)", "Supabase", "PostgreSQL", "GitHub Actions", "Git"
+  "FastAPI", "React", "Next.js", "Flutter", "LangGraph", "Pydantic",
+  "PyTorch", "Hugging Face Transformers", "scikit-learn", "XGBoost", "pandas",
+  "Apache Airflow", "dbt", "DuckDB", "SQLAlchemy", "Prisma", "PostgreSQL", "Redis",
+  "Docker", "Bun/Turborepo", "Cloudflare (R2, DNS, CORS)",
+  "AWS (EC2, RDS, Kendra)", "Supabase", "GitHub Actions", "Git"
 ];
