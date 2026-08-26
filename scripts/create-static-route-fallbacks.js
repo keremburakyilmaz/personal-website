@@ -3,7 +3,24 @@ const { join } = require('node:path');
 
 const buildDirectory = join(__dirname, '..', 'build');
 const sourceIndex = join(buildDirectory, 'index.html');
-const staticRoutes = ['market-radar'];
+const staticRoutes = [
+  'projects',
+  'resume',
+  'contact',
+  'spotify-brain',
+  'quantfusion',
+  'market-radar',
+  'palimpsest',
+  'system',
+  'lab',
+  'lab/found-object',
+  'lab/somewhere',
+  'lab/word-corridor',
+  'lab/minor-omen',
+  'lab/museum-detail',
+  'lab/internet-weather',
+  'be-my-valentine',
+];
 
 for (const route of staticRoutes) {
   const routeDirectory = join(buildDirectory, route);
