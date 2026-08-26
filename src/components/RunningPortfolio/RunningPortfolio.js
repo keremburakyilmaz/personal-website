@@ -14,6 +14,7 @@ import {
   Radio,
   RefreshCw,
 } from 'lucide-react';
+import resumePdf from '../../assets/resume.pdf';
 import { education, experience, projects, skills } from '../../data/constants';
 import { fetchLatestSnapshot } from '../MarketRadar/marketRadarData';
 import { MinorOmenInterlude, SomewhereInterlude } from './LabInterludes';
@@ -1449,7 +1450,7 @@ export default function RunningPortfolio() {
             </p>
             <div className="rp-hero__actions">
               <a href="#systems">INSPECT SYSTEMS <ArrowDown size={14} aria-hidden="true" /></a>
-              <a href="/resume.pdf" target="_blank" rel="noreferrer">READ CV <ArrowUpRight size={14} aria-hidden="true" /></a>
+              <a href={resumePdf} target="_blank" rel="noreferrer">READ CV <ArrowUpRight size={14} aria-hidden="true" /></a>
             </div>
             <LiveSurfaceLauncher />
           </div>
