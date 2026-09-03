@@ -53,7 +53,8 @@
 .mood-trajectory-card,
 .mood-clusters-card,
 .metrics-card,
-.recently-played-stream-card {
+.recently-played-stream-card,
+.spotify-playlists-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 16px;
@@ -75,7 +76,8 @@
 .session-prob-card h2,
 .mood-trajectory-card h2,
 .mood-clusters-card h2,
-.metrics-card h2 {
+.metrics-card h2,
+.spotify-playlists-card h2 {
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -690,6 +692,108 @@
   opacity: 0.7;
 }
 
+/* ── MOOD PLAYLISTS ────────────────────────────── */
+.spotify-playlists-card {
+  grid-column: 1 / -1;
+}
+
+.spotify-playlists-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.spotify-playlists-card .spotify-playlists-header h2 {
+  margin-bottom: 0.55rem;
+}
+
+.spotify-playlists-header p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.spotify-playlists-header > span {
+  flex: none;
+  color: var(--gray);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spotify-playlists-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--card-border);
+  list-style: none;
+}
+
+.spotify-playlists-grid li {
+  min-width: 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.spotify-playlists-grid li:nth-child(odd) {
+  border-right: 1px solid var(--card-border);
+}
+
+.spotify-playlist-link {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 4.25rem;
+  padding: 0 1rem;
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.spotify-playlist-link:hover,
+.spotify-playlist-link:focus-visible {
+  color: var(--primary);
+  background: rgba(201, 184, 161, 0.05);
+}
+
+.spotify-playlist-link:focus-visible {
+  outline: 1px solid var(--primary);
+  outline-offset: -1px;
+}
+
+.spotify-playlist-index {
+  color: var(--gray);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.spotify-playlist-name {
+  overflow: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spotify-playlist-arrow {
+  color: var(--gray);
+  font-size: 1rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.spotify-playlist-link:hover .spotify-playlist-arrow,
+.spotify-playlist-link:focus-visible .spotify-playlist-arrow {
+  color: var(--primary);
+  transform: translate(2px, -2px);
+}
+
 /* ── METRICS ───────────────────────────────────── */
 .metrics-content {
   display: flex;
@@ -823,7 +927,8 @@
   .mood-trajectory-card,
   .mood-clusters-card,
   .metrics-card,
-  .recently-played-stream-card {
+  .recently-played-stream-card,
+  .spotify-playlists-card {
     padding: 1.25rem;
     border-radius: 14px;
   }
@@ -936,6 +1041,7 @@
   .mood-clusters-card h2,
   .metrics-card h2,
   .recently-played-stream-header h2,
+  .spotify-playlists-card h2,
   .recommended-tracks-title {
     font-size: 0.62rem;
     letter-spacing: 0.15em;
@@ -961,6 +1067,25 @@
 
   .prediction-intro {
     font-size: 0.76rem;
+  }
+
+  .spotify-playlists-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .spotify-playlists-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spotify-playlists-grid li:nth-child(odd) {
+    border-right: none;
+  }
+
+  .spotify-playlist-link {
+    min-height: 3.75rem;
+    padding: 0 0.35rem;
   }
 
   .direction-label {

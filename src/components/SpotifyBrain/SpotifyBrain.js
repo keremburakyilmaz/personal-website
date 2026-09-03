@@ -4,6 +4,7 @@ import './SpotifyBrain.css';
 import '../../styles/route-system.css';
 import dashboardData from '../../assets/dashboard_data.json';
 import { buildPredictionView } from './spotifyPredictionView';
+import { spotifyPlaylists } from './spotifyPlaylists';
 
 const MOOD_PALETTE = [
   '#ededed',
@@ -210,6 +211,36 @@ export default function SpotifyBrain() {
               })}
             </div>
           </div>
+
+          <div className="spotify-playlists-card">
+            <div className="spotify-playlists-header">
+              <div>
+                <h2>Mood Playlists</h2>
+                <p>Eight corners of my listening, collected by feeling.</p>
+              </div>
+              <span>{String(spotifyPlaylists.length).padStart(2, '0')} collections</span>
+            </div>
+            <ol className="spotify-playlists-grid" aria-label="My Spotify playlists">
+              {spotifyPlaylists.map((playlist, index) => (
+                <li key={playlist.url}>
+                  <a
+                    className="spotify-playlist-link"
+                    href={playlist.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${playlist.name} on Spotify`}
+                  >
+                    <span className="spotify-playlist-index">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="spotify-playlist-name">{playlist.name}</span>
+                    <span className="spotify-playlist-arrow" aria-hidden="true">&#8599;</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+
           {/* Listening Direction Prediction Card */}
           <div className="mood-prediction-card" style={{ borderColor: getMoodColor(leadingDirection.clusterId) }}>
             <div className="prediction-card-header">
